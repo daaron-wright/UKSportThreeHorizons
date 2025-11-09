@@ -302,7 +302,7 @@ const HORIZON_DATA = {
               status: "expanding" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
               metadata: createMetadata({
-                product: "Multiple sensors",
+                product: "Training",
                 system: "Multiple / sensors",
                 access: "Internal / External",
                 ownership: "NGB",
