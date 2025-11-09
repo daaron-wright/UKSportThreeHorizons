@@ -107,21 +107,39 @@ const HORIZON_DATA = {
           items: [
             {
               title: "Medical records",
-              detail: "Pathology results and head injury reporting",
+              detail: "Clinical case notes and diagnostic history managed in PDMS.",
               status: "live" as const,
               tags: QUADRANT_TAGS.highEaseHighImpact,
+              metadata: createMetadata({
+                product: "PDMS",
+                source: "PDMS",
+                access: "Internal",
+                ownership: "UKSI",
+              }),
             },
             {
               title: "Personal details",
-              detail: "Profiles, eligibility, safeguarding flags",
+              detail: "Identity, eligibility, and safeguarding managed through GMS/PDMS.",
               status: "live" as const,
               tags: QUADRANT_TAGS.highEaseHighImpact,
+              metadata: createMetadata({
+                product: "GMS / PDMS",
+                source: "Internal",
+                access: "Internal",
+                ownership: "UKS / UKSI",
+              }),
             },
             {
               title: "Psychology & support notes",
-              detail: "Anthropometry and wellbeing questionnaires",
+              detail: "Session records from psychology and lifestyle consultations.",
               status: "live" as const,
               tags: QUADRANT_TAGS.highEaseHighImpact,
+              metadata: createMetadata({
+                product: "PDMS",
+                source: "PDMS",
+                access: "Internal",
+                ownership: "UKSI",
+              }),
             },
           ],
         },
