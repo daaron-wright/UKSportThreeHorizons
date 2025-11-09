@@ -80,8 +80,6 @@ export default {
             height: "0",
           },
         },
-      },
-      keyframes: {
         "fade-in": {
           from: {
             opacity: "0",
