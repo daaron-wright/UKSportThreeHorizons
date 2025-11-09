@@ -135,8 +135,8 @@ const HORIZON_DATA = {
               status: "live" as const,
               tags: QUADRANT_TAGS.highEaseHighImpact,
               metadata: createMetadata({
-                product: "PDMS",
-                source: "PDMS",
+                product: "Health",
+                system: "PDMS",
                 access: "Internal",
                 ownership: "UKSI",
               }),
