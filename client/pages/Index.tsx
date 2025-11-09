@@ -284,7 +284,7 @@ export default function Index() {
                           <CardTitle className="text-base font-semibold">
                             {item.title}
                           </CardTitle>
-                          <CardDescription className="text-sm">
+                          <CardDescription className="text-sm text-current/80">
                             {item.description}
                           </CardDescription>
                         </CardHeader>
