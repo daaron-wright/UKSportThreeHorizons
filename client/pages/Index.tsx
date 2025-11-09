@@ -50,6 +50,24 @@ const QUADRANT_TAGS = {
   ],
 } as const;
 
+type MetadataConfig = {
+  product?: string;
+  source?: string;
+  access?: string;
+  ownership?: string;
+};
+
+function createMetadata({ product, source, access, ownership }: MetadataConfig) {
+  const entries = [
+    product ? { label: "Product", value: product } : null,
+    source ? { label: "Source", value: source } : null,
+    access ? { label: "Access", value: access } : null,
+    ownership ? { label: "Ownership", value: ownership } : null,
+  ].filter((entry): entry is { label: string; value: string } => Boolean(entry));
+
+  return entries;
+}
+
 const HORIZON_DATA = {
   h1: {
     label: "Horizon 1",
