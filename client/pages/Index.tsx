@@ -1008,6 +1008,43 @@ export default function Index() {
                     </header>
 
                     <div className="mt-8 space-y-10">
+                      {horizon.personas.length ? (
+                        <section className="rounded-3xl border border-blue-100 bg-white/95 p-8 shadow-sm">
+                          <header className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                            <div>
+                              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-600">
+                                Core users in focus
+                              </p>
+                              <h3 className="mt-1 text-xl font-semibold text-primary">
+                                Personas guiding research & platform design
+                              </h3>
+                            </div>
+                            <Badge className="w-fit rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-blue-700">
+                              Horizon personas
+                            </Badge>
+                          </header>
+                          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                            {horizon.personas.map((persona) => (
+                              <article
+                                key={persona.name}
+                                className="flex h-full flex-col justify-between rounded-2xl border border-blue-100 bg-white/90 p-5 shadow-sm"
+                              >
+                                <div>
+                                  <h4 className="text-base font-semibold text-primary">{persona.name}</h4>
+                                  <p className="mt-2 text-sm text-slate-600">{persona.focus}</p>
+                                </div>
+                                <div className="mt-4 rounded-xl border border-blue-100/80 bg-blue-50/60 p-4 text-sm text-blue-900">
+                                  <p className="font-semibold uppercase tracking-[0.22em] text-blue-700">
+                                    Key needs
+                                  </p>
+                                  <p className="mt-2 text-sm text-blue-900/90">{persona.needs}</p>
+                                </div>
+                              </article>
+                            ))}
+                          </div>
+                        </section>
+                      ) : null}
+
                       <section className="relative overflow-hidden rounded-3xl border border-blue-100/80 bg-gradient-to-br from-white via-blue-50/60 to-white p-8 shadow-lg">
                         <div
                           aria-hidden
