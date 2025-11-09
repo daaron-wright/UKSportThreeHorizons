@@ -103,6 +103,16 @@ const HORIZON_DATA = {
         needs: "Transparent audit trails, policy references, and consent renewals tied to each record.",
       },
     ] as Persona[],
+    operatingModel: {
+      name: "Integrated clinical assurance",
+      summary:
+        "Centralise clinical records and compliance processes so frontline staff operate from a single trusted source.",
+      enablers: [
+        "Performance Hub governance committee",
+        "Consent lifecycle management",
+        "Secure medical data integration (PDMS, GMS)",
+      ],
+    },
     ui: {
       title: "Launch UI snapshot",
       description:
