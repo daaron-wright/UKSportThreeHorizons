@@ -11,6 +11,10 @@ export interface DiagramClusterItem {
   detail?: string;
   status?: DataStatus;
   tags?: readonly string[];
+  metadata?: readonly {
+    label: string;
+    value: string;
+  }[];
 }
 
 export interface DiagramCluster {
@@ -150,6 +154,18 @@ export function HorizonDiagram({
                               <p className="mt-1 text-sm text-slate-600">
                                 {item.detail}
                               </p>
+                            ) : null}
+                            {item.metadata?.length ? (
+                              <dl className="mt-3 space-y-2">
+                                {item.metadata.map((meta) => (
+                                  <div key={`${item.title}-${meta.label}`} className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-slate-600">
+                                    <dt className="font-semibold uppercase tracking-[0.22em] text-slate-500">
+                                      {meta.label}
+                                    </dt>
+                                    <dd className="text-slate-700">{meta.value}</dd>
+                                  </div>
+                                ))}
+                              </dl>
                             ) : null}
                             {item.tags?.length ? (
                               <div className="mt-3 flex flex-wrap gap-2">
