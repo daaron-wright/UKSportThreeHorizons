@@ -487,7 +487,7 @@ export default function Index() {
                               {horizon.ui.highlights.map((point, index) => (
                                 <div
                                   key={point}
-                                  className="flex items-start gap-3 rounded-2xl border border-blue-100/80 bg-white/95 p-4 shadow-sm"
+                                  className="flex items-start gap-3 rounded-2xl border border-blue-100/80 bg-white/90 p-4 shadow-sm"
                                 >
                                   <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-blue-600 text-xs font-semibold text-white">
                                     {index + 1}
@@ -499,7 +499,7 @@ export default function Index() {
                           </div>
 
                           <div
-                            className="relative overflow-hidden rounded-2xl border border-white/60 bg-white/85 p-6 shadow-xl"
+                            className="relative overflow-hidden rounded-2xl border border-white/60 bg-white/80 p-6 shadow-xl"
                             style={{ background: horizon.ui.palette.background }}
                           >
                             <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
