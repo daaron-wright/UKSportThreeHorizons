@@ -8,6 +8,17 @@ type HorizonKey = keyof typeof HORIZON_DATA;
 
 type TimelineTone = "primary" | "accent" | "neutral";
 
+type UIEvolution = {
+  title: string;
+  description: string;
+  highlights: string[];
+  palette: {
+    background: string;
+    accent: string;
+    grid: string;
+  };
+};
+
 const timelineToneClasses: Record<TimelineTone, string> = {
   primary: "border-blue-200 bg-blue-50/75 text-blue-900",
   accent: "border-red-200 bg-red-50/75 text-red-900",
