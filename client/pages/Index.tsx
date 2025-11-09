@@ -410,6 +410,23 @@ const HORIZON_DATA = {
     short: "Expansion",
     summary:
       "Blend richer monitoring sources—video, wellness, and training loads—with retrieval tooling to elevate impact while adoption stays manageable.",
+    personas: [
+      {
+        name: "National Squad Coach",
+        focus: "Makes daily selection and session adjustments from evolving performance signals.",
+        needs: "Side-by-side view of training loads, wellness flags, and competition context.",
+      },
+      {
+        name: "Performance Analyst",
+        focus: "Translates video, sensor, and results feeds into actionable insights for staff.",
+        needs: "Searchable media, benchmarking dashboards, and retrieval tooling within the hub.",
+      },
+      {
+        name: "Wellbeing & Lifestyle Lead",
+        focus: "Supports athlete readiness and welfare through holistic monitoring.",
+        needs: "Timely surveys, alerts on risk trends, and contextual notes shared with coaches.",
+      },
+    ] as Persona[],
     ui: {
       title: "Growth UI snapshot",
       description:
