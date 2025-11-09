@@ -321,7 +321,7 @@ const HORIZON_DATA = {
               status: "expanding" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
               metadata: createMetadata({
-                product: "Multiple platforms",
+                product: "Competition",
                 system: "Federation websites & event capture",
                 access: "External",
                 ownership: "NGB",
