@@ -52,15 +52,15 @@ const QUADRANT_TAGS = {
 
 type MetadataConfig = {
   product?: string;
-  source?: string;
+  system?: string;
   access?: string;
   ownership?: string;
 };
 
-function createMetadata({ product, source, access, ownership }: MetadataConfig) {
+function createMetadata({ product, system, access, ownership }: MetadataConfig) {
   const entries = [
     product ? { label: "Product", value: product } : null,
-    source ? { label: "Source", value: source } : null,
+    system ? { label: "System", value: system } : null,
     access ? { label: "Access", value: access } : null,
     ownership ? { label: "Ownership", value: ownership } : null,
   ].filter((entry): entry is { label: string; value: string } => Boolean(entry));
