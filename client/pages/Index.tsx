@@ -3,6 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { HorizonDiagram } from "@/components/dashboard/HorizonDiagram";
+import { CostImpactPanel } from "@/components/dashboard/CostImpactPanel";
 import { cn } from "@/lib/utils";
 
 type HorizonKey = keyof typeof HORIZON_DATA;
