@@ -694,6 +694,26 @@ const HORIZON_DATA = {
               detail: "Partner institutes & third-party labs",
               status: "future" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
+              impactLevel: "high",
+              metadata: createMetadata({
+                product: "Research",
+                system: "Partner institutes & laboratories",
+                access: "External",
+                ownership: "UKSI",
+              }),
+            },
+            {
+              title: "Competitive landscape analysis",
+              detail: "Benchmark global competitors to steer campaign planning and investment.",
+              status: "future" as const,
+              tags: QUADRANT_TAGS.emergingEaseHighImpact,
+              impactLevel: "high",
+              metadata: createMetadata({
+                product: "Competition",
+                system: "Global competition analytics",
+                access: "External",
+                ownership: "UKS",
+              }),
             },
             {
               title: "Bespoke research feeds",
