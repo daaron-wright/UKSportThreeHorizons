@@ -422,7 +422,7 @@ export default function Index() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(22rem,28rem)]">
+        <div className="mt-12 space-y-10">
           <Tabs
             value={activeHorizon}
             onValueChange={(value) => setActiveHorizon(value as HorizonKey)}
@@ -457,7 +457,7 @@ export default function Index() {
                       <p className="mt-3 text-base text-slate-600">{horizon.summary}</p>
                     </header>
 
-                    <div className="mt-8 space-y-8">
+                    <div className="mt-8 space-y-10">
                       <section className="relative overflow-hidden rounded-3xl border border-blue-100/80 bg-gradient-to-br from-white via-blue-50/60 to-white p-8 shadow-lg">
                         <div
                           aria-hidden
@@ -467,7 +467,7 @@ export default function Index() {
                           aria-hidden
                           className="absolute -left-20 -top-10 h-52 w-52 rounded-full bg-red-200/20 blur-3xl"
                         />
-                        <div className="relative grid items-start gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+                        <div className="relative grid items-start gap-8">
                           <div className="space-y-6">
                             <div className="flex flex-wrap items-center gap-3">
                               <Badge className="rounded-full bg-primary px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-primary-foreground">
@@ -542,13 +542,16 @@ export default function Index() {
                         </div>
                       </section>
 
-                      <HorizonDiagram
-                        title={horizon.diagram.title}
-                        caption={horizon.diagram.caption}
-                        clusters={horizon.diagram.clusters}
-                        footerNote={horizon.diagram.footerNote}
-                        axes={horizon.diagram.axes}
-                      />
+                      <div className="grid gap-8 lg:grid-cols-2">
+                        <CostImpactPanel stage={key} />
+                        <HorizonDiagram
+                          title={horizon.diagram.title}
+                          caption={horizon.diagram.caption}
+                          clusters={horizon.diagram.clusters}
+                          footerNote={horizon.diagram.footerNote}
+                          axes={horizon.diagram.axes}
+                        />
+                      </div>
                     </div>
                   </section>
 
@@ -578,10 +581,6 @@ export default function Index() {
               );
             })}
           </Tabs>
-
-          <aside className="space-y-6 lg:sticky lg:top-24 lg:h-fit">
-            <CostImpactPanel stage={activeHorizon} />
-          </aside>
         </div>
       </div>
     </div>
