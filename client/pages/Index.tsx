@@ -35,7 +35,7 @@ const timelineToneClasses: Record<TimelineTone, string> = {
 
 const QUADRANT_TAGS = {
   highEaseHighImpact: [
-    "Quadrant: High ease ��� High impact",
+    "Quadrant: High ease ↗ High impact",
     "High ease of use",
     "High performance impact",
   ],
@@ -80,6 +80,23 @@ const HORIZON_DATA = {
     short: "Core foundation",
     summary:
       "Integrate the high-trust clinical and personal records already curated by UK Sport so the Performance Hub earns confidence from day one.",
+    personas: [
+      {
+        name: "Performance Medical Lead",
+        focus: "Orchestrates athlete health records and ensures duty of care across squads.",
+        needs: "Unified consented view of medical history, incidents, and clearance notes.",
+      },
+      {
+        name: "Performance Operations Manager",
+        focus: "Coordinates onboarding, eligibility, and logistics for athletes and staff.",
+        needs: "Reliable profiles, safeguarding flags, and document governance in one workspace.",
+      },
+      {
+        name: "Data Governance Officer",
+        focus: "Maintains compliance posture and access controls for sensitive datasets.",
+        needs: "Transparent audit trails, policy references, and consent renewals tied to each record.",
+      },
+    ] as Persona[],
     ui: {
       title: "Launch UI snapshot",
       description:
