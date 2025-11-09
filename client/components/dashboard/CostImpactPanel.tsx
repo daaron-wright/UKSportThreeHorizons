@@ -7,7 +7,45 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 
-export function CostImpactPanel() {
+const STAGE_META = {
+  h1: {
+    label: "Horizon 1",
+    copy: "Baseline integration trims manual effort and begins lowering the cost curve.",
+    color: "#1d4ed8",
+    point: { x: 120, y: 165 },
+  },
+  h2: {
+    label: "Horizon 2",
+    copy: "Mid-term expansion adds wellness, video, and retrieval intelligence for a sharper return.",
+    color: "#0f766e",
+    point: { x: 165, y: 145 },
+  },
+  h3: {
+    label: "Horizon 3",
+    copy: "Full orchestration and external insight deliver the steepest efficiency gain.",
+    color: "#16a34a",
+    point: { x: 210, y: 130 },
+  },
+} satisfies Record<string, {
+  label: string;
+  copy: string;
+  color: string;
+  point: { x: number; y: number };
+}>;
+
+type StageKey = keyof typeof STAGE_META;
+
+const BASE_POINT = { x: 70, y: 180 };
+const FUTURE_POINT = { x: 210, y: 130 };
+const MANUAL_POINT = { x: 250, y: 80 };
+
+export interface CostImpactPanelProps {
+  stage: StageKey;
+}
+
+export function CostImpactPanel({ stage }: CostImpactPanelProps) {
+  const meta = STAGE_META[stage];
+
   return (
     <div className="space-y-6">
       <Card className="border-blue-100 bg-white/95 shadow-sm">
@@ -65,7 +103,7 @@ export function CostImpactPanel() {
           <div className="mt-4 rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 via-white to-red-50 p-4">
             <svg
               viewBox="0 0 320 240"
-              className="h-60 w-full"
+              className="h-64 w-full"
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden
             >
@@ -95,25 +133,42 @@ export function CostImpactPanel() {
                 strokeDasharray="4 4"
               />
 
-              {/* Relationships */}
+              {/* Manual relationship */}
               <line
-                x1="70"
-                y1="180"
-                x2="250"
-                y2="80"
+                x1={BASE_POINT.x}
+                y1={BASE_POINT.y}
+                x2={MANUAL_POINT.x}
+                y2={MANUAL_POINT.y}
                 stroke="#a3a3a3"
                 strokeWidth="2"
                 strokeDasharray="6 6"
               />
-              <line x1="70" y1="180" x2="210" y2="130" stroke="#1d4ed8" strokeWidth="3" />
-              <line x1="210" y1="130" x2="250" y2="80" stroke="#16a34a" strokeWidth="3" />
+
+              {/* Performance Hub progression */}
+              <line
+                x1={BASE_POINT.x}
+                y1={BASE_POINT.y}
+                x2={meta.point.x}
+                y2={meta.point.y}
+                stroke={meta.color}
+                strokeWidth="4"
+              />
+              <line
+                x1={meta.point.x}
+                y1={meta.point.y}
+                x2={FUTURE_POINT.x}
+                y2={FUTURE_POINT.y}
+                stroke="#94a3b8"
+                strokeWidth="3"
+                strokeDasharray="5 5"
+              />
 
               {/* Improvement arrow */}
               <line
-                x1="210"
-                y1="130"
-                x2="210"
-                y2="90"
+                x1={FUTURE_POINT.x}
+                y1={FUTURE_POINT.y}
+                x2={FUTURE_POINT.x}
+                y2={90}
                 stroke="#0f172a"
                 strokeWidth="2"
                 strokeDasharray="4 4"
@@ -134,42 +189,44 @@ export function CostImpactPanel() {
               </defs>
 
               {/* Points */}
-              <circle cx="70" cy="180" r="8" fill="#cf142b" />
+              <circle cx={BASE_POINT.x} cy={BASE_POINT.y} r="8" fill="#cf142b" />
               <text x="60" y="200" fontSize="12" fill="#0f172a">
                 Today
               </text>
 
-              <path
-                d="M248 74 L262 74 L262 88 L248 88 Z"
+              <rect
+                x={MANUAL_POINT.x - 6}
+                y={MANUAL_POINT.y - 6}
+                width="12"
+                height="12"
                 fill="#0f766e"
                 stroke="#0f172a"
                 strokeWidth="1.5"
+                rx="2"
               />
-              <text x="230" y="70" fontSize="12" fill="#0f172a">
+              <text x="214" y="70" fontSize="12" fill="#0f172a">
                 Manual future
               </text>
 
-              <line
-                x1="204"
-                y1="124"
-                x2="216"
-                y2="136"
-                stroke="#1d4ed8"
-                strokeWidth="3"
-                strokeLinecap="round"
-              />
-              <line
-                x1="204"
-                y1="136"
-                x2="216"
-                y2="124"
-                stroke="#1d4ed8"
-                strokeWidth="3"
-                strokeLinecap="round"
-              />
-              <text x="170" y="118" fontSize="12" fill="#0f172a">
-                Performance Hub
-              </text>
+              <g>
+                <circle
+                  cx={meta.point.x}
+                  cy={meta.point.y}
+                  r="9"
+                  fill="white"
+                  stroke={meta.color}
+                  strokeWidth="3"
+                />
+                <circle
+                  cx={meta.point.x}
+                  cy={meta.point.y}
+                  r="4"
+                  fill={meta.color}
+                />
+                <text x={meta.point.x - 30} y={meta.point.y - 14} fontSize="12" fill={meta.color}>
+                  {meta.label}
+                </text>
+              </g>
 
               {/* Labels */}
               <text x="160" y="220" fontSize="12" fill="#0f172a">
@@ -185,14 +242,14 @@ export function CostImpactPanel() {
                 Cost ↑
               </text>
 
-              <text x="220" y="150" fontSize="11" fill="#1d4ed8">
-                Improvement in cost per medal
+              <text x="130" y="95" fontSize="11" fill="#94a3b8">
+                Remaining improvement
               </text>
-              <text x="114" y="90" fontSize="11" fill="#16a34a">
+              <text x="114" y="82" fontSize="11" fill="#a3a3a3">
                 Current relationship
               </text>
             </svg>
-            <div className="mt-4 flex flex-wrap items-center gap-3 text-xs font-semibold text-slate-600">
+            <div className="mt-4 space-y-3 text-xs font-semibold text-slate-600">
               <div className="flex items-center gap-2">
                 <span className="h-2.5 w-2.5 rounded-full bg-[#cf142b]" />
                 Today baseline
@@ -202,15 +259,21 @@ export function CostImpactPanel() {
                 Manual future
               </div>
               <div className="flex items-center gap-2">
-                <span className="relative h-3 w-3">
-                  <span className="absolute inset-0 rotate-45 border-b-2 border-l-2 border-blue-600" />
-                  <span className="absolute inset-0 -rotate-45 border-b-2 border-l-2 border-blue-600" />
-                </span>
-                Performance Hub
+                <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: meta.color }} />
+                {meta.label}
               </div>
             </div>
           </div>
         </CardContent>
+      </Card>
+
+      <Card className="border-blue-100 bg-white/95 shadow-sm">
+        <CardHeader>
+          <CardTitle className="text-lg text-primary">Active horizon insight</CardTitle>
+          <CardDescription className="text-sm text-slate-600">
+            {meta.copy}
+          </CardDescription>
+        </CardHeader>
       </Card>
     </div>
   );
