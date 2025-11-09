@@ -16,6 +16,12 @@ type Persona = {
   needs: string;
 };
 
+type OperatingModel = {
+  name: string;
+  summary: string;
+  enablers: string[];
+};
+
 type UIEvolution = {
   title: string;
   description: string;
