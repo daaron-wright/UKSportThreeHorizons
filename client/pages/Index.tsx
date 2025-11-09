@@ -10,6 +10,12 @@ type HorizonKey = keyof typeof HORIZON_DATA;
 
 type TimelineTone = "primary" | "accent" | "neutral";
 
+type Persona = {
+  name: string;
+  focus: string;
+  needs: string;
+};
+
 type UIEvolution = {
   title: string;
   description: string;
@@ -29,7 +35,7 @@ const timelineToneClasses: Record<TimelineTone, string> = {
 
 const QUADRANT_TAGS = {
   highEaseHighImpact: [
-    "Quadrant: High ease ↗ High impact",
+    "Quadrant: High ease ��� High impact",
     "High ease of use",
     "High performance impact",
   ],
