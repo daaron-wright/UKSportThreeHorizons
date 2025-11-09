@@ -286,30 +286,6 @@ const HORIZON_DATA = {
                 ownership: "NGB",
               }),
             },
-            {
-              title: "Bespoke sport sensors & DBs",
-              detail: "Discipline-specific feeds such as Nemo, track data, and Bounce.",
-              status: "expanding" as const,
-              tags: QUADRANT_TAGS.highEaseEmergingImpact,
-              metadata: createMetadata({
-                product: "Training",
-                system: "Sport-specific systems",
-                access: "Internal",
-                ownership: "NGB",
-              }),
-            },
-            {
-              title: "Goals & performance plans",
-              detail: "Coaching plans, gaps, and targets tracked across shared templates.",
-              status: "expanding" as const,
-              tags: QUADRANT_TAGS.highEaseEmergingImpact,
-              metadata: createMetadata({
-                product: "Training",
-                system: "Multiple / Excel / Coaches",
-                access: "Internal",
-                ownership: "NGB",
-              }),
-            },
           ],
         },
         {
