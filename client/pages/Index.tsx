@@ -478,6 +478,25 @@ const HORIZON_DATA = {
         "Centralised insights backlog",
       ],
     },
+    technicalEvolution: {
+      title: "Expansion technical runway",
+      description:
+        "Layer tacit knowledge capture and retrieval-augmented intelligence across richer media and sensor sources.",
+      pillars: [
+        {
+          label: "Knowledge capture",
+          detail: "Structured coach notes, wellness logs, and tacit insights flow into shared knowledge workspaces.",
+        },
+        {
+          label: "RAG services",
+          detail: "Retrieval-augmented generation surfaces cross-source answers inside video, session, and wellness modules.",
+        },
+        {
+          label: "Connector mesh",
+          detail: "Hardened APIs for Vald, TeamBuildr, ENetPulse, and video ecosystems with monitoring & retries.",
+        },
+      ],
+    },
     ui: {
       title: "Growth UI snapshot",
       description:
