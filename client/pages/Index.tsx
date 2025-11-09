@@ -1082,6 +1082,35 @@ export default function Index() {
                         </section>
                       ) : null}
 
+                      <section className="rounded-3xl border border-blue-100 bg-white/95 p-8 shadow-sm">
+                        <header className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                          <div>
+                            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-600">
+                              Target operating model
+                            </p>
+                            <h3 className="mt-1 text-xl font-semibold text-primary">
+                              {horizon.operatingModel.name}
+                            </h3>
+                            <p className="mt-2 text-sm text-slate-600">
+                              {horizon.operatingModel.summary}
+                            </p>
+                          </div>
+                          <Badge className="w-fit rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-blue-700">
+                            Operating model
+                          </Badge>
+                        </header>
+                        <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                          {horizon.operatingModel.enablers.map((enabler) => (
+                            <div
+                              key={enabler}
+                              className="rounded-2xl border border-blue-100/80 bg-blue-50/60 p-4 text-sm text-blue-900"
+                            >
+                              {enabler}
+                            </div>
+                          ))}
+                        </div>
+                      </section>
+
                       <section className="relative overflow-hidden rounded-3xl border border-blue-100/80 bg-gradient-to-br from-white via-blue-50/60 to-white p-8 shadow-lg">
                         <div
                           aria-hidden
