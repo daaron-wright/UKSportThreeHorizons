@@ -621,18 +621,6 @@ const HORIZON_DATA = {
               tags: QUADRANT_TAGS.emergingEaseEmergingImpact,
             },
             {
-              title: "Staff health & performance knowledge",
-              detail: "Capture tacit insight from staff files and shared knowledge bases.",
-              status: "expanding" as const,
-              tags: QUADRANT_TAGS.emergingEaseEmergingImpact,
-              metadata: createMetadata({
-                product: "Knowledge",
-                system: "Staff files / shared knowledge",
-                access: "Internal",
-                ownership: "NGB / UKSI / UKS",
-              }),
-            },
-            {
               title: "Knowledge graph",
               detail: "Link athletes, staff, and competitions",
               status: "future" as const,
