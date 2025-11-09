@@ -11,6 +11,7 @@ export interface DiagramClusterItem {
   detail?: string;
   status?: DataStatus;
   tags?: readonly string[];
+  impactLevel?: "high" | "low";
   metadata?: readonly {
     label: string;
     value: string;
@@ -60,6 +61,16 @@ const statusLabels: Record<DataStatus, string> = {
   live: "Live",
   expanding: "Rolling out",
   future: "Next horizon",
+};
+
+const impactBadgeClasses: Record<NonNullable<DiagramClusterItem["impactLevel"]>, string> = {
+  high: "border-emerald-200 bg-emerald-100 text-emerald-900",
+  low: "border-slate-200 bg-slate-100 text-slate-700",
+};
+
+const impactBadgeLabels: Record<NonNullable<DiagramClusterItem["impactLevel"]>, string> = {
+  high: "High impact",
+  low: "Lower impact",
 };
 
 export function HorizonDiagram({
@@ -147,9 +158,22 @@ export function HorizonDiagram({
                       >
                         <div className="flex flex-wrap items-start justify-between gap-3">
                           <div className="flex-1">
-                            <p className="text-sm font-semibold text-slate-900">
-                              {item.title}
-                            </p>
+                            <div className="flex flex-wrap items-center gap-2">
+                              <p className="text-sm font-semibold text-slate-900">
+                                {item.title}
+                              </p>
+                              {item.impactLevel ? (
+                                <Badge
+                                  variant="outline"
+                                  className={cn(
+                                    "rounded-full px-3 py-1 text-[11px] font-semibold",
+                                    impactBadgeClasses[item.impactLevel],
+                                  )}
+                                >
+                                  {impactBadgeLabels[item.impactLevel]}
+                                </Badge>
+                              ) : null}
+                            </div>
                             {item.detail ? (
                               <p className="mt-1 text-sm text-slate-600">
                                 {item.detail}
