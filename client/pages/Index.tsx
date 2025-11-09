@@ -22,6 +22,12 @@ type OperatingModel = {
   enablers: string[];
 };
 
+type TechnicalEvolution = {
+  title: string;
+  description: string;
+  pillars: { label: string; detail: string }[];
+};
+
 type UIEvolution = {
   title: string;
   description: string;
