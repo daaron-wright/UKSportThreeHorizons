@@ -166,7 +166,7 @@ const HORIZON_DATA = {
               status: "expanding" as const,
               tags: QUADRANT_TAGS.highEaseEmergingImpact,
               metadata: createMetadata({
-                product: "Wearables / AMPLIFY",
+                product: "Training",
                 system: "Wearables / AMPLIFY",
                 access: "External",
                 ownership: "UKSI",
