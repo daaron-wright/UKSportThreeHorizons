@@ -422,7 +422,7 @@ export default function Index() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,1fr)_22rem] xl:grid-cols-[minmax(0,1fr)_24rem]">
+        <div className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(22rem,28rem)]">
           <Tabs
             value={activeHorizon}
             onValueChange={(value) => setActiveHorizon(value as HorizonKey)}
