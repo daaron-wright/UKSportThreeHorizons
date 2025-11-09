@@ -421,158 +421,164 @@ export default function Index() {
           </p>
         </div>
 
-        <Tabs
-          value={activeHorizon}
-          onValueChange={(value) => setActiveHorizon(value as HorizonKey)}
-          className="mt-12"
-        >
-          <div className="flex justify-center">
-            <TabsList className="grid w-full max-w-xl grid-cols-3 gap-1 rounded-full border border-blue-100 bg-white/80 p-1 shadow-sm">
-              {(Object.keys(HORIZON_DATA) as HorizonKey[]).map((key) => (
-                <TabsTrigger
-                  key={key}
-                  value={key}
-                  className="rounded-full px-6 py-2 text-sm font-semibold text-slate-600 transition data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-                >
-                  {HORIZON_DATA[key].label}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-          </div>
+        <div className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,1fr)_22rem] xl:grid-cols-[minmax(0,1fr)_24rem]">
+          <Tabs
+            value={activeHorizon}
+            onValueChange={(value) => setActiveHorizon(value as HorizonKey)}
+            className="h-full"
+          >
+            <div className="flex justify-center">
+              <TabsList className="grid w-full max-w-xl grid-cols-3 gap-1 rounded-full border border-blue-100 bg-white/80 p-1 shadow-sm">
+                {(Object.keys(HORIZON_DATA) as HorizonKey[]).map((key) => (
+                  <TabsTrigger
+                    key={key}
+                    value={key}
+                    className="rounded-full px-6 py-2 text-sm font-semibold text-slate-600 transition data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                  >
+                    {HORIZON_DATA[key].label}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </div>
 
-          {(Object.keys(HORIZON_DATA) as HorizonKey[]).map((key) => {
-            const horizon = HORIZON_DATA[key];
-            return (
-              <TabsContent key={key} value={key} className="mt-10 space-y-10">
-                <section className="rounded-3xl border border-blue-100 bg-white/90 p-10 shadow-sm">
-                  <header className="max-w-3xl">
-                    <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-700">
-                      {horizon.short}
-                    </p>
-                    <h2 className="mt-2 text-2xl font-bold text-primary">
-                      {horizon.label}: {horizon.short}
-                    </h2>
-                    <p className="mt-3 text-base text-slate-600">{horizon.summary}</p>
-                  </header>
+            {(Object.keys(HORIZON_DATA) as HorizonKey[]).map((key) => {
+              const horizon = HORIZON_DATA[key];
+              return (
+                <TabsContent key={key} value={key} className="mt-10 space-y-10">
+                  <section className="rounded-3xl border border-blue-100 bg-white/90 p-10 shadow-sm">
+                    <header className="max-w-3xl">
+                      <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-700">
+                        {horizon.short}
+                      </p>
+                      <h2 className="mt-2 text-2xl font-bold text-primary">
+                        {horizon.label}: {horizon.short}
+                      </h2>
+                      <p className="mt-3 text-base text-slate-600">{horizon.summary}</p>
+                    </header>
 
-                  <div className="mt-8">
-                    <HorizonDiagram
-                      title={horizon.diagram.title}
-                      caption={horizon.diagram.caption}
-                      clusters={horizon.diagram.clusters}
-                      footerNote={horizon.diagram.footerNote}
-                      axes={horizon.diagram.axes}
-                    />
-                  </div>
-                </section>
-
-                <section className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
-                  <Card className="border-blue-100 bg-white/95 shadow-sm">
-                    <CardHeader>
-                      <span className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">
-                        UI Evolution
-                      </span>
-                      <CardTitle className="mt-2 text-xl text-primary">
-                        {horizon.ui.title}
-                      </CardTitle>
-                      <CardDescription className="mt-3 text-sm text-slate-600">
-                        {horizon.ui.description}
-                      </CardDescription>
-                      <ul className="mt-4 space-y-3 text-sm text-slate-600">
-                        {horizon.ui.highlights.map((point) => (
-                          <li key={point} className="flex gap-2">
-                            <span className="mt-1 h-2 w-2 flex-none rounded-full bg-blue-500" />
-                            <span>{point}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </CardHeader>
-                  </Card>
-
-                  <Card className="relative overflow-hidden border-blue-100">
-                    <div
-                      aria-hidden
-                      className="absolute inset-0"
-                      style={{ background: horizon.ui.palette.background }}
-                    />
-                    <div className="relative flex h-full flex-col gap-5 rounded-[18px] border border-white/50 bg-white/70 p-6 shadow-inner">
-                      <div className="flex items-center gap-2">
-                        <span className="h-2.5 w-2.5 rounded-full bg-blue-400" />
-                        <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
-                        <span className="h-2.5 w-2.5 rounded-full bg-slate-300" />
-                        <span className="ml-auto text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
-                          Preview
-                        </span>
-                      </div>
-
-                      <div className="grid gap-4">
-                        <div
-                          className="h-24 rounded-xl border p-4"
-                          style={{
-                            background: horizon.ui.palette.accent,
-                            borderColor: horizon.ui.palette.grid,
-                          }}
-                        >
-                          <p className="text-sm font-semibold text-primary">Primary workspace</p>
-                          <p className="mt-2 text-xs text-slate-600">
-                            Layout shifts to highlight the modules introduced this horizon.
-                          </p>
-                        </div>
-
-                        <div className="grid gap-3 sm:grid-cols-2">
-                          {horizon.ui.highlights.slice(0, 2).map((point) => (
-                            <div
-                              key={point}
-                              className="rounded-xl border bg-white/80 p-3 text-xs font-medium text-slate-600 shadow-sm"
-                              style={{ borderColor: horizon.ui.palette.grid }}
-                            >
-                              {point}
-                            </div>
-                          ))}
-                        </div>
-
-                        <div className="flex flex-wrap gap-2">
-                          <Badge variant="secondary" className="border border-blue-200 bg-white text-xs">
-                            Adaptive UI
-                          </Badge>
-                          <Badge variant="secondary" className="border border-red-200 bg-white text-xs">
-                            Data aware
-                          </Badge>
-                          <Badge variant="secondary" className="border border-slate-200 bg-white text-xs">
-                            Consent aligned
-                          </Badge>
-                        </div>
-                      </div>
+                    <div className="mt-8">
+                      <HorizonDiagram
+                        title={horizon.diagram.title}
+                        caption={horizon.diagram.caption}
+                        clusters={horizon.diagram.clusters}
+                        footerNote={horizon.diagram.footerNote}
+                        axes={horizon.diagram.axes}
+                      />
                     </div>
-                  </Card>
-                </section>
+                  </section>
 
-                <section>
-                  <div className="grid gap-4 sm:grid-cols-3">
-                    {horizon.timeline.map((item) => (
-                      <Card
-                        key={item.title}
-                        className={cn(
-                          "h-full border-2 transition hover:-translate-y-1 hover:shadow-md",
-                          timelineToneClasses[item.tone],
-                        )}
-                      >
-                        <CardHeader>
-                          <CardTitle className="text-base font-semibold">
-                            {item.title}
-                          </CardTitle>
-                          <CardDescription className="text-sm text-current/80">
-                            {item.description}
-                          </CardDescription>
-                        </CardHeader>
-                      </Card>
-                    ))}
-                  </div>
-                </section>
-              </TabsContent>
-            );
-          })}
-        </Tabs>
+                  <section className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
+                    <Card className="border-blue-100 bg-white/95 shadow-sm">
+                      <CardHeader>
+                        <span className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">
+                          UI Evolution
+                        </span>
+                        <CardTitle className="mt-2 text-xl text-primary">
+                          {horizon.ui.title}
+                        </CardTitle>
+                        <CardDescription className="mt-3 text-sm text-slate-600">
+                          {horizon.ui.description}
+                        </CardDescription>
+                        <ul className="mt-4 space-y-3 text-sm text-slate-600">
+                          {horizon.ui.highlights.map((point) => (
+                            <li key={point} className="flex gap-2">
+                              <span className="mt-1 h-2 w-2 flex-none rounded-full bg-blue-500" />
+                              <span>{point}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </CardHeader>
+                    </Card>
+
+                    <Card className="relative overflow-hidden border-blue-100">
+                      <div
+                        aria-hidden
+                        className="absolute inset-0"
+                        style={{ background: horizon.ui.palette.background }}
+                      />
+                      <div className="relative flex h-full flex-col gap-5 rounded-[18px] border border-white/50 bg-white/70 p-6 shadow-inner">
+                        <div className="flex items-center gap-2">
+                          <span className="h-2.5 w-2.5 rounded-full bg-blue-400" />
+                          <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
+                          <span className="h-2.5 w-2.5 rounded-full bg-slate-300" />
+                          <span className="ml-auto text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
+                            Preview
+                          </span>
+                        </div>
+
+                        <div className="grid gap-4">
+                          <div
+                            className="h-24 rounded-xl border p-4"
+                            style={{
+                              background: horizon.ui.palette.accent,
+                              borderColor: horizon.ui.palette.grid,
+                            }}
+                          >
+                            <p className="text-sm font-semibold text-primary">Primary workspace</p>
+                            <p className="mt-2 text-xs text-slate-600">
+                              Layout shifts to highlight the modules introduced this horizon.
+                            </p>
+                          </div>
+
+                          <div className="grid gap-3 sm:grid-cols-2">
+                            {horizon.ui.highlights.slice(0, 2).map((point) => (
+                              <div
+                                key={point}
+                                className="rounded-xl border bg-white/80 p-3 text-xs font-medium text-slate-600 shadow-sm"
+                                style={{ borderColor: horizon.ui.palette.grid }}
+                              >
+                                {point}
+                              </div>
+                            ))}
+                          </div>
+
+                          <div className="flex flex-wrap gap-2">
+                            <Badge variant="secondary" className="border border-blue-200 bg-white text-xs">
+                              Adaptive UI
+                            </Badge>
+                            <Badge variant="secondary" className="border border-red-200 bg-white text-xs">
+                              Data aware
+                            </Badge>
+                            <Badge variant="secondary" className="border border-slate-200 bg-white text-xs">
+                              Consent aligned
+                            </Badge>
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  </section>
+
+                  <section>
+                    <div className="grid gap-4 sm:grid-cols-3">
+                      {horizon.timeline.map((item) => (
+                        <Card
+                          key={item.title}
+                          className={cn(
+                            "h-full border-2 transition hover:-translate-y-1 hover:shadow-md",
+                            timelineToneClasses[item.tone],
+                          )}
+                        >
+                          <CardHeader>
+                            <CardTitle className="text-base font-semibold">
+                              {item.title}
+                            </CardTitle>
+                            <CardDescription className="text-sm text-current/80">
+                              {item.description}
+                            </CardDescription>
+                          </CardHeader>
+                        </Card>
+                      ))}
+                    </div>
+                  </section>
+                </TabsContent>
+              );
+            })}
+          </Tabs>
+
+          <aside className="space-y-6 lg:sticky lg:top-24 lg:h-fit">
+            <CostImpactPanel />
+          </aside>
+        </div>
       </div>
     </div>
   );
