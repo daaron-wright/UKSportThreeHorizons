@@ -155,7 +155,7 @@ const HORIZON_DATA = {
               tags: QUADRANT_TAGS.highEaseEmergingImpact,
               metadata: createMetadata({
                 product: "TeamBuildr",
-                source: "TeamBuildr",
+                system: "TeamBuildr",
                 access: "External",
                 ownership: "UKSI",
               }),
@@ -167,7 +167,7 @@ const HORIZON_DATA = {
               tags: QUADRANT_TAGS.highEaseEmergingImpact,
               metadata: createMetadata({
                 product: "Wearables / AMPLIFY",
-                source: "Wearables / AMPLIFY",
+                system: "Wearables / AMPLIFY",
                 access: "External",
                 ownership: "UKSI",
               }),
@@ -179,7 +179,7 @@ const HORIZON_DATA = {
               tags: QUADRANT_TAGS.highEaseEmergingImpact,
               metadata: createMetadata({
                 product: "Excel",
-                source: "Excel",
+                system: "Excel",
                 access: "Internal",
                 ownership: "NGB",
               }),
@@ -279,7 +279,7 @@ const HORIZON_DATA = {
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
               metadata: createMetadata({
                 product: "PDMS",
-                source: "PDMS",
+                system: "PDMS",
                 access: "Internal",
                 ownership: "UKSI",
               }),
@@ -291,7 +291,7 @@ const HORIZON_DATA = {
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
               metadata: createMetadata({
                 product: "Vald Hub / AMPLIFY",
-                source: "Vald Hub / AMPLIFY",
+                system: "Vald Hub / AMPLIFY",
                 access: "External",
                 ownership: "UKSI",
               }),
@@ -303,7 +303,7 @@ const HORIZON_DATA = {
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
               metadata: createMetadata({
                 product: "Multiple sensors",
-                source: "Multiple / sensors",
+                system: "Multiple / sensors",
                 access: "Internal / External",
                 ownership: "NGB",
               }),
@@ -322,7 +322,7 @@ const HORIZON_DATA = {
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
               metadata: createMetadata({
                 product: "Multiple platforms",
-                source: "Federation websites & event capture",
+                system: "Federation websites & event capture",
                 access: "External",
                 ownership: "NGB",
               }),
@@ -334,7 +334,7 @@ const HORIZON_DATA = {
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
               metadata: createMetadata({
                 product: "ENetPulse",
-                source: "ENetPulse",
+                system: "ENetPulse",
                 access: "Internal",
                 ownership: "UK Sport",
               }),
@@ -346,7 +346,7 @@ const HORIZON_DATA = {
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
               metadata: createMetadata({
                 product: "UKS tooling",
-                source: "UKS",
+                system: "UKS",
                 access: "Internal",
                 ownership: "UKS",
               }),
