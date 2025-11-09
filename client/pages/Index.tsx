@@ -31,6 +31,21 @@ const HORIZON_DATA = {
     short: "Core foundation",
     summary:
       "Integrate the high-trust clinical and personal records already curated by UK Sport so the Performance Hub earns confidence from day one.",
+    ui: {
+      title: "Launch UI snapshot",
+      description:
+        "A calm, card-driven dashboard that surfaces consent status and quick links to trusted medical records.",
+      highlights: [
+        "Hero banner shows consent badge and alerts for expiring approvals.",
+        "Navigation prioritises athlete profile, medical notes, and policy library.",
+        "Manual data upload tiles guide staff through streamlined forms.",
+      ],
+      palette: {
+        background: "linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)",
+        accent: "rgba(0, 36, 125, 0.18)",
+        grid: "rgba(15, 76, 129, 0.12)",
+      },
+    },
     diagram: {
       title: "Performance Hub · Launch configuration",
       caption:
