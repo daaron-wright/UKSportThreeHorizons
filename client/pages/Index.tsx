@@ -698,6 +698,23 @@ const HORIZON_DATA = {
     short: "Transformation",
     summary:
       "Orchestrate high-impact external intelligence and autonomous analysis so the Performance Hub becomes a proactive partner.",
+    personas: [
+      {
+        name: "Performance Director",
+        focus: "Aligns long-term investment and campaign strategy across the Olympic cycle.",
+        needs: "Forward-looking scenarios combining competitive intel, pathway depth, and AI forecasts.",
+      },
+      {
+        name: "Research & Innovation Lead",
+        focus: "Brokers partnerships with institutes and oversees applied research programmes.",
+        needs: "Pipelines for external SSSM insight, bespoke studies, and knowledge capture in one place.",
+      },
+      {
+        name: "AI Product Owner",
+        focus: "Operationalises autonomous agents and orchestration workflows across the hub.",
+        needs: "Telemetry feeds, governance approvals, and automation playbooks tied to measurable outcomes.",
+      },
+    ] as Persona[],
     ui: {
       title: "Transformation UI snapshot",
       description:
