@@ -27,6 +27,31 @@ const timelineToneClasses: Record<TimelineTone, string> = {
   neutral: "border-slate-200 bg-slate-50 text-slate-700",
 };
 
+const QUADRANT_TAGS = {
+  highEaseHighImpact: [
+    "Quadrant: High ease ↗ High impact",
+    "High ease of use",
+    "High performance impact",
+  ],
+  highEaseEmergingImpact: [
+    "Quadrant: High ease ↗ Emerging impact",
+    "High ease of use",
+    "Emerging performance impact",
+  ],
+  emergingEaseHighImpact: [
+    "Quadrant: Emerging ease ↗ High impact",
+    "Emerging ease of use",
+    "High performance impact",
+  ],
+  emergingEaseEmergingImpact: [
+    "Quadrant: Emerging ease ↗ Emerging impact",
+    "Emerging ease of use",
+    "Emerging performance impact",
+  ],
+} as const;
+
+type QuadrantTagKey = keyof typeof QUADRANT_TAGS;
+
 const HORIZON_DATA = {
   h1: {
     label: "Horizon 1",
