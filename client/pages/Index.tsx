@@ -792,6 +792,72 @@ const HORIZON_DATA = {
             },
           ],
         },
+        {
+          title: "Performance planning orchestration",
+          tone: "accent" as const,
+          caption: "High-impact planning insight once orchestration is in place.",
+          items: [
+            {
+              title: "Goals, performance requirements, gaps, plans",
+              detail: "Campaign planning artefacts unified across staff to drive proactive intervention.",
+              status: "future" as const,
+              tags: QUADRANT_TAGS.emergingEaseHighImpact,
+              impactLevel: "high",
+              metadata: createMetadata({
+                product: "Training",
+                system: "Multiple / Excel / Coaches",
+                access: "Internal",
+                ownership: "NGB",
+              }),
+            },
+            {
+              title: "Staff health and performance knowledge",
+              detail: "Unified view of staff expertise, workloads, and availability.",
+              status: "future" as const,
+              tags: QUADRANT_TAGS.emergingEaseHighImpact,
+              impactLevel: "high",
+              metadata: createMetadata({
+                product: "Knowledge",
+                system: "Staff files / shared knowledge",
+                access: "Internal",
+                ownership: "NGB / UKSI / UKS",
+              }),
+            },
+          ],
+        },
+        {
+          title: "Pathway intelligence",
+          tone: "primary" as const,
+          caption: "End-to-end pathway signals drive strategic decisions.",
+          items: [
+            {
+              title: "Pathway: Basic - name, stage, results",
+              detail: "Baseline pathway roster synchronised across events and competition systems.",
+              status: "future" as const,
+              tags: QUADRANT_TAGS.emergingEaseHighImpact,
+              impactLevel: "high",
+              metadata: createMetadata({
+                product: "Athlete pathway",
+                system: "Events & competitions",
+                access: "Internal / External",
+                ownership: "NGB",
+              }),
+            },
+            {
+              title: "Pathway: Key mental, physical and health characteristics",
+              detail: "Holistic profile stitched from pathway platforms, medical notes, and staff knowledge.",
+              status: "future" as const,
+              tags: QUADRANT_TAGS.emergingEaseHighImpact,
+              impactLevel: "high",
+              metadata: createMetadata({
+                product: "Athlete pathway",
+                system: "Multiple pathway systems",
+                access: "Internal / External",
+                ownership: "Multiple",
+              }),
+            },
+          ],
+        },
       ],
       footerNote:
         "Closed-loop orchestration means the hub can recommend and, where appropriate, trigger action automatically.",
