@@ -123,8 +123,8 @@ const HORIZON_DATA = {
               status: "live" as const,
               tags: QUADRANT_TAGS.highEaseHighImpact,
               metadata: createMetadata({
-                product: "GMS / PDMS",
-                source: "Internal",
+                product: "Membership",
+                system: "GMS / PDMS (Entra ID roadmap)",
                 access: "Internal",
                 ownership: "UKS / UKSI",
               }),
