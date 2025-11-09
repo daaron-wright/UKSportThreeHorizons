@@ -317,21 +317,39 @@ const HORIZON_DATA = {
           items: [
             {
               title: "Video library",
-              detail: "Performance versus plan clips",
+              detail: "Performance versus plan clips from federation and event providers.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
+              metadata: createMetadata({
+                product: "Multiple platforms",
+                source: "Federation websites & event capture",
+                access: "External",
+                ownership: "NGB",
+              }),
             },
             {
               title: "Competition insights",
-              detail: "Live competition results contextualised",
+              detail: "Live competition results enriched for coaching context.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
+              metadata: createMetadata({
+                product: "ENetPulse",
+                source: "ENetPulse",
+                access: "Internal",
+                ownership: "UK Sport",
+              }),
             },
             {
               title: "Performance analytics",
-              detail: "Visual comparison dashboards",
+              detail: "Visual comparison dashboards highlighting performance versus potential.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
+              metadata: createMetadata({
+                product: "UKS tooling",
+                source: "UKS",
+                access: "Internal",
+                ownership: "UKS",
+              }),
             },
           ],
         },
