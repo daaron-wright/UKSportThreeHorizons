@@ -233,6 +233,18 @@ const HORIZON_DATA = {
               }),
             },
             {
+              title: "Training plans & actuals (shared)",
+              detail: "Coach-submitted plans and actuals collated via shared templates.",
+              status: "expanding" as const,
+              tags: QUADRANT_TAGS.highEaseEmergingImpact,
+              metadata: createMetadata({
+                product: "Training",
+                system: "Multiple / Excel / Coaches",
+                access: "Internal / External",
+                ownership: "NGB",
+              }),
+            },
+            {
               title: "Activity physiology snapshots",
               detail: "Load and physiology metrics synced from wearables and AMPLIFY.",
               status: "expanding" as const,
