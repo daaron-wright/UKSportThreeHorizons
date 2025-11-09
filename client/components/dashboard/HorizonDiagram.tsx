@@ -10,6 +10,7 @@ export interface DiagramClusterItem {
   title: string;
   detail?: string;
   status?: DataStatus;
+  tags?: string[];
 }
 
 export interface DiagramCluster {
@@ -149,6 +150,19 @@ export function HorizonDiagram({
                               <p className="mt-1 text-sm text-slate-600">
                                 {item.detail}
                               </p>
+                            ) : null}
+                            {item.tags?.length ? (
+                              <div className="mt-3 flex flex-wrap gap-2">
+                                {item.tags.map((tag) => (
+                                  <Badge
+                                    key={tag}
+                                    variant="secondary"
+                                    className="rounded-full border border-blue-200 bg-blue-50 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-blue-700"
+                                  >
+                                    {tag}
+                                  </Badge>
+                                ))}
+                              </div>
                             ) : null}
                           </div>
                           <Badge
