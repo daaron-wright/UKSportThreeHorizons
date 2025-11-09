@@ -345,7 +345,7 @@ const HORIZON_DATA = {
               status: "expanding" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
               metadata: createMetadata({
-                product: "UKS tooling",
+                product: "Training",
                 system: "UKS",
                 access: "Internal",
                 ownership: "UKS",
