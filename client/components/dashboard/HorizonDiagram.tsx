@@ -10,7 +10,7 @@ export interface DiagramClusterItem {
   title: string;
   detail?: string;
   status?: DataStatus;
-  tags?: string[];
+  tags?: readonly string[];
 }
 
 export interface DiagramCluster {
