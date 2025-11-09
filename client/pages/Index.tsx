@@ -741,6 +741,16 @@ const HORIZON_DATA = {
         needs: "Telemetry feeds, governance approvals, and automation playbooks tied to measurable outcomes.",
       },
     ] as Persona[],
+    operatingModel: {
+      name: "Autonomous performance orchestration",
+      summary:
+        "Align leadership, research, and AI teams around proactive scenario planning and automation.",
+      enablers: [
+        "Strategic intelligence council",
+        "Research translation pipeline",
+        "Automation & agent governance board",
+      ],
+    },
     ui: {
       title: "Transformation UI snapshot",
       description:
