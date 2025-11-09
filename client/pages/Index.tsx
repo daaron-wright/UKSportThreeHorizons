@@ -275,6 +275,21 @@ const HORIZON_DATA = {
     short: "Transformation",
     summary:
       "Orchestrate high-impact external intelligence and autonomous analysis so the Performance Hub becomes a proactive partner.",
+    ui: {
+      title: "Transformation UI snapshot",
+      description:
+        "Adaptive layouts showcase AI recommendations, live telemetry, and automation playbooks in real time.",
+      highlights: [
+        "AI command bar surfaces suggested actions and confidence tags.",
+        "Live widgets stream telemetry alongside competition feeds.",
+        "Automation panel previews queued playbooks for staff approval.",
+      ],
+      palette: {
+        background: "linear-gradient(135deg, #c4d7ff 0%, #ffe4ec 100%)",
+        accent: "rgba(207, 20, 43, 0.18)",
+        grid: "rgba(0, 36, 125, 0.16)",
+      },
+    },
     diagram: {
       title: "Performance Hub · Full ecosystem",
       caption:
