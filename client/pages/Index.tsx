@@ -119,6 +119,25 @@ const HORIZON_DATA = {
         "Secure medical data integration (PDMS, GMS)",
       ],
     },
+    technicalEvolution: {
+      title: "Launch platform stack",
+      description:
+        "Codify a resilient core hub with proven patterns for clinical oversight, governance, and reporting.",
+      pillars: [
+        {
+          label: "UI/UX shell",
+          detail: "Responsive athlete console with consent-aware banner states and quick task rails.",
+        },
+        {
+          label: "Integration services",
+          detail: "Secure adapters for PDMS, GMS, and manual intake with audit logging and validation flows.",
+        },
+        {
+          label: "Reporting baseline",
+          detail: "Operational dashboards and cost-per-medal tracking powered by existing data marts.",
+        },
+      ],
+    },
     ui: {
       title: "Launch UI snapshot",
       description:
