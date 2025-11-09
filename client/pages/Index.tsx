@@ -245,6 +245,18 @@ const HORIZON_DATA = {
               }),
             },
             {
+              title: "Anthropometry",
+              detail: "Baseline measurements managed across PDMS and Excel trackers.",
+              status: "expanding" as const,
+              tags: QUADRANT_TAGS.highEaseEmergingImpact,
+              metadata: createMetadata({
+                product: "Training",
+                system: "PDMS / Excel",
+                access: "Internal",
+                ownership: "NGB / UKSI",
+              }),
+            },
+            {
               title: "Athlete profiling",
               detail: "Discipline, stage, and KPI sheets curated by coaches.",
               status: "expanding" as const,
@@ -252,6 +264,30 @@ const HORIZON_DATA = {
               metadata: createMetadata({
                 product: "Health",
                 system: "Excel",
+                access: "Internal",
+                ownership: "NGB",
+              }),
+            },
+            {
+              title: "Bespoke sport sensors & DBs",
+              detail: "Discipline-specific feeds such as Nemo, track data, and Bounce.",
+              status: "expanding" as const,
+              tags: QUADRANT_TAGS.highEaseEmergingImpact,
+              metadata: createMetadata({
+                product: "Training",
+                system: "Sport-specific systems",
+                access: "Internal",
+                ownership: "NGB",
+              }),
+            },
+            {
+              title: "Goals & performance plans",
+              detail: "Coaching plans, gaps, and targets tracked across shared templates.",
+              status: "expanding" as const,
+              tags: QUADRANT_TAGS.highEaseEmergingImpact,
+              metadata: createMetadata({
+                product: "Training",
+                system: "Multiple / Excel / Coaches",
                 access: "Internal",
                 ownership: "NGB",
               }),
