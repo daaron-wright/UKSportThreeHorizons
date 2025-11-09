@@ -156,26 +156,17 @@ export function HorizonDiagram({
                               </p>
                             ) : null}
                             {item.metadata?.length ? (
-                              <dl className="mt-3 space-y-2">
-                                {item.metadata.map((meta) => (
-                                  <div key={`${item.title}-${meta.label}`} className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-slate-600">
-                                    <dt className="font-semibold uppercase tracking-[0.22em] text-slate-500">
-                                      {meta.label}
-                                    </dt>
-                                    <dd className="text-slate-700">{meta.value}</dd>
-                                  </div>
-                                ))}
-                              </dl>
-                            ) : null}
-                            {item.tags?.length ? (
                               <div className="mt-3 flex flex-wrap gap-2">
-                                {item.tags.map((tag) => (
+                                {item.metadata.map((meta) => (
                                   <Badge
-                                    key={tag}
+                                    key={`${item.title}-${meta.label}`}
                                     variant="outline"
                                     className="rounded-xl border-blue-200 bg-blue-50/90 px-3 py-1.5 text-xs font-medium text-blue-900 shadow-sm"
                                   >
-                                    {tag}
+                                    <span className="mr-2 uppercase tracking-[0.18em] text-blue-700">
+                                      {meta.label}
+                                    </span>
+                                    <span className="text-blue-900">{meta.value}</span>
                                   </Badge>
                                 ))}
                               </div>
