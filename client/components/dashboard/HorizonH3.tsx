@@ -10,8 +10,7 @@ export function HorizonH3() {
         <text
           x="450"
           y="35"
-          fontSize="26"
-          fontWeight="bold"
+          style={{ fontSize: "26px", fontWeight: "bold" }}
           textAnchor="middle"
           fill="#e2e8f0"
         >
@@ -44,8 +43,7 @@ export function HorizonH3() {
         <text
           x="140"
           y="175"
-          fontSize="14"
-          fontWeight="600"
+          style={{ fontSize: "14px", fontWeight: "600" }}
           textAnchor="middle"
           fill="#1e3a8a"
         >
@@ -54,8 +52,7 @@ export function HorizonH3() {
         <text
           x="140"
           y="195"
-          fontSize="14"
-          fontWeight="600"
+          style={{ fontSize: "14px", fontWeight: "600" }}
           textAnchor="middle"
           fill="#1e3a8a"
         >
@@ -85,8 +82,7 @@ export function HorizonH3() {
         <text
           x="140"
           y="345"
-          fontSize="14"
-          fontWeight="600"
+          style={{ fontSize: "14px", fontWeight: "600" }}
           textAnchor="middle"
           fill="#1e3a8a"
         >
@@ -95,8 +91,7 @@ export function HorizonH3() {
         <text
           x="140"
           y="365"
-          fontSize="14"
-          fontWeight="600"
+          style={{ fontSize: "14px", fontWeight: "600" }}
           textAnchor="middle"
           fill="#1e3a8a"
         >
@@ -117,8 +112,7 @@ export function HorizonH3() {
         <text
           x="140"
           y="500"
-          fontSize="11"
-          fontWeight="500"
+          style={{ fontSize: "11px", fontWeight: "500" }}
           textAnchor="middle"
           fill="#1e40af"
         >
@@ -127,8 +121,7 @@ export function HorizonH3() {
         <text
           x="140"
           y="517"
-          fontSize="11"
-          fontWeight="500"
+          style={{ fontSize: "11px", fontWeight: "500" }}
           textAnchor="middle"
           fill="#1e40af"
         >
@@ -137,8 +130,7 @@ export function HorizonH3() {
         <text
           x="140"
           y="534"
-          fontSize="11"
-          fontWeight="500"
+          style={{ fontSize: "11px", fontWeight: "500" }}
           textAnchor="middle"
           fill="#1e40af"
         >
@@ -161,12 +153,11 @@ export function HorizonH3() {
         <text
           x="580"
           y="140"
-          fontSize="18"
-          fontWeight="600"
+          style={{ fontSize: "18px", fontWeight: "600" }}
           textAnchor="middle"
           fill="#ffffff"
         >
-          UX/UI - Advanced Reporting & Real-time Dashboard
+          UX/UI - Advanced Reporting &amp; Real-time Dashboard
         </text>
 
         {/* Second Row - Enhanced */}
@@ -183,8 +174,7 @@ export function HorizonH3() {
         <text
           x="360"
           y="240"
-          fontSize="13"
-          fontWeight="600"
+          style={{ fontSize: "13px", fontWeight: "600" }}
           textAnchor="middle"
           fill="#ffffff"
         >
@@ -193,8 +183,7 @@ export function HorizonH3() {
         <text
           x="360"
           y="260"
-          fontSize="13"
-          fontWeight="600"
+          style={{ fontSize: "13px", fontWeight: "600" }}
           textAnchor="middle"
           fill="#ffffff"
         >
@@ -214,8 +203,7 @@ export function HorizonH3() {
         <text
           x="600"
           y="240"
-          fontSize="13"
-          fontWeight="600"
+          style={{ fontSize: "13px", fontWeight: "600" }}
           textAnchor="middle"
           fill="#ffffff"
         >
@@ -224,8 +212,7 @@ export function HorizonH3() {
         <text
           x="600"
           y="260"
-          fontSize="13"
-          fontWeight="600"
+          style={{ fontSize: "13px", fontWeight: "600" }}
           textAnchor="middle"
           fill="#ffffff"
         >
@@ -245,8 +232,7 @@ export function HorizonH3() {
         <text
           x="820"
           y="240"
-          fontSize="13"
-          fontWeight="600"
+          style={{ fontSize: "13px", fontWeight: "600" }}
           textAnchor="middle"
           fill="#ffffff"
         >
@@ -255,8 +241,7 @@ export function HorizonH3() {
         <text
           x="820"
           y="260"
-          fontSize="13"
-          fontWeight="600"
+          style={{ fontSize: "13px", fontWeight: "600" }}
           textAnchor="middle"
           fill="#ffffff"
         >
@@ -279,11 +264,10 @@ export function HorizonH3() {
         <text
           x="270"
           y="345"
-          fontSize="12"
-          fontWeight="700"
+          style={{ fontSize: "12px", fontWeight: "700" }}
           fill="#ffffff"
         >
-          Enterprise Data Processing & AI Pipeline
+          Enterprise Data Processing &amp; AI Pipeline
         </text>
 
         {/* 3x3 Grid */}
@@ -301,8 +285,7 @@ export function HorizonH3() {
         <text
           x="330"
           y="390"
-          fontSize="11"
-          fontWeight="600"
+          style={{ fontSize: "11px", fontWeight: "600" }}
           textAnchor="middle"
           fill="#1f2937"
         >
@@ -322,8 +305,7 @@ export function HorizonH3() {
         <text
           x="460"
           y="390"
-          fontSize="11"
-          fontWeight="600"
+          style={{ fontSize: "11px", fontWeight: "600" }}
           textAnchor="middle"
           fill="#1f2937"
         >
@@ -343,8 +325,7 @@ export function HorizonH3() {
         <text
           x="590"
           y="390"
-          fontSize="11"
-          fontWeight="600"
+          style={{ fontSize: "11px", fontWeight: "600" }}
           textAnchor="middle"
           fill="#1f2937"
         >
@@ -364,8 +345,7 @@ export function HorizonH3() {
         <text
           x="720"
           y="390"
-          fontSize="11"
-          fontWeight="600"
+          style={{ fontSize: "11px", fontWeight: "600" }}
           textAnchor="middle"
           fill="#ffffff"
         >
@@ -386,8 +366,7 @@ export function HorizonH3() {
         <text
           x="330"
           y="460"
-          fontSize="11"
-          fontWeight="600"
+          style={{ fontSize: "11px", fontWeight: "600" }}
           textAnchor="middle"
           fill="#1f2937"
         >
@@ -396,8 +375,7 @@ export function HorizonH3() {
         <text
           x="330"
           y="472"
-          fontSize="10"
-          fontWeight="600"
+          style={{ fontSize: "10px", fontWeight: "600" }}
           textAnchor="middle"
           fill="#1f2937"
         >
@@ -417,8 +395,7 @@ export function HorizonH3() {
         <text
           x="460"
           y="460"
-          fontSize="11"
-          fontWeight="600"
+          style={{ fontSize: "11px", fontWeight: "600" }}
           textAnchor="middle"
           fill="#1f2937"
         >
@@ -438,8 +415,7 @@ export function HorizonH3() {
         <text
           x="590"
           y="460"
-          fontSize="11"
-          fontWeight="600"
+          style={{ fontSize: "11px", fontWeight: "600" }}
           textAnchor="middle"
           fill="#1f2937"
         >
@@ -459,8 +435,7 @@ export function HorizonH3() {
         <text
           x="720"
           y="460"
-          fontSize="11"
-          fontWeight="600"
+          style={{ fontSize: "11px", fontWeight: "600" }}
           textAnchor="middle"
           fill="#ffffff"
         >
@@ -481,8 +456,7 @@ export function HorizonH3() {
         <text
           x="330"
           y="530"
-          fontSize="11"
-          fontWeight="600"
+          style={{ fontSize: "11px", fontWeight: "600" }}
           textAnchor="middle"
           fill="#1f2937"
         >
@@ -491,8 +465,7 @@ export function HorizonH3() {
         <text
           x="330"
           y="542"
-          fontSize="10"
-          fontWeight="600"
+          style={{ fontSize: "10px", fontWeight: "600" }}
           textAnchor="middle"
           fill="#1f2937"
         >
@@ -512,8 +485,7 @@ export function HorizonH3() {
         <text
           x="460"
           y="525"
-          fontSize="11"
-          fontWeight="600"
+          style={{ fontSize: "11px", fontWeight: "600" }}
           textAnchor="middle"
           fill="#1f2937"
         >
@@ -533,8 +505,7 @@ export function HorizonH3() {
         <text
           x="590"
           y="530"
-          fontSize="11"
-          fontWeight="600"
+          style={{ fontSize: "11px", fontWeight: "600" }}
           textAnchor="middle"
           fill="#1f2937"
         >
@@ -554,8 +525,7 @@ export function HorizonH3() {
         <text
           x="720"
           y="530"
-          fontSize="11"
-          fontWeight="600"
+          style={{ fontSize: "11px", fontWeight: "600" }}
           textAnchor="middle"
           fill="#ffffff"
         >
@@ -576,18 +546,16 @@ export function HorizonH3() {
         <text
           x="580"
           y="595"
-          fontSize="14"
-          fontWeight="600"
+          style={{ fontSize: "14px", fontWeight: "600" }}
           textAnchor="middle"
           fill="#ffffff"
         >
-          Global Integration Hub & Ecosystem
+          Global Integration Hub &amp; Ecosystem
         </text>
         <text
           x="580"
           y="615"
-          fontSize="11"
-          fontWeight="500"
+          style={{ fontSize: "11px", fontWeight: "500" }}
           textAnchor="middle"
           fill="#ffffff"
         >
@@ -608,8 +576,7 @@ export function HorizonH3() {
         <text
           x="580"
           y="678"
-          fontSize="12"
-          fontWeight="600"
+          style={{ fontSize: "12px", fontWeight: "600" }}
           textAnchor="middle"
           fill="#1f2937"
         >
