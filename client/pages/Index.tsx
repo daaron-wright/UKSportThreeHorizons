@@ -1,12 +1,6 @@
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { HorizonDiagram } from "@/components/dashboard/HorizonDiagram";
 import { cn } from "@/lib/utils";
 
@@ -23,59 +17,107 @@ const timelineToneClasses: Record<TimelineTone, string> = {
 const HORIZON_DATA = {
   h1: {
     label: "Horizon 1",
-    short: "Core Foundation",
+    short: "Core foundation",
     summary:
-      "Establish the secure foundations that make data trusted and actionable from day one.",
+      "Integrate the high-trust clinical and personal records already curated by UK Sport so the Performance Hub earns confidence from day one.",
     diagram: {
       title: "Performance Hub · Launch configuration",
       caption:
-        "Anchor the experience around accurate dashboards, explicit consent, and reliable data ingestion.",
+        "Bring the easiest, most trusted sources into a single, permissioned home to unlock immediate insight.",
+      axes: {
+        horizontal: "Impact",
+        vertical: "Ease of use",
+        summary:
+          "Start with datasets that are already governed, digitised, and owned by UK Sport staff.",
+      },
       clusters: [
         {
-          title: "Experience Layer",
+          title: "Clinical & personal records",
           tone: "primary" as const,
+          caption: "High ease-of-use data already maintained inside UK Sport.",
           items: [
-            { title: "Insight Dashboards" },
-            { title: "Manual Data Upload" },
-            { title: "Baseline Query Tools" },
+            {
+              title: "Medical records",
+              detail: "Pathology results and head injury reporting",
+              status: "live" as const,
+            },
+            {
+              title: "Personal details",
+              detail: "Profiles, eligibility, safeguarding flags",
+              status: "live" as const,
+            },
+            {
+              title: "Psychology & support notes",
+              detail: "Anthropometry and wellbeing questionnaires",
+              status: "live" as const,
+            },
           ],
         },
         {
-          title: "Consent Core",
-          tone: "accent" as const,
-          items: [
-            { title: "Athlete Consent" },
-            { title: "Data Governance" },
-            { title: "Audit Trail" },
-          ],
-        },
-        {
-          title: "Data Foundation",
+          title: "Training administration",
           tone: "neutral" as const,
+          caption: "Structured documents that capture daily plans and reporting.",
           items: [
-            { title: "Athlete Records" },
-            { title: "Internal Knowledge" },
-            { title: "Competition Results" },
+            {
+              title: "Training plans",
+              detail: "Planned sessions and load targets",
+              status: "expanding" as const,
+            },
+            {
+              title: "Activity physiology snapshots",
+              detail: "Testing summaries and baseline metrics",
+              status: "expanding" as const,
+            },
+            {
+              title: "Athlete profiling",
+              detail: "Discipline, stage, key performance indicators",
+              status: "expanding" as const,
+            },
+          ],
+        },
+        {
+          title: "Consent & governance",
+          tone: "accent" as const,
+          caption: "Ensure every record is traceable and permissioned.",
+          items: [
+            {
+              title: "Consent register",
+              detail: "Consent? module with renewals and scope",
+              status: "live" as const,
+            },
+            {
+              title: "Audit trail",
+              detail: "Staff access, edits, and hand-offs",
+              status: "live" as const,
+            },
+            {
+              title: "Policy repository",
+              detail: "Policies and procedures for all sources",
+              status: "live" as const,
+            },
           ],
         },
       ],
       footerNote:
-        "Connects to authoritative athlete profiles and essential third-party performance feeds.",
+        "This horizon establishes a compliant, single source of truth that underpins every dashboard and report.",
     },
     timeline: [
       {
         title: "H1: Now",
-        description: "Secure logins, explicit consent capture, and trusted reporting dashboards.",
+        description:
+          "Onboard medical records, personal details, and policy libraries under a unified consent register.",
         tone: "primary" as TimelineTone,
       },
       {
         title: "Focus",
-        description: "Stabilise core workflows and make data entry effortless for staff and athletes.",
+        description:
+          "Streamline governance and data-entry workflows so staff can trust outputs immediately.",
         tone: "neutral" as TimelineTone,
       },
       {
         title: "Outcome",
-        description: "Every decision is backed by a single source of truth for athlete status.",
+        description:
+          "Baseline dashboards mirror the best-available records with full auditability.",
         tone: "accent" as TimelineTone,
       },
     ],
@@ -84,57 +126,105 @@ const HORIZON_DATA = {
     label: "Horizon 2",
     short: "Expansion",
     summary:
-      "Layer richer automation and retrieval-augmented intelligence on top of the trusted core.",
+      "Blend richer monitoring sources—video, wellness, and training loads—with retrieval tooling to elevate impact while adoption stays manageable.",
     diagram: {
       title: "Performance Hub · Scaling intelligence",
       caption:
-        "Blend multi-modal data capture with responsive knowledge retrieval to improve coaching decisions.",
+        "Move into higher-impact performance monitoring streams and connect them to responsive knowledge retrieval.",
+      axes: {
+        horizontal: "Impact",
+        vertical: "Ease of use",
+        summary:
+          "Invest effort in onboarding mixed-media and sensor data to unlock coaching advantage.",
+      },
       clusters: [
         {
-          title: "Experience Layer",
+          title: "Performance monitoring",
           tone: "primary" as const,
+          caption: "Data that boosts insight with manageable onboarding.",
           items: [
-            { title: "Dynamic Dashboards" },
-            { title: "Scenario Planning" },
-            { title: "On-demand Briefings" },
+            {
+              title: "Athlete wellness",
+              detail: "Daily questionnaires and readiness signals",
+              status: "expanding" as const,
+            },
+            {
+              title: "Testing monitoring",
+              detail: "Gas consumption and physiology labs",
+              status: "expanding" as const,
+            },
+            {
+              title: "Training monitoring",
+              detail: "Actual vs planned session execution",
+              status: "expanding" as const,
+            },
           ],
         },
         {
-          title: "Intelligence Core",
-          tone: "accent" as const,
-          items: [
-            { title: "RAG Retrieval" },
-            { title: "Vector Store" },
-            { title: "Knowledge Graph" },
-          ],
-        },
-        {
-          title: "Data Expansion",
+          title: "Session & media intelligence",
           tone: "neutral" as const,
+          caption: "Higher impact formats requiring new tooling.",
           items: [
-            { title: "Wearables & Video" },
-            { title: "Competition APIs" },
-            { title: "Training Loads" },
+            {
+              title: "Video library",
+              detail: "Performance versus plan clips",
+              status: "expanding" as const,
+            },
+            {
+              title: "Competition insights",
+              detail: "Live competition results contextualised",
+              status: "expanding" as const,
+            },
+            {
+              title: "Performance analytics",
+              detail: "Visual comparison dashboards",
+              status: "expanding" as const,
+            },
+          ],
+        },
+        {
+          title: "Intelligence core",
+          tone: "accent" as const,
+          caption: "Connect retrieval and knowledge layers.",
+          items: [
+            {
+              title: "RAG retrieval",
+              detail: "Surface consented knowledge instantly",
+              status: "expanding" as const,
+            },
+            {
+              title: "Vector store",
+              detail: "Index multi-modal content for queries",
+              status: "expanding" as const,
+            },
+            {
+              title: "Knowledge graph",
+              detail: "Link athletes, staff, and competitions",
+              status: "future" as const,
+            },
           ],
         },
       ],
       footerNote:
-        "Automated ingestion and retrieval pipelines unlock faster answers for coaches and practitioners.",
+        "Coaches gain context-rich insight without leaving the hub, supported by consistent consent governance.",
     },
     timeline: [
       {
         title: "H2: 6-12 Months",
-        description: "Add automated RAG flows, improved data quality signals, and multi-modal capture.",
+        description:
+          "Integrate wellness, testing, video, and competition feeds with richer analytics.",
         tone: "primary" as TimelineTone,
       },
       {
         title: "Focus",
-        description: "Shorten time-to-insight by surfacing relevant knowledge directly in workflows.",
+        description:
+          "Build ingestion pipelines and QA for mixed media and sensor data.",
         tone: "neutral" as TimelineTone,
       },
       {
         title: "Outcome",
-        description: "Practitioners explore deeper insights with confidence in provenance and consent status.",
+        description:
+          "Coaching teams receive context and recommendations in a single workspace.",
         tone: "accent" as TimelineTone,
       },
     ],
@@ -143,57 +233,105 @@ const HORIZON_DATA = {
     label: "Horizon 3",
     short: "Transformation",
     summary:
-      "Orchestrate autonomous analysis, predictive intelligence, and continuous data ecosystems.",
+      "Orchestrate high-impact external intelligence and autonomous analysis so the Performance Hub becomes a proactive partner.",
     diagram: {
       title: "Performance Hub · Full ecosystem",
       caption:
-        "Real-time orchestration keeps the consented athlete view current while AI agents propose actions.",
+        "Fuse external SSSM insight, research projects, and real-time telemetry with AI-driven orchestration.",
+      axes: {
+        horizontal: "Impact",
+        vertical: "Ease of use",
+        summary:
+          "Lean into higher-complexity integrations that deliver outsized competitive advantage.",
+      },
       clusters: [
         {
-          title: "Experience Layer",
-          tone: "primary" as const,
-          items: [
-            { title: "Adaptive Dashboards" },
-            { title: "AI Coaching Copilot" },
-            { title: "Instant Reporting" },
-          ],
-        },
-        {
-          title: "Autonomy Core",
-          tone: "accent" as const,
-          items: [
-            { title: "Reasoning Agents" },
-            { title: "Simulation Engine" },
-            { title: "Proactive Alerts" },
-          ],
-        },
-        {
-          title: "Connected Data",
+          title: "External SSSM & research",
           tone: "neutral" as const,
+          caption: "High impact but complex to acquire and govern.",
           items: [
-            { title: "Global Data Mesh" },
-            { title: "Federated Sources" },
-            { title: "Streaming Pipelines" },
+            {
+              title: "External SSSM insight",
+              detail: "Partner institutes & third-party labs",
+              status: "future" as const,
+            },
+            {
+              title: "Bespoke research feeds",
+              detail: "Academic collaborations and trials",
+              status: "future" as const,
+            },
+            {
+              title: "Performance data lab",
+              detail: "Longitudinal benchmarking datasets",
+              status: "future" as const,
+            },
+          ],
+        },
+        {
+          title: "Autonomous intelligence",
+          tone: "accent" as const,
+          caption: "Automate recommendations across the hub.",
+          items: [
+            {
+              title: "Reasoning agents",
+              detail: "LLM/SLM coaching copilots",
+              status: "future" as const,
+            },
+            {
+              title: "Simulation modelling",
+              detail: "Scenario testing and medal projections",
+              status: "future" as const,
+            },
+            {
+              title: "Proactive alerts",
+              detail: "Automated readiness and risk flags",
+              status: "future" as const,
+            },
+          ],
+        },
+        {
+          title: "Real-time ecosystem",
+          tone: "primary" as const,
+          caption: "Continuously updating streams that demand orchestration.",
+          items: [
+            {
+              title: "Live competition feeds",
+              detail: "Streaming and API integrations",
+              status: "future" as const,
+            },
+            {
+              title: "Wearables & IoT telemetry",
+              detail: "Real-time biometrics within consent controls",
+              status: "future" as const,
+            },
+            {
+              title: "Automation playbooks",
+              detail: "Trigger workflows and staff support tasks",
+              status: "future" as const,
+            },
           ],
         },
       ],
       footerNote:
-        "Closed-loop integrations trigger playbooks automatically while maintaining compliance.",
+        "Closed-loop orchestration means the hub can recommend and, where appropriate, trigger action automatically.",
     },
     timeline: [
       {
         title: "H3: 1+ Years",
-        description: "AI-first operations with continuous data orchestration and predictive insights.",
+        description:
+          "Fuse external SSSM intel, research data, and real-time telemetry into the hub.",
         tone: "primary" as TimelineTone,
       },
       {
         title: "Focus",
-        description: "Empower teams with autonomous recommendations and scenario testing.",
+        description:
+          "Automate analysis with reasoning agents, simulations, and proactive alerting.",
         tone: "neutral" as TimelineTone,
       },
       {
         title: "Outcome",
-        description: "Performance Hub becomes a proactive partner driving medal-winning decisions.",
+        description:
+          "The hub orchestrates proactive support and data-driven actions across the system.",
         tone: "accent" as TimelineTone,
       },
     ],
@@ -208,7 +346,6 @@ const HORIZON_DATA = {
 
 export default function Index() {
   const [activeHorizon, setActiveHorizon] = useState<HorizonKey>("h1");
-  const selected = HORIZON_DATA[activeHorizon];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-blue-50/30 to-white">
@@ -218,11 +355,11 @@ export default function Index() {
             UK Sport Framework
           </span>
           <h1 className="mt-6 text-4xl font-bold tracking-tight text-primary sm:text-5xl">
-            Three Horizons Framework
+            Three Horizons Data Integration
           </h1>
           <p className="mt-4 text-lg text-slate-600">
-            Tab through the evolution of the Performance Hub and see how each horizon builds on the
-            last with a simple, consent-centred box diagram.
+            Tab through the horizons to see how UK Sport incrementally integrates new data sources—
+            moving from high ease-of-use records to high-impact intelligence.
           </p>
         </div>
 
@@ -266,6 +403,7 @@ export default function Index() {
                       caption={horizon.diagram.caption}
                       clusters={horizon.diagram.clusters}
                       footerNote={horizon.diagram.footerNote}
+                      axes={horizon.diagram.axes}
                     />
                   </div>
                 </section>
