@@ -900,11 +900,14 @@ export default function Index() {
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <span className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-blue-700">
-            UK Sport Framework
+            UKSport 2025
           </span>
           <h1 className="mt-6 text-4xl font-bold tracking-tight text-primary sm:text-5xl">
-            Three Horizons Data Integration
+            Athlete Hub Design Development
           </h1>
+          <p className="mt-3 text-base font-semibold uppercase tracking-[0.28em] text-blue-600">
+            Three Horizons Data Integration
+          </p>
           <p className="mt-4 text-lg text-slate-600">
             Tab through the horizons to see how UK Sport incrementally integrates new data sources—
             moving from high ease-of-use records to high-impact intelligence.
