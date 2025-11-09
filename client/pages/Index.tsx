@@ -116,11 +116,11 @@ const HORIZON_DATA = {
     ui: {
       title: "Launch UI snapshot",
       description:
-        "A calm, card-driven dashboard that surfaces consent status and quick links to trusted medical records.",
+        "State-of-the-art clinical console built around clarity, reassurance, and rapid navigation of trusted records.",
       highlights: [
-        "Hero banner shows consent badge and alerts for expiring approvals.",
-        "Navigation prioritises athlete profile, medical notes, and policy library.",
-        "Manual data upload tiles guide staff through streamlined forms.",
+        "Responsive hero surface blends athlete portrait, consent signals, and critical alerts in a single adaptive band.",
+        "Modular side navigation anchors universal patterns—clinic, profile, compliance—while opening detail panes in-place.",
+        "Context-aware action shelf pairs primary workflows (admit, log incident) with microcopy and validation feedback.",
       ],
       palette: {
         background: "linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)",
