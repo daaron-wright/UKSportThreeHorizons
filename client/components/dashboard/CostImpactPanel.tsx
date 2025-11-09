@@ -149,14 +149,20 @@ export function CostImpactPanel() {
                 Manual future
               </text>
 
-              <path
-                d="M210 122 l6 6 m-6 0 l6 -6"
+              <line
+                x1="204"
+                y1="124"
+                x2="216"
+                y2="136"
                 stroke="#1d4ed8"
                 strokeWidth="3"
                 strokeLinecap="round"
               />
-              <path
-                d="M204 128 l6 6 m-6 0 l6 -6"
+              <line
+                x1="204"
+                y1="136"
+                x2="216"
+                y2="124"
                 stroke="#1d4ed8"
                 strokeWidth="3"
                 strokeLinecap="round"
