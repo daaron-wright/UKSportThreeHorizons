@@ -436,8 +436,8 @@ const HORIZON_DATA = {
               }),
             },
             {
-              title: "Competition insights",
-              detail: "Live competition results enriched for coaching context.",
+              title: "Competition results (ENetPulse)",
+              detail: "Central results feed processed through ENetPulse for analytics.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
               metadata: createMetadata({
@@ -448,8 +448,32 @@ const HORIZON_DATA = {
               }),
             },
             {
+              title: "Competition results (federations)",
+              detail: "Event and federation feeds captured on the road when ENetPulse is unavailable.",
+              status: "expanding" as const,
+              tags: QUADRANT_TAGS.emergingEaseHighImpact,
+              metadata: createMetadata({
+                product: "Competition",
+                system: "Federation websites / manual capture",
+                access: "External",
+                ownership: "Federation / event",
+              }),
+            },
+            {
+              title: "Medal expectancy",
+              detail: "UK Sport projections modelling medal likelihood across campaigns.",
+              status: "expanding" as const,
+              tags: QUADRANT_TAGS.emergingEaseHighImpact,
+              metadata: createMetadata({
+                product: "Competition",
+                system: "UKS",
+                access: "Internal",
+                ownership: "UKS",
+              }),
+            },
+            {
               title: "Performance analytics",
-              detail: "Visual comparison dashboards highlighting performance versus potential.",
+              detail: "Performance vs potential dashboards served by UKS tooling.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
               metadata: createMetadata({
