@@ -274,21 +274,39 @@ const HORIZON_DATA = {
           items: [
             {
               title: "Athlete wellness",
-              detail: "Daily questionnaires and readiness signals",
+              detail: "Daily questionnaires and readiness signals collected in PDMS.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
+              metadata: createMetadata({
+                product: "PDMS",
+                source: "PDMS",
+                access: "Internal",
+                ownership: "UKSI",
+              }),
             },
             {
               title: "Testing monitoring",
-              detail: "Gas consumption and physiology labs",
+              detail: "Gas consumption and physiology labs drawn from Vald Hub and AMPLIFY.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
+              metadata: createMetadata({
+                product: "Vald Hub / AMPLIFY",
+                source: "Vald Hub / AMPLIFY",
+                access: "External",
+                ownership: "UKSI",
+              }),
             },
             {
               title: "Training monitoring",
-              detail: "Actual vs planned session execution",
+              detail: "Actual versus planned session execution across mixed sensor feeds.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
+              metadata: createMetadata({
+                product: "Multiple sensors",
+                source: "Multiple / sensors",
+                access: "Internal / External",
+                ownership: "NGB",
+              }),
             },
           ],
         },
