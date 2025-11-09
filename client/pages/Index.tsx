@@ -772,6 +772,19 @@ const HORIZON_DATA = {
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
             },
             {
+              title: "Bespoke sport sensors and DBs",
+              detail: "Discipline-specific telemetry such as Nemo, track, and Bounce datasets.",
+              status: "future" as const,
+              tags: QUADRANT_TAGS.emergingEaseHighImpact,
+              impactLevel: "high",
+              metadata: createMetadata({
+                product: "Training",
+                system: "Sport-specific systems",
+                access: "Internal",
+                ownership: "NGB",
+              }),
+            },
+            {
               title: "Automation playbooks",
               detail: "Trigger workflows and staff support tasks",
               status: "future" as const,
