@@ -457,7 +457,91 @@ export default function Index() {
                       <p className="mt-3 text-base text-slate-600">{horizon.summary}</p>
                     </header>
 
-                    <div className="mt-8">
+                    <div className="mt-8 space-y-8">
+                      <section className="relative overflow-hidden rounded-3xl border border-blue-100/80 bg-gradient-to-br from-white via-blue-50/60 to-white p-8 shadow-lg">
+                        <div
+                          aria-hidden
+                          className="absolute -right-24 top-1/2 h-64 w-64 -translate-y-1/2 rounded-full bg-primary/10 blur-3xl"
+                        />
+                        <div
+                          aria-hidden
+                          className="absolute -left-20 -top-10 h-52 w-52 rounded-full bg-red-200/20 blur-3xl"
+                        />
+                        <div className="relative grid items-start gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+                          <div className="space-y-6">
+                            <div className="flex flex-wrap items-center gap-3">
+                              <Badge className="rounded-full bg-primary px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-primary-foreground">
+                                {horizon.label}
+                              </Badge>
+                              <Badge className="rounded-full border border-blue-200 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">
+                                UI Evolution
+                              </Badge>
+                            </div>
+                            <h3 className="text-2xl font-semibold text-primary">
+                              {horizon.ui.title}
+                            </h3>
+                            <p className="text-sm leading-relaxed text-slate-600">
+                              {horizon.ui.description}
+                            </p>
+                            <div className="grid gap-3">
+                              {horizon.ui.highlights.map((point, index) => (
+                                <div
+                                  key={point}
+                                  className="flex items-start gap-3 rounded-2xl border border-blue-100/80 bg-white/95 p-4 shadow-sm"
+                                >
+                                  <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-blue-600 text-xs font-semibold text-white">
+                                    {index + 1}
+                                  </span>
+                                  <p className="text-sm text-slate-700">{point}</p>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+
+                          <div
+                            className="relative overflow-hidden rounded-2xl border border-white/60 bg-white/85 p-6 shadow-xl"
+                            style={{ background: horizon.ui.palette.background }}
+                          >
+                            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
+                              <span className="inline-flex h-1 w-12 rounded-full bg-blue-500/80" />
+                              Interface preview
+                            </div>
+                            <div className="mt-5 space-y-4">
+                              <div
+                                className="rounded-xl border border-white/60 bg-white/90 p-4 shadow-sm"
+                                style={{ borderColor: horizon.ui.palette.grid }}
+                              >
+                                <p className="text-sm font-semibold text-primary">Primary workspace</p>
+                                <p className="mt-2 text-xs text-slate-600">
+                                  Layout rebalances to spotlight the data and tools unlocked in this horizon.
+                                </p>
+                              </div>
+                              <div className="grid gap-3 sm:grid-cols-2">
+                                {horizon.ui.highlights.slice(0, 2).map((point) => (
+                                  <div
+                                    key={point}
+                                    className="rounded-lg border border-white/60 bg-white/90 p-3 text-xs font-medium text-slate-600 shadow-sm"
+                                  >
+                                    {point}
+                                  </div>
+                                ))}
+                              </div>
+                              <div className="flex flex-wrap gap-2">
+                                <Badge variant="secondary" className="border border-blue-200 bg-white text-xs">
+                                  Adaptive UI
+                                </Badge>
+                                <Badge variant="secondary" className="border border-red-200 bg-white text-xs">
+                                  Data aware
+                                </Badge>
+                                <Badge variant="secondary" className="border border-slate-200 bg-white text-xs">
+                                  Consent aligned
+                                </Badge>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+
                       <HorizonDiagram
                         title={horizon.diagram.title}
                         caption={horizon.diagram.caption}
@@ -466,87 +550,6 @@ export default function Index() {
                         axes={horizon.diagram.axes}
                       />
                     </div>
-                  </section>
-
-                  <section className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
-                    <Card className="border-blue-100 bg-white/95 shadow-sm">
-                      <CardHeader>
-                        <span className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">
-                          UI Evolution
-                        </span>
-                        <CardTitle className="mt-2 text-xl text-primary">
-                          {horizon.ui.title}
-                        </CardTitle>
-                        <CardDescription className="mt-3 text-sm text-slate-600">
-                          {horizon.ui.description}
-                        </CardDescription>
-                        <ul className="mt-4 space-y-3 text-sm text-slate-600">
-                          {horizon.ui.highlights.map((point) => (
-                            <li key={point} className="flex gap-2">
-                              <span className="mt-1 h-2 w-2 flex-none rounded-full bg-blue-500" />
-                              <span>{point}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </CardHeader>
-                    </Card>
-
-                    <Card className="relative overflow-hidden border-blue-100">
-                      <div
-                        aria-hidden
-                        className="absolute inset-0"
-                        style={{ background: horizon.ui.palette.background }}
-                      />
-                      <div className="relative flex h-full flex-col gap-5 rounded-[18px] border border-white/50 bg-white/70 p-6 shadow-inner">
-                        <div className="flex items-center gap-2">
-                          <span className="h-2.5 w-2.5 rounded-full bg-blue-400" />
-                          <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
-                          <span className="h-2.5 w-2.5 rounded-full bg-slate-300" />
-                          <span className="ml-auto text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
-                            Preview
-                          </span>
-                        </div>
-
-                        <div className="grid gap-4">
-                          <div
-                            className="h-24 rounded-xl border p-4"
-                            style={{
-                              background: horizon.ui.palette.accent,
-                              borderColor: horizon.ui.palette.grid,
-                            }}
-                          >
-                            <p className="text-sm font-semibold text-primary">Primary workspace</p>
-                            <p className="mt-2 text-xs text-slate-600">
-                              Layout shifts to highlight the modules introduced this horizon.
-                            </p>
-                          </div>
-
-                          <div className="grid gap-3 sm:grid-cols-2">
-                            {horizon.ui.highlights.slice(0, 2).map((point) => (
-                              <div
-                                key={point}
-                                className="rounded-xl border bg-white/80 p-3 text-xs font-medium text-slate-600 shadow-sm"
-                                style={{ borderColor: horizon.ui.palette.grid }}
-                              >
-                                {point}
-                              </div>
-                            ))}
-                          </div>
-
-                          <div className="flex flex-wrap gap-2">
-                            <Badge variant="secondary" className="border border-blue-200 bg-white text-xs">
-                              Adaptive UI
-                            </Badge>
-                            <Badge variant="secondary" className="border border-red-200 bg-white text-xs">
-                              Data aware
-                            </Badge>
-                            <Badge variant="secondary" className="border border-slate-200 bg-white text-xs">
-                              Consent aligned
-                            </Badge>
-                          </div>
-                        </div>
-                      </div>
-                    </Card>
                   </section>
 
                   <section>
