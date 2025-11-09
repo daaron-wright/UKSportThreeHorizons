@@ -168,7 +168,7 @@ const HORIZON_DATA = {
               }),
             },
             {
-              title: "Injury & illness surveillance",
+              title: "Injury/illness surveillance (Athlete Health Intelligence)",
               detail: "Athlete Health Intelligence tracking of injuries and illnesses via PDMS.",
               status: "live" as const,
               tags: QUADRANT_TAGS.highEaseHighImpact,
@@ -226,7 +226,7 @@ const HORIZON_DATA = {
           caption: "Structured documents that capture daily plans and reporting.",
           items: [
             {
-              title: "Training plans & actuals (systemised)",
+              title: "Training plans and actuals - systemised",
               detail: "Planned sessions and workload targets authored in TeamBuildr.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.highEaseEmergingImpact,
@@ -318,7 +318,7 @@ const HORIZON_DATA = {
           caption: "Campaign metrics that influence early decision-making.",
           items: [
             {
-              title: "Medal expectancy",
+              title: "Medal Expectancy",
               detail: "UK Sport projections modelling medal likelihood across campaigns.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.highEaseHighImpact,
