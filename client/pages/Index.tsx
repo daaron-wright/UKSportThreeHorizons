@@ -154,7 +154,7 @@ const HORIZON_DATA = {
               status: "expanding" as const,
               tags: QUADRANT_TAGS.highEaseEmergingImpact,
               metadata: createMetadata({
-                product: "TeamBuildr",
+                product: "Training",
                 system: "TeamBuildr",
                 access: "External",
                 ownership: "UKSI",
