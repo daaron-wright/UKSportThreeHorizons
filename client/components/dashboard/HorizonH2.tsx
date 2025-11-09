@@ -244,7 +244,7 @@ export function HorizonH2() {
           rx="6"
         />
 
-        {/* Label */}
+        {/* Consent label */}
         <text
           x="290"
           y="320"
