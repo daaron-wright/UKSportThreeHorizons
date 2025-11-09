@@ -522,6 +522,37 @@ const HORIZON_DATA = {
             },
           ],
         },
+        {
+          title: "Pathway progression",
+          tone: "primary" as const,
+          caption: "Signals that track athlete journey through the pathway.",
+          items: [
+            {
+              title: "Athlete pathway basics",
+              detail: "Baseline name, stage, and results captured from events and competitions.",
+              status: "expanding" as const,
+              tags: QUADRANT_TAGS.emergingEaseEmergingImpact,
+              metadata: createMetadata({
+                product: "Athlete pathway",
+                system: "Events & competitions",
+                access: "Internal / External",
+                ownership: "NGB",
+              }),
+            },
+            {
+              title: "Athlete pathway advanced",
+              detail: "Key mental, physical, and health characteristics stitched from multiple sources.",
+              status: "expanding" as const,
+              tags: QUADRANT_TAGS.emergingEaseEmergingImpact,
+              metadata: createMetadata({
+                product: "Athlete pathway",
+                system: "Multiple pathway systems",
+                access: "Internal / External",
+                ownership: "Shared",
+              }),
+            },
+          ],
+        },
       ],
       footerNote:
         "Coaches gain context-rich insight without leaving the hub, supported by consistent consent governance.",
