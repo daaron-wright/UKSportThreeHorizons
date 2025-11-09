@@ -278,7 +278,7 @@ const HORIZON_DATA = {
               status: "expanding" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
               metadata: createMetadata({
-                product: "PDMS",
+                product: "Health",
                 system: "PDMS",
                 access: "Internal",
                 ownership: "UKSI",
