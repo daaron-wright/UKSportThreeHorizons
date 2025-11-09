@@ -110,6 +110,7 @@ const HORIZON_DATA = {
               detail: "Clinical case notes and diagnostic history managed in PDMS.",
               status: "live" as const,
               tags: QUADRANT_TAGS.highEaseHighImpact,
+              impactLevel: "low",
               metadata: createMetadata({
                 product: "Health",
                 system: "PDMS",
@@ -122,6 +123,7 @@ const HORIZON_DATA = {
               detail: "Identity, eligibility, and safeguarding managed through GMS/PDMS.",
               status: "live" as const,
               tags: QUADRANT_TAGS.highEaseHighImpact,
+              impactLevel: "low",
               metadata: createMetadata({
                 product: "Membership",
                 system: "GMS / PDMS (Entra ID roadmap)",
@@ -170,6 +172,7 @@ const HORIZON_DATA = {
               detail: "Athlete Health Intelligence tracking of injuries and illnesses via PDMS.",
               status: "live" as const,
               tags: QUADRANT_TAGS.highEaseHighImpact,
+              impactLevel: "high",
               metadata: createMetadata({
                 product: "Health",
                 system: "PDMS",
@@ -182,6 +185,7 @@ const HORIZON_DATA = {
               detail: "Lab feeds supplied by iChor and Randox partners.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.highEaseEmergingImpact,
+              impactLevel: "low",
               metadata: createMetadata({
                 product: "Health",
                 system: "iChor / Randox",
@@ -194,6 +198,7 @@ const HORIZON_DATA = {
               detail: "Head injury and concussion checks recorded through CSx.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.highEaseEmergingImpact,
+              impactLevel: "low",
               metadata: createMetadata({
                 product: "Health",
                 system: "CSx",
