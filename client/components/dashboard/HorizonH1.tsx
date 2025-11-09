@@ -261,7 +261,6 @@ export function HorizonH1() {
           fontSize="12"
           fontWeight="700"
           fill="#ffffff"
-          backgroundColor="#000000"
         >
           Consent Module
         </text>
