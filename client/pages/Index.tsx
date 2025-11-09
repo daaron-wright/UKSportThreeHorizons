@@ -178,7 +178,7 @@ const HORIZON_DATA = {
               status: "expanding" as const,
               tags: QUADRANT_TAGS.highEaseEmergingImpact,
               metadata: createMetadata({
-                product: "Excel",
+                product: "Health",
                 system: "Excel",
                 access: "Internal",
                 ownership: "NGB",
