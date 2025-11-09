@@ -1,121 +1,301 @@
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { HorizonH1 } from "@/components/dashboard/HorizonH1";
-import { HorizonH2 } from "@/components/dashboard/HorizonH2";
-import { HorizonH3 } from "@/components/dashboard/HorizonH3";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { HorizonDiagram } from "@/components/dashboard/HorizonDiagram";
+import { cn } from "@/lib/utils";
+
+type HorizonKey = keyof typeof HORIZON_DATA;
+
+type TimelineTone = "primary" | "accent" | "neutral";
+
+const timelineToneClasses: Record<TimelineTone, string> = {
+  primary: "border-blue-200 bg-blue-50/75 text-blue-900",
+  accent: "border-red-200 bg-red-50/75 text-red-900",
+  neutral: "border-slate-200 bg-slate-50 text-slate-700",
+};
+
+const HORIZON_DATA = {
+  h1: {
+    label: "Horizon 1",
+    short: "Core Foundation",
+    summary:
+      "Establish the secure foundations that make data trusted and actionable from day one.",
+    diagram: {
+      title: "Performance Hub · Launch configuration",
+      caption:
+        "Anchor the experience around accurate dashboards, explicit consent, and reliable data ingestion.",
+      clusters: [
+        {
+          title: "Experience Layer",
+          tone: "primary" as const,
+          items: [
+            { title: "Insight Dashboards" },
+            { title: "Manual Data Upload" },
+            { title: "Baseline Query Tools" },
+          ],
+        },
+        {
+          title: "Consent Core",
+          tone: "accent" as const,
+          items: [
+            { title: "Athlete Consent" },
+            { title: "Data Governance" },
+            { title: "Audit Trail" },
+          ],
+        },
+        {
+          title: "Data Foundation",
+          tone: "neutral" as const,
+          items: [
+            { title: "Athlete Records" },
+            { title: "Internal Knowledge" },
+            { title: "Competition Results" },
+          ],
+        },
+      ],
+      footerNote:
+        "Connects to authoritative athlete profiles and essential third-party performance feeds.",
+    },
+    timeline: [
+      {
+        title: "H1: Now",
+        description: "Secure logins, explicit consent capture, and trusted reporting dashboards.",
+        tone: "primary" as TimelineTone,
+      },
+      {
+        title: "Focus",
+        description: "Stabilise core workflows and make data entry effortless for staff and athletes.",
+        tone: "neutral" as TimelineTone,
+      },
+      {
+        title: "Outcome",
+        description: "Every decision is backed by a single source of truth for athlete status.",
+        tone: "accent" as TimelineTone,
+      },
+    ],
+  },
+  h2: {
+    label: "Horizon 2",
+    short: "Expansion",
+    summary:
+      "Layer richer automation and retrieval-augmented intelligence on top of the trusted core.",
+    diagram: {
+      title: "Performance Hub · Scaling intelligence",
+      caption:
+        "Blend multi-modal data capture with responsive knowledge retrieval to improve coaching decisions.",
+      clusters: [
+        {
+          title: "Experience Layer",
+          tone: "primary" as const,
+          items: [
+            { title: "Dynamic Dashboards" },
+            { title: "Scenario Planning" },
+            { title: "On-demand Briefings" },
+          ],
+        },
+        {
+          title: "Intelligence Core",
+          tone: "accent" as const,
+          items: [
+            { title: "RAG Retrieval" },
+            { title: "Vector Store" },
+            { title: "Knowledge Graph" },
+          ],
+        },
+        {
+          title: "Data Expansion",
+          tone: "neutral" as const,
+          items: [
+            { title: "Wearables & Video" },
+            { title: "Competition APIs" },
+            { title: "Training Loads" },
+          ],
+        },
+      ],
+      footerNote:
+        "Automated ingestion and retrieval pipelines unlock faster answers for coaches and practitioners.",
+    },
+    timeline: [
+      {
+        title: "H2: 6-12 Months",
+        description: "Add automated RAG flows, improved data quality signals, and multi-modal capture.",
+        tone: "primary" as TimelineTone,
+      },
+      {
+        title: "Focus",
+        description: "Shorten time-to-insight by surfacing relevant knowledge directly in workflows.",
+        tone: "neutral" as TimelineTone,
+      },
+      {
+        title: "Outcome",
+        description: "Practitioners explore deeper insights with confidence in provenance and consent status.",
+        tone: "accent" as TimelineTone,
+      },
+    ],
+  },
+  h3: {
+    label: "Horizon 3",
+    short: "Transformation",
+    summary:
+      "Orchestrate autonomous analysis, predictive intelligence, and continuous data ecosystems.",
+    diagram: {
+      title: "Performance Hub · Full ecosystem",
+      caption:
+        "Real-time orchestration keeps the consented athlete view current while AI agents propose actions.",
+      clusters: [
+        {
+          title: "Experience Layer",
+          tone: "primary" as const,
+          items: [
+            { title: "Adaptive Dashboards" },
+            { title: "AI Coaching Copilot" },
+            { title: "Instant Reporting" },
+          ],
+        },
+        {
+          title: "Autonomy Core",
+          tone: "accent" as const,
+          items: [
+            { title: "Reasoning Agents" },
+            { title: "Simulation Engine" },
+            { title: "Proactive Alerts" },
+          ],
+        },
+        {
+          title: "Connected Data",
+          tone: "neutral" as const,
+          items: [
+            { title: "Global Data Mesh" },
+            { title: "Federated Sources" },
+            { title: "Streaming Pipelines" },
+          ],
+        },
+      ],
+      footerNote:
+        "Closed-loop integrations trigger playbooks automatically while maintaining compliance.",
+    },
+    timeline: [
+      {
+        title: "H3: 1+ Years",
+        description: "AI-first operations with continuous data orchestration and predictive insights.",
+        tone: "primary" as TimelineTone,
+      },
+      {
+        title: "Focus",
+        description: "Empower teams with autonomous recommendations and scenario testing.",
+        tone: "neutral" as TimelineTone,
+      },
+      {
+        title: "Outcome",
+        description: "Performance Hub becomes a proactive partner driving medal-winning decisions.",
+        tone: "accent" as TimelineTone,
+      },
+    ],
+  },
+} satisfies Record<string, {
+  label: string;
+  short: string;
+  summary: string;
+  diagram: Parameters<typeof HorizonDiagram>[0];
+  timeline: { title: string; description: string; tone: TimelineTone }[];
+}>;
 
 export default function Index() {
-  const [activeHorizon, setActiveHorizon] = useState("h1");
+  const [activeHorizon, setActiveHorizon] = useState<HorizonKey>("h1");
+  const selected = HORIZON_DATA[activeHorizon];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="mb-12 text-center">
-          <h1 className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl">
+    <div className="min-h-screen bg-gradient-to-br from-white via-blue-50/30 to-white">
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+          <span className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-blue-700">
+            UK Sport Framework
+          </span>
+          <h1 className="mt-6 text-4xl font-bold tracking-tight text-primary sm:text-5xl">
             Three Horizons Framework
           </h1>
-          <p className="mt-4 text-lg text-slate-400">
-            Explore the evolution of our architecture across three strategic horizons
+          <p className="mt-4 text-lg text-slate-600">
+            Tab through the evolution of the Performance Hub and see how each horizon builds on the
+            last with a simple, consent-centred box diagram.
           </p>
         </div>
 
-        {/* Tabs */}
         <Tabs
           value={activeHorizon}
-          onValueChange={setActiveHorizon}
-          className="w-full"
+          onValueChange={(value) => setActiveHorizon(value as HorizonKey)}
+          className="mt-12"
         >
-          <div className="mb-8 flex justify-center">
-            <TabsList className="grid w-full max-w-md grid-cols-3 bg-slate-700/50 p-1">
-              <TabsTrigger
-                value="h1"
-                className="rounded-md data-[state=active]:bg-blue-600 data-[state=active]:text-white"
-              >
-                <span className="font-semibold">Horizon 1</span>
-              </TabsTrigger>
-              <TabsTrigger
-                value="h2"
-                className="rounded-md data-[state=active]:bg-purple-600 data-[state=active]:text-white"
-              >
-                <span className="font-semibold">Horizon 2</span>
-              </TabsTrigger>
-              <TabsTrigger
-                value="h3"
-                className="rounded-md data-[state=active]:bg-cyan-600 data-[state=active]:text-white"
-              >
-                <span className="font-semibold">Horizon 3</span>
-              </TabsTrigger>
+          <div className="flex justify-center">
+            <TabsList className="grid w-full max-w-xl grid-cols-3 gap-1 rounded-full border border-blue-100 bg-white/80 p-1 shadow-sm">
+              {(Object.keys(HORIZON_DATA) as HorizonKey[]).map((key) => (
+                <TabsTrigger
+                  key={key}
+                  value={key}
+                  className="rounded-full px-6 py-2 text-sm font-semibold text-slate-600 transition data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                >
+                  {HORIZON_DATA[key].label}
+                </TabsTrigger>
+              ))}
             </TabsList>
           </div>
 
-          {/* Horizon 1 */}
-          <TabsContent value="h1" className="animate-fade-in">
-            <div className="rounded-xl border border-slate-700 bg-slate-800/50 p-8 backdrop-blur-sm">
-              <div className="mb-6">
-                <h2 className="text-2xl font-bold text-white">
-                  Horizon 1: Core Foundation
-                </h2>
-                <p className="mt-2 text-slate-400">
-                  Essential components and infrastructure for immediate value delivery
-                </p>
-              </div>
-              <HorizonH1 />
-            </div>
-          </TabsContent>
+          {(Object.keys(HORIZON_DATA) as HorizonKey[]).map((key) => {
+            const horizon = HORIZON_DATA[key];
+            return (
+              <TabsContent key={key} value={key} className="mt-10 space-y-10">
+                <section className="rounded-3xl border border-blue-100 bg-white/90 p-10 shadow-sm">
+                  <header className="max-w-3xl">
+                    <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-700">
+                      {horizon.short}
+                    </p>
+                    <h2 className="mt-2 text-2xl font-bold text-primary">
+                      {horizon.label}: {horizon.short}
+                    </h2>
+                    <p className="mt-3 text-base text-slate-600">{horizon.summary}</p>
+                  </header>
 
-          {/* Horizon 2 */}
-          <TabsContent value="h2" className="animate-fade-in">
-            <div className="rounded-xl border border-slate-700 bg-slate-800/50 p-8 backdrop-blur-sm">
-              <div className="mb-6">
-                <h2 className="text-2xl font-bold text-white">
-                  Horizon 2: Expansion
-                </h2>
-                <p className="mt-2 text-slate-400">
-                  Growing capabilities with enhanced integration and advanced features
-                </p>
-              </div>
-              <HorizonH2 />
-            </div>
-          </TabsContent>
+                  <div className="mt-8">
+                    <HorizonDiagram
+                      title={horizon.diagram.title}
+                      caption={horizon.diagram.caption}
+                      clusters={horizon.diagram.clusters}
+                      footerNote={horizon.diagram.footerNote}
+                    />
+                  </div>
+                </section>
 
-          {/* Horizon 3 */}
-          <TabsContent value="h3" className="animate-fade-in">
-            <div className="rounded-xl border border-slate-700 bg-slate-800/50 p-8 backdrop-blur-sm">
-              <div className="mb-6">
-                <h2 className="text-2xl font-bold text-white">
-                  Horizon 3: Transformation
-                </h2>
-                <p className="mt-2 text-slate-400">
-                  Full ecosystem integration with advanced analytics and autonomous systems
-                </p>
-              </div>
-              <HorizonH3 />
-            </div>
-          </TabsContent>
+                <section>
+                  <div className="grid gap-4 sm:grid-cols-3">
+                    {horizon.timeline.map((item) => (
+                      <Card
+                        key={item.title}
+                        className={cn(
+                          "h-full border-2 transition hover:-translate-y-1 hover:shadow-md",
+                          timelineToneClasses[item.tone],
+                        )}
+                      >
+                        <CardHeader>
+                          <CardTitle className="text-base font-semibold">
+                            {item.title}
+                          </CardTitle>
+                          <CardDescription className="text-sm">
+                            {item.description}
+                          </CardDescription>
+                        </CardHeader>
+                      </Card>
+                    ))}
+                  </div>
+                </section>
+              </TabsContent>
+            );
+          })}
         </Tabs>
-
-        {/* Timeline Info */}
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
-          <div className="rounded-lg border border-blue-500/30 bg-blue-500/10 p-6">
-            <h3 className="text-lg font-semibold text-blue-300">H1: Now</h3>
-            <p className="mt-2 text-sm text-slate-300">
-              Current state with authentication and basic consent handling
-            </p>
-          </div>
-          <div className="rounded-lg border border-purple-500/30 bg-purple-500/10 p-6">
-            <h3 className="text-lg font-semibold text-purple-300">H2: 6-12 Months</h3>
-            <p className="mt-2 text-sm text-slate-300">
-              Expanded capabilities with multi-modal input and RAG systems
-            </p>
-          </div>
-          <div className="rounded-lg border border-cyan-500/30 bg-cyan-500/10 p-6">
-            <h3 className="text-lg font-semibold text-cyan-300">H3: 1+ Years</h3>
-            <p className="mt-2 text-sm text-slate-300">
-              Full transformation with advanced AI and complete integration
-            </p>
-          </div>
-        </div>
       </div>
     </div>
   );
