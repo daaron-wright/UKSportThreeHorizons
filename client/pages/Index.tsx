@@ -226,10 +226,11 @@ const HORIZON_DATA = {
           caption: "Structured documents that capture daily plans and reporting.",
           items: [
             {
-              title: "Training plans",
+              title: "Training plans & actuals (systemised)",
               detail: "Planned sessions and workload targets authored in TeamBuildr.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.highEaseEmergingImpact,
+              impactLevel: "high",
               metadata: createMetadata({
                 product: "Training",
                 system: "TeamBuildr",
