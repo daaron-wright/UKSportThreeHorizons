@@ -150,21 +150,39 @@ const HORIZON_DATA = {
           items: [
             {
               title: "Training plans",
-              detail: "Planned sessions and load targets",
+              detail: "Planned sessions and workload targets authored in TeamBuildr.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.highEaseEmergingImpact,
+              metadata: createMetadata({
+                product: "TeamBuildr",
+                source: "TeamBuildr",
+                access: "External",
+                ownership: "UKSI",
+              }),
             },
             {
               title: "Activity physiology snapshots",
-              detail: "Testing summaries and baseline metrics",
+              detail: "Load and physiology metrics synced from wearables and AMPLIFY.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.highEaseEmergingImpact,
+              metadata: createMetadata({
+                product: "Wearables / AMPLIFY",
+                source: "Wearables / AMPLIFY",
+                access: "External",
+                ownership: "UKSI",
+              }),
             },
             {
               title: "Athlete profiling",
-              detail: "Discipline, stage, key performance indicators",
+              detail: "Discipline, stage, and KPI sheets curated by coaches.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.highEaseEmergingImpact,
+              metadata: createMetadata({
+                product: "Excel",
+                source: "Excel",
+                access: "Internal",
+                ownership: "NGB",
+              }),
             },
           ],
         },
