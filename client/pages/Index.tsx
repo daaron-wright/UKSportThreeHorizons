@@ -795,6 +795,25 @@ const HORIZON_DATA = {
         "Automation & agent governance board",
       ],
     },
+    technicalEvolution: {
+      title: "Full orchestration architecture",
+      description:
+        "Evolve the hub into an autonomous platform that orchestrates external intelligence, simulations, and proactive interventions.",
+      pillars: [
+        {
+          label: "Orchestration fabric",
+          detail: "Event-driven automation bus triggering cross-disciplinary playbooks and approvals.",
+        },
+        {
+          label: "External intelligence",
+          detail: "Competitive landscape, research feeds, and partner labs streamed into harmonised knowledge stores.",
+        },
+        {
+          label: "AI reasoning",
+          detail: "Agents, simulations, and predictive services recommending interventions with confidence scoring.",
+        },
+      ],
+    },
     ui: {
       title: "Transformation UI snapshot",
       description:
