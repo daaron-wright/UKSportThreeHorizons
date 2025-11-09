@@ -515,10 +515,11 @@ const HORIZON_DATA = {
           caption: "Higher impact formats requiring new tooling.",
           items: [
             {
-              title: "Video library",
+              title: "Video",
               detail: "Performance versus plan clips from federation and event providers.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
+              impactLevel: "high",
               metadata: createMetadata({
                 product: "Competition",
                 system: "Federation websites & event capture",
@@ -527,10 +528,11 @@ const HORIZON_DATA = {
               }),
             },
             {
-              title: "Competition results (ENetPulse)",
-              detail: "Central results feed processed through ENetPulse for analytics.",
+              title: "GB Competition results",
+              detail: "Central results feed processed through ENetPulse for Team GB analysis.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
+              impactLevel: "high",
               metadata: createMetadata({
                 product: "Competition",
                 system: "ENetPulse",
@@ -539,27 +541,29 @@ const HORIZON_DATA = {
               }),
             },
             {
-              title: "Competition results (federations)",
-              detail: "Event and federation feeds captured on the road when ENetPulse is unavailable.",
+              title: "Performance vs Potential",
+              detail: "Dashboards comparing performance to potential targets via UKS modelling.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
-              metadata: createMetadata({
-                product: "Competition",
-                system: "Federation websites / manual capture",
-                access: "External",
-                ownership: "Federation / event",
-              }),
-            },
-            {
-              title: "Performance analytics",
-              detail: "Performance vs potential dashboards served by UKS tooling.",
-              status: "expanding" as const,
-              tags: QUADRANT_TAGS.emergingEaseHighImpact,
+              impactLevel: "high",
               metadata: createMetadata({
                 product: "Training",
                 system: "UKS",
                 access: "Internal",
                 ownership: "UKS",
+              }),
+            },
+            {
+              title: "Athlete profiling",
+              detail: "Profiling data blended with campaign analytics to tailor coaching decisions.",
+              status: "expanding" as const,
+              tags: QUADRANT_TAGS.emergingEaseHighImpact,
+              impactLevel: "high",
+              metadata: createMetadata({
+                product: "Health",
+                system: "Excel",
+                access: "Internal",
+                ownership: "NGB",
               }),
             },
           ],
