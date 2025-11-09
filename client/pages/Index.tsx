@@ -443,6 +443,16 @@ const HORIZON_DATA = {
         needs: "Timely surveys, alerts on risk trends, and contextual notes shared with coaches.",
       },
     ] as Persona[],
+    operatingModel: {
+      name: "Performance intelligence pod",
+      summary:
+        "Blend coaching, analysis, and wellbeing functions into cross-disciplinary pods that share live insight.",
+      enablers: [
+        "Daily readiness stand-up",
+        "Video & sensor ops rota",
+        "Centralised insights backlog",
+      ],
+    },
     ui: {
       title: "Growth UI snapshot",
       description:
