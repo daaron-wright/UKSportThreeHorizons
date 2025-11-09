@@ -290,7 +290,7 @@ const HORIZON_DATA = {
               status: "expanding" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
               metadata: createMetadata({
-                product: "Vald Hub / AMPLIFY",
+                product: "Training",
                 system: "Vald Hub / AMPLIFY",
                 access: "External",
                 ownership: "UKSI",
