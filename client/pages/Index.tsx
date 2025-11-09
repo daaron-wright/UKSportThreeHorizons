@@ -548,7 +548,7 @@ const HORIZON_DATA = {
                 product: "Athlete pathway",
                 system: "Multiple pathway systems",
                 access: "Internal / External",
-                ownership: "Shared",
+                ownership: "Multiple",
               }),
             },
           ],
