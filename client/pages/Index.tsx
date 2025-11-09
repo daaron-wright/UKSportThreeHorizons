@@ -988,6 +988,7 @@ const HORIZON_DATA = {
   summary: string;
   personas: Persona[];
   operatingModel: OperatingModel;
+  technicalEvolution: TechnicalEvolution;
   diagram: Parameters<typeof HorizonDiagram>[0];
   ui: UIEvolution;
   timeline: { title: string; description: string; tone: TimelineTone }[];
