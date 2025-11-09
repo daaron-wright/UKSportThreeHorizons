@@ -313,6 +313,26 @@ const HORIZON_DATA = {
           ],
         },
         {
+          title: "Performance insight",
+          tone: "accent" as const,
+          caption: "Campaign metrics that influence early decision-making.",
+          items: [
+            {
+              title: "Medal expectancy",
+              detail: "UK Sport projections modelling medal likelihood across campaigns.",
+              status: "expanding" as const,
+              tags: QUADRANT_TAGS.highEaseHighImpact,
+              impactLevel: "high",
+              metadata: createMetadata({
+                product: "Competition",
+                system: "UKS",
+                access: "Internal",
+                ownership: "UKS",
+              }),
+            },
+          ],
+        },
+        {
           title: "Consent & governance",
           tone: "accent" as const,
           caption: "Ensure every record is traceable and permissioned.",
