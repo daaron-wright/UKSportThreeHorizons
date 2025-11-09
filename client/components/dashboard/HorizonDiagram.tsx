@@ -172,8 +172,8 @@ export function HorizonDiagram({
                                 {item.tags.map((tag) => (
                                   <Badge
                                     key={tag}
-                                    variant="secondary"
-                                    className="rounded-full border border-blue-200 bg-blue-50 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-blue-700"
+                                    variant="outline"
+                                    className="rounded-xl border-blue-200 bg-blue-50/90 px-3 py-1.5 text-xs font-medium text-blue-900 shadow-sm"
                                   >
                                     {tag}
                                   </Badge>
