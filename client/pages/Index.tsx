@@ -50,8 +50,6 @@ const QUADRANT_TAGS = {
   ],
 } as const;
 
-type QuadrantTagKey = keyof typeof QUADRANT_TAGS;
-
 const HORIZON_DATA = {
   h1: {
     label: "Horizon 1",
