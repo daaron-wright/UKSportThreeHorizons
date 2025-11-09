@@ -577,7 +577,7 @@ export default function Index() {
           </Tabs>
 
           <aside className="space-y-6 lg:sticky lg:top-24 lg:h-fit">
-            <CostImpactPanel />
+            <CostImpactPanel stage={activeHorizon} />
           </aside>
         </div>
       </div>
