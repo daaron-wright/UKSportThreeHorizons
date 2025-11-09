@@ -522,18 +522,6 @@ const HORIZON_DATA = {
               }),
             },
             {
-              title: "Medal expectancy",
-              detail: "UK Sport projections modelling medal likelihood across campaigns.",
-              status: "expanding" as const,
-              tags: QUADRANT_TAGS.emergingEaseHighImpact,
-              metadata: createMetadata({
-                product: "Competition",
-                system: "UKS",
-                access: "Internal",
-                ownership: "UKS",
-              }),
-            },
-            {
               title: "Performance analytics",
               detail: "Performance vs potential dashboards served by UKS tooling.",
               status: "expanding" as const,
