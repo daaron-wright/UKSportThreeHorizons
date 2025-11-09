@@ -1175,6 +1175,38 @@ export default function Index() {
                         </div>
                       </section>
 
+                      <section className="rounded-3xl border border-blue-100 bg-white/95 p-8 shadow-sm">
+                        <header className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                          <div>
+                            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-600">
+                              Technical evolution
+                            </p>
+                            <h3 className="mt-1 text-xl font-semibold text-primary">
+                              {horizon.technicalEvolution.title}
+                            </h3>
+                            <p className="mt-2 text-sm text-slate-600">
+                              {horizon.technicalEvolution.description}
+                            </p>
+                          </div>
+                          <Badge className="w-fit rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-blue-700">
+                            Platform stack
+                          </Badge>
+                        </header>
+                        <div className="mt-6 grid gap-4 sm:grid-cols-3">
+                          {horizon.technicalEvolution.pillars.map((pillar) => (
+                            <article
+                              key={pillar.label}
+                              className="rounded-2xl border border-blue-100/80 bg-blue-50/60 p-4"
+                            >
+                              <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
+                                {pillar.label}
+                              </h4>
+                              <p className="mt-2 text-sm text-blue-900/90">{pillar.detail}</p>
+                            </article>
+                          ))}
+                        </div>
+                      </section>
+
                       <section className="relative overflow-hidden rounded-3xl border border-blue-100/80 bg-gradient-to-br from-white via-blue-50/60 to-white p-8 shadow-lg">
                         <div
                           aria-hidden
