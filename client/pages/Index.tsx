@@ -153,6 +153,21 @@ const HORIZON_DATA = {
     short: "Expansion",
     summary:
       "Blend richer monitoring sources—video, wellness, and training loads—with retrieval tooling to elevate impact while adoption stays manageable.",
+    ui: {
+      title: "Growth UI snapshot",
+      description:
+        "The dashboard evolves with interactive media panels, wellness heatmaps, and inline retrieval prompts.",
+      highlights: [
+        "Video strip and comparison view anchor the top of the workspace.",
+        "Wellness heatmap cards flag readiness trends with drill-down filters.",
+        "Contextual RAG prompts let staff ask questions alongside each module.",
+      ],
+      palette: {
+        background: "linear-gradient(135deg, #ffe8ef 0%, #dbeafe 100%)",
+        accent: "rgba(207, 20, 43, 0.14)",
+        grid: "rgba(0, 36, 125, 0.12)",
+      },
+    },
     diagram: {
       title: "Performance Hub · Scaling intelligence",
       caption:
