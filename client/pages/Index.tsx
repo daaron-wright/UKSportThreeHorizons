@@ -333,7 +333,7 @@ const HORIZON_DATA = {
               status: "expanding" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
               metadata: createMetadata({
-                product: "ENetPulse",
+                product: "Competition",
                 system: "ENetPulse",
                 access: "Internal",
                 ownership: "UK Sport",
