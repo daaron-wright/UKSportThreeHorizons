@@ -64,10 +64,6 @@ type HorizonDetailProps = {
       highlights: string[];
       metrics: { label: string; value: string }[];
     };
-    impact: {
-      description: string;
-      metrics: { label: string; value: string; indicator?: "up" | "steady" | "down" }[];
-    };
     personas: Persona[];
     operatingModel: OperatingModel;
     technicalEvolution: TechnicalEvolution;
