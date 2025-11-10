@@ -819,7 +819,7 @@ const HORIZON_DATA = {
   },
   h3: {
     label: "Horizon 3",
-    short: "Transformation",
+    short: "Orchestrate",
     summary:
       "Orchestrate high-impact external intelligence and autonomous analysis so the Performance Hub becomes a proactive partner.",
     overview: {
@@ -897,7 +897,7 @@ const HORIZON_DATA = {
       ],
     },
     ui: {
-      title: "Transformation UI snapshot",
+      title: "Orchestration UI snapshot",
       description:
         "Adaptive layouts showcase AI recommendations, live telemetry, and automation playbooks in real time.",
       highlights: [
