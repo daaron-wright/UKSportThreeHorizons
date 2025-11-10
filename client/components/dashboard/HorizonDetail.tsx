@@ -138,13 +138,13 @@ export function HorizonDetail({ horizonKey, horizon, timelineToneClasses }: Hori
         </SectionTabsList>
 
         <SectionTabsContent value="overview" className="space-y-6">
-          <div className="grid gap-6 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
-            <div className="space-y-4">
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
+            <div className="space-y-5">
               <p className="text-sm leading-relaxed text-slate-600">
-                {horizon.ui.description}
+                {horizon.overview.narrative}
               </p>
               <div className="grid gap-3">
-                {horizon.ui.highlights.slice(0, 3).map((point) => (
+                {horizon.overview.highlights.map((point) => (
                   <div
                     key={point}
                     className="rounded-2xl border border-blue-100/80 bg-blue-50/60 px-4 py-3 text-sm text-blue-900"
@@ -156,18 +156,27 @@ export function HorizonDetail({ horizonKey, horizon, timelineToneClasses }: Hori
             </div>
             <div className="rounded-2xl border border-blue-100/80 bg-white/90 p-5 shadow-sm">
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-600">Snapshot</p>
-              <div className="mt-4 space-y-3 text-sm text-slate-700">
-                <div className="flex items-start justify-between gap-4">
+              <div className="mt-4 grid gap-3">
+                {horizon.overview.metrics.map((metric) => (
+                  <div
+                    key={metric.label}
+                    className="flex items-center justify-between gap-4 rounded-xl border border-blue-100 bg-blue-50/60 px-4 py-3"
+                  >
+                    <span className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-700">
+                      {metric.label}
+                    </span>
+                    <span className="text-base font-semibold text-primary">{metric.value}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-5 grid gap-2 border-t border-blue-100 pt-4 text-sm text-slate-700">
+                <div className="flex items-center justify-between">
                   <span className="font-semibold text-primary">Personas in scope</span>
                   <span>{horizon.personas.length}</span>
                 </div>
-                <div className="flex items-start justify-between gap-4">
+                <div className="flex items-center justify-between">
                   <span className="font-semibold text-primary">Platform enablers</span>
                   <span>{horizon.operatingModel.enablers.length}</span>
-                </div>
-                <div className="flex items-start justify-between gap-4">
-                  <span className="font-semibold text-primary">UI highlights</span>
-                  <span>{horizon.ui.highlights.length}</span>
                 </div>
               </div>
             </div>
