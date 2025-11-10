@@ -41,22 +41,6 @@ export interface HorizonKeyNavigatorProps {
   onSelectSection: (section: HorizonSectionValue) => void;
 }
 
-function IndicatorIcon({ indicator }: { indicator?: "up" | "steady" | "down" }) {
-  if (!indicator) {
-    return null;
-  }
-
-  if (indicator === "up") {
-    return <TrendingUp className="h-4 w-4 text-emerald-600" aria-hidden />;
-  }
-
-  if (indicator === "down") {
-    return <TrendingDown className="h-4 w-4 text-emerald-600" aria-hidden />;
-  }
-
-  return <Minus className="h-4 w-4 text-slate-400" aria-hidden />;
-}
-
 export function HorizonKeyNavigator({
   items,
   activeHorizon,
@@ -146,9 +130,6 @@ export function HorizonKeyNavigator({
                       </p>
                       <p className="text-base font-semibold">{item.impactMetric.value}</p>
                     </div>
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/80">
-                      <IndicatorIcon indicator={item.impactMetric.indicator} />
-                    </span>
                   </div>
                 ) : null}
               </div>
