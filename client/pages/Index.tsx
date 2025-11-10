@@ -1219,10 +1219,7 @@ export default function Index() {
             items={navigatorItems}
             activeHorizon={activeHorizon}
             activeSection={activeSection}
-            onSelectHorizon={(key) => {
-              setActiveHorizon(key as HorizonKey);
-              setNavOpen(false);
-            }}
+            onSelectHorizon={(key) => setActiveHorizon(key as HorizonKey)}
             onSelectSection={(section) => setActiveSection(section)}
           />
         </div>
