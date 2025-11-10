@@ -1146,7 +1146,7 @@ export default function Index() {
                       navOpen ? "mt-6 max-h-96 opacity-100 visible" : "invisible max-h-0 opacity-0 pointer-events-none",
                     )}
                   >
-                    <TabsList className="grid gap-2 rounded-3xl border border-blue-100 bg-white/90 p-3 shadow-sm">
+                    <TabsList className="grid w-44 gap-2 rounded-3xl border border-blue-100 bg-white/90 p-3 shadow-sm">
                       {horizonKeys.map((key) => (
                         <TabsTrigger
                           key={key}
