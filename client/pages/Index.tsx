@@ -1355,30 +1355,30 @@ export default function Index() {
                         />
                       </div>
                     </div>
-                  </section>
+                    </section>
 
-                  <section>
-                    <div className="grid gap-4 sm:grid-cols-3">
-                      {horizon.timeline.map((item) => (
-                        <Card
-                          key={item.title}
-                          className={cn(
-                            "h-full border-2 transition hover:-translate-y-1 hover:shadow-md",
-                            timelineToneClasses[item.tone],
-                          )}
-                        >
-                          <CardHeader>
-                            <CardTitle className="text-base font-semibold">
-                              {item.title}
-                            </CardTitle>
-                            <CardDescription className="text-sm text-current/80">
-                              {item.description}
-                            </CardDescription>
-                          </CardHeader>
-                        </Card>
-                      ))}
-                    </div>
-                  </section>
+                    <section>
+                      <div className="grid gap-4 sm:grid-cols-3">
+                        {horizon.timeline.map((item) => (
+                          <Card
+                            key={item.title}
+                            className={cn(
+                              "h-full border-2 transition hover:-translate-y-1 hover:shadow-md",
+                              timelineToneClasses[item.tone],
+                            )}
+                          >
+                            <CardHeader>
+                              <CardTitle className="text-base font-semibold">
+                                {item.title}
+                              </CardTitle>
+                              <CardDescription className="text-sm text-current/80">
+                                {item.description}
+                              </CardDescription>
+                            </CardHeader>
+                          </Card>
+                        ))}
+                      </div>
+                    </section>
                   </TabsContent>
                 );
               })}
