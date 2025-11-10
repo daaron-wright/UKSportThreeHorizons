@@ -359,8 +359,43 @@ export function HorizonDetail({ horizonKey, horizon, timelineToneClasses }: Hori
         </SectionTabsContent>
 
         <SectionTabsContent value="impact" className="space-y-6">
-          <div className="grid gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
-            <CostImpactPanel stage={horizonKey} />
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
+            <div className="space-y-6">
+              <Card className="border-blue-100 bg-white/95 shadow-sm">
+                <CardHeader>
+                  <CardTitle className="text-lg text-primary">Performance impact</CardTitle>
+                  <CardDescription className="text-sm text-slate-600">
+                    {horizon.impact.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="grid gap-3 sm:grid-cols-2">
+                  {horizon.impact.metrics.map((metric) => {
+                    const indicatorElement = renderIndicator(metric.indicator);
+
+                    return (
+                      <div
+                        key={metric.label}
+                        className="flex items-center justify-between gap-4 rounded-2xl border border-blue-100 bg-blue-50/60 px-4 py-3"
+                      >
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-700">
+                            {metric.label}
+                          </p>
+                          <p className="mt-1 text-base font-semibold text-primary">{metric.value}</p>
+                        </div>
+                        {indicatorElement ? (
+                          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white shadow-sm">
+                            {indicatorElement}
+                          </span>
+                        ) : null}
+                      </div>
+                    );
+                  })}
+                </CardContent>
+              </Card>
+
+              <CostImpactPanel stage={horizonKey} />
+            </div>
             <HorizonDiagram
               title={horizon.diagram.title}
               caption={horizon.diagram.caption}
