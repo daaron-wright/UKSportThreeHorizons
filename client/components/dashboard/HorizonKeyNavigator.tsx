@@ -30,7 +30,7 @@ export interface HorizonKeyNavigatorItem {
     descriptor: string;
   };
   overviewMetrics: { label: string; value: string }[];
-  impactMetric?: { label: string; value: string; indicator?: "up" | "steady" | "down" };
+  impactMetric?: { label: string; value: string };
 }
 
 export interface HorizonKeyNavigatorProps {
