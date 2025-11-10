@@ -1161,7 +1161,7 @@ export default function Index() {
               </div>
 
               <div className="mt-10 space-y-10 lg:mt-0">
-                {(Object.keys(HORIZON_DATA) as HorizonKey[]).map((key) => {
+                {horizonKeys.map((key) => {
                   const horizon = HORIZON_DATA[key];
                   return (
                     <TabsContent key={key} value={key} className="space-y-10">
