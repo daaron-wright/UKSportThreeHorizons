@@ -1130,8 +1130,8 @@ export default function Index() {
                     aria-expanded={navOpen}
                     aria-controls="horizon-nav"
                   >
-                    <span className="absolute left-1/2 top-4 h-12 w-px -translate-x-1/2 rounded bg-blue-600 transition-colors group-hover:bg-blue-500" />
-                    <span className="absolute left-1/2 bottom-4 h-12 w-px -translate-x-1/2 rounded bg-blue-600 transition-colors group-hover:bg-blue-500" />
+                    <span className="absolute left-1/2 top-3 h-14 w-px -translate-x-1/2 rounded bg-blue-600 transition-colors group-hover:bg-blue-500" />
+                    <span className="absolute left-1/2 bottom-3 h-14 w-px -translate-x-1/2 rounded bg-blue-600 transition-colors group-hover:bg-blue-500" />
                     <span className="absolute left-1/2 top-6 h-px w-6 -translate-x-1/2 bg-blue-600 transition-colors group-hover:bg-blue-500" />
                     <span className="absolute left-1/2 bottom-6 h-px w-6 -translate-x-1/2 bg-blue-600 transition-colors group-hover:bg-blue-500" />
                     <span className="[writing-mode:vertical-rl] rotate-180 text-[10px] font-semibold uppercase tracking-[0.6em] text-blue-700">
