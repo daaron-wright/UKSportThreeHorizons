@@ -1352,6 +1352,8 @@ export default function Index() {
                         horizonKey={key}
                         horizon={horizon}
                         timelineToneClasses={timelineToneClasses}
+                        activeSection={activeSection}
+                        onSectionChange={(section) => setActiveSection(section)}
                       />
                     </TabsContent>
                   );
