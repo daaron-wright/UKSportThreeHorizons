@@ -1095,22 +1095,57 @@ export default function Index() {
             onValueChange={(value) => setActiveHorizon(value as HorizonKey)}
             className="h-full"
           >
-            <div className="lg:grid lg:grid-cols-[minmax(0,18rem)_1fr] lg:items-start lg:gap-10">
+            <div
+              className={cn(
+                "lg:grid lg:items-start lg:gap-10",
+                navOpen ? "lg:grid-cols-[minmax(0,16rem)_1fr]" : "lg:grid-cols-[minmax(0,6rem)_1fr]",
+              )}
+            >
               <div className="flex justify-center lg:block lg:sticky lg:top-24">
-                <TabsList className="grid w-full max-w-xl grid-cols-3 gap-1 rounded-full border border-blue-100 bg-white/80 p-1 shadow-sm lg:max-w-none lg:grid-cols-1 lg:gap-3 lg:rounded-3xl lg:border-blue-100 lg:bg-white lg:p-4 lg:shadow-md">
-                {(Object.keys(HORIZON_DATA) as HorizonKey[]).map((key) => (
-                  <TabsTrigger
-                    key={key}
-                    value={key}
-                    className="rounded-full px-6 py-2 text-sm font-semibold text-slate-600 transition data-[state=active]:bg-primary data-[state=active]:text-primary-foreground lg:w-full lg:rounded-2xl lg:px-4 lg:py-3 lg:text-left lg:text-base"
+                <div className="w-full max-w-xs lg:max-w-none">
+                  <button
+                    type="button"
+                    onClick={() => setNavOpen((prev) => !prev)}
+                    className="flex w-full items-center justify-between rounded-3xl border border-blue-100 bg-white px-4 py-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-blue-200"
+                    aria-expanded={navOpen}
+                    aria-controls="horizon-nav"
                   >
-                    {HORIZON_DATA[key].label}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-            </div>
+                    <span>Horizons</span>
+                    <span
+                      aria-hidden
+                      className={cn("ml-3 text-xs transition-transform", navOpen ? "rotate-180" : "rotate-0")}
+                    >
+                      ▾
+                    </span>
+                  </button>
+                  <div
+                    id="horizon-nav"
+                    className={cn(
+                      "grid gap-1 overflow-hidden transition-[margin,max-height,opacity] duration-300",
+                      navOpen ? "mt-3 max-h-96 opacity-100" : "max-h-0 opacity-0",
+                    )}
+                  >
+                    <TabsList
+                      className={cn(
+                        "grid gap-2 rounded-3xl border border-blue-100 bg-white/90 p-2 shadow-sm",
+                        navOpen ? "pointer-events-auto" : "pointer-events-none",
+                      )}
+                    >
+                      {(Object.keys(HORIZON_DATA) as HorizonKey[]).map((key) => (
+                        <TabsTrigger
+                          key={key}
+                          value={key}
+                          className="rounded-2xl px-4 py-2 text-sm font-semibold text-slate-600 transition data-[state=active]:bg-primary data-[state=active]:text-primary-foreground lg:w-full lg:text-base"
+                        >
+                          {HORIZON_DATA[key].label}
+                        </TabsTrigger>
+                      ))}
+                    </TabsList>
+                  </div>
+                </div>
+              </div>
 
-            <div className="mt-10 space-y-10 lg:mt-0">
+              <div className="mt-10 space-y-10 lg:mt-0">
               {(Object.keys(HORIZON_DATA) as HorizonKey[]).map((key) => {
                 const horizon = HORIZON_DATA[key];
                 return (
