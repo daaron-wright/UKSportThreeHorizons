@@ -1384,7 +1384,7 @@ export default function Index() {
               })}
             </div>
           </div>
-          </Tabs>
+        </Tabs>
         </div>
       </div>
     </div>
