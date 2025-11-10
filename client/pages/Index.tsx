@@ -812,6 +812,29 @@ const HORIZON_DATA = {
     short: "Transformation",
     summary:
       "Orchestrate high-impact external intelligence and autonomous analysis so the Performance Hub becomes a proactive partner.",
+    overview: {
+      narrative:
+        "Horizon 3 turns the hub into an orchestration layer combining AI agents, automation, and external intelligence for proactive support.",
+      highlights: [
+        "AI command bar recommends interventions with confidence tags.",
+        "Automation playbooks route approvals and actions automatically.",
+        "Strategic council aligns research, telemetry, and investment decisions.",
+      ],
+      metrics: [
+        { label: "Sources orchestrated", value: "52" },
+        { label: "Automation coverage", value: "70%" },
+        { label: "Staff time saved", value: "42%" },
+      ],
+    },
+    impact: {
+      description:
+        "Autonomous orchestration and external insight deliver breakthrough efficiency and medal upside across the system.",
+      metrics: [
+        { label: "Ease of use", value: "Adaptive" },
+        { label: "Impact", value: "Breakthrough" },
+        { label: "Cost per medal", value: "▼45%", indicator: "down" },
+      ],
+    },
     personas: [
       {
         name: "Performance Director",
