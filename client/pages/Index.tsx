@@ -1126,6 +1126,7 @@ export default function Index() {
                       "group relative flex h-48 w-12 items-center justify-center rounded-full border bg-white/90 shadow-sm transition hover:border-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
                       navOpen ? "border-blue-500 bg-blue-50" : "border-blue-100",
                     )}
+                    aria-label="Toggle horizon navigation"
                     aria-expanded={navOpen}
                     aria-controls="horizon-nav"
                   >
