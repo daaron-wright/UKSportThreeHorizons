@@ -25,6 +25,8 @@ const SECTION_CONFIG = [
 
 type SectionValue = (typeof SECTION_CONFIG)[number]["value"];
 
+export type HorizonSectionValue = SectionValue;
+
 type Persona = {
   name: string;
   focus: string;
@@ -89,14 +91,34 @@ type HorizonDetailProps = {
     timeline: HorizonTimelineItem[];
   };
   timelineToneClasses: Record<string, string>;
+  activeSection?: HorizonSectionValue;
+  onSectionChange?: (section: HorizonSectionValue) => void;
 };
 
-export function HorizonDetail({ horizonKey, horizon, timelineToneClasses }: HorizonDetailProps) {
-  const [activeSection, setActiveSection] = useState<SectionValue>("overview");
+export function HorizonDetail({
+  horizonKey,
+  horizon,
+  timelineToneClasses,
+  activeSection: controlledSection,
+  onSectionChange,
+}: HorizonDetailProps) {
+  const [internalSection, setInternalSection] = useState<SectionValue>("overview");
+
+  const isControlled = controlledSection !== undefined;
+  const currentSection = (isControlled ? controlledSection : internalSection) ?? "overview";
 
   useEffect(() => {
-    setActiveSection("overview");
-  }, [horizonKey]);
+    if (!isControlled) {
+      setInternalSection("overview");
+    }
+  }, [horizonKey, isControlled]);
+
+  const handleSectionChange = (value: SectionValue) => {
+    if (!isControlled) {
+      setInternalSection(value);
+    }
+    onSectionChange?.(value);
+  };
 
   const renderIndicator = (indicator?: "up" | "steady" | "down") => {
     if (!indicator) {
@@ -137,8 +159,8 @@ export function HorizonDetail({ horizonKey, horizon, timelineToneClasses }: Hori
       </header>
 
       <SectionTabs
-        value={activeSection}
-        onValueChange={(value) => setActiveSection(value as SectionValue)}
+        value={currentSection}
+        onValueChange={(value) => handleSectionChange(value as SectionValue)}
         className="space-y-6"
       >
         <SectionTabsList className="flex w-full gap-2 overflow-x-auto rounded-full border border-blue-100 bg-white/80 p-1 text-sm font-semibold text-slate-600 shadow-sm">
