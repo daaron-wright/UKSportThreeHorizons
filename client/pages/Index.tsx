@@ -1150,6 +1150,7 @@ const HORIZON_DATA = {
 
 export default function Index() {
   const [activeHorizon, setActiveHorizon] = useState<HorizonKey>("h1");
+  const [activeSection, setActiveSection] = useState<HorizonSectionValue>("overview");
   const [navOpen, setNavOpen] = useState(false);
   const navContainerRef = useRef<HTMLDivElement | null>(null);
 
