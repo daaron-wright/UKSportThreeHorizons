@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+
 import { Badge } from "@/components/ui/badge";
 import {
   Tabs as SectionTabs,
@@ -6,6 +8,7 @@ import {
   TabsList as SectionTabsList,
   TabsTrigger as SectionTabsTrigger,
 } from "@/components/ui/tabs";
+
 const SECTION_CONFIG = [
   { value: "overview", label: "Overview" },
   { value: "personas", label: "Personas" },
@@ -47,12 +50,6 @@ type UIEvolution = {
   };
 };
 
-type HorizonTimelineItem = {
-  title: string;
-  description: string;
-  tone: string;
-};
-
 type HorizonDetailProps = {
   horizonKey: string;
   horizon: {
@@ -68,16 +65,7 @@ type HorizonDetailProps = {
     operatingModel: OperatingModel;
     technicalEvolution: TechnicalEvolution;
     ui: UIEvolution;
-    diagram: {
-      title: string;
-      caption: string;
-      clusters: DiagramCluster[];
-      footerNote?: string;
-      axes?: DiagramAxes;
-    };
-    timeline: HorizonTimelineItem[];
   };
-  timelineToneClasses: Record<string, string>;
   activeSection?: HorizonSectionValue;
   onSectionChange?: (section: HorizonSectionValue) => void;
 };
@@ -85,7 +73,6 @@ type HorizonDetailProps = {
 export function HorizonDetail({
   horizonKey,
   horizon,
-  timelineToneClasses,
   activeSection: controlledSection,
   onSectionChange,
 }: HorizonDetailProps) {
