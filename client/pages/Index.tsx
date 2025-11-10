@@ -1193,7 +1193,7 @@ export default function Index() {
             Three Horizons Data Integration
           </p>
           <p className="mt-4 text-lg text-slate-600">
-            Tab through the horizons to see how UK Sport incrementally integrates new data sourcesmoving from high ease-of-use records to high-impact intelligence.
+            Tab through the horizons to see how UK Sport incrementally integrates new data sourcesmoving from high ease-of-use records to high-impact intelligence.
           </p>
           <div className="mt-6 flex flex-col items-center gap-6 sm:flex-row">
             <span className="sr-only">UK Sport collaborating with Kyndryl</span>
