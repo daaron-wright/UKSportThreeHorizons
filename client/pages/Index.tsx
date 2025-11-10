@@ -1187,6 +1187,22 @@ export default function Index() {
 
   const horizonKeys = Object.keys(HORIZON_DATA) as HorizonKey[];
 
+  const navigatorItems = horizonKeys.map((key) => {
+    const horizon = HORIZON_DATA[key];
+    const impactMetric =
+      horizon.impact.metrics.find((metric) => metric.indicator) ?? horizon.impact.metrics[0];
+
+    return {
+      key,
+      label: horizon.label,
+      short: horizon.short,
+      summary: horizon.summary,
+      stage: horizon.stage,
+      overviewMetrics: horizon.overview.metrics.slice(0, 2),
+      impactMetric,
+    };
+  });
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-blue-50/30 to-white">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
