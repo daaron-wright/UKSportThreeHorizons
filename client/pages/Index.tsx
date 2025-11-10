@@ -472,6 +472,29 @@ const HORIZON_DATA = {
     short: "Expansion",
     summary:
       "Blend richer monitoring sources—video, wellness, and training loads—with retrieval tooling to elevate impact while adoption stays manageable.",
+    overview: {
+      narrative:
+        "Horizon 2 scales intelligence by layering video, wellness, and sensor data with retrieval so staff gain richer, faster context.",
+      highlights: [
+        "Video comparison strip embedded in the hub.",
+        "Wellness heatmaps spotlight readiness trends.",
+        "Retrieval prompts surface answers alongside each module.",
+      ],
+      metrics: [
+        { label: "Sources onboarded", value: "36" },
+        { label: "Adoption lift", value: "+24%" },
+        { label: "Manual workload drop", value: "-31%" },
+      ],
+    },
+    impact: {
+      description:
+        "Richer monitoring streams and retrieval intelligence raise campaign influence while keeping onboarding practical.",
+      metrics: [
+        { label: "Ease of use", value: "Managed" },
+        { label: "Impact", value: "Elevating" },
+        { label: "Cost per medal", value: "▼28%", indicator: "down" },
+      ],
+    },
     personas: [
       {
         name: "National Squad Coach",
