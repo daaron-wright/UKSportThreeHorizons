@@ -1088,7 +1088,7 @@ export default function Index() {
           </div>
         </div>
 
-        <div className="mt-12 space-y-10">
+        <div className="mt-12">
           <Tabs
             value={activeHorizon}
             onValueChange={(value) => setActiveHorizon(value as HorizonKey)}
