@@ -1123,7 +1123,7 @@ export default function Index() {
                     type="button"
                     onClick={() => setNavOpen((prev) => !prev)}
                     className={cn(
-                      "group relative flex h-48 w-12 items-center justify-center rounded-full border bg-white/90 shadow-sm transition hover:border-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
+                      "group relative flex h-44 w-10 items-center justify-center rounded-full border bg-white/90 shadow-sm transition hover:border-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
                       navOpen ? "border-blue-500 bg-blue-50" : "border-blue-100",
                     )}
                     aria-label="Toggle horizon navigation"
