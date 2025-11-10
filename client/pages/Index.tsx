@@ -1100,7 +1100,7 @@ export default function Index() {
             <div
               className={cn(
                 "lg:grid lg:items-start lg:gap-10",
-                navOpen ? "lg:grid-cols-[minmax(0,16rem)_1fr]" : "lg:grid-cols-[minmax(0,5rem)_1fr]",
+                navOpen ? "lg:grid-cols-[minmax(0,16rem)_1fr]" : "lg:grid-cols-[minmax(0,4.5rem)_1fr]",
               )}
             >
               <div className="flex justify-center lg:block lg:sticky lg:top-24">
