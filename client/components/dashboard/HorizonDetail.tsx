@@ -111,22 +111,6 @@ export function HorizonDetail({
     onSectionChange?.(value);
   };
 
-  const renderIndicator = (indicator?: "up" | "steady" | "down") => {
-    if (!indicator) {
-      return null;
-    }
-
-    if (indicator === "up") {
-      return <TrendingUp className="h-5 w-5 text-emerald-600" aria-hidden />;
-    }
-
-    if (indicator === "down") {
-      return <TrendingDown className="h-5 w-5 text-emerald-600" aria-hidden />;
-    }
-
-    return <Minus className="h-5 w-5 text-slate-400" aria-hidden />;
-  };
-
   return (
     <div className="flex flex-col gap-6 rounded-3xl border border-blue-100 bg-white/95 p-8 shadow-sm">
       <header className="space-y-4">
