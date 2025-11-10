@@ -1055,6 +1055,8 @@ export default function Index() {
   const [activeHorizon, setActiveHorizon] = useState<HorizonKey>("h1");
   const [navOpen, setNavOpen] = useState(false);
 
+  const horizonKeys = Object.keys(HORIZON_DATA) as HorizonKey[];
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-blue-50/30 to-white">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
