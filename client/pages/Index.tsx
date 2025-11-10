@@ -1253,7 +1253,10 @@ export default function Index() {
         <div className="mt-10">
           <Tabs
             value={activeHorizon}
-            onValueChange={(value) => setActiveHorizon(value as HorizonKey)}
+            onValueChange={(value) => {
+              setActiveHorizon(value as HorizonKey);
+              setNavOpen(false);
+            }}
             className="h-full"
           >
             <div
