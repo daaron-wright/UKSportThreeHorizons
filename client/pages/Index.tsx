@@ -1140,6 +1140,7 @@ export default function Index() {
                   </button>
                   <div
                     id="horizon-nav"
+                    aria-hidden={!navOpen}
                     className={cn(
                       "w-full overflow-hidden transition-[max-height,opacity] duration-300",
                       navOpen ? "mt-6 max-h-96 opacity-100" : "max-h-0 opacity-0 pointer-events-none",
