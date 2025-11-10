@@ -1103,7 +1103,7 @@ export default function Index() {
                 navOpen ? "lg:grid-cols-[minmax(0,16rem)_1fr]" : "lg:grid-cols-[minmax(0,4.5rem)_1fr]",
               )}
             >
-              <div className="flex justify-center lg:block lg:sticky lg:top-24">
+              <div className="flex justify-center lg:sticky lg:top-24 lg:flex lg:flex-col lg:items-start lg:space-y-4">
                 <div className="w-full max-w-xl lg:hidden">
                   <TabsList className="grid w-full grid-cols-3 gap-1 rounded-full border border-blue-100 bg-white/80 p-1 shadow-sm">
                     {horizonKeys.map((key) => (
