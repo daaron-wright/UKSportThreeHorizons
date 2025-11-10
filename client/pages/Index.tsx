@@ -1094,8 +1094,9 @@ export default function Index() {
             onValueChange={(value) => setActiveHorizon(value as HorizonKey)}
             className="h-full"
           >
-            <div className="flex justify-center">
-              <TabsList className="grid w-full max-w-xl grid-cols-3 gap-1 rounded-full border border-blue-100 bg-white/80 p-1 shadow-sm">
+            <div className="lg:grid lg:grid-cols-[minmax(0,18rem)_1fr] lg:items-start lg:gap-10">
+              <div className="flex justify-center lg:block lg:sticky lg:top-24">
+                <TabsList className="grid w-full max-w-xl grid-cols-3 gap-1 rounded-full border border-blue-100 bg-white/80 p-1 shadow-sm lg:max-w-none lg:grid-cols-1 lg:gap-3 lg:rounded-3xl lg:border-blue-100 lg:bg-white lg:p-4 lg:shadow-md">
                 {(Object.keys(HORIZON_DATA) as HorizonKey[]).map((key) => (
                   <TabsTrigger
                     key={key}
@@ -1108,10 +1109,11 @@ export default function Index() {
               </TabsList>
             </div>
 
-            {(Object.keys(HORIZON_DATA) as HorizonKey[]).map((key) => {
+            <div className="mt-10 space-y-10 lg:mt-0">
+              {(Object.keys(HORIZON_DATA) as HorizonKey[]).map((key) => {
               const horizon = HORIZON_DATA[key];
               return (
-                <TabsContent key={key} value={key} className="mt-10 space-y-10">
+                <TabsContent key={key} value={key} className="space-y-10">
                   <section className="rounded-3xl border border-blue-100 bg-white/90 p-10 shadow-sm">
                     <header className="max-w-3xl">
                       <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-700">
@@ -1344,6 +1346,8 @@ export default function Index() {
                 </TabsContent>
               );
             })}
+            </div>
+          </div>
           </Tabs>
         </div>
       </div>
