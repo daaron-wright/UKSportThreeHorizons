@@ -90,6 +90,29 @@ const HORIZON_DATA = {
     short: "Core foundation",
     summary:
       "Integrate the high-trust clinical and personal records already curated by UK Sport so the Performance Hub earns confidence from day one.",
+    overview: {
+      narrative:
+        "Horizon 1 establishes a compliant, shared record of truth so teams can trust every dashboard and workflow from launch.",
+      highlights: [
+        "Consent lifecycle management across all sources.",
+        "Clinical and personal records unified in the hub.",
+        "Baseline dashboards mirror governed datasets.",
+      ],
+      metrics: [
+        { label: "Sources onboarded", value: "24" },
+        { label: "Manual workload drop", value: "-18%" },
+        { label: "Consent coverage", value: "100%" },
+      ],
+    },
+    impact: {
+      description:
+        "Baseline integration trims manual effort and creates trusted data foundations for every sport and staff group.",
+      metrics: [
+        { label: "Ease of use", value: "High" },
+        { label: "Impact", value: "Foundational" },
+        { label: "Cost per medal", value: "▼12%", indicator: "down" },
+      ],
+    },
     personas: [
       {
         name: "Performance Medical Lead",
