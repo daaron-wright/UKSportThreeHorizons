@@ -1238,6 +1238,19 @@ export default function Index() {
         </div>
 
         <div className="mt-12">
+          <HorizonKeyNavigator
+            items={navigatorItems}
+            activeHorizon={activeHorizon}
+            activeSection={activeSection}
+            onSelectHorizon={(key) => {
+              setActiveHorizon(key as HorizonKey);
+              setNavOpen(false);
+            }}
+            onSelectSection={(section) => setActiveSection(section)}
+          />
+        </div>
+
+        <div className="mt-10">
           <Tabs
             value={activeHorizon}
             onValueChange={(value) => setActiveHorizon(value as HorizonKey)}
