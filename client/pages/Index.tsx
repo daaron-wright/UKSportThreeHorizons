@@ -1143,7 +1143,7 @@ export default function Index() {
                     aria-hidden={!navOpen}
                     className={cn(
                       "w-full overflow-hidden transition-[max-height,opacity] duration-300",
-                      navOpen ? "mt-6 max-h-96 opacity-100" : "max-h-0 opacity-0 pointer-events-none",
+                      navOpen ? "mt-6 max-h-96 opacity-100 visible" : "invisible max-h-0 opacity-0 pointer-events-none",
                     )}
                   >
                     <TabsList className="grid gap-2 rounded-3xl border border-blue-100 bg-white/90 p-3 shadow-sm">
