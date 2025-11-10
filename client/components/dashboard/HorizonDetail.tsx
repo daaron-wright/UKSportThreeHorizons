@@ -407,6 +407,12 @@ export function HorizonDetail({ horizonKey, horizon, timelineToneClasses }: Hori
         </SectionTabsContent>
 
         <SectionTabsContent value="timeline" className="space-y-6">
+          <div className="space-y-2">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-600">
+              {horizon.label} roadmap
+            </p>
+            <p className="text-sm text-slate-600">{horizon.summary}</p>
+          </div>
           <div className="grid gap-4 sm:grid-cols-3">
             {horizon.timeline.map((item) => (
               <Card
