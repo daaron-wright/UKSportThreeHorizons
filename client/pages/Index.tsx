@@ -1125,6 +1125,11 @@ const HORIZON_DATA = {
     description: string;
     metrics: { label: string; value: string; indicator?: "up" | "steady" | "down" }[];
   };
+  stage: {
+    theme: "improve" | "transform" | "innovate";
+    label: string;
+    descriptor: string;
+  };
   timeline: { title: string; description: string; tone: TimelineTone }[];
 }>;
 
