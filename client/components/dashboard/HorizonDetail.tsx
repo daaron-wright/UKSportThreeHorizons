@@ -1,26 +1,17 @@
 import { useEffect, useState } from "react";
-import { Minus, TrendingDown, TrendingUp } from "lucide-react";
-
-import { CostImpactPanel } from "@/components/dashboard/CostImpactPanel";
-import { DiagramAxes, DiagramCluster, HorizonDiagram } from "@/components/dashboard/HorizonDiagram";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Tabs as SectionTabs,
   TabsContent as SectionTabsContent,
   TabsList as SectionTabsList,
   TabsTrigger as SectionTabsTrigger,
 } from "@/components/ui/tabs";
-import { cn } from "@/lib/utils";
-
 const SECTION_CONFIG = [
   { value: "overview", label: "Overview" },
   { value: "personas", label: "Personas" },
   { value: "operating", label: "Operating model" },
   { value: "technical", label: "Technical evolution" },
   { value: "experience", label: "Experience design" },
-  { value: "impact", label: "Data & impact" },
-  { value: "timeline", label: "Timeline" },
 ] as const;
 
 type SectionValue = (typeof SECTION_CONFIG)[number]["value"];
