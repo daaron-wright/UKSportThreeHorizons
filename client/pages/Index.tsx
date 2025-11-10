@@ -1053,6 +1053,7 @@ const HORIZON_DATA = {
 
 export default function Index() {
   const [activeHorizon, setActiveHorizon] = useState<HorizonKey>("h1");
+  const [navOpen, setNavOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-blue-50/30 to-white">
