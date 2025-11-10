@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Minus, TrendingDown, TrendingUp } from "lucide-react";
 
 import { CostImpactPanel } from "@/components/dashboard/CostImpactPanel";
 import { DiagramAxes, DiagramCluster, HorizonDiagram } from "@/components/dashboard/HorizonDiagram";
