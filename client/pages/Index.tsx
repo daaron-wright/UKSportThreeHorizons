@@ -1046,6 +1046,15 @@ const HORIZON_DATA = {
   technicalEvolution: TechnicalEvolution;
   diagram: Parameters<typeof HorizonDiagram>[0];
   ui: UIEvolution;
+  overview: {
+    narrative: string;
+    highlights: string[];
+    metrics: { label: string; value: string }[];
+  };
+  impact: {
+    description: string;
+    metrics: { label: string; value: string; indicator?: "up" | "steady" | "down" }[];
+  };
   timeline: { title: string; description: string; tone: TimelineTone }[];
 }>;
 
