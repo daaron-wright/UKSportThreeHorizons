@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { ChevronDown } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -1054,6 +1055,38 @@ const HORIZON_DATA = {
 export default function Index() {
   const [activeHorizon, setActiveHorizon] = useState<HorizonKey>("h1");
   const [navOpen, setNavOpen] = useState(false);
+  const navContainerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!navOpen) {
+      return;
+    }
+
+    const handlePointer = (event: MouseEvent | TouchEvent) => {
+      const target = event.target as Node | null;
+      if (!target || navContainerRef.current?.contains(target)) {
+        return;
+      }
+
+      setNavOpen(false);
+    };
+
+    const handleKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setNavOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handlePointer);
+    document.addEventListener("touchstart", handlePointer);
+    document.addEventListener("keydown", handleKey);
+
+    return () => {
+      document.removeEventListener("mousedown", handlePointer);
+      document.removeEventListener("touchstart", handlePointer);
+      document.removeEventListener("keydown", handleKey);
+    };
+  }, [navOpen]);
 
   const horizonKeys = Object.keys(HORIZON_DATA) as HorizonKey[];
 
@@ -1099,70 +1132,88 @@ export default function Index() {
           >
             <div
               className={cn(
-                "lg:grid lg:items-start lg:gap-10",
-                navOpen ? "lg:grid-cols-[minmax(0,16rem)_1fr]" : "lg:grid-cols-[minmax(0,4.5rem)_1fr]",
+                "flex flex-col gap-8 lg:flex-row-reverse lg:items-start lg:gap-10",
               )}
             >
-              <div className="flex justify-center lg:sticky lg:top-24 lg:flex lg:flex-col lg:items-start lg:space-y-4">
-                <div className="w-full max-w-xl lg:hidden">
-                  <TabsList className="grid w-full grid-cols-3 gap-1 rounded-full border border-blue-100 bg-white/80 p-1 shadow-sm">
-                    {horizonKeys.map((key) => (
-                      <TabsTrigger
-                        key={key}
-                        value={key}
-                        className="rounded-full px-6 py-2 text-sm font-semibold text-slate-600 transition data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-                      >
-                        {HORIZON_DATA[key].label}
-                      </TabsTrigger>
-                    ))}
-                  </TabsList>
-                </div>
+              <div className="lg:hidden">
+                <TabsList className="grid w-full grid-cols-3 gap-1 rounded-full border border-blue-100 bg-white/80 p-1 shadow-sm">
+                  {horizonKeys.map((key) => (
+                    <TabsTrigger
+                      key={key}
+                      value={key}
+                      className="rounded-full px-6 py-2 text-sm font-semibold text-slate-600 transition data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                    >
+                      {HORIZON_DATA[key].label}
+                    </TabsTrigger>
+                  ))}
+                </TabsList>
+              </div>
 
-                <div className="hidden lg:flex lg:flex-col lg:items-center lg:gap-4">
-                  <button
-                    type="button"
-                    onClick={() => setNavOpen((prev) => !prev)}
-                    className={cn(
-                      "group relative flex h-44 w-10 items-center justify-center rounded-full border bg-white/90 shadow-sm transition hover:border-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
-                      navOpen ? "border-blue-500 bg-blue-50" : "border-blue-100",
-                    )}
-                    aria-label="Toggle horizon navigation"
-                    aria-expanded={navOpen}
-                    aria-controls="horizon-nav"
-                  >
-                    <span className="absolute left-1/2 top-3 h-14 w-px -translate-x-1/2 rounded bg-blue-600 transition-colors group-hover:bg-blue-500" />
-                    <span className="absolute left-1/2 bottom-3 h-14 w-px -translate-x-1/2 rounded bg-blue-600 transition-colors group-hover:bg-blue-500" />
-                    <span className="absolute left-1/2 top-6 h-px w-6 -translate-x-1/2 bg-blue-600 transition-colors group-hover:bg-blue-500" />
-                    <span className="absolute left-1/2 bottom-6 h-px w-6 -translate-x-1/2 bg-blue-600 transition-colors group-hover:bg-blue-500" />
-                    <span className="[writing-mode:vertical-rl] rotate-180 text-[10px] font-semibold uppercase tracking-[0.6em] text-blue-700">
-                      Horizons
-                    </span>
-                  </button>
-                  <div
-                    id="horizon-nav"
-                    aria-hidden={!navOpen}
-                    className={cn(
-                      "w-full overflow-hidden transition-[max-height,opacity] duration-300",
-                      navOpen ? "mt-6 max-h-96 opacity-100 visible" : "invisible max-h-0 opacity-0 pointer-events-none",
-                    )}
-                  >
-                    <TabsList className="grid w-44 gap-2 rounded-3xl border border-blue-100 bg-white/90 p-3 shadow-sm">
-                      {horizonKeys.map((key) => (
-                        <TabsTrigger
-                          key={key}
-                          value={key}
-                          className="w-full rounded-2xl px-4 py-2 text-left text-sm font-semibold text-slate-600 transition data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-                          onClick={() => setNavOpen(false)}
-                        >
-                          {HORIZON_DATA[key].label}
-                        </TabsTrigger>
-                      ))}
-                    </TabsList>
+              <div
+                className={cn(
+                  "hidden lg:block lg:shrink-0 lg:transition-[width] lg:duration-300",
+                  navOpen ? "lg:w-[18rem]" : "lg:w-[4.25rem]",
+                )}
+              >
+                <div className="sticky top-24">
+                  <div ref={navContainerRef} className="flex flex-col items-end gap-4">
+                    <button
+                      type="button"
+                      onClick={() => setNavOpen((prev) => !prev)}
+                      className={cn(
+                        "flex h-20 w-12 flex-col items-center justify-center gap-2 rounded-full border border-blue-100 bg-white/90 text-blue-700 shadow-sm transition-colors duration-200 hover:border-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
+                        navOpen ? "border-blue-500 bg-blue-50" : "",
+                      )}
+                      aria-label={navOpen ? "Collapse horizon navigation" : "Expand horizon navigation"}
+                      aria-expanded={navOpen}
+                      aria-controls="horizon-nav"
+                    >
+                      <ChevronDown
+                        className={cn(
+                          "h-4 w-4 text-blue-600 transition-transform",
+                          navOpen ? "rotate-180" : "",
+                        )}
+                      />
+                      <span className="text-[10px] font-semibold uppercase tracking-[0.35em]">
+                        Horizons
+                      </span>
+                    </button>
+                    <div
+                      id="horizon-nav"
+                      aria-hidden={!navOpen}
+                      className={cn(
+                        "w-full overflow-hidden rounded-3xl border border-blue-100 bg-white/95 shadow-xl transition-[max-height,opacity] duration-300 ease-out backdrop-blur",
+                        navOpen
+                          ? "pointer-events-auto max-h-[calc(100vh-12rem)] opacity-100"
+                          : "pointer-events-none max-h-0 opacity-0",
+                      )}
+                    >
+                      <div className="max-h-[calc(100vh-12rem)] overflow-y-auto p-4">
+                        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-600">
+                          Horizon roadmap
+                        </p>
+                        <TabsList className="mt-3 flex w-full flex-col gap-2 bg-transparent p-0">
+                          {horizonKeys.map((key) => (
+                            <TabsTrigger
+                              key={key}
+                              value={key}
+                              className="flex w-full flex-col items-start gap-1 rounded-2xl border border-transparent px-4 py-3 text-sm font-semibold text-slate-600 transition-colors hover:border-blue-100 hover:bg-blue-50 data-[state=active]:border-blue-400 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                              onClick={() => setNavOpen(false)}
+                            >
+                              <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-blue-600">
+                                {HORIZON_DATA[key].short}
+                              </span>
+                              <span>{HORIZON_DATA[key].label}</span>
+                            </TabsTrigger>
+                          ))}
+                        </TabsList>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-10 space-y-10 lg:mt-0">
+              <div className="mt-8 space-y-10 lg:mt-0 lg:flex-1">
                 {horizonKeys.map((key) => {
                   const horizon = HORIZON_DATA[key];
                   return (
