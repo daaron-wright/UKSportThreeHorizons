@@ -1,5 +1,7 @@
 import { Minus, TrendingDown, TrendingUp } from "lucide-react";
 
+import { Minus, TrendingDown, TrendingUp } from "lucide-react";
+
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
@@ -7,8 +9,10 @@ import type { HorizonSectionValue } from "./HorizonDetail";
 
 const SECTION_SHORTCUTS: { label: string; value: HorizonSectionValue }[] = [
   { label: "Overview", value: "overview" },
-  { label: "Data & impact", value: "impact" },
-  { label: "Timeline", value: "timeline" },
+  { label: "Personas", value: "personas" },
+  { label: "Operating model", value: "operating" },
+  { label: "Technical", value: "technical" },
+  { label: "Experience", value: "experience" },
 ];
 
 const STAGE_THEME_CLASS: Record<string, string> = {
