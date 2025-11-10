@@ -1104,40 +1104,53 @@ export default function Index() {
               )}
             >
               <div className="flex justify-center lg:block lg:sticky lg:top-24">
-                <div className="w-full max-w-xs lg:max-w-none">
+                <div className="w-full max-w-xl lg:hidden">
+                  <TabsList className="grid w-full grid-cols-3 gap-1 rounded-full border border-blue-100 bg-white/80 p-1 shadow-sm">
+                    {horizonKeys.map((key) => (
+                      <TabsTrigger
+                        key={key}
+                        value={key}
+                        className="rounded-full px-6 py-2 text-sm font-semibold text-slate-600 transition data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                      >
+                        {HORIZON_DATA[key].label}
+                      </TabsTrigger>
+                    ))}
+                  </TabsList>
+                </div>
+
+                <div className="hidden w-full max-w-xs lg:flex lg:max-w-none lg:flex-col lg:items-center lg:gap-4">
                   <button
                     type="button"
                     onClick={() => setNavOpen((prev) => !prev)}
-                    className="flex w-full items-center justify-between rounded-3xl border border-blue-100 bg-white px-4 py-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-blue-200"
+                    className={cn(
+                      "group relative flex h-48 w-12 items-center justify-center rounded-full border bg-white/90 shadow-sm transition hover:border-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
+                      navOpen ? "border-blue-500 bg-blue-50" : "border-blue-100",
+                    )}
                     aria-expanded={navOpen}
                     aria-controls="horizon-nav"
                   >
-                    <span>Horizons</span>
-                    <span
-                      aria-hidden
-                      className={cn("ml-3 text-xs transition-transform", navOpen ? "rotate-180" : "rotate-0")}
-                    >
-                      ▾
+                    <span className="absolute left-1/2 top-4 h-12 w-px -translate-x-1/2 rounded bg-blue-600 transition-colors group-hover:bg-blue-500" />
+                    <span className="absolute left-1/2 bottom-4 h-12 w-px -translate-x-1/2 rounded bg-blue-600 transition-colors group-hover:bg-blue-500" />
+                    <span className="absolute left-1/2 top-1/2 h-px w-6 -translate-x-1/2 -translate-y-3 bg-blue-600 transition-colors group-hover:bg-blue-500" />
+                    <span className="absolute left-1/2 top-1/2 h-px w-6 -translate-x-1/2 translate-y-3 bg-blue-600 transition-colors group-hover:bg-blue-500" />
+                    <span className="[writing-mode:vertical-rl] rotate-180 text-[10px] font-semibold uppercase tracking-[0.6em] text-blue-700">
+                      Horizons
                     </span>
                   </button>
                   <div
                     id="horizon-nav"
                     className={cn(
-                      "grid gap-1 overflow-hidden transition-[margin,max-height,opacity] duration-300",
-                      navOpen ? "mt-3 max-h-96 opacity-100" : "max-h-0 opacity-0",
+                      "w-full overflow-hidden transition-[max-height,opacity] duration-300",
+                      navOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 pointer-events-none",
                     )}
                   >
-                    <TabsList
-                      className={cn(
-                        "grid gap-2 rounded-3xl border border-blue-100 bg-white/90 p-2 shadow-sm sm:grid-cols-3 lg:grid-cols-1",
-                        navOpen ? "pointer-events-auto" : "pointer-events-none",
-                      )}
-                    >
-                      {(Object.keys(HORIZON_DATA) as HorizonKey[]).map((key) => (
+                    <TabsList className="grid gap-2 rounded-3xl border border-blue-100 bg-white/90 p-3 shadow-sm">
+                      {horizonKeys.map((key) => (
                         <TabsTrigger
                           key={key}
                           value={key}
-                          className="rounded-2xl px-4 py-2 text-sm font-semibold text-slate-600 transition data-[state=active]:bg-primary data-[state=active]:text-primary-foreground lg:w-full lg:text-base"
+                          className="rounded-2xl px-4 py-2 text-sm font-semibold text-slate-600 transition data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                          onClick={() => setNavOpen(false)}
                         >
                           {HORIZON_DATA[key].label}
                         </TabsTrigger>
