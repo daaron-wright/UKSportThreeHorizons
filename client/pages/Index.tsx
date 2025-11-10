@@ -1118,7 +1118,7 @@ export default function Index() {
                   </TabsList>
                 </div>
 
-                <div className="hidden w-full max-w-xs lg:flex lg:max-w-none lg:flex-col lg:items-center lg:gap-4">
+                <div className="hidden lg:flex lg:flex-col lg:items-center lg:gap-4">
                   <button
                     type="button"
                     onClick={() => setNavOpen((prev) => !prev)}
