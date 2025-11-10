@@ -1208,9 +1208,19 @@ export default function Index() {
     <div className="min-h-screen bg-gradient-to-br from-white via-blue-50/30 to-white">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-          <span className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-blue-700">
-            UKSport 2025
-          </span>
+          <div className="inline-flex items-center gap-3 rounded-full border border-blue-200 bg-blue-50 px-4 py-1">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F4f72be6c562a4212a4942d75695a634f%2F2db63ce22751490b8ed796320fca4e46?format=webp&width=320"
+              alt="UK Sport"
+              className="h-4 w-auto"
+            />
+            <span className="h-4 w-px rounded-full bg-blue-200" aria-hidden />
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F4f72be6c562a4212a4942d75695a634f%2F47312d90edaa41d287352749b78535de?format=webp&width=320"
+              alt="Kyndryl"
+              className="h-4 w-auto"
+            />
+          </div>
           <h1 className="mt-6 text-4xl font-bold tracking-tight text-primary sm:text-5xl">
             Athlete Hub Design Development
           </h1>
