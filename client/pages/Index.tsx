@@ -1146,11 +1146,11 @@ export default function Index() {
               </div>
 
               <div className="mt-10 space-y-10 lg:mt-0">
-              {(Object.keys(HORIZON_DATA) as HorizonKey[]).map((key) => {
-                const horizon = HORIZON_DATA[key];
-                return (
-                  <TabsContent key={key} value={key} className="space-y-10">
-                  <section className="rounded-3xl border border-blue-100 bg-white/90 p-10 shadow-sm">
+                {(Object.keys(HORIZON_DATA) as HorizonKey[]).map((key) => {
+                  const horizon = HORIZON_DATA[key];
+                  return (
+                    <TabsContent key={key} value={key} className="space-y-10">
+                      <section className="rounded-3xl border border-blue-100 bg-white/90 p-10 shadow-sm">
                     <header className="max-w-3xl">
                       <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-700">
                         {horizon.short}
