@@ -4,7 +4,7 @@ import { Minus, TrendingDown, TrendingUp } from "lucide-react";
 import { CostImpactPanel } from "@/components/dashboard/CostImpactPanel";
 import { DiagramAxes, DiagramCluster, HorizonDiagram } from "@/components/dashboard/HorizonDiagram";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Tabs as SectionTabs,
   TabsContent as SectionTabsContent,
