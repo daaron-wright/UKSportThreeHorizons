@@ -1127,7 +1127,7 @@ export default function Index() {
                   >
                     <TabsList
                       className={cn(
-                        "grid gap-2 rounded-3xl border border-blue-100 bg-white/90 p-2 shadow-sm",
+                        "grid gap-2 rounded-3xl border border-blue-100 bg-white/90 p-2 shadow-sm sm:grid-cols-3 lg:grid-cols-1",
                         navOpen ? "pointer-events-auto" : "pointer-events-none",
                       )}
                     >
