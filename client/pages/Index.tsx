@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { HorizonDetail, HorizonSectionValue } from "@/components/dashboard/HorizonDetail";
 import { HorizonKeyNavigator } from "@/components/dashboard/HorizonKeyNavigator";
@@ -1151,39 +1151,6 @@ const HORIZON_DATA = {
 export default function Index() {
   const [activeHorizon, setActiveHorizon] = useState<HorizonKey>("h1");
   const [activeSection, setActiveSection] = useState<HorizonSectionValue>("overview");
-  const [navOpen, setNavOpen] = useState(false);
-  const navContainerRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    if (!navOpen) {
-      return;
-    }
-
-    const handlePointer = (event: MouseEvent | TouchEvent) => {
-      const target = event.target as Node | null;
-      if (!target || navContainerRef.current?.contains(target)) {
-        return;
-      }
-
-      setNavOpen(false);
-    };
-
-    const handleKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setNavOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handlePointer);
-    document.addEventListener("touchstart", handlePointer);
-    document.addEventListener("keydown", handleKey);
-
-    return () => {
-      document.removeEventListener("mousedown", handlePointer);
-      document.removeEventListener("touchstart", handlePointer);
-      document.removeEventListener("keydown", handleKey);
-    };
-  }, [navOpen]);
 
   const horizonKeys = Object.keys(HORIZON_DATA) as HorizonKey[];
 
@@ -1227,7 +1194,7 @@ export default function Index() {
             Three Horizons Data Integration
           </p>
           <p className="mt-4 text-lg text-slate-600">
-            Tab through the horizons to see how UK Sport incrementally integrates new data sources—
+            Tab through the horizons to see how UK Sport incrementally integrates new data sources���
             moving from high ease-of-use records to high-impact intelligence.
           </p>
           <div className="mt-6 flex flex-col items-center gap-6 sm:flex-row">
