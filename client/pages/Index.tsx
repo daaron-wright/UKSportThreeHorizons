@@ -1071,6 +1071,26 @@ export default function Index() {
             Tab through the horizons to see how UK Sport incrementally integrates new data sources—
             moving from high ease-of-use records to high-impact intelligence.
           </p>
+          <div className="mt-6 inline-flex flex-col items-center gap-4 rounded-3xl border border-blue-100 bg-white/80 px-6 py-5 shadow-sm sm:flex-row sm:gap-6">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">
+              Collaboration
+            </p>
+            <div className="flex items-center gap-4 sm:gap-6">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F4f72be6c562a4212a4942d75695a634f%2F2db63ce22751490b8ed796320fca4e46?format=webp&width=400"
+                alt="UK Sport logo"
+                className="h-10 w-auto"
+              />
+              <span className="hidden text-sm font-semibold uppercase tracking-[0.5em] text-blue-400 sm:inline">
+                ×
+              </span>
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F4f72be6c562a4212a4942d75695a634f%2F47312d90edaa41d287352749b78535de?format=webp&width=400"
+                alt="Kyndryl logo"
+                className="h-8 w-auto"
+              />
+            </div>
+          </div>
         </div>
 
         <div className="mt-12 space-y-10">
