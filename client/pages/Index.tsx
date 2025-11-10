@@ -1071,7 +1071,7 @@ export default function Index() {
             Tab through the horizons to see how UK Sport incrementally integrates new data sources—
             moving from high ease-of-use records to high-impact intelligence.
           </p>
-          <div className="mt-6 inline-flex flex-col items-center gap-6 rounded-3xl border border-blue-100 bg-white/80 px-6 py-5 shadow-sm sm:flex-row">
+          <div className="mt-6 flex flex-col items-center gap-6 sm:flex-row">
             <span className="sr-only">UK Sport collaborating with Kyndryl</span>
             <div className="flex items-center gap-6">
               <img
