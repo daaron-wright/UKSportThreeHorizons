@@ -114,6 +114,11 @@ const HORIZON_DATA = {
         { label: "Cost per medal", value: "▼12%", indicator: "down" },
       ],
     },
+    stage: {
+      theme: "improve",
+      label: "Improve",
+      descriptor: "Incremental improvement",
+    },
     personas: [
       {
         name: "Performance Medical Lead",
@@ -496,6 +501,11 @@ const HORIZON_DATA = {
         { label: "Cost per medal", value: "▼28%", indicator: "down" },
       ],
     },
+    stage: {
+      theme: "transform",
+      label: "Transform",
+      descriptor: "Step-change transformation",
+    },
     personas: [
       {
         name: "National Squad Coach",
@@ -835,6 +845,11 @@ const HORIZON_DATA = {
         { label: "Impact", value: "Breakthrough" },
         { label: "Cost per medal", value: "▼45%", indicator: "down" },
       ],
+    },
+    stage: {
+      theme: "innovate",
+      label: "Innovate",
+      descriptor: "Radical innovation",
     },
     personas: [
       {
