@@ -1075,6 +1075,7 @@ export default function Index() {
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">
               Collaboration
             </p>
+            <span className="sr-only">UK Sport collaborating with Kyndryl</span>
             <div className="flex items-center gap-4 sm:gap-6">
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2F4f72be6c562a4212a4942d75695a634f%2F2db63ce22751490b8ed796320fca4e46?format=webp&width=400"
