@@ -1150,7 +1150,7 @@ export default function Index() {
                         <TabsTrigger
                           key={key}
                           value={key}
-                          className="rounded-2xl px-4 py-2 text-sm font-semibold text-slate-600 transition data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                          className="w-full rounded-2xl px-4 py-2 text-left text-sm font-semibold text-slate-600 transition data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
                           onClick={() => setNavOpen(false)}
                         >
                           {HORIZON_DATA[key].label}
