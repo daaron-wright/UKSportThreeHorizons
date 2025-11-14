@@ -1269,7 +1269,7 @@ export default function Index() {
             className="h-full"
           >
             <div className="space-y-8">
-              <TabsList className="grid w-full gap-2 rounded-3xl border border-blue-100 bg-white/80 p-1 shadow-sm sm:grid-cols-3">
+              <TabsList className="grid w-full gap-2 rounded-3xl border border-blue-100 bg-white/60 p-1 shadow-sm sm:grid-cols-3">
                 {horizonKeys.map((key) => (
                   <TabsTrigger
                     key={key}
