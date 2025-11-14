@@ -177,6 +177,7 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
                     tickLine={false}
                     axisLine={false}
                     ticks={[]}
+                    tickFormatter={() => ""}
                     label={{ value: "Relative cost", angle: -90, position: "insideLeft", offset: 12, fill: axisColor }}
                   />
                   <Tooltip content={<CostTooltip />} cursor={{ stroke: seriesGlow, strokeWidth: 2, strokeDasharray: "4 4" }} />
