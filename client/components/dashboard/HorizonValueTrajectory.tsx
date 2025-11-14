@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import {
   CartesianGrid,
@@ -13,6 +14,10 @@ import {
 } from "recharts";
 
 const seriesColor = "hsl(var(--primary))";
+const seriesGlow = "hsl(var(--primary)/0.16)";
+const gridColor = "hsl(var(--primary)/0.12)";
+const axisColor = "hsl(var(--muted-foreground)/0.75)";
+const tooltipBorderColor = "hsl(var(--primary)/0.2)";
 
 const chartData = [
   {
@@ -50,9 +55,12 @@ const CustomTooltip = ({ active, payload, label }: TooltipProps<number, string>)
   }
 
   return (
-    <div className="max-w-xs rounded-lg border border-blue-100 bg-white/95 px-3 py-2 text-xs shadow-md">
-      <p className="font-semibold text-slate-700">{label}</p>
-      <p className="mt-2 text-slate-600">{horizonNarrative[label ?? ""]}</p>
+    <div
+      className="max-w-xs rounded-lg border bg-white/95 px-3 py-2 text-xs shadow-lg backdrop-blur"
+      style={{ borderColor: tooltipBorderColor, boxShadow: "0 16px 32px -12px hsl(var(--primary)/0.2)" }}
+    >
+      <p className="font-semibold text-primary">{label}</p>
+      <p className="mt-2 text-muted-foreground">{horizonNarrative[label ?? ""]}</p>
     </div>
   );
 };
@@ -61,7 +69,7 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
   return (
     <section className={cn("space-y-8", className)}>
       <div className="space-y-3 text-center">
-        <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-600">
+        <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary/80">
           ROI compounding over time
         </p>
         <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
@@ -72,8 +80,8 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
         </p>
       </div>
 
-      <Card className="border-blue-100 bg-white/95 shadow-sm">
-        <CardHeader className="pb-6">
+      <Card className="border border-primary/15 bg-white/95 shadow-[0_20px_40px_-24px_rgba(37,61,232,0.45)]">
+        <CardHeader className="border-b border-primary/10 pb-6">
           <CardTitle className="text-lg font-semibold text-primary">
             ROI trajectory across horizons
           </CardTitle>
@@ -88,12 +96,18 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
           <div className="h-[380px] w-full">
             <ResponsiveContainer>
               <LineChart data={chartData} margin={{ top: 72, right: 16, left: 16, bottom: 24 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--muted-foreground)/0.35)" />
+                <defs>
+                  <linearGradient id="roiFill" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="hsl(var(--primary)/0.25)" />
+                    <stop offset="100%" stopColor="hsl(var(--primary)/0.05)" />
+                  </linearGradient>
+                </defs>
+                <CartesianGrid strokeDasharray="3 3" stroke={gridColor} />
                 <XAxis
                   dataKey="label"
                   tickLine={false}
                   axisLine={false}
-                  tick={{ fill: "hsl(var(--muted-foreground)/0.8)", fontSize: 12 }}
+                  tick={{ fill: axisColor, fontSize: 12 }}
                   interval={0}
                   angle={-10}
                   height={60}
@@ -103,18 +117,20 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
                   tickLine={false}
                   axisLine={false}
                   ticks={[0, 2, 4, 6, 8, 10]}
-                  tick={{ fill: "hsl(var(--muted-foreground)/0.8)", fontSize: 12 }}
-                  label={{ value: "Relative ROI", angle: -90, position: "insideLeft", offset: 12, fill: "hsl(var(--muted-foreground))" }}
+                  tick={{ fill: axisColor, fontSize: 12 }}
+                  label={{ value: "Relative ROI", angle: -90, position: "insideLeft", offset: 12, fill: axisColor }}
                 />
-                <Tooltip content={<CustomTooltip />} cursor={{ stroke: "hsl(var(--muted-foreground)/0.4)", strokeDasharray: "4 4" }} />
+                <Tooltip content={<CustomTooltip />} cursor={{ stroke: seriesGlow, strokeWidth: 2, strokeDasharray: "4 4" }} />
                 <Line
                   type="monotone"
                   dataKey="roi"
                   name="ROI"
                   stroke={seriesColor}
                   strokeWidth={3}
-                  dot={{ r: 6, strokeWidth: 2, stroke: "white", fill: seriesColor }}
-                  activeDot={{ r: 8, strokeWidth: 0, fill: seriesColor }}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  dot={{ r: 6, strokeWidth: 3, stroke: "hsl(var(--primary)/0.35)", fill: "white" }}
+                  activeDot={{ r: 9, strokeWidth: 3, stroke: "white", fill: seriesColor }}
                 />
                 {chartData.map((point) => (
                   <ReferenceDot
@@ -126,7 +142,8 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
                     label={{
                       value: point.annotation,
                       position: "top",
-                      fill: "hsl(var(--primary))",
+                      fill: seriesColor,
+                      fontWeight: 600,
                       fontSize: 12,
                       dy: -6,
                     }}
