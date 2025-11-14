@@ -66,6 +66,53 @@ type UIEvolution = {
   };
 };
 
+type OverviewMetric = {
+  label: string;
+  value?: string;
+};
+
+type ImpactMetric = {
+  label: string;
+  value?: string;
+  indicator?: "up" | "steady" | "down";
+};
+
+type HorizonStage = {
+  theme: "improve" | "transform" | "innovate";
+  label: string;
+  descriptor: string;
+};
+
+type HorizonTimelineEntry = {
+  title: string;
+  description: string;
+  tone: TimelineTone;
+};
+
+type HorizonDataEntry = {
+  label: string;
+  short: string;
+  summary: string;
+  overview: {
+    narrative: string;
+    highlights: string[];
+    metrics: OverviewMetric[];
+  };
+  valueThemes: ValueTheme[];
+  impact: {
+    description: string;
+    metrics: ImpactMetric[];
+  };
+  stage: HorizonStage;
+  personas: Persona[];
+  personaTarget: PersonaTarget;
+  operatingModel: OperatingModel;
+  technicalEvolution: TechnicalEvolution;
+  ui: UIEvolution;
+  diagram: HorizonDiagramProps;
+  timeline: HorizonTimelineEntry[];
+};
+
 const QUADRANT_TAGS = {
   highEaseHighImpact: [
     "Quadrant: High ease ↗ High impact",
