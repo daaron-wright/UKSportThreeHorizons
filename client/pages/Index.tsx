@@ -95,8 +95,7 @@ const HORIZON_DATA = {
         "Baseline dashboards mirror governed datasets.",
       ],
       metrics: [
-        { label: "Sources onboarded", value: "24" },
-        { label: "Manual workload drop", value: "-18%" },
+        { label: "Manual workload drop" },
       ],
     },
     valueThemes: [
@@ -500,9 +499,7 @@ const HORIZON_DATA = {
         "Retrieval prompts surface answers alongside each module.",
       ],
       metrics: [
-        { label: "Sources onboarded", value: "36" },
-        { label: "Adoption lift", value: "+24%" },
-        { label: "Manual workload drop", value: "-31%" },
+        { label: "Adoption lift" },
       ],
     },
     valueThemes: [
@@ -864,9 +861,7 @@ const HORIZON_DATA = {
         "Strategic council aligns research, telemetry, and investment decisions.",
       ],
       metrics: [
-        { label: "Sources orchestrated", value: "52" },
-        { label: "Automation coverage", value: "70%" },
-        { label: "Staff time saved", value: "42%" },
+        { label: "Automation coverage" },
       ],
     },
     valueThemes: [
