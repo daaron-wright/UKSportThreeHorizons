@@ -872,6 +872,20 @@ const HORIZON_DATA = {
         { label: "Staff time saved", value: "42%" },
       ],
     },
+    valueThemes: [
+      {
+        category: "Efficiency & Time Savings",
+        statement: "System-level optimisation and cost avoidance through autonomous orchestration.",
+      },
+      {
+        category: "Productivity & Throughput",
+        statement: "Avoided failures and improved forecasts thanks to proactive intelligence.",
+      },
+      {
+        category: "Prediction & Optimisation",
+        statement: "Enterprise-wide resilience and margin gains driven by predictive automation.",
+      },
+    ],
     impact: {
       description:
         "Autonomous orchestration and external insight deliver breakthrough efficiency and medal upside across the system.",
