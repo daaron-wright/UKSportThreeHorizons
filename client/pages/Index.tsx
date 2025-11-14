@@ -97,7 +97,6 @@ const HORIZON_DATA = {
       metrics: [
         { label: "Sources onboarded", value: "24" },
         { label: "Manual workload drop", value: "-18%" },
-        { label: "Consent coverage", value: "100%" },
       ],
     },
     valueThemes: [
