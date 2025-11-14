@@ -678,11 +678,7 @@ const HORIZON_DATA = {
       name: "Performance intelligence pod",
       summary:
         "Blend coaching, analysis, and wellbeing functions into cross-disciplinary pods that share live insight.",
-      enablers: [
-        "Daily readiness stand-up",
-        "Video & sensor ops rota",
-        "Centralised insights backlog",
-      ],
+      enablers: [],
       roles: [
         {
           title: "Product Owner",
