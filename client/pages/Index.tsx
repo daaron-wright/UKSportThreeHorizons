@@ -1973,6 +1973,7 @@ export default function Index() {
                 {horizonKeys.map((key, index) => {
                   const isActive = activeHorizon === key;
                   const isFirst = index === 0;
+                  const isLast = index === horizonKeys.length - 1;
 
                   return (
                     <TabsTrigger
@@ -1982,6 +1983,7 @@ export default function Index() {
                         "rounded-full border border-transparent px-6 py-2 text-sm font-semibold text-slate-600 transition transform data-[state=active]:border-primary data-[state=active]:bg-primary/10 data-[state=active]:text-primary",
                         isActive && "-translate-y-1",
                         isActive && isFirst && "-translate-x-1",
+                        isActive && isLast && "translate-x-1",
                       )}
                     >
                       {HORIZON_DATA[key].label}
