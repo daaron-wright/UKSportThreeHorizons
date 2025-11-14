@@ -82,7 +82,7 @@ function createMetadata({ product, system, access, ownership }: MetadataConfig) 
 const HORIZON_DATA = {
   h1: {
     label: "Horizon 1",
-    short: "Core foundation",
+    short: "Centralize & Integrate",
     summary:
       "Integrate the high-trust clinical and personal records already curated by UK Sport so the Performance Hub earns confidence from day one.",
     overview: {
@@ -469,7 +469,7 @@ const HORIZON_DATA = {
   },
   h2: {
     label: "Horizon 2",
-    short: "Expansion",
+    short: "Ingest",
     summary:
       "Blend richer monitoring sources—video, wellness, and training loads—with retrieval tooling to elevate impact while adoption stays manageable.",
     overview: {
