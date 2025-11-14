@@ -78,8 +78,10 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
             ROI trajectory across horizons
           </CardTitle>
           <p className="text-sm text-slate-600">
-            Horizon 1 validates core access, Horizon 2 accelerates capability through connected workflows, and Horizon 3
-            unlocks system-wide strength and prediction.
+            <span className="font-semibold text-primary">Horizon 1</span> validates core access,
+            <span className="font-semibold text-primary"> Horizon 2</span> accelerates capability through connected
+            workflows, and <span className="font-semibold text-primary">Horizon 3</span> unlocks system-wide strength and
+            prediction.
           </p>
         </CardHeader>
         <CardContent>
