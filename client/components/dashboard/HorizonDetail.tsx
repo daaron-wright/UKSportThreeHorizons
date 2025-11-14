@@ -1,24 +1,4 @@
-import { useEffect, useState } from "react";
-
 import { Badge } from "@/components/ui/badge";
-import {
-  Tabs as SectionTabs,
-  TabsContent as SectionTabsContent,
-  TabsList as SectionTabsList,
-  TabsTrigger as SectionTabsTrigger,
-} from "@/components/ui/tabs";
-
-const SECTION_CONFIG = [
-  { value: "overview", label: "Overview" },
-  { value: "personas", label: "Personas" },
-  { value: "operating", label: "Operating model" },
-  { value: "technical", label: "Technical evolution" },
-  { value: "experience", label: "Experience design" },
-] as const;
-
-type SectionValue = (typeof SECTION_CONFIG)[number]["value"];
-
-export type HorizonSectionValue = SectionValue;
 
 type Persona = {
   name: string;
@@ -65,36 +45,14 @@ type HorizonDetailProps = {
     technicalEvolution: TechnicalEvolution;
     ui: UIEvolution;
   };
-  activeSection?: HorizonSectionValue;
-  onSectionChange?: (section: HorizonSectionValue) => void;
 };
 
-export function HorizonDetail({
-  horizonKey,
-  horizon,
-  activeSection: controlledSection,
-  onSectionChange,
-}: HorizonDetailProps) {
-  const [internalSection, setInternalSection] = useState<SectionValue>("overview");
-
-  const isControlled = controlledSection !== undefined;
-  const currentSection = (isControlled ? controlledSection : internalSection) ?? "overview";
-
-  useEffect(() => {
-    if (!isControlled) {
-      setInternalSection("overview");
-    }
-  }, [horizonKey, isControlled]);
-
-  const handleSectionChange = (value: SectionValue) => {
-    if (!isControlled) {
-      setInternalSection(value);
-    }
-    onSectionChange?.(value);
-  };
-
+export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
   return (
-    <div className="flex flex-col gap-6 rounded-3xl border border-blue-100 bg-white/95 p-8 shadow-sm">
+    <div
+      id={`horizon-${horizonKey}`}
+      className="flex flex-col gap-8 rounded-3xl border border-blue-100 bg-white/95 p-8 shadow-sm"
+    >
       <header className="space-y-4">
         <div className="flex flex-wrap items-center gap-3">
           <Badge className="rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-blue-700">
@@ -115,29 +73,17 @@ export function HorizonDetail({
         </div>
       </header>
 
-      <SectionTabs
-        value={currentSection}
-        onValueChange={(value) => handleSectionChange(value as SectionValue)}
-        className="space-y-6"
-      >
-        <SectionTabsList className="flex w-full gap-2 overflow-x-auto rounded-full border border-blue-100 bg-white/80 p-1 text-sm font-semibold text-slate-600 shadow-sm">
-          {SECTION_CONFIG.map((section) => (
-            <SectionTabsTrigger
-              key={section.value}
-              value={section.value}
-              className="whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold transition data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-            >
-              {section.label}
-            </SectionTabsTrigger>
-          ))}
-        </SectionTabsList>
-
-        <SectionTabsContent value="overview" className="space-y-6">
+      <div className="space-y-10">
+        <section aria-labelledby={`overview-${horizonKey}`} className="space-y-6">
+          <p
+            id={`overview-${horizonKey}`}
+            className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-600"
+          >
+            Overview
+          </p>
           <div className="grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
             <div className="space-y-5">
-              <p className="text-sm leading-relaxed text-slate-600">
-                {horizon.overview.narrative}
-              </p>
+              <p className="text-sm leading-relaxed text-slate-600">{horizon.overview.narrative}</p>
               <div className="grid gap-3">
                 {horizon.overview.highlights.map((point) => (
                   <div
@@ -176,9 +122,20 @@ export function HorizonDetail({
               </div>
             </div>
           </div>
-        </SectionTabsContent>
+        </section>
 
-        <SectionTabsContent value="personas" className="space-y-6">
+        <section aria-labelledby={`personas-${horizonKey}`} className="space-y-6">
+          <div className="flex items-baseline justify-between">
+            <p
+              id={`personas-${horizonKey}`}
+              className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-600"
+            >
+              Personas
+            </p>
+            <Badge variant="secondary" className="rounded-full border border-blue-200 bg-white px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-blue-700">
+              {horizon.personas.length} profiles
+            </Badge>
+          </div>
           {horizon.personas.length ? (
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {horizon.personas.map((persona) => (
@@ -200,62 +157,74 @@ export function HorizonDetail({
           ) : (
             <p className="text-sm text-slate-600">No personas captured for this horizon yet.</p>
           )}
-        </SectionTabsContent>
+        </section>
 
-        <SectionTabsContent value="operating" className="space-y-6">
-          <div className="space-y-4">
-            <header className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-600">
-                  Target operating model
-                </p>
-                <h3 className="mt-1 text-xl font-semibold text-primary">{horizon.operatingModel.name}</h3>
-                <p className="mt-2 text-sm text-slate-600">{horizon.operatingModel.summary}</p>
-              </div>
-              <Badge className="h-fit rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-blue-700">
-                Operating model
-              </Badge>
-            </header>
-            <div className="grid gap-3 sm:grid-cols-3">
-              {horizon.operatingModel.enablers.map((enabler) => (
-                <div
-                  key={enabler}
-                  className="rounded-2xl border border-blue-100/80 bg-blue-50/60 p-4 text-sm text-blue-900"
-                >
-                  {enabler}
-                </div>
-              ))}
+        <section aria-labelledby={`operating-${horizonKey}`} className="space-y-4">
+          <header className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p
+                id={`operating-${horizonKey}`}
+                className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-600"
+              >
+                Target operating model
+              </p>
+              <h3 className="mt-1 text-xl font-semibold text-primary">{horizon.operatingModel.name}</h3>
+              <p className="mt-2 text-sm text-slate-600">{horizon.operatingModel.summary}</p>
             </div>
+            <Badge className="h-fit rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-blue-700">
+              Operating model
+            </Badge>
+          </header>
+          <div className="grid gap-3 sm:grid-cols-3">
+            {horizon.operatingModel.enablers.map((enabler) => (
+              <div
+                key={enabler}
+                className="rounded-2xl border border-blue-100/80 bg-blue-50/60 p-4 text-sm text-blue-900"
+              >
+                {enabler}
+              </div>
+            ))}
           </div>
-        </SectionTabsContent>
+        </section>
 
-        <SectionTabsContent value="technical" className="space-y-6">
-          <section className="space-y-4">
-            <header className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-600">Technical evolution</p>
-                <h3 className="mt-1 text-xl font-semibold text-primary">{horizon.technicalEvolution.title}</h3>
-                <p className="mt-2 text-sm text-slate-600">{horizon.technicalEvolution.description}</p>
-              </div>
-              <Badge className="h-fit rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-blue-700">
-                Platform stack
-              </Badge>
-            </header>
-            <div className="grid gap-4 sm:grid-cols-3">
-              {horizon.technicalEvolution.pillars.map((pillar) => (
-                <article
-                  key={pillar.label}
-                  className="rounded-2xl border border-blue-100/80 bg-blue-50/60 p-4"
-                >
-                  <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">{pillar.label}</h4>
-                  <p className="mt-2 text-sm text-blue-900/90">{pillar.detail}</p>
-                </article>
-              ))}
+        <section aria-labelledby={`technical-${horizonKey}`} className="space-y-4">
+          <header className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p
+                id={`technical-${horizonKey}`}
+                className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-600"
+              >
+                Technical evolution
+              </p>
+              <h3 className="mt-1 text-xl font-semibold text-primary">{horizon.technicalEvolution.title}</h3>
+              <p className="mt-2 text-sm text-slate-600">{horizon.technicalEvolution.description}</p>
             </div>
-          </section>
-        </SectionTabsContent>
+            <Badge className="h-fit rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-blue-700">
+              Platform stack
+            </Badge>
+          </header>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {horizon.technicalEvolution.pillars.map((pillar) => (
+              <article key={pillar.label} className="rounded-2xl border border-blue-100/80 bg-blue-50/60 p-4">
+                <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">{pillar.label}</h4>
+                <p className="mt-2 text-sm text-blue-900/90">{pillar.detail}</p>
+              </article>
+            ))}
+          </div>
+        </section>
 
-        <SectionTabsContent value="experience" className="space-y-6">
+        <section aria-labelledby={`experience-${horizonKey}`} className="space-y-6">
+          <div className="flex flex-wrap items-center gap-3">
+            <Badge
+              id={`experience-${horizonKey}`}
+              className="rounded-full bg-primary px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-primary-foreground"
+            >
+              {horizon.label}
+            </Badge>
+            <Badge className="rounded-full border border-blue-200 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">
+              UI evolution
+            </Badge>
+          </div>
           <section className="relative overflow-hidden rounded-3xl border border-blue-100/80 bg-gradient-to-br from-white via-blue-50/60 to-white p-8 shadow-lg">
             <div
               aria-hidden
@@ -267,14 +236,6 @@ export function HorizonDetail({
             />
             <div className="relative grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
               <div className="space-y-6">
-                <div className="flex flex-wrap items-center gap-3">
-                  <Badge className="rounded-full bg-primary px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-primary-foreground">
-                    {horizon.label}
-                  </Badge>
-                  <Badge className="rounded-full border border-blue-200 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">
-                    UI evolution
-                  </Badge>
-                </div>
                 <h3 className="text-2xl font-semibold text-primary">{horizon.ui.title}</h3>
                 <p className="text-sm leading-relaxed text-slate-600">{horizon.ui.description}</p>
                 <div className="grid gap-3">
@@ -335,8 +296,8 @@ export function HorizonDetail({
               </div>
             </div>
           </section>
-        </SectionTabsContent>
-      </SectionTabs>
+        </section>
+      </div>
     </div>
   );
 }
