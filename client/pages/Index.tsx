@@ -147,8 +147,8 @@ const HORIZON_DATA = {
       summary:
         "Centralise clinical records and compliance processes so frontline staff operate from a single trusted source.",
       diagram: {
-        src: "https://cdn.builder.io/api/v1/image/assets%2F4f72be6c562a4212a4942d75695a634f%2Fe03c0c30c64b45afbe3c287dc8cbd116?format=webp&width=1600",
-        alt: "Operating model roles for Horizon 1 including product owner, designers, engineers, QA, and support teams with responsibilities.",
+        src: "https://cdn.builder.io/api/v1/image/assets%2F4f72be6c562a4212a4942d75695a634f%2F6d096e4be4054bbaa12f5331b27636bf?format=webp&width=1600",
+        alt: "Horizon 1 operating model diagram detailing product owner, design, engineering, QA, and support roles with responsibilities.",
       },
       enablers: [
         "Performance Hub governance committee",
