@@ -171,6 +171,7 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
                     interval={0}
                     padding={{ left: 16, right: 48 }}
                     height={50}
+                    label={{ value: "Time", position: "insideBottom", offset: -6, fill: axisColor, fontSize: 12 }}
                   />
                   <YAxis
                     domain={[0.6, 1.3]}
