@@ -275,7 +275,7 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
                       fontWeight: 600,
                       fontSize: 12,
                       dy: -6,
-                      dx: index === chartData.length - 1 ? -24 : 0,
+                      dx: index === chartData.length - 1 ? -36 : 0,
                     }}
                   />
                 ))}
