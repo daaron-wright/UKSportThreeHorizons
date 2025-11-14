@@ -1496,7 +1496,7 @@ export default function Index() {
 
               <div className="lg:flex-1">
                 {horizonKeys.map((key) => {
-                  const horizon = HORIZON_DATA[key];
+                  const horizon = HORIZON_DATA[key] as HorizonDataEntry;
                   return (
                     <TabsContent key={key} value={key} className="lg:flex-1">
                       <HorizonDetail horizonKey={key} horizon={horizon} />
