@@ -1185,11 +1185,11 @@ const HORIZON_DATA = {
   overview: {
     narrative: string;
     highlights: string[];
-    metrics: { label: string; value: string }[];
+    metrics: { label: string; value?: string }[];
   };
   impact: {
     description: string;
-    metrics: { label: string; value: string; indicator?: "up" | "steady" | "down" }[];
+    metrics: { label: string; value?: string; indicator?: "up" | "steady" | "down" }[];
   };
   stage: {
     theme: "improve" | "transform" | "innovate";
