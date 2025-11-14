@@ -125,9 +125,11 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
           <Badge variant="secondary" className="border border-blue-200 bg-white px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-blue-700">
             {horizon.personas.length} personas
           </Badge>
-          <Badge variant="secondary" className="border border-blue-200 bg-white px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-blue-700">
-            {horizon.operatingModel.enablers.length} enablers
-          </Badge>
+          {horizon.operatingModel.enablers.length ? (
+            <Badge variant="secondary" className="border border-blue-200 bg-white px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-blue-700">
+              {horizon.operatingModel.enablers.length} enablers
+            </Badge>
+          ) : null}
           {horizon.operatingModel.roles?.length ? (
             <Badge variant="secondary" className="border border-blue-200 bg-white px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-blue-700">
               {horizon.operatingModel.roles.length} roles
@@ -211,10 +213,12 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                   <span className="font-semibold text-primary">Personas in scope</span>
                   <span>{horizon.personas.length}</span>
                 </div>
-                <div className="flex items-center justify-between">
-                  <span className="font-semibold text-primary">Platform enablers</span>
-                  <span>{horizon.operatingModel.enablers.length}</span>
-                </div>
+                {horizon.operatingModel.enablers.length ? (
+                  <div className="flex items-center justify-between">
+                    <span className="font-semibold text-primary">Platform enablers</span>
+                    <span>{horizon.operatingModel.enablers.length}</span>
+                  </div>
+                ) : null}
               </div>
             </div>
           </div>
@@ -308,16 +312,18 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                 />
               </div>
             ) : null}
-            <div className="grid gap-3 sm:grid-cols-3">
-              {horizon.operatingModel.enablers.map((enabler) => (
-                <div
-                  key={enabler}
-                  className="rounded-2xl border border-blue-100/80 bg-blue-50/60 p-4 text-sm text-blue-900"
-                >
-                  {enabler}
-                </div>
-              ))}
-            </div>
+            {horizon.operatingModel.enablers.length ? (
+              <div className="grid gap-3 sm:grid-cols-3">
+                {horizon.operatingModel.enablers.map((enabler) => (
+                  <div
+                    key={enabler}
+                    className="rounded-2xl border border-blue-100/80 bg-blue-50/60 p-4 text-sm text-blue-900"
+                  >
+                    {enabler}
+                  </div>
+                ))}
+              </div>
+            ) : null}
           </div>
         </SectionTabsContent>
 
