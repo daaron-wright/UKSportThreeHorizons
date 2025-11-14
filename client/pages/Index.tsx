@@ -34,6 +34,18 @@ type PersonaTarget = {
   summary: string;
 };
 
+type TechnicalIntegrationRow = {
+  functionalBlock: string;
+  service: string;
+  notes?: string;
+  bom?: string[];
+};
+
+type TechnicalIntegrationTable = {
+  title: string;
+  rows: TechnicalIntegrationRow[];
+};
+
 type OperatingModel = {
   name: string;
   summary: string;
@@ -53,6 +65,7 @@ type TechnicalEvolution = {
     src: string;
     alt: string;
   };
+  integrationTable?: TechnicalIntegrationTable;
 };
 
 type UIEvolution = {
