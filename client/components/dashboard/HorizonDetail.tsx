@@ -135,6 +135,11 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
               {horizon.operatingModel.roles.length} roles
             </Badge>
           ) : null}
+          {horizon.operatingModel.roles?.length ? (
+            <Badge variant="secondary" className="border border-blue-200 bg-white px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-blue-700">
+              {horizon.operatingModel.roles.length} roles
+            </Badge>
+          ) : null}
         </div>
         <div className="space-y-3">
           <h2 className="text-2xl font-bold text-primary">
