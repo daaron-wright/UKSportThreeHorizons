@@ -9,6 +9,7 @@ import {
   Line,
   LineChart,
   ReferenceDot,
+  ReferenceLine,
   ResponsiveContainer,
   Tooltip,
   TooltipProps,
@@ -52,11 +53,19 @@ const horizonNarrative: Record<string, string> = {
     "Horizon 3 delivers the greatest return through system strength, cost avoidance, better prediction, and smarter investment.",
 };
 
-const costCurveVisual = {
-  src: "https://cdn.builder.io/api/v1/image/assets%2F4f72be6c562a4212a4942d75695a634f%2F4ae895dd86cc4bedb4d4d511c4cd1fbb?format=webp&width=1600",
-  alt: "Cost savings graph showing cost over time with the point where efficiency gains outweigh platform investment.",
-  caption: "1. Cost savings: Invest to save",
-};
+const costBaseline = 1;
+
+const costChartData = [
+  { phase: "Kickoff", cost: 1 },
+  { phase: "Implementation", cost: 1.32 },
+  { phase: "Transition", cost: 0.95 },
+  {
+    phase: "Efficiency gains",
+    cost: 0.72,
+    annotation: "Efficiency gain outweighs platform investment",
+  },
+  { phase: "Steady state", cost: 0.68 },
+];
 
 const CustomTooltip = ({ active, payload, label }: TooltipProps<number, string>) => {
   if (!active || !payload?.length) {
@@ -70,6 +79,27 @@ const CustomTooltip = ({ active, payload, label }: TooltipProps<number, string>)
     >
       <p className="font-semibold text-primary">{label}</p>
       <p className="mt-2 text-muted-foreground">{horizonNarrative[label ?? ""]}</p>
+    </div>
+  );
+};
+
+const CostTooltip = ({ active, payload }: TooltipProps<number, string>) => {
+  if (!active || !payload?.length) {
+    return null;
+  }
+
+  const [{ value, payload: point }] = payload;
+
+  return (
+    <div
+      className="max-w-xs rounded-lg border bg-white/95 px-3 py-2 text-xs shadow-lg backdrop-blur"
+      style={{ borderColor: tooltipBorderColor, boxShadow: "0 16px 32px -12px hsl(var(--primary)/0.2)" }}
+    >
+      <p className="font-semibold text-primary">{point.phase}</p>
+      <p className="mt-1 text-muted-foreground">
+        Relative cost: <span className="font-semibold text-primary">{value.toFixed(2)}</span>
+      </p>
+      {point.annotation ? <p className="mt-2 text-muted-foreground">{point.annotation}</p> : null}
     </div>
   );
 };
@@ -94,12 +124,23 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
       <Card className="border border-primary/15 bg-white/95 shadow-[0_20px_40px_-24px_hsl(var(--primary)/0.55)]">
         <CardHeader className="flex flex-col gap-4 border-b border-primary/10 pb-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="space-y-2">
-            <CardTitle className="text-lg font-semibold text-primary">ROI trajectory across horizons</CardTitle>
+            <CardTitle className="text-lg font-semibold text-primary">
+              {showCostCurve ? "Cost savings: Invest to save" : "ROI trajectory across horizons"}
+            </CardTitle>
             <p className="text-sm text-muted-foreground">
-              <span className="font-semibold text-primary">Horizon 1</span> validates core access,
-              <span className="font-semibold text-primary"> Horizon 2</span> accelerates capability through connected
-              workflows, and <span className="font-semibold text-primary">Horizon 3</span> unlocks system-wide strength and
-              prediction.
+              {showCostCurve ? (
+                <>
+                  Early investment briefly increases spend before efficiency gains reduce operating costs and maintain a
+                  lower steady-state.
+                </>
+              ) : (
+                <>
+                  <span className="font-semibold text-primary">Horizon 1</span> validates core access,
+                  <span className="font-semibold text-primary"> Horizon 2</span> accelerates capability through connected
+                  workflows, and <span className="font-semibold text-primary">Horizon 3</span> unlocks system-wide strength
+                  and prediction.
+                </>
+              )}
             </p>
           </div>
           <Button
@@ -115,16 +156,65 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
         </CardHeader>
         <CardContent>
           {showCostCurve ? (
-            <div className="space-y-4">
-              <div className="relative overflow-hidden rounded-2xl border border-primary/10 bg-white">
-                <img
-                  src={costCurveVisual.src}
-                  alt={costCurveVisual.alt}
-                  className="h-auto w-full object-contain"
-                  loading="lazy"
-                />
-              </div>
-              <p className="text-center text-sm text-muted-foreground">{costCurveVisual.caption}</p>
+            <div className="h-[380px] w-full">
+              <ResponsiveContainer>
+                <LineChart data={costChartData} margin={{ top: 32, right: 16, left: 16, bottom: 24 }}>
+                  <defs>
+                    <linearGradient id="costFill" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="hsl(var(--primary)/0.15)" />
+                      <stop offset="100%" stopColor="hsl(var(--primary)/0.03)" />
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid strokeDasharray="3 3" stroke={gridColor} />
+                  <XAxis
+                    dataKey="phase"
+                    tickLine={false}
+                    axisLine={false}
+                    tick={{ fill: axisColor, fontSize: 12 }}
+                    interval={0}
+                    height={50}
+                  />
+                  <YAxis
+                    domain={[0.6, 1.4]}
+                    tickLine={false}
+                    axisLine={false}
+                    ticks={[0.6, 0.8, 1, 1.2, 1.4]}
+                    tick={{ fill: axisColor, fontSize: 12 }}
+                    label={{ value: "Relative cost", angle: -90, position: "insideLeft", offset: 12, fill: axisColor }}
+                  />
+                  <Tooltip content={<CostTooltip />} cursor={{ stroke: seriesGlow, strokeWidth: 2, strokeDasharray: "4 4" }} />
+                  <ReferenceLine y={costBaseline} stroke="hsl(var(--destructive))" strokeDasharray="6 4" />
+                  <Area type="monotone" dataKey="cost" stroke="none" fill="url(#costFill)" fillOpacity={1} />
+                  <Line
+                    type="monotone"
+                    dataKey="cost"
+                    name="Cost"
+                    stroke={seriesColor}
+                    strokeWidth={3}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    dot={{ r: 6, strokeWidth: 3, stroke: "hsl(var(--primary)/0.35)", fill: "white" }}
+                    activeDot={{ r: 9, strokeWidth: 3, stroke: "white", fill: seriesColor }}
+                  />
+                  {costChartData.map((point) => (
+                    <ReferenceDot
+                      key={point.phase}
+                      x={point.phase}
+                      y={point.cost + 0.05}
+                      r={0}
+                      isFront
+                      label={{
+                        value: point.annotation ?? "",
+                        position: "top",
+                        fill: seriesColor,
+                        fontWeight: 600,
+                        fontSize: 12,
+                        dy: -6,
+                      }}
+                    />
+                  ))}
+                </LineChart>
+              </ResponsiveContainer>
             </div>
           ) : (
             <div className="h-[380px] w-full">
