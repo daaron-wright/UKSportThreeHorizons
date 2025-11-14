@@ -720,6 +720,76 @@ const HORIZON_DATA = {
           detail: "Hardened APIs for Vald, TeamBuildr, ENetPulse, and video ecosystems with monitoring & retries.",
         },
       ],
+      integrationTable: {
+        title: "Functional integration · Azure platform services",
+        rows: [
+          {
+            functionalBlock: "UI/UX · Reporting",
+            service: "Azure App Service + Power BI",
+            bom: [
+              "Multi-modal data input console",
+              "Data quality and qualifications",
+              "Interview interaction",
+              "Feature / insight detail view (training monotony, readiness score, plan adherence)",
+              "Athlete timeline (individual and sport)",
+              "Admin insight (expanded adoption tracking)",
+              "Coach workflow view (weekly review, pre-competition check)",
+            ],
+          },
+          {
+            functionalBlock: "Multi-modal Data Input",
+            service: "Azure Data Factory + Azure Blob Storage",
+          },
+          {
+            functionalBlock: "Athlete Data / Internal Knowledge",
+            service: "Azure SQL Database + Blob Storage + SharePoint",
+          },
+          {
+            functionalBlock: "RAG Retrieval",
+            service: "Azure AI Search",
+          },
+          {
+            functionalBlock: "LLM/SLM Powered Query",
+            service: "Azure OpenAI Service",
+          },
+          {
+            functionalBlock: "Orchestration",
+            service: "Azure AI Studio",
+          },
+          {
+            functionalBlock: "Model / Prompt Registry / Guardrails",
+            service: "Azure AI Studio + Azure AI Content Safety",
+          },
+          {
+            functionalBlock: "Streaming Ingestion (wearables etc.)",
+            service: "Azure Event Hubs + Azure Stream Analytics",
+          },
+          {
+            functionalBlock: "Multi-modal: Video / Interview",
+            service: "Azure AI Vision + Azure AI Speech",
+          },
+          {
+            functionalBlock: "Consent Module",
+            service: "Microsoft Entra role-based access + app permissions",
+          },
+          {
+            functionalBlock: "RAG Ingestion",
+            service: "Azure Databricks",
+          },
+          {
+            functionalBlock: "Vector Store",
+            service: "Azure AI Search / Azure Cosmos DB",
+          },
+          {
+            functionalBlock: "Graph DB",
+            service: "Azure Cosmos DB / Neo4j",
+          },
+          {
+            functionalBlock: "Integration · Data product APIs",
+            service: "Azure API Management (APIM)",
+          },
+        ],
+      },
     },
     ui: {
       title: "Growth UI snapshot",
