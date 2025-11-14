@@ -724,7 +724,21 @@ const HORIZON_DATA = {
       ],
       metrics: [
         { label: "Adoption lift" },
-        { label: "Proposed 10 data sources integrated" },
+        {
+          label: "Proposed 10 data sources integrated",
+          details: [
+            "Nutrition consultations",
+            "Performance Lifestyle consultations",
+            "Psychology consultations",
+            "Athlete screening surveys (medical, SMHAT, etc.)",
+            "Performance vs potential",
+            "Activity and physiology",
+            "Athlete profiling",
+            "Anthropometry",
+            "Training plans and actuals – manual",
+            "GB competition results",
+          ],
+        },
       ],
     },
     valueThemes: [
