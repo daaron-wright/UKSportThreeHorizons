@@ -4,6 +4,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { HorizonDetail } from "@/components/dashboard/HorizonDetail";
 import { HorizonKeyNavigator } from "@/components/dashboard/HorizonKeyNavigator";
 import { HorizonValueTrajectory } from "@/components/dashboard/HorizonValueTrajectory";
+import type { HorizonDiagramProps } from "@/components/dashboard/HorizonDiagram";
 import type { HorizonKeyNavigatorItem } from "@/components/dashboard/HorizonKeyNavigator";
 
 type HorizonKey = keyof typeof HORIZON_DATA;
