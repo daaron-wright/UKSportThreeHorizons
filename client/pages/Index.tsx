@@ -1684,7 +1684,7 @@ export default function Index() {
     <div className="min-h-screen bg-gradient-to-br from-white via-blue-50/30 to-white">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl">
+          <h1 className="whitespace-nowrap text-4xl font-bold tracking-tight text-primary sm:text-5xl">
             Performance Hub Design Development
           </h1>
           <p className="mt-3 text-base font-semibold uppercase tracking-[0.28em] text-blue-600">
