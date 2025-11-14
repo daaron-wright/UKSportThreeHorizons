@@ -233,10 +233,6 @@ const HORIZON_DATA = {
       name: "Integrated clinical assurance",
       summary:
         "Centralise clinical records and compliance processes so frontline staff operate from a single trusted source.",
-      diagram: {
-        src: "https://cdn.builder.io/api/v1/image/assets%2F4f72be6c562a4212a4942d75695a634f%2F6d096e4be4054bbaa12f5331b27636bf?format=webp&width=1600",
-        alt: "Horizon 1 operating model diagram detailing product owner, design, engineering, QA, and support roles with responsibilities.",
-      },
       roles: [
         {
           title: "Product Owner",
