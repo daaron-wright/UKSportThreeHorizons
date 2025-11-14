@@ -683,6 +683,53 @@ const HORIZON_DATA = {
         "Video & sensor ops rota",
         "Centralised insights backlog",
       ],
+      roles: [
+        {
+          title: "Product Owner",
+          allocation: "O",
+          detail: "Defines features, gathers feedback, and tracks adoption KPIs while managing technical resources.",
+        },
+        {
+          title: "Product/Service Designer",
+          allocation: "P",
+          detail: "Designs the interview and LLM UX, prompt patterns, and guardrailed response flows across journeys.",
+        },
+        {
+          title: "Business Analyst",
+          allocation: "O",
+          detail: "Supports the PO on business processes, authoring user stories and curating the product backlog.",
+        },
+        {
+          title: "AI/ML Engineer",
+          allocation: "P ×2",
+          detail: "Productionises models with evaluation pipelines, monitoring, and rollback; glues Azure AI Studio to the app.",
+        },
+        {
+          title: "Full Stack Developer",
+          allocation: "O",
+          detail: "Owns the app service and reports, integrating the prompt flow endpoint and release cadence.",
+        },
+        {
+          title: "Data Engineer",
+          allocation: "P",
+          detail: "Builds the curated warehouse and semantic layer, owning multi-modal ingestion from wearables, video, and force platforms.",
+        },
+        {
+          title: "IT Support",
+          allocation: "O",
+          detail: "Monitors availability, performance SLOs, and error budgets while coordinating incident triage.",
+        },
+        {
+          title: "Change & Adoption",
+          allocation: "P",
+          detail: "Designs onboarding, training, and comms; tracks AR, FS, TTV; runs the Performance Hub street team.",
+        },
+        {
+          title: "QA Engineer",
+          allocation: "P",
+          detail: "Manages the testing strategy, approach, and delivery for iterative releases.",
+        },
+      ],
     },
     personaTarget: {
       users: "≈1,800 users",
