@@ -199,14 +199,43 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
             <div className="rounded-2xl border border-blue-100/80 bg-white/90 p-5 shadow-sm">
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-600">Areas of focus</p>
               <div className="mt-4 flex flex-col gap-3">
-                {horizon.overview.metrics.map((metric) => (
-                  <div
-                    key={metric.label}
-                    className="rounded-xl border border-blue-100 bg-blue-50/60 px-4 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-blue-700"
-                  >
-                    {metric.label}
-                  </div>
-                ))}
+                {horizon.overview.metrics.map((metric, index) => {
+                  if (metric.details?.length) {
+                    return (
+                      <div
+                        key={`${metric.label}-${index}`}
+                        className="overflow-hidden rounded-xl border border-blue-100 bg-blue-50/60"
+                      >
+                        <Accordion type="single" collapsible className="w-full">
+                          <AccordionItem value={`metric-${index}`} className="border-none">
+                            <AccordionTrigger className="px-4 py-3 text-left text-sm font-semibold uppercase tracking-[0.2em] text-blue-700 hover:no-underline">
+                              {metric.label}
+                            </AccordionTrigger>
+                            <AccordionContent className="px-4 pb-4 text-left text-sm font-medium tracking-normal text-slate-600">
+                              <ul className="space-y-2">
+                                {metric.details.map((detail) => (
+                                  <li key={detail} className="flex items-start gap-2">
+                                    <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-blue-400" aria-hidden="true" />
+                                    <span className="leading-snug text-slate-600">{detail}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </AccordionContent>
+                          </AccordionItem>
+                        </Accordion>
+                      </div>
+                    );
+                  }
+
+                  return (
+                    <div
+                      key={`${metric.label}-${index}`}
+                      className="rounded-xl border border-blue-100 bg-blue-50/60 px-4 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-blue-700"
+                    >
+                      {metric.label}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
