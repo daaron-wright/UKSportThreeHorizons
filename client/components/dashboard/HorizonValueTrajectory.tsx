@@ -76,17 +76,17 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
         <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
           The ROI Curve; A Non-Linear Compounding Return
         </h2>
-        <p className="mx-auto max-w-3xl text-sm text-slate-600">
+        <p className="mx-auto max-w-3xl text-sm text-muted-foreground">
           The value curve steepens over time as the entire system contributes and benefits together.
         </p>
       </div>
 
-      <Card className="border border-primary/15 bg-white/95 shadow-[0_20px_40px_-24px_rgba(37,61,232,0.45)]">
+      <Card className="border border-primary/15 bg-white/95 shadow-[0_20px_40px_-24px_hsl(var(--primary)/0.55)]">
         <CardHeader className="border-b border-primary/10 pb-6">
           <CardTitle className="text-lg font-semibold text-primary">
             ROI trajectory across horizons
           </CardTitle>
-          <p className="text-sm text-slate-600">
+          <p className="text-sm text-muted-foreground">
             <span className="font-semibold text-primary">Horizon 1</span> validates core access,
             <span className="font-semibold text-primary"> Horizon 2</span> accelerates capability through connected
             workflows, and <span className="font-semibold text-primary">Horizon 3</span> unlocks system-wide strength and
