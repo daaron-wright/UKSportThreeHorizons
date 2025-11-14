@@ -710,7 +710,7 @@ const HORIZON_DATA = {
       "Blend richer monitoring sources—video, wellness, and training loads—with retrieval tooling to elevate impact while adoption stays manageable.",
     overview: {
       narrative:
-        "Horizon 2 scales intelligence by layering video, wellness, and sensor data with retrieval so staff gain richer, faster context.",
+        "Horizon 2 scales intelligence by layering video, wellness, and sensor data with retrieval so staff gain richer, faster context while integrating a proposed ten data sources.",
       highlights: [
         "Video comparison strip embedded in the hub.",
         "Wellness heatmaps spotlight readiness trends.",
@@ -718,6 +718,7 @@ const HORIZON_DATA = {
       ],
       metrics: [
         { label: "Adoption lift" },
+        { label: "Proposed 10 data sources integrated" },
       ],
     },
     valueThemes: [
