@@ -20,6 +20,10 @@ type OperatingModel = {
   name: string;
   summary: string;
   enablers: string[];
+  diagram?: {
+    src: string;
+    alt: string;
+  };
 };
 
 type TechnicalEvolution = {
