@@ -297,6 +297,10 @@ const HORIZON_DATA = {
       title: "Launch platform stack",
       description:
         "Codify a resilient core hub with proven patterns for clinical oversight, governance, and reporting.",
+      diagram: {
+        src: "https://cdn.builder.io/api/v1/image/assets%2F4f72be6c562a4212a4942d75695a634f%2Ff6f1a82c81ed4fd3863433c2c678e607?format=webp&width=1600",
+        alt: "Diagram illustrating the Performance Hub Horizon 1 technical blueprint including modules, data inputs, and governance flows.",
+      },
       pillars: [
         {
           label: "UI/UX shell",
