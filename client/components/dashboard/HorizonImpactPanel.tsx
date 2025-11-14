@@ -1,7 +1,7 @@
 import { Minus, TrendingDown, TrendingUp } from "lucide-react";
 
 import { CostImpactPanel } from "@/components/dashboard/CostImpactPanel";
-import { HorizonDiagram, type DiagramAxes, type DiagramCluster } from "@/components/dashboard/HorizonDiagram";
+import { HorizonDiagram, type HorizonDiagramProps } from "@/components/dashboard/HorizonDiagram";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 type ImpactMetric = {
@@ -14,13 +14,7 @@ export interface HorizonImpactPanelProps {
   horizonKey: string;
   description: string;
   metrics: ImpactMetric[];
-  diagram: {
-    title: string;
-    caption: string;
-    clusters: DiagramCluster[];
-    footerNote?: string;
-    axes?: DiagramAxes;
-  };
+  diagram: HorizonDiagramProps;
 }
 
 function IndicatorIcon({ indicator }: { indicator?: ImpactMetric["indicator"] }) {
@@ -69,13 +63,7 @@ export function HorizonImpactPanel({ horizonKey, description, metrics, diagram }
 
       <CostImpactPanel stage={horizonKey as "h1" | "h2" | "h3"} />
 
-      <HorizonDiagram
-        title={diagram.title}
-        caption={diagram.caption}
-        clusters={diagram.clusters}
-        footerNote={diagram.footerNote}
-        axes={diagram.axes}
-      />
+      <HorizonDiagram {...diagram} />
     </div>
   );
 }
