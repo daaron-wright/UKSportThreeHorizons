@@ -60,7 +60,7 @@ const costChartData = [
   { phase: "Implementation", cost: 1.32 },
   {
     phase: "Efficiency gains",
-    cost: 0.95,
+    cost: costBaseline,
     annotation: "Efficiency gain outweighs platform investment",
   },
   { phase: "Sustained savings", cost: 0.72 },
@@ -208,7 +208,7 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
                       <ReferenceDot
                         key={point.phase}
                         x={point.phase}
-                        y={costBaseline}
+                        y={point.cost}
                         r={0}
                         isFront
                         label={{
