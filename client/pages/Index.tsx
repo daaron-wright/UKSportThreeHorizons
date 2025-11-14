@@ -100,6 +100,20 @@ const HORIZON_DATA = {
         { label: "Consent coverage", value: "100%" },
       ],
     },
+    valueThemes: [
+      {
+        category: "Efficiency & Time Savings",
+        statement: "Access, adoption, and reduced friction for frontline staff across priority squads.",
+      },
+      {
+        category: "Productivity & Throughput",
+        statement: "Minutes saved and faster turnaround as governance tasks become streamlined.",
+      },
+      {
+        category: "Prediction & Optimisation",
+        statement: "Lower admin cost and entry-level AI cues improve decision confidence.",
+      },
+    ],
     impact: {
       description:
         "Baseline integration trims manual effort and creates trusted data foundations for every sport and staff group.",
