@@ -264,21 +264,21 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                 <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-600">
                   Delivery roles & ownership
                 </p>
-                <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+                <div className="grid gap-3 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
                   {horizon.operatingModel.roles.map((role) => (
                     <article
                       key={role.title}
-                      className="flex h-full flex-col justify-between rounded-2xl border border-blue-100/80 bg-white/95 p-4 shadow-sm"
+                      className="rounded-2xl border border-blue-100 bg-white/95 p-5 shadow-sm"
                     >
                       <div className="flex items-start justify-between gap-3">
-                        <h4 className="text-sm font-semibold text-primary">{role.title}</h4>
+                        <h4 className="text-base font-semibold text-primary">{role.title}</h4>
                         {role.allocation ? (
-                          <Badge variant="secondary" className="whitespace-nowrap border border-blue-200 bg-white px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.24em] text-blue-700">
+                          <Badge variant="secondary" className="whitespace-nowrap border border-blue-200 bg-white px-3 py-0.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-blue-700">
                             {role.allocation}
                           </Badge>
                         ) : null}
                       </div>
-                      <p className="mt-2 text-sm text-slate-600">{role.detail}</p>
+                      <p className="mt-3 text-sm text-slate-600">{role.detail}</p>
                     </article>
                   ))}
                 </div>
