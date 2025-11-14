@@ -58,12 +58,12 @@ const costBaseline = 1;
 const costChartData = [
   { phase: "Kickoff", cost: 1 },
   { phase: "Implementation", cost: 1.32 },
-  { phase: "Transition", cost: 0.95 },
   {
     phase: "Efficiency gains",
-    cost: 0.72,
+    cost: 0.95,
     annotation: "Efficiency gain outweighs platform investment",
   },
+  { phase: "Sustained savings", cost: 0.72 },
   { phase: "Steady state", cost: 0.68 },
 ];
 
