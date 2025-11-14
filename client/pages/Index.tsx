@@ -566,6 +566,10 @@ const HORIZON_DATA = {
       title: "Expansion technical runway",
       description:
         "Layer tacit knowledge capture and retrieval-augmented intelligence across richer media and sensor sources.",
+      diagram: {
+        src: "https://cdn.builder.io/api/v1/image/assets%2F4f72be6c562a4212a4942d75695a634f%2F96e75da4396e4647a4b066d6ee08c485?format=webp&width=1200",
+        alt: "System diagram illustrating Horizon 2 technical architecture, showing authentication, consent, RAG components, and data flows.",
+      },
       pillars: [
         {
           label: "Knowledge capture",
