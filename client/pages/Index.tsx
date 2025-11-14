@@ -183,6 +183,7 @@ const HORIZON_DATA = {
       ],
       metrics: [
         { label: "Manual workload drop" },
+        { label: "Proposed 7 data sources integrated" },
       ],
     },
     valueThemes: [
