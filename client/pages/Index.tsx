@@ -749,17 +749,17 @@ const HORIZON_DATA = {
     },
     personas: [
       {
-        name: "National Squad Coach",
+        name: "Daily squad planning",
         focus: "Makes daily selection and session adjustments from evolving performance signals.",
         needs: "Side-by-side view of training loads, wellness flags, and competition context.",
       },
       {
-        name: "Performance Analyst",
+        name: "Performance insight translation",
         focus: "Translates video, sensor, and results feeds into actionable insights for staff.",
         needs: "Searchable media, benchmarking dashboards, and retrieval tooling within the hub.",
       },
       {
-        name: "Wellbeing & Lifestyle Lead",
+        name: "Holistic wellbeing coordination",
         focus: "Supports athlete readiness and welfare through holistic monitoring.",
         needs: "Timely surveys, alerts on risk trends, and contextual notes shared with coaches.",
       },
@@ -1226,17 +1226,17 @@ const HORIZON_DATA = {
     },
     personas: [
       {
-        name: "Performance Director",
+        name: "Strategic performance stewardship",
         focus: "Aligns long-term investment and campaign strategy across the Olympic cycle.",
         needs: "Forward-looking scenarios combining competitive intel, pathway depth, and AI forecasts.",
       },
       {
-        name: "Research & Innovation Lead",
+        name: "Research partnership orchestration",
         focus: "Brokers partnerships with institutes and oversees applied research programmes.",
         needs: "Pipelines for external SSSM insight, bespoke studies, and knowledge capture in one place.",
       },
       {
-        name: "AI Product Owner",
+        name: "Autonomous intelligence ownership",
         focus: "Operationalises autonomous agents and orchestration workflows across the hub.",
         needs: "Telemetry feeds, governance approvals, and automation playbooks tied to measurable outcomes.",
       },
