@@ -30,6 +30,12 @@ type OperatingModel = {
   enablers: string[];
 };
 
+type PersonaTarget = {
+  users: string;
+  organizations: string;
+  summary: string;
+};
+
 type TechnicalEvolution = {
   title: string;
   description: string;
@@ -60,6 +66,7 @@ type HorizonDetailProps = {
     };
     personas: Persona[];
     operatingModel: OperatingModel;
+    personaTarget: PersonaTarget;
     technicalEvolution: TechnicalEvolution;
     ui: UIEvolution;
   };
@@ -156,6 +163,22 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
         </SectionTabsContent>
 
         <SectionTabsContent value="personas" className="space-y-6">
+          {horizon.personaTarget ? (
+            <div className="grid gap-3 sm:grid-cols-3">
+              <div className="rounded-2xl border border-blue-100/80 bg-blue-50/60 p-4 text-sm text-blue-900">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-700">Target users</p>
+                <p className="mt-2 text-base font-semibold text-primary">{horizon.personaTarget.users}</p>
+              </div>
+              <div className="rounded-2xl border border-blue-100/80 bg-blue-50/60 p-4 text-sm text-blue-900">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-700">Sports organizations</p>
+                <p className="mt-2 text-base font-semibold text-primary">{horizon.personaTarget.organizations}</p>
+              </div>
+              <div className="rounded-2xl border border-blue-100/80 bg-white/90 p-4 text-sm text-slate-700 sm:col-span-1 lg:col-span-1">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-700">Rollout focus</p>
+                <p className="mt-2 leading-relaxed">{horizon.personaTarget.summary}</p>
+              </div>
+            </div>
+          ) : null}
           {horizon.personas.length ? (
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {horizon.personas.map((persona) => (
