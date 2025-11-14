@@ -67,7 +67,11 @@ const costChartData = [
   { phase: "Steady state", cost: 0.72 },
 ];
 
-const CustomTooltip = ({ active, payload, label }: TooltipProps<number, string>) => {
+const CustomTooltip = ({
+  active,
+  payload,
+  label,
+}: TooltipProps<number, string>) => {
   if (!active || !payload?.length) {
     return null;
   }
@@ -75,10 +79,15 @@ const CustomTooltip = ({ active, payload, label }: TooltipProps<number, string>)
   return (
     <div
       className="max-w-xs rounded-lg border bg-white/95 px-3 py-2 text-xs shadow-lg backdrop-blur"
-      style={{ borderColor: tooltipBorderColor, boxShadow: "0 16px 32px -12px hsl(var(--primary)/0.2)" }}
+      style={{
+        borderColor: tooltipBorderColor,
+        boxShadow: "0 16px 32px -12px hsl(var(--primary)/0.2)",
+      }}
     >
       <p className="font-semibold text-primary">{label}</p>
-      <p className="mt-2 text-muted-foreground">{horizonNarrative[label ?? ""]}</p>
+      <p className="mt-2 text-muted-foreground">
+        {horizonNarrative[label ?? ""]}
+      </p>
     </div>
   );
 };
@@ -93,10 +102,15 @@ const CostTooltip = ({ active, payload }: TooltipProps<number, string>) => {
   return (
     <div
       className="max-w-xs rounded-lg border bg-white/95 px-3 py-2 text-xs shadow-lg backdrop-blur"
-      style={{ borderColor: tooltipBorderColor, boxShadow: "0 16px 32px -12px hsl(var(--primary)/0.2)" }}
+      style={{
+        borderColor: tooltipBorderColor,
+        boxShadow: "0 16px 32px -12px hsl(var(--primary)/0.2)",
+      }}
     >
       <p className="font-semibold text-primary">{point.phase}</p>
-      {point.annotation ? <p className="mt-2 text-muted-foreground">{point.annotation}</p> : null}
+      {point.annotation ? (
+        <p className="mt-2 text-muted-foreground">{point.annotation}</p>
+      ) : null}
     </div>
   );
 };
@@ -114,7 +128,8 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
           The ROI Curve; A Non-Linear Compounding Return
         </h2>
         <p className="mx-auto max-w-3xl text-sm text-muted-foreground">
-          The value curve steepens over time as the entire system contributes and benefits together.
+          The value curve steepens over time as the entire system contributes
+          and benefits together.
         </p>
       </div>
 
@@ -122,20 +137,30 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
         <CardHeader className="flex flex-col gap-4 border-b border-primary/10 pb-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="space-y-2">
             <CardTitle className="text-lg font-semibold text-primary">
-              {showCostCurve ? "Cost savings: Invest to save" : "ROI trajectory across horizons"}
+              {showCostCurve
+                ? "Cost savings: Invest to save"
+                : "ROI trajectory across horizons"}
             </CardTitle>
             <p className="text-sm text-muted-foreground">
               {showCostCurve ? (
                 <>
-                  Early investment briefly increases spend before efficiency gains reduce operating costs and maintain a
-                  lower steady-state.
+                  Early investment briefly increases spend before efficiency
+                  gains reduce operating costs and maintain a lower
+                  steady-state.
                 </>
               ) : (
                 <>
-                  <span className="font-semibold text-primary">Horizon 1</span> validates core access,
-                  <span className="font-semibold text-primary"> Horizon 2</span> accelerates capability through connected
-                  workflows, and <span className="font-semibold text-primary">Horizon 3</span> unlocks system-wide strength
-                  and prediction.
+                  <span className="font-semibold text-primary">Horizon 1</span>{" "}
+                  validates core access,
+                  <span className="font-semibold text-primary">
+                    {" "}
+                    Horizon 2
+                  </span>{" "}
+                  accelerates capability through connected workflows, and{" "}
+                  <span className="font-semibold text-primary">
+                    Horizon 3
+                  </span>{" "}
+                  unlocks system-wide strength and prediction.
                 </>
               )}
             </p>
@@ -155,11 +180,17 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
           {showCostCurve ? (
             <div className="h-[380px] w-full">
               <ResponsiveContainer>
-                <LineChart data={costChartData} margin={{ top: 32, right: 16, left: 16, bottom: 24 }}>
+                <LineChart
+                  data={costChartData}
+                  margin={{ top: 32, right: 16, left: 16, bottom: 24 }}
+                >
                   <defs>
                     <linearGradient id="costFill" x1="0" y1="0" x2="0" y2="1">
                       <stop offset="0%" stopColor="hsl(var(--primary)/0.15)" />
-                      <stop offset="100%" stopColor="hsl(var(--primary)/0.03)" />
+                      <stop
+                        offset="100%"
+                        stopColor="hsl(var(--primary)/0.03)"
+                      />
                     </linearGradient>
                   </defs>
                   <CartesianGrid strokeDasharray="3 3" stroke={gridColor} />
@@ -171,7 +202,13 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
                     interval={0}
                     padding={{ left: 16, right: 48 }}
                     height={50}
-                    label={{ value: "Time", position: "insideBottom", offset: -6, fill: axisColor, fontSize: 12 }}
+                    label={{
+                      value: "Time",
+                      position: "insideBottom",
+                      offset: -6,
+                      fill: axisColor,
+                      fontSize: 12,
+                    }}
                   />
                   <YAxis
                     domain={[0.6, 1.3]}
@@ -179,15 +216,34 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
                     axisLine={false}
                     ticks={[]}
                     tickFormatter={() => ""}
-                    label={{ value: "Relative cost", angle: -90, position: "insideLeft", offset: 12, fill: axisColor }}
+                    label={{
+                      value: "Relative cost",
+                      angle: -90,
+                      position: "insideLeft",
+                      offset: 12,
+                      fill: axisColor,
+                    }}
                   />
-                  <Tooltip content={<CostTooltip />} cursor={{ stroke: seriesGlow, strokeWidth: 2, strokeDasharray: "4 4" }} />
+                  <Tooltip
+                    content={<CostTooltip />}
+                    cursor={{
+                      stroke: seriesGlow,
+                      strokeWidth: 2,
+                      strokeDasharray: "4 4",
+                    }}
+                  />
                   <ReferenceLine
                     y={costBaseline}
                     stroke="hsl(var(--destructive))"
                     strokeDasharray="6 4"
                   />
-                  <Area type="monotone" dataKey="cost" stroke="none" fill="url(#costFill)" fillOpacity={1} />
+                  <Area
+                    type="monotone"
+                    dataKey="cost"
+                    stroke="none"
+                    fill="url(#costFill)"
+                    fillOpacity={1}
+                  />
                   <Line
                     type="monotone"
                     dataKey="cost"
@@ -196,8 +252,18 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
                     strokeWidth={3}
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    dot={{ r: 6, strokeWidth: 3, stroke: "hsl(var(--primary)/0.35)", fill: "white" }}
-                    activeDot={{ r: 9, strokeWidth: 3, stroke: "white", fill: seriesColor }}
+                    dot={{
+                      r: 6,
+                      strokeWidth: 3,
+                      stroke: "hsl(var(--primary)/0.35)",
+                      fill: "white",
+                    }}
+                    activeDot={{
+                      r: 9,
+                      strokeWidth: 3,
+                      stroke: "white",
+                      fill: seriesColor,
+                    }}
                   />
                   {costChartData
                     .filter((point) => point.annotation)
@@ -219,11 +285,17 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
           ) : (
             <div className="h-[380px] w-full">
               <ResponsiveContainer>
-                <LineChart data={chartData} margin={{ top: 72, right: 16, left: 16, bottom: 24 }}>
+                <LineChart
+                  data={chartData}
+                  margin={{ top: 72, right: 16, left: 16, bottom: 24 }}
+                >
                   <defs>
                     <linearGradient id="roiFill" x1="0" y1="0" x2="0" y2="1">
                       <stop offset="0%" stopColor="hsl(var(--primary)/0.25)" />
-                      <stop offset="100%" stopColor="hsl(var(--primary)/0.05)" />
+                      <stop
+                        offset="100%"
+                        stopColor="hsl(var(--primary)/0.05)"
+                      />
                     </linearGradient>
                   </defs>
                   <CartesianGrid strokeDasharray="3 3" stroke={gridColor} />
@@ -243,13 +315,29 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
                     axisLine={false}
                     ticks={[0, 2, 4, 6, 8, 10]}
                     tick={{ fill: axisColor, fontSize: 12 }}
-                    label={{ value: "Relative ROI", angle: -90, position: "insideLeft", offset: 12, fill: axisColor }}
+                    label={{
+                      value: "Relative ROI",
+                      angle: -90,
+                      position: "insideLeft",
+                      offset: 12,
+                      fill: axisColor,
+                    }}
                   />
                   <Tooltip
                     content={<CustomTooltip />}
-                    cursor={{ stroke: seriesGlow, strokeWidth: 2, strokeDasharray: "4 4" }}
+                    cursor={{
+                      stroke: seriesGlow,
+                      strokeWidth: 2,
+                      strokeDasharray: "4 4",
+                    }}
                   />
-                  <Area type="monotone" dataKey="roi" stroke="none" fill="url(#roiFill)" fillOpacity={1} />
+                  <Area
+                    type="monotone"
+                    dataKey="roi"
+                    stroke="none"
+                    fill="url(#roiFill)"
+                    fillOpacity={1}
+                  />
                   <Line
                     type="monotone"
                     dataKey="roi"
@@ -258,27 +346,37 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
                     strokeWidth={3}
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    dot={{ r: 6, strokeWidth: 3, stroke: "hsl(var(--primary)/0.35)", fill: "white" }}
-                    activeDot={{ r: 9, strokeWidth: 3, stroke: "white", fill: seriesColor }}
-                  />
-                  {chartData.map((point, index) => (
-                  <ReferenceDot
-                    key={point.horizon}
-                    x={point.label}
-                    y={point.roi + 0.6}
-                    r={0}
-                    isFront
-                    label={{
-                      value: point.annotation,
-                      position: "top",
+                    dot={{
+                      r: 6,
+                      strokeWidth: 3,
+                      stroke: "hsl(var(--primary)/0.35)",
+                      fill: "white",
+                    }}
+                    activeDot={{
+                      r: 9,
+                      strokeWidth: 3,
+                      stroke: "white",
                       fill: seriesColor,
-                      fontWeight: 600,
-                      fontSize: 12,
-                      dy: -6,
-                      dx: index === chartData.length - 1 ? -36 : 0,
                     }}
                   />
-                ))}
+                  {chartData.map((point, index) => (
+                    <ReferenceDot
+                      key={point.horizon}
+                      x={point.label}
+                      y={point.roi + 0.6}
+                      r={0}
+                      isFront
+                      label={{
+                        value: point.annotation,
+                        position: "top",
+                        fill: seriesColor,
+                        fontWeight: 600,
+                        fontSize: 12,
+                        dy: -6,
+                        dx: index === chartData.length - 1 ? -36 : 0,
+                      }}
+                    />
+                  ))}
                 </LineChart>
               </ResponsiveContainer>
             </div>

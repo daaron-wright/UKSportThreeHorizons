@@ -122,12 +122,18 @@ const statusLabels: Record<DataStatus, string> = {
   future: "Next horizon",
 };
 
-const impactBadgeClasses: Record<NonNullable<DiagramClusterItem["impactLevel"]>, string> = {
+const impactBadgeClasses: Record<
+  NonNullable<DiagramClusterItem["impactLevel"]>,
+  string
+> = {
   high: "border-emerald-200 bg-emerald-100 text-emerald-900",
   low: "border-slate-200 bg-slate-100 text-slate-700",
 };
 
-const impactBadgeLabels: Record<NonNullable<DiagramClusterItem["impactLevel"]>, string> = {
+const impactBadgeLabels: Record<
+  NonNullable<DiagramClusterItem["impactLevel"]>,
+  string
+> = {
   high: "High impact",
   low: "Lower impact",
 };
@@ -151,13 +157,22 @@ export function HorizonDiagram({
       <CardContent
         className={cn(
           "space-y-6 bg-white py-6",
-          isArchitecture && "bg-gradient-to-br from-white via-blue-50/35 to-white",
+          isArchitecture &&
+            "bg-gradient-to-br from-white via-blue-50/35 to-white",
         )}
       >
         {isArchitecture && layout ? (
-          <ArchitectureDiagram layout={layout} axes={axes} footerNote={footerNote} />
+          <ArchitectureDiagram
+            layout={layout}
+            axes={axes}
+            footerNote={footerNote}
+          />
         ) : (
-          <DefaultDiagram clusters={clusters ?? []} axes={axes} footerNote={footerNote} />
+          <DefaultDiagram
+            clusters={clusters ?? []}
+            axes={axes}
+            footerNote={footerNote}
+          />
         )}
       </CardContent>
     </Card>
@@ -222,7 +237,9 @@ function DefaultDiagram({
                       {cluster.title}
                     </p>
                     {cluster.caption ? (
-                      <p className="mt-2 text-sm font-medium text-slate-600">{cluster.caption}</p>
+                      <p className="mt-2 text-sm font-medium text-slate-600">
+                        {cluster.caption}
+                      </p>
                     ) : null}
                   </div>
                   <Badge className="rounded-full border border-slate-200 bg-white px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-slate-600">
@@ -245,7 +262,9 @@ function DefaultDiagram({
                       <div className="flex flex-wrap items-start justify-between gap-3">
                         <div className="flex-1">
                           <div className="flex flex-wrap items-center gap-2">
-                            <p className="text-sm font-semibold text-slate-900">{item.title}</p>
+                            <p className="text-sm font-semibold text-slate-900">
+                              {item.title}
+                            </p>
                             {item.impactLevel ? (
                               <Badge
                                 variant="outline"
@@ -259,7 +278,9 @@ function DefaultDiagram({
                             ) : null}
                           </div>
                           {item.detail ? (
-                            <p className="mt-1 text-sm text-slate-600">{item.detail}</p>
+                            <p className="mt-1 text-sm text-slate-600">
+                              {item.detail}
+                            </p>
                           ) : null}
                           {item.metadata?.length ? (
                             <div className="mt-3 flex flex-wrap gap-2">
@@ -272,7 +293,9 @@ function DefaultDiagram({
                                   <span className="mr-2 uppercase tracking-[0.18em] text-blue-700">
                                     {meta.label}
                                   </span>
-                                  <span className="text-blue-900">{meta.value}</span>
+                                  <span className="text-blue-900">
+                                    {meta.value}
+                                  </span>
                                 </Badge>
                               ))}
                             </div>
@@ -313,8 +336,10 @@ function ArchitectureDiagram({
   axes?: DiagramAxes;
   footerNote?: string;
 }) {
-  const leftNotes = layout.sideNotes?.filter((note) => note.position.startsWith("left")) ?? [];
-  const rightNotes = layout.sideNotes?.filter((note) => note.position.startsWith("right")) ?? [];
+  const leftNotes =
+    layout.sideNotes?.filter((note) => note.position.startsWith("left")) ?? [];
+  const rightNotes =
+    layout.sideNotes?.filter((note) => note.position.startsWith("right")) ?? [];
 
   return (
     <div className="space-y-6">
@@ -323,7 +348,9 @@ function ArchitectureDiagram({
         <div className="order-1 space-y-5 lg:order-2">
           {axes ? (
             <div className="rounded-2xl border border-dashed border-blue-200 bg-blue-50/70 p-4 text-sm text-blue-900 shadow-sm">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-700">Axes</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-700">
+                Axes
+              </p>
               <p className="mt-2 text-sm font-semibold text-blue-900">
                 {axes.horizontal} × {axes.vertical}
               </p>
@@ -365,9 +392,13 @@ function ArchitectureDiagram({
                       getModuleToneClasses(module.tone ?? "muted"),
                     )}
                   >
-                    <p className="font-semibold uppercase tracking-[0.18em]">{module.title}</p>
+                    <p className="font-semibold uppercase tracking-[0.18em]">
+                      {module.title}
+                    </p>
                     {module.detail ? (
-                      <p className="mt-2 text-xs text-slate-600">{module.detail}</p>
+                      <p className="mt-2 text-xs text-slate-600">
+                        {module.detail}
+                      </p>
                     ) : null}
                   </div>
                 ))}
@@ -382,10 +413,14 @@ function ArchitectureDiagram({
                   </span>
                 ) : null}
                 {layout.core.title ? (
-                  <h3 className="text-lg font-semibold text-red-800">{layout.core.title}</h3>
+                  <h3 className="text-lg font-semibold text-red-800">
+                    {layout.core.title}
+                  </h3>
                 ) : null}
                 {layout.core.subtitle ? (
-                  <p className="text-sm text-red-700/90">{layout.core.subtitle}</p>
+                  <p className="text-sm text-red-700/90">
+                    {layout.core.subtitle}
+                  </p>
                 ) : null}
 
                 {layout.core.callouts?.map((callout, index) => (
@@ -410,7 +445,10 @@ function ArchitectureDiagram({
                   {layout.core.rows.map((row, rowIndex) => (
                     <div
                       key={`core-row-${rowIndex}`}
-                      className={cn("grid gap-3", getResponsiveColsClass(row.length))}
+                      className={cn(
+                        "grid gap-3",
+                        getResponsiveColsClass(row.length),
+                      )}
                     >
                       {row.map((module) => (
                         <div
@@ -420,9 +458,13 @@ function ArchitectureDiagram({
                             getCoreModuleToneClasses(module.tone),
                           )}
                         >
-                          <p className="text-sm font-semibold">{module.title}</p>
+                          <p className="text-sm font-semibold">
+                            {module.title}
+                          </p>
                           {module.detail ? (
-                            <p className="mt-2 text-xs text-slate-600">{module.detail}</p>
+                            <p className="mt-2 text-xs text-slate-600">
+                              {module.detail}
+                            </p>
                           ) : null}
                         </div>
                       ))}
@@ -436,7 +478,9 @@ function ArchitectureDiagram({
                     {layout.rightRail.title}
                   </p>
                   {layout.rightRail.detail ? (
-                    <p className="mt-2 text-sm text-slate-600">{layout.rightRail.detail}</p>
+                    <p className="mt-2 text-sm text-slate-600">
+                      {layout.rightRail.detail}
+                    </p>
                   ) : null}
                   {layout.rightRail.items?.length ? (
                     <ul className="mt-4 space-y-2 text-sm text-slate-600">
@@ -514,7 +558,8 @@ function ArchitectureSideColumn({
   alignment: "left" | "right";
   notes?: ArchitectureSideNote[];
 }) {
-  const baseOrder = alignment === "left" ? "order-2 lg:order-1" : "order-3 lg:order-3";
+  const baseOrder =
+    alignment === "left" ? "order-2 lg:order-1" : "order-3 lg:order-3";
 
   if (!notes?.length) {
     return <div className={cn("hidden lg:block", baseOrder)} />;

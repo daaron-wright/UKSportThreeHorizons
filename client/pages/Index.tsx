@@ -157,13 +157,20 @@ type MetadataConfig = {
   ownership?: string;
 };
 
-function createMetadata({ product, system, access, ownership }: MetadataConfig) {
+function createMetadata({
+  product,
+  system,
+  access,
+  ownership,
+}: MetadataConfig) {
   const entries = [
     product ? { label: "Product", value: product } : null,
     system ? { label: "System", value: system } : null,
     access ? { label: "Access", value: access } : null,
     ownership ? { label: "Ownership", value: ownership } : null,
-  ].filter((entry): entry is { label: string; value: string } => Boolean(entry));
+  ].filter((entry): entry is { label: string; value: string } =>
+    Boolean(entry),
+  );
 
   return entries;
 }
@@ -201,15 +208,18 @@ const HORIZON_DATA = {
     valueThemes: [
       {
         category: "Efficiency & Time Savings",
-        statement: "Access, adoption, and reduced friction for frontline staff across priority squads.",
+        statement:
+          "Access, adoption, and reduced friction for frontline staff across priority squads.",
       },
       {
         category: "Productivity & Throughput",
-        statement: "Minutes saved and faster turnaround as governance tasks become streamlined.",
+        statement:
+          "Minutes saved and faster turnaround as governance tasks become streamlined.",
       },
       {
         category: "Prediction & Optimisation",
-        statement: "Lower admin cost and entry-level AI cues improve decision confidence.",
+        statement:
+          "Lower admin cost and entry-level AI cues improve decision confidence.",
       },
     ],
     impact: {
@@ -228,18 +238,24 @@ const HORIZON_DATA = {
     personas: [
       {
         name: "Unified medical oversight",
-        focus: "Orchestrates athlete health records and ensures duty of care across squads.",
-        needs: "Unified consented view of medical history, incidents, and clearance notes.",
+        focus:
+          "Orchestrates athlete health records and ensures duty of care across squads.",
+        needs:
+          "Unified consented view of medical history, incidents, and clearance notes.",
       },
       {
         name: "Operational coordination",
-        focus: "Coordinates onboarding, eligibility, and logistics for athletes and staff.",
-        needs: "Reliable profiles, safeguarding flags, and document governance in one workspace.",
+        focus:
+          "Coordinates onboarding, eligibility, and logistics for athletes and staff.",
+        needs:
+          "Reliable profiles, safeguarding flags, and document governance in one workspace.",
       },
       {
         name: "Compliance assurance",
-        focus: "Maintains compliance posture and access controls for sensitive datasets.",
-        needs: "Transparent audit trails, policy references, and consent renewals tied to each record.",
+        focus:
+          "Maintains compliance posture and access controls for sensitive datasets.",
+        needs:
+          "Transparent audit trails, policy references, and consent renewals tied to each record.",
       },
     ] as Persona[],
     operatingModel: {
@@ -268,22 +284,26 @@ const HORIZON_DATA = {
         {
           title: "AI/ML Engineer",
           allocation: "Project ×2",
-          detail: "Owns RAG logic and tunes prompts within the AI studio while evaluating responses.",
+          detail:
+            "Owns RAG logic and tunes prompts within the AI studio while evaluating responses.",
         },
         {
           title: "Full Stack Developer",
           allocation: "Internal ×2",
-          detail: "Owns the app service and reporting layers, integrating the prompt flow endpoint.",
+          detail:
+            "Owns the app service and reporting layers, integrating the prompt flow endpoint.",
         },
         {
           title: "Data Engineer",
           allocation: "Project",
-          detail: "Builds and maintains pipelines into SQL/blob stores; manages the data warehouse foundations.",
+          detail:
+            "Builds and maintains pipelines into SQL/blob stores; manages the data warehouse foundations.",
         },
         {
           title: "IT Support",
           allocation: "Project / Internal",
-          detail: "Handles onboarding, offboarding, and level-one support during rollout and steady state.",
+          detail:
+            "Handles onboarding, offboarding, and level-one support during rollout and steady state.",
         },
         {
           title: "Change & Adoption",
@@ -294,12 +314,14 @@ const HORIZON_DATA = {
         {
           title: "QA Engineer",
           allocation: "Project",
-          detail: "Leads testing strategy, approach, and delivery for releases.",
+          detail:
+            "Leads testing strategy, approach, and delivery for releases.",
         },
         {
           title: "Release Manager",
           allocation: "Project",
-          detail: "Plans sprints, aligns cutover with governance checkpoints, and confirms readiness for each launch window.",
+          detail:
+            "Plans sprints, aligns cutover with governance checkpoints, and confirms readiness for each launch window.",
         },
       ],
       enablers: [],
@@ -321,15 +343,18 @@ const HORIZON_DATA = {
       pillars: [
         {
           label: "UI/UX shell",
-          detail: "Responsive athlete console with consent-aware banner states and quick task rails.",
+          detail:
+            "Responsive athlete console with consent-aware banner states and quick task rails.",
         },
         {
           label: "Integration services",
-          detail: "Secure adapters for PDMS, GMS, and manual intake with audit logging and validation flows.",
+          detail:
+            "Secure adapters for PDMS, GMS, and manual intake with audit logging and validation flows.",
         },
         {
           label: "Reporting baseline",
-          detail: "Operational dashboards and cost-per-medal tracking powered by existing data marts.",
+          detail:
+            "Operational dashboards and cost-per-medal tracking powered by existing data marts.",
         },
       ],
       integrationTable: {
@@ -338,7 +363,9 @@ const HORIZON_DATA = {
           {
             functionalBlock: "UI/UX · Reporting",
             service: "Azure App Service + Power BI",
-            bom: ["App Service S3 (~£222/month) or S1 (~£60/month) with performance trade-offs"],
+            bom: [
+              "App Service S3 (~£222/month) or S1 (~£60/month) with performance trade-offs",
+            ],
           },
           {
             functionalBlock: "Multi-modal Data Input",
@@ -356,7 +383,9 @@ const HORIZON_DATA = {
           {
             functionalBlock: "Analytics warehouse",
             service: "Azure Synapse dedicated SQL pool",
-            bom: ["Synapse dedicated pool ≈ £666/month; serverless lowers cost but risks surge spend"],
+            bom: [
+              "Synapse dedicated pool ≈ £666/month; serverless lowers cost but risks surge spend",
+            ],
           },
           {
             functionalBlock: "RAG Retrieval",
@@ -365,7 +394,8 @@ const HORIZON_DATA = {
           {
             functionalBlock: "LLM/SLM Powered Query",
             service: "Azure OpenAI Service",
-            notes: "Pay-by-power vs pay-by-query. Pay-by-power caps spend predictably; pay-by-query aligns with usage but may spike with heavy demand.",
+            notes:
+              "Pay-by-power vs pay-by-query. Pay-by-power caps spend predictably; pay-by-query aligns with usage but may spike with heavy demand.",
             bom: ["Azure OpenAI queries ~£1,000/month for 10k prompts"],
           },
           {
@@ -445,7 +475,8 @@ const HORIZON_DATA = {
           items: [
             {
               title: "Medical records",
-              detail: "Clinical case notes and diagnostic history managed in PDMS.",
+              detail:
+                "Clinical case notes and diagnostic history managed in PDMS.",
               status: "live" as const,
               tags: QUADRANT_TAGS.highEaseHighImpact,
               impactLevel: "low",
@@ -458,7 +489,8 @@ const HORIZON_DATA = {
             },
             {
               title: "Personal details",
-              detail: "Identity, eligibility, and safeguarding managed through GMS/PDMS.",
+              detail:
+                "Identity, eligibility, and safeguarding managed through GMS/PDMS.",
               status: "live" as const,
               tags: QUADRANT_TAGS.highEaseHighImpact,
               impactLevel: "low",
@@ -483,7 +515,8 @@ const HORIZON_DATA = {
             },
             {
               title: "Nutrition consultations",
-              detail: "Dietary planning and consultation notes tracked within PDMS.",
+              detail:
+                "Dietary planning and consultation notes tracked within PDMS.",
               status: "live" as const,
               tags: QUADRANT_TAGS.highEaseHighImpact,
               metadata: createMetadata({
@@ -495,7 +528,8 @@ const HORIZON_DATA = {
             },
             {
               title: "Performance lifestyle consultations",
-              detail: "Lifestyle and wellbeing discussions stored alongside athlete records.",
+              detail:
+                "Lifestyle and wellbeing discussions stored alongside athlete records.",
               status: "live" as const,
               tags: QUADRANT_TAGS.highEaseHighImpact,
               metadata: createMetadata({
@@ -506,8 +540,10 @@ const HORIZON_DATA = {
               }),
             },
             {
-              title: "Injury/illness surveillance (Athlete Health Intelligence)",
-              detail: "Athlete Health Intelligence tracking of injuries and illnesses via PDMS.",
+              title:
+                "Injury/illness surveillance (Athlete Health Intelligence)",
+              detail:
+                "Athlete Health Intelligence tracking of injuries and illnesses via PDMS.",
               status: "live" as const,
               tags: QUADRANT_TAGS.highEaseHighImpact,
               impactLevel: "high",
@@ -546,7 +582,8 @@ const HORIZON_DATA = {
             },
             {
               title: "Athlete screening surveys",
-              detail: "Medical screening forms captured through CheckMarket and SurveyMonkey.",
+              detail:
+                "Medical screening forms captured through CheckMarket and SurveyMonkey.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.highEaseEmergingImpact,
               metadata: createMetadata({
@@ -561,11 +598,13 @@ const HORIZON_DATA = {
         {
           title: "Training administration",
           tone: "neutral" as const,
-          caption: "Structured documents that capture daily plans and reporting.",
+          caption:
+            "Structured documents that capture daily plans and reporting.",
           items: [
             {
               title: "Training plans and actuals - systemised",
-              detail: "Planned sessions and workload targets authored in TeamBuildr.",
+              detail:
+                "Planned sessions and workload targets authored in TeamBuildr.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.highEaseEmergingImpact,
               impactLevel: "high",
@@ -578,7 +617,8 @@ const HORIZON_DATA = {
             },
             {
               title: "Training plans & actuals (shared)",
-              detail: "Coach-submitted plans and actuals collated via shared templates.",
+              detail:
+                "Coach-submitted plans and actuals collated via shared templates.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.highEaseEmergingImpact,
               metadata: createMetadata({
@@ -590,7 +630,8 @@ const HORIZON_DATA = {
             },
             {
               title: "Activity physiology snapshots",
-              detail: "Load and physiology metrics synced from wearables and AMPLIFY.",
+              detail:
+                "Load and physiology metrics synced from wearables and AMPLIFY.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.highEaseEmergingImpact,
               metadata: createMetadata({
@@ -602,7 +643,8 @@ const HORIZON_DATA = {
             },
             {
               title: "Anthropometry",
-              detail: "Baseline measurements managed across PDMS and Excel trackers.",
+              detail:
+                "Baseline measurements managed across PDMS and Excel trackers.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.highEaseEmergingImpact,
               metadata: createMetadata({
@@ -633,7 +675,8 @@ const HORIZON_DATA = {
           items: [
             {
               title: "Medal Expectancy",
-              detail: "UK Sport projections modelling medal likelihood across campaigns.",
+              detail:
+                "UK Sport projections modelling medal likelihood across campaigns.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.highEaseHighImpact,
               impactLevel: "high",
@@ -671,7 +714,8 @@ const HORIZON_DATA = {
             },
             {
               title: "Staff personal details",
-              detail: "Performance staff identity records governed in Entra ID.",
+              detail:
+                "Performance staff identity records governed in Entra ID.",
               status: "live" as const,
               tags: QUADRANT_TAGS.highEaseEmergingImpact,
               metadata: createMetadata({
@@ -755,15 +799,18 @@ const HORIZON_DATA = {
     valueThemes: [
       {
         category: "Efficiency & Time Savings",
-        statement: "Workflow automation and connected systems remove handoffs between pods.",
+        statement:
+          "Workflow automation and connected systems remove handoffs between pods.",
       },
       {
         category: "Productivity & Throughput",
-        statement: "Reduced rework and increased throughput as cross-discipline teams share live context.",
+        statement:
+          "Reduced rework and increased throughput as cross-discipline teams share live context.",
       },
       {
         category: "Prediction & Optimisation",
-        statement: "Automation at scale delivers cross-system insight directly into coaching workflows.",
+        statement:
+          "Automation at scale delivers cross-system insight directly into coaching workflows.",
       },
     ],
     impact: {
@@ -782,18 +829,24 @@ const HORIZON_DATA = {
     personas: [
       {
         name: "Daily squad planning",
-        focus: "Makes daily selection and session adjustments from evolving performance signals.",
-        needs: "Side-by-side view of training loads, wellness flags, and competition context.",
+        focus:
+          "Makes daily selection and session adjustments from evolving performance signals.",
+        needs:
+          "Side-by-side view of training loads, wellness flags, and competition context.",
       },
       {
         name: "Performance insight translation",
-        focus: "Translates video, sensor, and results feeds into actionable insights for staff.",
-        needs: "Searchable media, benchmarking dashboards, and retrieval tooling within the hub.",
+        focus:
+          "Translates video, sensor, and results feeds into actionable insights for staff.",
+        needs:
+          "Searchable media, benchmarking dashboards, and retrieval tooling within the hub.",
       },
       {
         name: "Holistic wellbeing coordination",
-        focus: "Supports athlete readiness and welfare through holistic monitoring.",
-        needs: "Timely surveys, alerts on risk trends, and contextual notes shared with coaches.",
+        focus:
+          "Supports athlete readiness and welfare through holistic monitoring.",
+        needs:
+          "Timely surveys, alerts on risk trends, and contextual notes shared with coaches.",
       },
     ] as Persona[],
     operatingModel: {
@@ -805,52 +858,62 @@ const HORIZON_DATA = {
         {
           title: "Product Owner",
           allocation: "O",
-          detail: "Defines features, gathers feedback, and tracks adoption KPIs while managing technical resources.",
+          detail:
+            "Defines features, gathers feedback, and tracks adoption KPIs while managing technical resources.",
         },
         {
           title: "Product/Service Designer",
           allocation: "P",
-          detail: "Designs the interview and LLM UX, prompt patterns, and guardrailed response flows across journeys.",
+          detail:
+            "Designs the interview and LLM UX, prompt patterns, and guardrailed response flows across journeys.",
         },
         {
           title: "Business Analyst",
           allocation: "O",
-          detail: "Supports the PO on business processes, authoring user stories and curating the product backlog.",
+          detail:
+            "Supports the PO on business processes, authoring user stories and curating the product backlog.",
         },
         {
           title: "AI/ML Engineer",
           allocation: "P ×2",
-          detail: "Productionises models with evaluation pipelines, monitoring, and rollback; glues Azure AI Studio to the app.",
+          detail:
+            "Productionises models with evaluation pipelines, monitoring, and rollback; glues Azure AI Studio to the app.",
         },
         {
           title: "Full Stack Developer",
           allocation: "O",
-          detail: "Owns the app service and reports, integrating the prompt flow endpoint and release cadence.",
+          detail:
+            "Owns the app service and reports, integrating the prompt flow endpoint and release cadence.",
         },
         {
           title: "Data Engineer",
           allocation: "P",
-          detail: "Builds the curated warehouse and semantic layer, owning multi-modal ingestion from wearables, video, and force platforms.",
+          detail:
+            "Builds the curated warehouse and semantic layer, owning multi-modal ingestion from wearables, video, and force platforms.",
         },
         {
           title: "IT Support",
           allocation: "O",
-          detail: "Monitors availability, performance SLOs, and error budgets while coordinating incident triage.",
+          detail:
+            "Monitors availability, performance SLOs, and error budgets while coordinating incident triage.",
         },
         {
           title: "Change & Adoption",
           allocation: "P",
-          detail: "Designs onboarding, training, and comms; tracks AR, FS, TTV; runs the Performance Hub street team.",
+          detail:
+            "Designs onboarding, training, and comms; tracks AR, FS, TTV; runs the Performance Hub street team.",
         },
         {
           title: "QA Engineer",
           allocation: "P",
-          detail: "Manages the testing strategy, approach, and delivery for iterative releases.",
+          detail:
+            "Manages the testing strategy, approach, and delivery for iterative releases.",
         },
         {
           title: "Media Systems Librarian",
           allocation: "P",
-          detail: "Curates video, telemetry, and knowledge assets, ensuring tagging quality, retention policies, and search performance.",
+          detail:
+            "Curates video, telemetry, and knowledge assets, ensuring tagging quality, retention policies, and search performance.",
         },
       ],
     },
@@ -871,15 +934,18 @@ const HORIZON_DATA = {
       pillars: [
         {
           label: "Knowledge capture",
-          detail: "Structured coach notes, wellness logs, and tacit insights flow into shared knowledge workspaces.",
+          detail:
+            "Structured coach notes, wellness logs, and tacit insights flow into shared knowledge workspaces.",
         },
         {
           label: "RAG services",
-          detail: "Retrieval-augmented generation surfaces cross-source answers inside video, session, and wellness modules.",
+          detail:
+            "Retrieval-augmented generation surfaces cross-source answers inside video, session, and wellness modules.",
         },
         {
           label: "Connector mesh",
-          detail: "Hardened APIs for Vald, TeamBuildr, ENetPulse, and video ecosystems with monitoring & retries.",
+          detail:
+            "Hardened APIs for Vald, TeamBuildr, ENetPulse, and video ecosystems with monitoring & retries.",
         },
       ],
       integrationTable: {
@@ -984,7 +1050,8 @@ const HORIZON_DATA = {
           items: [
             {
               title: "Athlete wellness",
-              detail: "Daily questionnaires and readiness signals collected in PDMS.",
+              detail:
+                "Daily questionnaires and readiness signals collected in PDMS.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
               impactLevel: "high",
@@ -997,7 +1064,8 @@ const HORIZON_DATA = {
             },
             {
               title: "Testing and monitoring",
-              detail: "Gas consumption and physiology labs drawn from Vald Hub and AMPLIFY.",
+              detail:
+                "Gas consumption and physiology labs drawn from Vald Hub and AMPLIFY.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
               impactLevel: "high",
@@ -1010,7 +1078,8 @@ const HORIZON_DATA = {
             },
             {
               title: "Activity and physiology",
-              detail: "Real-time load and physiology metrics streamed from wearables and AMPLIFY.",
+              detail:
+                "Real-time load and physiology metrics streamed from wearables and AMPLIFY.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
               impactLevel: "high",
@@ -1023,7 +1092,8 @@ const HORIZON_DATA = {
             },
             {
               title: "Training plans and actuals - manual",
-              detail: "Coach-entered plans and actuals consolidated from shared templates and spreadsheets.",
+              detail:
+                "Coach-entered plans and actuals consolidated from shared templates and spreadsheets.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
               impactLevel: "high",
@@ -1036,7 +1106,8 @@ const HORIZON_DATA = {
             },
             {
               title: "Athlete screening surveys (medical, SMHAT, etc.)",
-              detail: "Questionnaires capturing medical and wellbeing screenings from CheckMarket and SurveyMonkey.",
+              detail:
+                "Questionnaires capturing medical and wellbeing screenings from CheckMarket and SurveyMonkey.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
               impactLevel: "high",
@@ -1056,7 +1127,8 @@ const HORIZON_DATA = {
           items: [
             {
               title: "Video",
-              detail: "Performance versus plan clips from federation and event providers.",
+              detail:
+                "Performance versus plan clips from federation and event providers.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
               impactLevel: "high",
@@ -1069,7 +1141,8 @@ const HORIZON_DATA = {
             },
             {
               title: "GB Competition results",
-              detail: "Central results feed processed through ENetPulse for Team GB analysis.",
+              detail:
+                "Central results feed processed through ENetPulse for Team GB analysis.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
               impactLevel: "high",
@@ -1082,7 +1155,8 @@ const HORIZON_DATA = {
             },
             {
               title: "Performance vs Potential",
-              detail: "Dashboards comparing performance to potential targets via UKS modelling.",
+              detail:
+                "Dashboards comparing performance to potential targets via UKS modelling.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
               impactLevel: "high",
@@ -1095,7 +1169,8 @@ const HORIZON_DATA = {
             },
             {
               title: "Athlete profiling",
-              detail: "Profiling data blended with campaign analytics to tailor coaching decisions.",
+              detail:
+                "Profiling data blended with campaign analytics to tailor coaching decisions.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
               impactLevel: "high",
@@ -1111,7 +1186,8 @@ const HORIZON_DATA = {
         {
           title: "Support services",
           tone: "neutral" as const,
-          caption: "Wellbeing sources that add useful context with lighter impact.",
+          caption:
+            "Wellbeing sources that add useful context with lighter impact.",
           items: [
             {
               title: "Psychology consultations",
@@ -1128,7 +1204,8 @@ const HORIZON_DATA = {
             },
             {
               title: "Performance Lifestyle consultations",
-              detail: "Lifestyle and wellbeing discussions stored alongside athlete records.",
+              detail:
+                "Lifestyle and wellbeing discussions stored alongside athlete records.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.emergingEaseEmergingImpact,
               impactLevel: "low",
@@ -1141,7 +1218,8 @@ const HORIZON_DATA = {
             },
             {
               title: "Nutrition consultations",
-              detail: "Dietary planning and consultation notes tracked within PDMS.",
+              detail:
+                "Dietary planning and consultation notes tracked within PDMS.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.emergingEaseEmergingImpact,
               impactLevel: "low",
@@ -1154,7 +1232,8 @@ const HORIZON_DATA = {
             },
             {
               title: "Anthropometry",
-              detail: "Baseline measurements managed across PDMS and Excel trackers.",
+              detail:
+                "Baseline measurements managed across PDMS and Excel trackers.",
               status: "expanding" as const,
               tags: QUADRANT_TAGS.emergingEaseEmergingImpact,
               impactLevel: "low",
@@ -1248,15 +1327,18 @@ const HORIZON_DATA = {
     valueThemes: [
       {
         category: "Efficiency & Time Savings",
-        statement: "System-level optimisation and cost avoidance through autonomous orchestration.",
+        statement:
+          "System-level optimisation and cost avoidance through autonomous orchestration.",
       },
       {
         category: "Productivity & Throughput",
-        statement: "Avoided failures and improved forecasts thanks to proactive intelligence.",
+        statement:
+          "Avoided failures and improved forecasts thanks to proactive intelligence.",
       },
       {
         category: "Prediction & Optimisation",
-        statement: "Enterprise-wide resilience and margin gains driven by predictive automation.",
+        statement:
+          "Enterprise-wide resilience and margin gains driven by predictive automation.",
       },
     ],
     impact: {
@@ -1275,18 +1357,24 @@ const HORIZON_DATA = {
     personas: [
       {
         name: "Strategic performance stewardship",
-        focus: "Aligns long-term investment and campaign strategy across the Olympic cycle.",
-        needs: "Forward-looking scenarios combining competitive intel, pathway depth, and AI forecasts.",
+        focus:
+          "Aligns long-term investment and campaign strategy across the Olympic cycle.",
+        needs:
+          "Forward-looking scenarios combining competitive intel, pathway depth, and AI forecasts.",
       },
       {
         name: "Research partnership orchestration",
-        focus: "Brokers partnerships with institutes and oversees applied research programmes.",
-        needs: "Pipelines for external SSSM insight, bespoke studies, and knowledge capture in one place.",
+        focus:
+          "Brokers partnerships with institutes and oversees applied research programmes.",
+        needs:
+          "Pipelines for external SSSM insight, bespoke studies, and knowledge capture in one place.",
       },
       {
         name: "Autonomous intelligence ownership",
-        focus: "Operationalises autonomous agents and orchestration workflows across the hub.",
-        needs: "Telemetry feeds, governance approvals, and automation playbooks tied to measurable outcomes.",
+        focus:
+          "Operationalises autonomous agents and orchestration workflows across the hub.",
+        needs:
+          "Telemetry feeds, governance approvals, and automation playbooks tied to measurable outcomes.",
       },
     ] as Persona[],
     operatingModel: {
@@ -1302,7 +1390,8 @@ const HORIZON_DATA = {
         {
           title: "Product Owner",
           allocation: "O",
-          detail: "Owns run-state, release cadence, and incident management across sports and partners.",
+          detail:
+            "Owns run-state, release cadence, and incident management across sports and partners.",
         },
         {
           title: "Data Governance Lead (system-wide)",
@@ -1313,32 +1402,38 @@ const HORIZON_DATA = {
         {
           title: "Business Analyst",
           allocation: "O",
-          detail: "Supports the product owner by mapping business cases, crafting user stories, and refining the backlog.",
+          detail:
+            "Supports the product owner by mapping business cases, crafting user stories, and refining the backlog.",
         },
         {
           title: "AI/ML Engineer",
           allocation: "P ×2",
-          detail: "Stewards medal-impact models, runs experiments, and keeps LLM/agent behaviour explainable at scale.",
+          detail:
+            "Stewards medal-impact models, runs experiments, and keeps LLM/agent behaviour explainable at scale.",
         },
         {
           title: "Full Stack Developer",
           allocation: "O",
-          detail: "Builds cross-sport dashboards, partner sandboxes, and governance consoles surfacing insights and access controls.",
+          detail:
+            "Builds cross-sport dashboards, partner sandboxes, and governance consoles surfacing insights and access controls.",
         },
         {
           title: "Data Engineer",
           allocation: "P",
-          detail: "Operates the multi-sport data platform, ensuring reliable pipelines, certified quality, and privacy safeguards.",
+          detail:
+            "Operates the multi-sport data platform, ensuring reliable pipelines, certified quality, and privacy safeguards.",
         },
         {
           title: "Automation Strategist",
           allocation: "P",
-          detail: "Designs cross-sport automation playbooks, aligning AI interventions with governance, partner input, and measurable outcomes.",
+          detail:
+            "Designs cross-sport automation playbooks, aligning AI interventions with governance, partner input, and measurable outcomes.",
         },
         {
           title: "IT support",
           allocation: "O",
-          detail: "Handles complex partner issues, including data corrections and research requests from NGBs.",
+          detail:
+            "Handles complex partner issues, including data corrections and research requests from NGBs.",
         },
       ],
     },
@@ -1359,15 +1454,18 @@ const HORIZON_DATA = {
       pillars: [
         {
           label: "Orchestration fabric",
-          detail: "Event-driven automation bus triggering cross-disciplinary playbooks and approvals.",
+          detail:
+            "Event-driven automation bus triggering cross-disciplinary playbooks and approvals.",
         },
         {
           label: "External intelligence",
-          detail: "Competitive landscape, research feeds, and partner labs streamed into harmonised knowledge stores.",
+          detail:
+            "Competitive landscape, research feeds, and partner labs streamed into harmonised knowledge stores.",
         },
         {
           label: "AI reasoning",
-          detail: "Agents, simulations, and predictive services recommending interventions with confidence scoring.",
+          detail:
+            "Agents, simulations, and predictive services recommending interventions with confidence scoring.",
         },
       ],
       integrationTable: {
@@ -1476,13 +1574,21 @@ const HORIZON_DATA = {
             detail: "Pipelines normalise video, telemetry, and research feeds",
             tone: "info",
           },
-          { title: "Interview capability", detail: "Capture qualitative insight alongside data", tone: "muted" },
+          {
+            title: "Interview capability",
+            detail: "Capture qualitative insight alongside data",
+            tone: "muted",
+          },
           {
             title: "Model / prompt registry & guardrails",
             detail: "Versioned prompts with compliance controls",
             tone: "muted",
           },
-          { title: "LLM / SLM powered query", detail: "Natural language across the curated store", tone: "muted" },
+          {
+            title: "LLM / SLM powered query",
+            detail: "Natural language across the curated store",
+            tone: "muted",
+          },
         ],
         core: {
           badge: "Consent module",
@@ -1539,7 +1645,8 @@ const HORIZON_DATA = {
         },
         rightRail: {
           title: "R&D module",
-          detail: "Partner experimentation, synthetic sandboxes, emerging models",
+          detail:
+            "Partner experimentation, synthetic sandboxes, emerging models",
           items: [
             { title: "Bespoke trials" },
             { title: "Guarded feedback loops" },
@@ -1547,12 +1654,15 @@ const HORIZON_DATA = {
         },
         integration: {
           label: "Integration · Data product APIs (read-only)",
-          description: "Expose curated insight to downstream systems & partners",
+          description:
+            "Expose curated insight to downstream systems & partners",
           tone: "dark",
         },
         dataSources: {
-          label: "3rd-party data sources · Publications, research, competition feeds",
-          description: "Internal datasets & manual uploads augment the curated store",
+          label:
+            "3rd-party data sources · Publications, research, competition feeds",
+          description:
+            "Internal datasets & manual uploads augment the curated store",
           tone: "info",
           chips: ["Internal datasets", "Manual uploads", "Competition results"],
         },
@@ -1570,7 +1680,8 @@ const HORIZON_DATA = {
           {
             position: "right-top",
             title: "Partnerships & alliances",
-            detail: "Partner sandbox with anonymised synthetic data, policy-enforced",
+            detail:
+              "Partner sandbox with anonymised synthetic data, policy-enforced",
           },
           {
             position: "right-bottom",
@@ -1600,7 +1711,8 @@ const HORIZON_DATA = {
             },
             {
               title: "Competitive landscape analysis",
-              detail: "Benchmark global competitors to steer campaign planning and investment.",
+              detail:
+                "Benchmark global competitors to steer campaign planning and investment.",
               status: "future" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
               impactLevel: "high",
@@ -1669,7 +1781,8 @@ const HORIZON_DATA = {
             },
             {
               title: "Bespoke sport sensors and DBs",
-              detail: "Discipline-specific telemetry such as Nemo, track, and Bounce datasets.",
+              detail:
+                "Discipline-specific telemetry such as Nemo, track, and Bounce datasets.",
               status: "future" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
               impactLevel: "high",
@@ -1691,11 +1804,13 @@ const HORIZON_DATA = {
         {
           title: "Performance planning orchestration",
           tone: "accent" as const,
-          caption: "High-impact planning insight once orchestration is in place.",
+          caption:
+            "High-impact planning insight once orchestration is in place.",
           items: [
             {
               title: "Goals, performance requirements, gaps, plans",
-              detail: "Campaign planning artefacts unified across staff to drive proactive intervention.",
+              detail:
+                "Campaign planning artefacts unified across staff to drive proactive intervention.",
               status: "future" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
               impactLevel: "high",
@@ -1708,7 +1823,8 @@ const HORIZON_DATA = {
             },
             {
               title: "Staff health and performance knowledge",
-              detail: "Unified view of staff expertise, workloads, and availability.",
+              detail:
+                "Unified view of staff expertise, workloads, and availability.",
               status: "future" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
               impactLevel: "high",
@@ -1728,7 +1844,8 @@ const HORIZON_DATA = {
           items: [
             {
               title: "Pathway: Basic - name, stage, results",
-              detail: "Baseline pathway roster synchronised across events and competition systems.",
+              detail:
+                "Baseline pathway roster synchronised across events and competition systems.",
               status: "future" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
               impactLevel: "high",
@@ -1741,7 +1858,8 @@ const HORIZON_DATA = {
             },
             {
               title: "Pathway: Key mental, physical and health characteristics",
-              detail: "Holistic profile stitched from pathway platforms, medical notes, and staff knowledge.",
+              detail:
+                "Holistic profile stitched from pathway platforms, medical notes, and staff knowledge.",
               status: "future" as const,
               tags: QUADRANT_TAGS.emergingEaseHighImpact,
               impactLevel: "high",
@@ -1789,7 +1907,8 @@ export default function Index() {
   const navigatorItems: HorizonKeyNavigatorItem[] = horizonKeys.map((key) => {
     const horizon = HORIZON_DATA[key] as HorizonDataEntry;
     const impactMetric =
-      horizon.impact.metrics.find((metric) => metric.indicator) ?? horizon.impact.metrics[0];
+      horizon.impact.metrics.find((metric) => metric.indicator) ??
+      horizon.impact.metrics[0];
 
     return {
       key,
@@ -1813,7 +1932,9 @@ export default function Index() {
             Three Horizons of Data Curation
           </p>
           <p className="mt-4 text-lg text-slate-600">
-            Tab through the horizons to see how UK Sport incrementally integrates new data sources—moving from high ease-of-use records to high-impact intelligence.
+            Tab through the horizons to see how UK Sport incrementally
+            integrates new data sources—moving from high ease-of-use records to
+            high-impact intelligence.
           </p>
           <div className="mt-6 flex flex-col items-center gap-6 sm:flex-row">
             <span className="sr-only">UK Sport collaborating with Kyndryl</span>

@@ -39,7 +39,8 @@ const App = () => {
 
   const handleAuthenticate = (username: string, password: string) => {
     const trimmedUsername = username.trim();
-    const isValid = trimmedUsername === ADMIN_USERNAME && password === ADMIN_PASSWORD;
+    const isValid =
+      trimmedUsername === ADMIN_USERNAME && password === ADMIN_PASSWORD;
 
     if (isValid && typeof window !== "undefined") {
       sessionStorage.setItem(AUTH_SESSION_KEY, "true");
@@ -76,7 +77,8 @@ if (!container) {
   throw new Error("Failed to find the root element");
 }
 
-const existingRoot = (window as unknown as { __APP_ROOT__?: Root }).__APP_ROOT__;
+const existingRoot = (window as unknown as { __APP_ROOT__?: Root })
+  .__APP_ROOT__;
 const root = existingRoot ?? createRoot(container);
 (window as unknown as { __APP_ROOT__?: Root }).__APP_ROOT__ = root;
 

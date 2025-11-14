@@ -6,7 +6,8 @@ type AdminSignInProps = {
   onAuthenticate: (username: string, password: string) => boolean;
 };
 
-const LABEL_CLASSES = "text-xs font-semibold uppercase tracking-[0.28em] text-blue-600";
+const LABEL_CLASSES =
+  "text-xs font-semibold uppercase tracking-[0.28em] text-blue-600";
 const INPUT_CLASSES =
   "w-full rounded-2xl border border-blue-100 bg-white/80 px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30";
 
@@ -16,7 +17,10 @@ export function AdminSignIn({ onAuthenticate }: AdminSignInProps) {
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const isDisabled = useMemo(() => isSubmitting || !username.trim() || !password, [isSubmitting, password, username]);
+  const isDisabled = useMemo(
+    () => isSubmitting || !username.trim() || !password,
+    [isSubmitting, password, username],
+  );
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -45,7 +49,9 @@ export function AdminSignIn({ onAuthenticate }: AdminSignInProps) {
             <h1 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
               Sign in to view the horizons for the Performance Hub
             </h1>
-            <p className="text-sm text-slate-600">Enter the administrator credentials below.</p>
+            <p className="text-sm text-slate-600">
+              Enter the administrator credentials below.
+            </p>
           </div>
 
           <form onSubmit={handleSubmit} className="mt-10 space-y-6">
@@ -91,7 +97,9 @@ export function AdminSignIn({ onAuthenticate }: AdminSignInProps) {
               type="submit"
               className={cn(
                 "w-full rounded-2xl bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground transition focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2",
-                isDisabled ? "cursor-not-allowed opacity-70" : "hover:bg-primary/90",
+                isDisabled
+                  ? "cursor-not-allowed opacity-70"
+                  : "hover:bg-primary/90",
               )}
               disabled={isDisabled}
             >

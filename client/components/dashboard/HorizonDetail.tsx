@@ -139,7 +139,10 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
             {horizon.short}
           </Badge>
           {operatingRoles.length ? (
-            <Badge variant="secondary" className="border border-blue-200 bg-white px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-blue-700">
+            <Badge
+              variant="secondary"
+              className="border border-blue-200 bg-white px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-blue-700"
+            >
               {operatingRoles.length} roles
             </Badge>
           ) : null}
@@ -172,7 +175,9 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
         <SectionTabsContent value="overview" className="space-y-6">
           <div className="space-y-6">
             <div className="space-y-5">
-              <p className="text-sm leading-relaxed text-slate-600">{horizon.overview.narrative}</p>
+              <p className="text-sm leading-relaxed text-slate-600">
+                {horizon.overview.narrative}
+              </p>
               <div className="grid gap-3">
                 {overviewHighlights.map((point) => (
                   <div
@@ -197,7 +202,9 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                         <p className="font-semibold uppercase tracking-[0.18em] text-blue-700">
                           {theme.category}
                         </p>
-                        <p className="mt-2 leading-relaxed text-slate-600">{theme.statement}</p>
+                        <p className="mt-2 leading-relaxed text-slate-600">
+                          {theme.statement}
+                        </p>
                       </div>
                     ))}
                   </div>
@@ -205,7 +212,9 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
               ) : null}
             </div>
             <div className="rounded-2xl border border-blue-100/80 bg-white/90 p-5 shadow-sm">
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-600">Areas of focus</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-600">
+                Areas of focus
+              </p>
               <div className="mt-4 flex flex-col gap-3">
                 {overviewMetrics.map((metric, index) => {
                   if (metric.details?.length) {
@@ -215,16 +224,27 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                         className="overflow-hidden rounded-xl border border-blue-100 bg-blue-50/60"
                       >
                         <Accordion type="single" collapsible className="w-full">
-                          <AccordionItem value={`metric-${index}`} className="border-none">
+                          <AccordionItem
+                            value={`metric-${index}`}
+                            className="border-none"
+                          >
                             <AccordionTrigger className="px-4 py-3 text-left text-sm font-semibold uppercase tracking-[0.2em] text-blue-700 hover:no-underline">
                               {metric.label}
                             </AccordionTrigger>
                             <AccordionContent className="px-4 pb-4 text-left text-sm font-medium tracking-normal text-slate-600">
                               <ul className="space-y-2">
                                 {metric.details.map((detail) => (
-                                  <li key={detail} className="flex items-start gap-2">
-                                    <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-blue-400" aria-hidden="true" />
-                                    <span className="leading-snug text-slate-600">{detail}</span>
+                                  <li
+                                    key={detail}
+                                    className="flex items-start gap-2"
+                                  >
+                                    <span
+                                      className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-blue-400"
+                                      aria-hidden="true"
+                                    />
+                                    <span className="leading-snug text-slate-600">
+                                      {detail}
+                                    </span>
                                   </li>
                                 ))}
                               </ul>
@@ -253,16 +273,28 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
           {horizon.personaTarget ? (
             <div className="grid gap-3 sm:grid-cols-3">
               <div className="rounded-2xl border border-blue-100/80 bg-blue-50/60 p-4 text-sm text-blue-900">
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-700">Target users</p>
-                <p className="mt-2 text-base font-semibold text-primary">{horizon.personaTarget.users}</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-700">
+                  Target users
+                </p>
+                <p className="mt-2 text-base font-semibold text-primary">
+                  {horizon.personaTarget.users}
+                </p>
               </div>
               <div className="rounded-2xl border border-blue-100/80 bg-blue-50/60 p-4 text-sm text-blue-900">
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-700">Sports organizations</p>
-                <p className="mt-2 text-base font-semibold text-primary">{horizon.personaTarget.organizations}</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-700">
+                  Sports organizations
+                </p>
+                <p className="mt-2 text-base font-semibold text-primary">
+                  {horizon.personaTarget.organizations}
+                </p>
               </div>
               <div className="rounded-2xl border border-blue-100/80 bg-white/90 p-4 text-sm text-slate-700 sm:col-span-3 lg:col-span-2">
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-700">Rollout focus</p>
-                <p className="mt-2 leading-relaxed">{horizon.personaTarget.summary}</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-700">
+                  Rollout focus
+                </p>
+                <p className="mt-2 leading-relaxed">
+                  {horizon.personaTarget.summary}
+                </p>
               </div>
             </div>
           ) : null}
@@ -274,18 +306,28 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                   className="flex h-full flex-col justify-between rounded-2xl border border-blue-100 bg-white/90 p-5 shadow-sm"
                 >
                   <div>
-                    <h3 className="text-base font-semibold text-primary">{persona.name}</h3>
-                    <p className="mt-2 text-sm text-slate-600">{persona.focus}</p>
+                    <h3 className="text-base font-semibold text-primary">
+                      {persona.name}
+                    </h3>
+                    <p className="mt-2 text-sm text-slate-600">
+                      {persona.focus}
+                    </p>
                   </div>
                   <div className="mt-4 rounded-xl border border-blue-100/80 bg-blue-50/60 p-4 text-sm text-blue-900">
-                    <p className="font-semibold uppercase tracking-[0.22em] text-blue-700">Key needs</p>
-                    <p className="mt-2 text-sm text-blue-900/90">{persona.needs}</p>
+                    <p className="font-semibold uppercase tracking-[0.22em] text-blue-700">
+                      Key needs
+                    </p>
+                    <p className="mt-2 text-sm text-blue-900/90">
+                      {persona.needs}
+                    </p>
                   </div>
                 </article>
               ))}
             </div>
           ) : (
-            <p className="text-sm text-slate-600">No personas captured for this horizon yet.</p>
+            <p className="text-sm text-slate-600">
+              No personas captured for this horizon yet.
+            </p>
           )}
         </SectionTabsContent>
 
@@ -296,8 +338,12 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                 <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-600">
                   Target operating model
                 </p>
-                <h3 className="mt-1 text-xl font-semibold text-primary">{horizon.operatingModel.name}</h3>
-                <p className="mt-2 text-sm text-slate-600">{horizon.operatingModel.summary}</p>
+                <h3 className="mt-1 text-xl font-semibold text-primary">
+                  {horizon.operatingModel.name}
+                </h3>
+                <p className="mt-2 text-sm text-slate-600">
+                  {horizon.operatingModel.summary}
+                </p>
               </div>
               <Badge className="h-fit rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-blue-700">
                 Operating model
@@ -315,14 +361,21 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                       className="rounded-2xl border border-blue-100 bg-white/95 p-5 shadow-sm"
                     >
                       <div className="flex items-start justify-between gap-3">
-                        <h4 className="text-base font-semibold text-primary">{role.title}</h4>
+                        <h4 className="text-base font-semibold text-primary">
+                          {role.title}
+                        </h4>
                         {role.allocation ? (
-                          <Badge variant="secondary" className="whitespace-nowrap border border-blue-200 bg-white px-3 py-0.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-blue-700">
+                          <Badge
+                            variant="secondary"
+                            className="whitespace-nowrap border border-blue-200 bg-white px-3 py-0.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-blue-700"
+                          >
                             {role.allocation}
                           </Badge>
                         ) : null}
                       </div>
-                      <p className="mt-3 text-sm text-slate-600">{role.detail}</p>
+                      <p className="mt-3 text-sm text-slate-600">
+                        {role.detail}
+                      </p>
                     </article>
                   ))}
                 </div>
@@ -359,8 +412,12 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                 <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-600">
                   Technical evolution
                 </p>
-                <h3 className="mt-1 text-xl font-semibold text-primary">{horizon.technicalEvolution.title}</h3>
-                <p className="mt-2 text-sm text-slate-600">{horizon.technicalEvolution.description}</p>
+                <h3 className="mt-1 text-xl font-semibold text-primary">
+                  {horizon.technicalEvolution.title}
+                </h3>
+                <p className="mt-2 text-sm text-slate-600">
+                  {horizon.technicalEvolution.description}
+                </p>
               </div>
               <Badge className="h-fit rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-blue-700">
                 Platform stack
@@ -381,8 +438,12 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                   key={pillar.label}
                   className="rounded-2xl border border-blue-100/80 bg-blue-50/60 p-4"
                 >
-                  <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">{pillar.label}</h4>
-                  <p className="mt-2 text-sm text-blue-900/90">{pillar.detail}</p>
+                  <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
+                    {pillar.label}
+                  </h4>
+                  <p className="mt-2 text-sm text-blue-900/90">
+                    {pillar.detail}
+                  </p>
                 </article>
               ))}
             </div>
@@ -394,7 +455,8 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                       {integrationTable.title}
                     </p>
                     <p className="mt-1 text-sm text-slate-600">
-                      Drill into the {horizon.label} stack across functional blocks, preferred services, and delivery notes.
+                      Drill into the {horizon.label} stack across functional
+                      blocks, preferred services, and delivery notes.
                     </p>
                   </div>
                   <button
@@ -403,8 +465,12 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                     aria-expanded={integrationExpanded}
                     className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-primary transition hover:bg-primary/20"
                   >
-                    {integrationExpanded ? "Hide stack details" : "View stack details"}
-                    <span className="text-base">{integrationExpanded ? "−" : "+"}</span>
+                    {integrationExpanded
+                      ? "Hide stack details"
+                      : "View stack details"}
+                    <span className="text-base">
+                      {integrationExpanded ? "−" : "+"}
+                    </span>
                   </button>
                 </div>
                 {integrationExpanded ? (
@@ -412,25 +478,42 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                     <table className="min-w-full border-separate border-spacing-y-2 text-left text-sm text-slate-700">
                       <thead>
                         <tr className="text-xs uppercase tracking-[0.18em] text-blue-600">
-                          <th className="rounded-l-xl bg-blue-50/80 px-4 py-3 font-semibold">Functional block</th>
-                          <th className="bg-blue-50/80 px-4 py-3 font-semibold">Potential service</th>
-                          <th className="bg-blue-50/80 px-4 py-3 font-semibold">Notes</th>
-                          <th className="rounded-r-xl bg-blue-50/80 px-4 py-3 font-semibold">Bill of materials</th>
+                          <th className="rounded-l-xl bg-blue-50/80 px-4 py-3 font-semibold">
+                            Functional block
+                          </th>
+                          <th className="bg-blue-50/80 px-4 py-3 font-semibold">
+                            Potential service
+                          </th>
+                          <th className="bg-blue-50/80 px-4 py-3 font-semibold">
+                            Notes
+                          </th>
+                          <th className="rounded-r-xl bg-blue-50/80 px-4 py-3 font-semibold">
+                            Bill of materials
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
                         {integrationRows.map((row) => (
-                          <tr key={`${row.functionalBlock}-${row.service}`} className="align-top">
+                          <tr
+                            key={`${row.functionalBlock}-${row.service}`}
+                            className="align-top"
+                          >
                             <td className="rounded-l-xl bg-white px-4 py-3 font-semibold text-slate-900">
                               {row.functionalBlock}
                             </td>
-                            <td className="bg-white px-4 py-3 text-slate-700">{row.service}</td>
-                            <td className="bg-white px-4 py-3 text-slate-600">{row.notes ?? "—"}</td>
+                            <td className="bg-white px-4 py-3 text-slate-700">
+                              {row.service}
+                            </td>
+                            <td className="bg-white px-4 py-3 text-slate-600">
+                              {row.notes ?? "—"}
+                            </td>
                             <td className="rounded-r-xl bg-white px-4 py-3 text-slate-700">
                               {row.bom?.length ? (
                                 <ul className="list-disc space-y-1 pl-4 text-xs text-slate-600">
                                   {row.bom.map((item) => (
-                                    <li key={`${row.functionalBlock}-${item}`}>{item}</li>
+                                    <li key={`${row.functionalBlock}-${item}`}>
+                                      {item}
+                                    </li>
                                   ))}
                                 </ul>
                               ) : (
@@ -468,8 +551,12 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                     UI evolution
                   </Badge>
                 </div>
-                <h3 className="text-2xl font-semibold text-primary">{horizon.ui.title}</h3>
-                <p className="text-sm leading-relaxed text-slate-600">{horizon.ui.description}</p>
+                <h3 className="text-2xl font-semibold text-primary">
+                  {horizon.ui.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-slate-600">
+                  {horizon.ui.description}
+                </p>
                 <div className="grid gap-3">
                   {horizon.ui.highlights.map((point, index) => (
                     <div
@@ -498,9 +585,12 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                     className="rounded-xl border border-white/60 bg-white/90 p-4 shadow-sm"
                     style={{ borderColor: horizon.ui.palette.grid }}
                   >
-                    <p className="text-sm font-semibold text-primary">Primary workspace</p>
+                    <p className="text-sm font-semibold text-primary">
+                      Primary workspace
+                    </p>
                     <p className="mt-2 text-xs text-slate-600">
-                      Layout rebalances to spotlight the data and tools unlocked in this horizon.
+                      Layout rebalances to spotlight the data and tools unlocked
+                      in this horizon.
                     </p>
                   </div>
                   <div className="grid gap-3 sm:grid-cols-2">
@@ -514,13 +604,22 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                     ))}
                   </div>
                   <div className="flex flex-wrap gap-2">
-                    <Badge variant="secondary" className="border border-blue-200 bg-white text-xs">
+                    <Badge
+                      variant="secondary"
+                      className="border border-blue-200 bg-white text-xs"
+                    >
                       Adaptive UI
                     </Badge>
-                    <Badge variant="secondary" className="border border-red-200 bg-white text-xs">
+                    <Badge
+                      variant="secondary"
+                      className="border border-red-200 bg-white text-xs"
+                    >
                       Data aware
                     </Badge>
-                    <Badge variant="secondary" className="border border-slate-200 bg-white text-xs">
+                    <Badge
+                      variant="secondary"
+                      className="border border-slate-200 bg-white text-xs"
+                    >
                       Consent aligned
                     </Badge>
                   </div>

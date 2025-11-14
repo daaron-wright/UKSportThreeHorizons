@@ -27,13 +27,19 @@ export interface HorizonKeyNavigatorProps {
   onSelectHorizon: (key: string) => void;
 }
 
-export function HorizonKeyNavigator({ items, activeHorizon, onSelectHorizon }: HorizonKeyNavigatorProps) {
+export function HorizonKeyNavigator({
+  items,
+  activeHorizon,
+  onSelectHorizon,
+}: HorizonKeyNavigatorProps) {
   return (
     <section className="rounded-3xl border border-blue-100 bg-white/95 p-6 shadow-sm">
       <div className="grid gap-4 md:grid-cols-3">
         {items.map((item) => {
           const isActive = item.key === activeHorizon;
-          const stageTone = STAGE_THEME_CLASS[item.stage.theme] ?? "border-blue-200 bg-blue-50 text-blue-700";
+          const stageTone =
+            STAGE_THEME_CLASS[item.stage.theme] ??
+            "border-blue-200 bg-blue-50 text-blue-700";
 
           return (
             <button
@@ -49,20 +55,33 @@ export function HorizonKeyNavigator({ items, activeHorizon, onSelectHorizon }: H
               aria-pressed={isActive}
             >
               <div className="space-y-4">
-                <Badge className={cn("w-fit text-[11px] font-semibold uppercase tracking-[0.28em]", stageTone)}>
+                <Badge
+                  className={cn(
+                    "w-fit text-[11px] font-semibold uppercase tracking-[0.28em]",
+                    stageTone,
+                  )}
+                >
                   {item.stage.label}
                 </Badge>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-600">{item.short}</p>
-                  <h3 className="mt-1 text-lg font-semibold text-primary">{item.label}</h3>
-                  <p className="mt-2 text-sm text-slate-600">{item.stage.descriptor}</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-600">
+                    {item.short}
+                  </p>
+                  <h3 className="mt-1 text-lg font-semibold text-primary">
+                    {item.label}
+                  </h3>
+                  <p className="mt-2 text-sm text-slate-600">
+                    {item.stage.descriptor}
+                  </p>
                 </div>
                 <p className="text-sm text-slate-600">{item.summary}</p>
               </div>
               <div className="mt-5 space-y-3">
                 {item.overviewMetrics.length ? (
                   <div className="space-y-2">
-                    <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-600">Areas of focus</p>
+                    <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-600">
+                      Areas of focus
+                    </p>
                     <div className="grid gap-2">
                       {item.overviewMetrics.map((metric) => (
                         <div
@@ -77,8 +96,12 @@ export function HorizonKeyNavigator({ items, activeHorizon, onSelectHorizon }: H
                 ) : null}
                 {item.impactMetric?.value ? (
                   <div className="rounded-2xl border border-primary/30 bg-primary/10 px-4 py-2 text-sm text-primary">
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary/80">{item.impactMetric.label}</p>
-                    <p className="text-base font-semibold">{item.impactMetric.value}</p>
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary/80">
+                      {item.impactMetric.label}
+                    </p>
+                    <p className="text-base font-semibold">
+                      {item.impactMetric.value}
+                    </p>
                   </div>
                 ) : null}
               </div>
