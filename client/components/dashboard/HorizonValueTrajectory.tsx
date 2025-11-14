@@ -57,14 +57,14 @@ const costBaseline = 1;
 
 const costChartData = [
   { phase: "Kickoff", cost: 1 },
-  { phase: "Implementation", cost: 1.32 },
+  { phase: "Implementation", cost: 1.25 },
   {
     phase: "Efficiency gains",
     cost: costBaseline,
     annotation: "Efficiency gain outweighs platform investment",
   },
-  { phase: "Sustained savings", cost: 0.72 },
-  { phase: "Steady state", cost: 0.68 },
+  { phase: "Sustained savings", cost: 0.78 },
+  { phase: "Steady state", cost: 0.72 },
 ];
 
 const CustomTooltip = ({ active, payload, label }: TooltipProps<number, string>) => {
@@ -88,7 +88,7 @@ const CostTooltip = ({ active, payload }: TooltipProps<number, string>) => {
     return null;
   }
 
-  const [{ value, payload: point }] = payload;
+  const [{ payload: point }] = payload;
 
   return (
     <div
@@ -96,9 +96,6 @@ const CostTooltip = ({ active, payload }: TooltipProps<number, string>) => {
       style={{ borderColor: tooltipBorderColor, boxShadow: "0 16px 32px -12px hsl(var(--primary)/0.2)" }}
     >
       <p className="font-semibold text-primary">{point.phase}</p>
-      <p className="mt-1 text-muted-foreground">
-        Relative cost: <span className="font-semibold text-primary">{value.toFixed(2)}</span>
-      </p>
       {point.annotation ? <p className="mt-2 text-muted-foreground">{point.annotation}</p> : null}
     </div>
   );
@@ -176,11 +173,10 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
                     height={50}
                   />
                   <YAxis
-                    domain={[0.6, 1.4]}
+                    domain={[0.6, 1.3]}
                     tickLine={false}
                     axisLine={false}
-                    ticks={[0.6, 0.8, 1, 1.2, 1.4]}
-                    tick={{ fill: axisColor, fontSize: 12 }}
+                    ticks={[]}
                     label={{ value: "Relative cost", angle: -90, position: "insideLeft", offset: 12, fill: axisColor }}
                   />
                   <Tooltip content={<CostTooltip />} cursor={{ stroke: seriesGlow, strokeWidth: 2, strokeDasharray: "4 4" }} />
