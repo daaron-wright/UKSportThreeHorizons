@@ -16,6 +16,12 @@ type Persona = {
   needs: string;
 };
 
+type OperatingModelRole = {
+  title: string;
+  detail: string;
+  allocation?: string;
+};
+
 type OperatingModel = {
   name: string;
   summary: string;
@@ -24,6 +30,7 @@ type OperatingModel = {
     src: string;
     alt: string;
   };
+  roles?: OperatingModelRole[];
 };
 
 type TechnicalEvolution = {
@@ -154,6 +161,51 @@ const HORIZON_DATA = {
         src: "https://cdn.builder.io/api/v1/image/assets%2F4f72be6c562a4212a4942d75695a634f%2F6d096e4be4054bbaa12f5331b27636bf?format=webp&width=1600",
         alt: "Horizon 1 operating model diagram detailing product owner, design, engineering, QA, and support roles with responsibilities.",
       },
+      roles: [
+        {
+          title: "Product Owner",
+          allocation: "Internal",
+          detail:
+            "Defines features, gathers feedback, tracks adoption KPIs, and manages technical resources.",
+        },
+        {
+          title: "Product/Service Designer",
+          allocation: "Project",
+          detail:
+            "Maps athlete, coach, and performance journeys; owns dashboards, UI flows, and visual language end to end.",
+        },
+        {
+          title: "AI/ML Engineer",
+          allocation: "Project ×2",
+          detail: "Owns RAG logic and tunes prompts within the AI studio while evaluating responses.",
+        },
+        {
+          title: "Full Stack Developer",
+          allocation: "Internal ×2",
+          detail: "Owns the app service and reporting layers, integrating the prompt flow endpoint.",
+        },
+        {
+          title: "Data Engineer",
+          allocation: "Project",
+          detail: "Builds and maintains pipelines into SQL/blob stores; manages the data warehouse foundations.",
+        },
+        {
+          title: "IT Support",
+          allocation: "Project / Internal",
+          detail: "Handles onboarding, offboarding, and level-one support during rollout and steady state.",
+        },
+        {
+          title: "Change & Adoption",
+          allocation: "Project ×2",
+          detail:
+            "Designs onboarding, communications, and training; tracks AR, FS, TTV; runs the Performance Hub street team.",
+        },
+        {
+          title: "QA Engineer",
+          allocation: "Project",
+          detail: "Leads testing strategy, approach, and delivery for releases.",
+        },
+      ],
       enablers: [
         "Performance Hub governance committee",
         "Consent lifecycle management",
