@@ -208,11 +208,6 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                   </div>
                 ))}
               </div>
-              <div className="mt-5 border-t border-blue-100 pt-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-                  Personas in scope {horizon.personas.length}
-                </p>
-              </div>
             </div>
           </div>
         </SectionTabsContent>
