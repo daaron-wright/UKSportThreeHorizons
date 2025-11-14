@@ -68,7 +68,7 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
           The ROI Curve; A Non-Linear Compounding Return
         </h2>
         <p className="mx-auto max-w-3xl text-sm text-slate-600">
-          Overall: The value curve steepens over time as the entire system contributes and benefits together.
+          The value curve steepens over time as the entire system contributes and benefits together.
         </p>
       </div>
 
