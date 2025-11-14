@@ -1322,9 +1322,12 @@ const HORIZON_DATA = {
       description:
         "Adaptive layouts showcase AI recommendations, live telemetry, and automation playbooks in real time.",
       highlights: [
-        "AI command bar surfaces suggested actions and confidence tags.",
-        "Live widgets stream telemetry alongside competition feeds.",
-        "Automation panel previews queued playbooks for staff approval.",
+        "Cross-sport benchmarking dashboard compares squads, sports, and medal trajectories.",
+        "Scenario & investment explorer models medal uplift versus spend and staffing levers.",
+        "Partner sandbox and R&D workspace hosts experiments with synthetic or anonymised data.",
+        "Research study view curates findings, metadata, and engagement signals.",
+        "Global governance & policy console surfaces consent patterns, opt-in/out rates, and study adoption.",
+        "Authoring & playbook builder configures deliverables, LLM prompt templates, and dashboards with guardrails and change history.",
       ],
       palette: {
         background: "linear-gradient(135deg, #c4d7ff 0%, #ffe4ec 100%)",
