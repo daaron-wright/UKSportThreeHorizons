@@ -1425,10 +1425,6 @@ const HORIZON_DATA = {
             "Operates the multi-sport data platform, ensuring reliable pipelines, certified quality, and privacy safeguards.",
         },
         {
-          title: "Automation Strategist",
-          allocation: "P",
-        },
-        {
           title: "IT support",
           allocation: "O",
           detail:
