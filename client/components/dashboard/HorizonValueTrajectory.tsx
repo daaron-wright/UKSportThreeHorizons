@@ -205,16 +205,11 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
                         key={point.phase}
                         x={point.phase}
                         y={point.cost}
-                        r={0}
+                        r={6}
+                        fill={seriesColor}
+                        stroke="white"
+                        strokeWidth={2}
                         isFront
-                        label={{
-                          value: point.annotation,
-                          position: "top",
-                          fill: seriesColor,
-                          fontWeight: 600,
-                          fontSize: 12,
-                          dy: -6,
-                        }}
                       />
                     ))}
                 </LineChart>
