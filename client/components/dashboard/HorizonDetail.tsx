@@ -28,6 +28,10 @@ type OperatingModel = {
   name: string;
   summary: string;
   enablers: string[];
+  diagram?: {
+    src: string;
+    alt: string;
+  };
 };
 
 type PersonaTarget = {
@@ -243,6 +247,15 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                 Operating model
               </Badge>
             </header>
+            {horizon.operatingModel.diagram ? (
+              <div className="overflow-hidden rounded-2xl border border-blue-100/80 bg-white/90 p-4 shadow-sm">
+                <img
+                  src={horizon.operatingModel.diagram.src}
+                  alt={horizon.operatingModel.diagram.alt}
+                  className="h-auto w-full rounded-xl border border-blue-100 object-cover"
+                />
+              </div>
+            ) : null}
             <div className="grid gap-3 sm:grid-cols-3">
               {horizon.operatingModel.enablers.map((enabler) => (
                 <div
