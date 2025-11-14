@@ -119,7 +119,6 @@ const HORIZON_DATA = {
       metrics: [
         { label: "Ease of use", value: "High" },
         { label: "Impact", value: "Foundational" },
-        { label: "Cost per medal", value: "▼12%", indicator: "down" },
       ],
     },
     stage: {
