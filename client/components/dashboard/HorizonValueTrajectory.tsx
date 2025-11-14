@@ -35,6 +35,15 @@ const chartData = [
   },
 ];
 
+const horizonNarrative: Record<string, string> = {
+  "H1 · Centralize & Integrate":
+    "Horizon 1 creates early value through access, adoption, and validating core functions.",
+  "H2 · Ingest":
+    "Horizon 2 accelerates value through stronger capability, connection, and productivity.",
+  "H3 · Orchestrate":
+    "Horizon 3 delivers the greatest return through system strength, cost avoidance, better prediction, and smarter investment.",
+};
+
 const CustomTooltip = ({ active, payload, label }: TooltipProps<number, string>) => {
   if (!active || !payload?.length) {
     return null;
@@ -43,9 +52,10 @@ const CustomTooltip = ({ active, payload, label }: TooltipProps<number, string>)
   const [point] = payload;
 
   return (
-    <div className="rounded-lg border border-blue-100 bg-white/95 px-3 py-2 text-xs shadow-md">
+    <div className="max-w-xs rounded-lg border border-blue-100 bg-white/95 px-3 py-2 text-xs shadow-md">
       <p className="font-semibold text-slate-700">{label}</p>
       <p className="mt-1 font-mono text-slate-800">ROI {Number(point.value).toFixed(1)}</p>
+      <p className="mt-2 text-slate-600">{horizonNarrative[label ?? ""]}</p>
     </div>
   );
 };
@@ -55,21 +65,20 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
     <section className={cn("space-y-8", className)}>
       <div className="space-y-3 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-600">
-          Compounding value across horizons
+          ROI compounding over time
         </p>
         <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-          ROI trajectory over the three-horizon roadmap
+          The ROI Curve; A Non-Linear Compounding Return
         </h2>
         <p className="mx-auto max-w-3xl text-sm text-slate-600">
-          Efficiency, productivity, and predictive insight compound as adoption scales from Horizon 1 foundations to
-          Horizon 3 orchestration. Each line shows the relative maturity of a value theme as the Performance Hub grows.
+          Overall: The value curve steepens over time as the entire system contributes and benefits together.
         </p>
       </div>
 
       <Card className="border-blue-100 bg-white/95 shadow-sm">
         <CardHeader className="pb-6">
           <CardTitle className="text-lg font-semibold text-primary">
-            Value development by horizon
+            ROI trajectory across horizons
           </CardTitle>
           <p className="text-sm text-slate-600">
             Horizon 1 validates core access, Horizon 2 accelerates capability through connected workflows, and Horizon 3
