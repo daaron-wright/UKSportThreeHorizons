@@ -184,7 +184,18 @@ const HORIZON_DATA = {
       ],
       metrics: [
         { label: "Manual workload drop" },
-        { label: "Proposed 7 data sources integrated" },
+        {
+          label: "Proposed 7 data sources integrated",
+          details: [
+            "Personal details",
+            "Head injury assessments",
+            "Pathology results",
+            "Medical records",
+            "Injury/illness surveillance (Athlete Health Intelligence)",
+            "Medal expectancy",
+            "Training plans and actuals – systemised",
+          ],
+        },
       ],
     },
     valueThemes: [
