@@ -402,7 +402,7 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                       {integrationTable.title}
                     </p>
                     <p className="mt-1 text-sm text-slate-600">
-                      Drill into the Horizon 2 stack across functional blocks, preferred Azure services, and delivery notes.
+                      Drill into the {horizon.label} stack across functional blocks, preferred services, and delivery notes.
                     </p>
                   </div>
                   <button
