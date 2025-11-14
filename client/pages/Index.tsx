@@ -300,14 +300,25 @@ const HORIZON_DATA = {
           {
             functionalBlock: "UI/UX · Reporting",
             service: "Azure App Service + Power BI",
+            bom: ["App Service S3 (~£222/month) or S1 (~£60/month) with performance trade-offs"],
           },
           {
             functionalBlock: "Multi-modal Data Input",
             service: "Azure Data Factory + Azure Blob Storage",
+            bom: [
+              "Azure Data Factory pipelines ≈ £75/month",
+              "Data lake + warehouse footprint ≈ £20/month",
+            ],
           },
           {
             functionalBlock: "Athlete Data / Internal Knowledge",
             service: "Azure SQL Database + Azure Blob Storage + SharePoint",
+            bom: ["Platform SQL database ≈ £184/month (24/7 availability)"],
+          },
+          {
+            functionalBlock: "Analytics warehouse",
+            service: "Azure Synapse dedicated SQL pool",
+            bom: ["Synapse dedicated pool ≈ £666/month; serverless lowers cost but risks surge spend"],
           },
           {
             functionalBlock: "RAG Retrieval",
@@ -316,6 +327,9 @@ const HORIZON_DATA = {
           {
             functionalBlock: "LLM/SLM Powered Query",
             service: "Azure OpenAI Service",
+            notes:
+              "Pay-by-power vs pay-by-query. Pay-by-power caps spend predictably; pay-by-query aligns with usage but may spike with heavy demand.",
+            bom: ["Azure OpenAI queries ~£1,000/month for 10k prompts"],
           },
           {
             functionalBlock: "Orchestration",
@@ -344,6 +358,7 @@ const HORIZON_DATA = {
           {
             functionalBlock: "Vector store",
             service: "Azure AI Search / Azure Cosmos DB",
+            bom: ["Azure AI Search indexing ≈ £186/month"],
           },
           {
             functionalBlock: "Graph DB",
@@ -352,24 +367,6 @@ const HORIZON_DATA = {
           {
             functionalBlock: "Integration · Data product APIs",
             service: "Azure API Management (APIM)",
-          },
-          {
-            functionalBlock: "Cost assumptions",
-            service: "Indicative monthly estimates",
-            bom: [
-              "App Service S3 (~£222/month) or S1 (~£60/month) with performance trade-offs",
-              "Platform SQL database ≈ £184/month (24/7 availability)",
-              "Synapse dedicated pool ≈ £666/month; serverless lowers cost but risks surge spend",
-              "Data lake + warehouse footprint ≈ £20/month",
-              "Azure Data Factory pipelines ≈ £75/month",
-              "Azure AI Search indexing ≈ £186/month",
-              "Azure OpenAI queries ~£1,000/month for 10k prompts",
-            ],
-          },
-          {
-            functionalBlock: "Cost modelling approach",
-            service: "Pay-by-power vs pay-by-query",
-            notes: "Pay-by-power caps spend predictably; pay-by-query aligns with usage but may spike with heavy demand.",
           },
         ],
       },
