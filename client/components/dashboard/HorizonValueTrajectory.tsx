@@ -178,9 +178,3 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
     </section>
   );
 }
-
-const legendLabelMap: Record<keyof typeof seriesColors, string> = {
-  efficiency: "Efficiency & Time Savings",
-  productivity: "Productivity & Throughput",
-  prediction: "Prediction & Optimisation",
-};
