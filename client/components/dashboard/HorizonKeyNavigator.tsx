@@ -17,8 +17,8 @@ export interface HorizonKeyNavigatorItem {
     label: string;
     descriptor: string;
   };
-  overviewMetrics: { label: string; value: string }[];
-  impactMetric?: { label: string; value: string };
+  overviewMetrics: { label: string; value?: string }[];
+  impactMetric?: { label: string; value?: string };
 }
 
 export interface HorizonKeyNavigatorProps {
@@ -59,22 +59,26 @@ export function HorizonKeyNavigator({ items, activeHorizon, onSelectHorizon }: H
                 </div>
                 <p className="text-sm text-slate-600">{item.summary}</p>
               </div>
-              <div className="mt-5 grid gap-3">
-                {item.overviewMetrics.map((metric) => (
-                  <div
-                    key={metric.label}
-                    className="flex items-center justify-between rounded-2xl border border-blue-100 bg-blue-50/60 px-4 py-2 text-sm text-blue-900"
-                  >
-                    <span className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-700">{metric.label}</span>
-                    <span className="text-base font-semibold text-primary">{metric.value}</span>
-                  </div>
-                ))}
-                {item.impactMetric ? (
-                  <div className="flex items-center justify-between rounded-2xl border border-primary/30 bg-primary/10 px-4 py-2 text-sm text-primary">
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary/80">{item.impactMetric.label}</p>
-                      <p className="text-base font-semibold">{item.impactMetric.value}</p>
+              <div className="mt-5 space-y-3">
+                {item.overviewMetrics.length ? (
+                  <div className="space-y-2">
+                    <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-600">Areas of focus</p>
+                    <div className="grid gap-2">
+                      {item.overviewMetrics.map((metric) => (
+                        <div
+                          key={metric.label}
+                          className="rounded-2xl border border-blue-100 bg-white px-4 py-2 text-sm font-semibold uppercase tracking-[0.2em] text-blue-700"
+                        >
+                          {metric.label}
+                        </div>
+                      ))}
                     </div>
+                  </div>
+                ) : null}
+                {item.impactMetric?.value ? (
+                  <div className="rounded-2xl border border-primary/30 bg-primary/10 px-4 py-2 text-sm text-primary">
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary/80">{item.impactMetric.label}</p>
+                    <p className="text-base font-semibold">{item.impactMetric.value}</p>
                   </div>
                 ) : null}
               </div>
