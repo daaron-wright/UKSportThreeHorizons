@@ -282,11 +282,7 @@ const HORIZON_DATA = {
           detail: "Leads testing strategy, approach, and delivery for releases.",
         },
       ],
-      enablers: [
-        "Performance Hub governance committee",
-        "Consent lifecycle management",
-        "Secure medical data integration (PDMS, GMS)",
-      ],
+      enablers: [],
     },
     personaTarget: {
       users: "≈500 users",
