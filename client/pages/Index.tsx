@@ -1207,7 +1207,17 @@ const HORIZON_DATA = {
       ],
       metrics: [
         { label: "Automation coverage" },
-        { label: "Proposed 6 data sources integrated" },
+        {
+          label: "Proposed 6 data sources integrated",
+          details: [
+            "Goals, performance requirements, gaps, plans",
+            "Pathway: Key mental, physical and health characteristics",
+            "Staff health and performance knowledge",
+            "Pathway: Basic: Name, stage, results",
+            "Competitive landscape analysis",
+            "External SS/SM insight",
+          ],
+        },
       ],
     },
     valueThemes: [
