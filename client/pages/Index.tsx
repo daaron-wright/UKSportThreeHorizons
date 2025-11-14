@@ -972,6 +972,121 @@ const HORIZON_DATA = {
         summary:
           "Lean into higher-complexity integrations that deliver outsized competitive advantage.",
       },
+      layout: {
+        type: "architecture",
+        headerBands: [
+          { label: "UX/UI · Reporting", tone: "primary" },
+          { label: "Cross-sport benchmarking", tone: "primary" },
+        ],
+        capabilityStack: [
+          {
+            title: "Multi-modal data input · Streaming ingestion",
+            detail: "Pipelines normalise video, telemetry, and research feeds",
+            tone: "info",
+          },
+          { title: "Interview capability", detail: "Capture qualitative insight alongside data", tone: "muted" },
+          {
+            title: "Model / prompt registry & guardrails",
+            detail: "Versioned prompts with compliance controls",
+            tone: "muted",
+          },
+          { title: "LLM / SLM powered query", detail: "Natural language across the curated store", tone: "muted" },
+        ],
+        core: {
+          badge: "Consent module",
+          title: "Intelligence orchestration core",
+          subtitle: "Data acquisition → Data attribution · matched cohorts",
+          rows: [
+            [
+              {
+                title: "Athlete data",
+                detail: "Profiles, telemetry, readiness history",
+                tone: "accent",
+              },
+              {
+                title: "RAG retrieval",
+                detail: "Surface contextual answers inside experiences",
+                tone: "accent",
+              },
+              {
+                title: "Graph DB",
+                detail: "Connected relationships & governance trail",
+                tone: "primary",
+              },
+            ],
+            [
+              {
+                title: "Internal knowledge",
+                detail: "Programmes, staff insight, best practice",
+                tone: "accent",
+              },
+              {
+                title: "RAG ingestion",
+                detail: "Adapters harmonise multi-modal feeds",
+                tone: "accent",
+              },
+              {
+                title: "Vector store",
+                detail: "Multi-modal embeddings & recall",
+                tone: "primary",
+              },
+            ],
+          ],
+          callouts: [
+            {
+              title: "Adoption criteria",
+              detail: "Feeds KPI store & executive guardrails",
+              position: "top-left",
+            },
+            {
+              title: "Permissioning",
+              detail: "Writing privileges mediated via governance",
+              position: "top-right",
+            },
+          ],
+        },
+        rightRail: {
+          title: "R&D module",
+          detail: "Partner experimentation, synthetic sandboxes, emerging models",
+          items: [
+            { title: "Bespoke trials" },
+            { title: "Guarded feedback loops" },
+          ],
+        },
+        integration: {
+          label: "Integration · Data product APIs (read-only)",
+          description: "Expose curated insight to downstream systems & partners",
+          tone: "dark",
+        },
+        dataSources: {
+          label: "3rd-party data sources · Publications, research, competition feeds",
+          description: "Internal datasets & manual uploads augment the curated store",
+          tone: "info",
+          chips: ["Internal datasets", "Manual uploads", "Competition results"],
+        },
+        sideNotes: [
+          {
+            position: "left-top",
+            title: "Authentication module",
+            detail: "Purpose-based access with audit trail & step-up controls",
+          },
+          {
+            position: "left-bottom",
+            title: "Adapted procedures",
+            detail: "Policies for each data source & stewardship workflows",
+          },
+          {
+            position: "right-top",
+            title: "Partnerships & alliances",
+            detail: "Partner sandbox with anonymised synthetic data, policy-enforced",
+          },
+          {
+            position: "right-bottom",
+            title: "Graduated learning",
+            detail: "Validated insight feeds the curated data store",
+          },
+        ],
+      },
       clusters: [
         {
           title: "External SSSM & research",
