@@ -82,6 +82,7 @@ type UIEvolution = {
 type OverviewMetric = {
   label: string;
   value?: string;
+  details?: string[];
 };
 
 type ImpactMetric = {
