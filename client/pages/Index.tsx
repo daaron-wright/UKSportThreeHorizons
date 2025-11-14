@@ -17,10 +17,21 @@ type Persona = {
   needs: string;
 };
 
+type ValueTheme = {
+  category: string;
+  statement: string;
+};
+
 type OperatingModelRole = {
   title: string;
   detail: string;
   allocation?: string;
+};
+
+type PersonaTarget = {
+  users: string;
+  organizations: string;
+  summary: string;
 };
 
 type OperatingModel = {
