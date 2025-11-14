@@ -1283,6 +1283,11 @@ const HORIZON_DATA = {
           detail: "Operates the multi-sport data platform, ensuring reliable pipelines, certified quality, and privacy safeguards.",
         },
         {
+          title: "Automation Strategist",
+          allocation: "P",
+          detail: "Designs cross-sport automation playbooks, aligning AI interventions with governance, partner input, and measurable outcomes.",
+        },
+        {
           title: "IT support",
           allocation: "O",
           detail: "Handles complex partner issues, including data corrections and research requests from NGBs.",
