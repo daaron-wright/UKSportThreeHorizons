@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { cn } from "@/lib/utils";
 import { HorizonDetail } from "@/components/dashboard/HorizonDetail";
 import { HorizonKeyNavigator } from "@/components/dashboard/HorizonKeyNavigator";
 import { HorizonValueTrajectory } from "@/components/dashboard/HorizonValueTrajectory";
@@ -1969,15 +1970,24 @@ export default function Index() {
           >
             <div className="space-y-8">
               <TabsList className="grid w-full gap-2 rounded-3xl border border-blue-100 bg-white/60 p-1 shadow-sm sm:grid-cols-3">
-                {horizonKeys.map((key) => (
-                  <TabsTrigger
-                    key={key}
-                    value={key}
-                    className="rounded-full border border-transparent px-6 py-2 text-sm font-semibold text-slate-600 transition transform data-[state=active]:-translate-y-1 data-[state=active]:border-primary data-[state=active]:bg-primary/10 data-[state=active]:text-primary"
-                  >
-                    {HORIZON_DATA[key].label}
-                  </TabsTrigger>
-                ))}
+                {horizonKeys.map((key, index) => {
+                  const isActive = activeHorizon === key;
+                  const isFirst = index === 0;
+
+                  return (
+                    <TabsTrigger
+                      key={key}
+                      value={key}
+                      className={cn(
+                        "rounded-full border border-transparent px-6 py-2 text-sm font-semibold text-slate-600 transition transform data-[state=active]:border-primary data-[state=active]:bg-primary/10 data-[state=active]:text-primary",
+                        isActive && "-translate-y-1",
+                        isActive && isFirst && "-translate-x-1",
+                      )}
+                    >
+                      {HORIZON_DATA[key].label}
+                    </TabsTrigger>
+                  );
+                })}
               </TabsList>
 
               <div className="lg:flex-1">
