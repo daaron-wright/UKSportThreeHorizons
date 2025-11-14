@@ -290,7 +290,7 @@ const HORIZON_DATA = {
       users: "≈500 users",
       organizations: "2–3 sports organizations",
       summary:
-        "Initial rollout for priority squads, performance medics, and governance leads to validate trusted collaboration patterns.",
+        "Sponsor User Group for admin-level data access: System leader roles, Multi-sport / multi-role, and Sport leader roles.",
     },
     technicalEvolution: {
       title: "Launch platform stack",
@@ -376,7 +376,7 @@ const HORIZON_DATA = {
               "App Service S3 (~£222/month) or S1 (~£60/month) with performance trade-offs",
               "Platform SQL database ≈ £184/month (24/7 availability)",
               "Synapse dedicated pool ≈ £666/month; serverless lowers cost but risks surge spend",
-              "Data lake + warehouse footprint ≈ £20/month",
+              "Data lake + warehouse footprint ��� £20/month",
               "Azure Data Factory pipelines ≈ £75/month",
               "Azure AI Search indexing ≈ £186/month",
               "Azure OpenAI queries ~£1,000/month for 10k prompts",
