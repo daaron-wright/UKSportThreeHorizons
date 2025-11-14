@@ -1168,7 +1168,7 @@ export default function Index() {
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl">
-            Athlete Hub Design Development
+            Performance Hub Design Development
           </h1>
           <p className="mt-3 text-base font-semibold uppercase tracking-[0.28em] text-blue-600">
             Three Horizons of Data Curation
