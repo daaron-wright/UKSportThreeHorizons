@@ -205,11 +205,11 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
                     .filter((point) => point.annotation)
                     .map((point) => (
                       <ReferenceDot
-                        key={point.phase}
-                        x={point.phase}
-                        y={point.cost + 0.05}
-                        r={0}
-                        isFront
+                      key={point.phase}
+                      x={point.phase === "Steady state" ? costChartData[costChartData.length - 2].phase : point.phase}
+                      y={point.cost + 0.05}
+                      r={0}
+                      isFront
                         label={{
                           value: point.annotation,
                           position: "top",
