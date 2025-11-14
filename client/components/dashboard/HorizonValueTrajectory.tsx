@@ -150,7 +150,6 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
                     position: "top",
                     fill: "hsl(var(--primary))",
                     fontSize: 12,
-                    fontWeight: 600,
                   }}
                 />
               ))}
