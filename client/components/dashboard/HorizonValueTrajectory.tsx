@@ -1,3 +1,6 @@
+import { useState } from "react";
+
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import {
@@ -49,6 +52,12 @@ const horizonNarrative: Record<string, string> = {
     "Horizon 3 delivers the greatest return through system strength, cost avoidance, better prediction, and smarter investment.",
 };
 
+const costCurveVisual = {
+  src: "https://cdn.builder.io/api/v1/image/assets%2F4f72be6c562a4212a4942d75695a634f%2F4ae895dd86cc4bedb4d4d511c4cd1fbb?format=webp&width=1600",
+  alt: "Cost savings graph showing cost over time with the point where efficiency gains outweigh platform investment.",
+  caption: "1. Cost savings: Invest to save",
+};
+
 const CustomTooltip = ({ active, payload, label }: TooltipProps<number, string>) => {
   if (!active || !payload?.length) {
     return null;
@@ -66,6 +75,8 @@ const CustomTooltip = ({ active, payload, label }: TooltipProps<number, string>)
 };
 
 export function HorizonValueTrajectory({ className }: { className?: string }) {
+  const [showCostCurve, setShowCostCurve] = useState(false);
+
   return (
     <section className={cn("space-y-8", className)}>
       <div className="space-y-3 text-center">
@@ -81,78 +92,105 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
       </div>
 
       <Card className="border border-primary/15 bg-white/95 shadow-[0_20px_40px_-24px_hsl(var(--primary)/0.55)]">
-        <CardHeader className="border-b border-primary/10 pb-6">
-          <CardTitle className="text-lg font-semibold text-primary">
-            ROI trajectory across horizons
-          </CardTitle>
-          <p className="text-sm text-muted-foreground">
-            <span className="font-semibold text-primary">Horizon 1</span> validates core access,
-            <span className="font-semibold text-primary"> Horizon 2</span> accelerates capability through connected
-            workflows, and <span className="font-semibold text-primary">Horizon 3</span> unlocks system-wide strength and
-            prediction.
-          </p>
+        <CardHeader className="flex flex-col gap-4 border-b border-primary/10 pb-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="space-y-2">
+            <CardTitle className="text-lg font-semibold text-primary">ROI trajectory across horizons</CardTitle>
+            <p className="text-sm text-muted-foreground">
+              <span className="font-semibold text-primary">Horizon 1</span> validates core access,
+              <span className="font-semibold text-primary"> Horizon 2</span> accelerates capability through connected
+              workflows, and <span className="font-semibold text-primary">Horizon 3</span> unlocks system-wide strength and
+              prediction.
+            </p>
+          </div>
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            aria-pressed={showCostCurve}
+            onClick={() => setShowCostCurve((prev) => !prev)}
+            className="whitespace-nowrap"
+          >
+            {showCostCurve ? "View ROI trajectory" : "View cost-saving curve"}
+          </Button>
         </CardHeader>
         <CardContent>
-          <div className="h-[380px] w-full">
-            <ResponsiveContainer>
-              <LineChart data={chartData} margin={{ top: 72, right: 16, left: 16, bottom: 24 }}>
-                <defs>
-                  <linearGradient id="roiFill" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="hsl(var(--primary)/0.25)" />
-                    <stop offset="100%" stopColor="hsl(var(--primary)/0.05)" />
-                  </linearGradient>
-                </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke={gridColor} />
-                <XAxis
-                  dataKey="label"
-                  tickLine={false}
-                  axisLine={false}
-                  tick={{ fill: axisColor, fontSize: 12 }}
-                  interval={0}
-                  angle={-10}
-                  height={60}
+          {showCostCurve ? (
+            <div className="space-y-4">
+              <div className="relative overflow-hidden rounded-2xl border border-primary/10 bg-white">
+                <img
+                  src={costCurveVisual.src}
+                  alt={costCurveVisual.alt}
+                  className="h-auto w-full object-contain"
+                  loading="lazy"
                 />
-                <YAxis
-                  domain={[0, 10]}
-                  tickLine={false}
-                  axisLine={false}
-                  ticks={[0, 2, 4, 6, 8, 10]}
-                  tick={{ fill: axisColor, fontSize: 12 }}
-                  label={{ value: "Relative ROI", angle: -90, position: "insideLeft", offset: 12, fill: axisColor }}
-                />
-                <Tooltip content={<CustomTooltip />} cursor={{ stroke: seriesGlow, strokeWidth: 2, strokeDasharray: "4 4" }} />
-                <Area type="monotone" dataKey="roi" stroke="none" fill="url(#roiFill)" fillOpacity={1} />
-                <Line
-                  type="monotone"
-                  dataKey="roi"
-                  name="ROI"
-                  stroke={seriesColor}
-                  strokeWidth={3}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  dot={{ r: 6, strokeWidth: 3, stroke: "hsl(var(--primary)/0.35)", fill: "white" }}
-                  activeDot={{ r: 9, strokeWidth: 3, stroke: "white", fill: seriesColor }}
-                />
-                {chartData.map((point) => (
-                  <ReferenceDot
-                    key={point.horizon}
-                    x={point.label}
-                    y={point.roi + 0.6}
-                    r={0}
-                    isFront
-                    label={{
-                      value: point.annotation,
-                      position: "top",
-                      fill: seriesColor,
-                      fontWeight: 600,
-                      fontSize: 12,
-                      dy: -6,
-                    }}
+              </div>
+              <p className="text-center text-sm text-muted-foreground">{costCurveVisual.caption}</p>
+            </div>
+          ) : (
+            <div className="h-[380px] w-full">
+              <ResponsiveContainer>
+                <LineChart data={chartData} margin={{ top: 72, right: 16, left: 16, bottom: 24 }}>
+                  <defs>
+                    <linearGradient id="roiFill" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="hsl(var(--primary)/0.25)" />
+                      <stop offset="100%" stopColor="hsl(var(--primary)/0.05)" />
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid strokeDasharray="3 3" stroke={gridColor} />
+                  <XAxis
+                    dataKey="label"
+                    tickLine={false}
+                    axisLine={false}
+                    tick={{ fill: axisColor, fontSize: 12 }}
+                    interval={0}
+                    angle={-10}
+                    height={60}
                   />
-                ))}
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
+                  <YAxis
+                    domain={[0, 10]}
+                    tickLine={false}
+                    axisLine={false}
+                    ticks={[0, 2, 4, 6, 8, 10]}
+                    tick={{ fill: axisColor, fontSize: 12 }}
+                    label={{ value: "Relative ROI", angle: -90, position: "insideLeft", offset: 12, fill: axisColor }}
+                  />
+                  <Tooltip
+                    content={<CustomTooltip />}
+                    cursor={{ stroke: seriesGlow, strokeWidth: 2, strokeDasharray: "4 4" }}
+                  />
+                  <Area type="monotone" dataKey="roi" stroke="none" fill="url(#roiFill)" fillOpacity={1} />
+                  <Line
+                    type="monotone"
+                    dataKey="roi"
+                    name="ROI"
+                    stroke={seriesColor}
+                    strokeWidth={3}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    dot={{ r: 6, strokeWidth: 3, stroke: "hsl(var(--primary)/0.35)", fill: "white" }}
+                    activeDot={{ r: 9, strokeWidth: 3, stroke: "white", fill: seriesColor }}
+                  />
+                  {chartData.map((point) => (
+                    <ReferenceDot
+                      key={point.horizon}
+                      x={point.label}
+                      y={point.roi + 0.6}
+                      r={0}
+                      isFront
+                      label={{
+                        value: point.annotation,
+                        position: "top",
+                        fill: seriesColor,
+                        fontWeight: 600,
+                        fontSize: 12,
+                        dy: -6,
+                      }}
+                    />
+                  ))}
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
+          )}
         </CardContent>
       </Card>
     </section>
