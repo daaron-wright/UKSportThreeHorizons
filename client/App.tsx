@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { AdminSignIn } from "@/components/auth/AdminSignIn";
 import { Toaster } from "@/components/ui/toaster";
 import { createRoot } from "react-dom/client";
+import type { Root } from "react-dom/client";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -69,4 +70,14 @@ const App = () => {
   );
 };
 
-createRoot(document.getElementById("root")!).render(<App />);
+const container = document.getElementById("root");
+
+if (!container) {
+  throw new Error("Failed to find the root element");
+}
+
+const existingRoot = (window as unknown as { __APP_ROOT__?: Root }).__APP_ROOT__;
+const root = existingRoot ?? createRoot(container);
+(window as unknown as { __APP_ROOT__?: Root }).__APP_ROOT__ = root;
+
+root.render(<App />);
