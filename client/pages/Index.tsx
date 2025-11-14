@@ -533,6 +533,12 @@ const HORIZON_DATA = {
         "Centralised insights backlog",
       ],
     },
+    personaTarget: {
+      users: "≈1,800 users",
+      organizations: "10–15 sports organizations",
+      summary:
+        "Scaled adoption across priority Olympic and Paralympic programmes with embedded analysts and wellbeing leads.",
+    },
     technicalEvolution: {
       title: "Expansion technical runway",
       description:
