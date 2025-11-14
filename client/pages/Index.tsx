@@ -1345,6 +1345,71 @@ const HORIZON_DATA = {
           detail: "Agents, simulations, and predictive services recommending interventions with confidence scoring.",
         },
       ],
+      integrationTable: {
+        title: "Functional integration · Horizon 3 services",
+        rows: [
+          {
+            functionalBlock: "UI/UX · Reporting",
+            service: "Azure App Service + Power BI",
+          },
+          {
+            functionalBlock: "Multi-modal Data Input",
+            service: "Azure Data Factory + Azure Blob Storage",
+          },
+          {
+            functionalBlock: "Athlete Data / Internal Knowledge",
+            service: "SQL Database + Azure Blob Storage + SharePoint",
+          },
+          {
+            functionalBlock: "RAG Retrieval",
+            service: "Azure AI Search",
+          },
+          {
+            functionalBlock: "LLM/SLM Powered Query",
+            service: "Azure OpenAI Service",
+          },
+          {
+            functionalBlock: "Orchestration",
+            service: "Azure AI Studio",
+          },
+          {
+            functionalBlock: "Model / Prompt Registry / Guardrails",
+            service: "Azure AI Studio + Azure AI Content Safety",
+          },
+          {
+            functionalBlock: "Streaming Ingestion (wearables etc.)",
+            service: "Azure Event Hubs + Azure Stream Analytics",
+          },
+          {
+            functionalBlock: "Multi-modal: Video / Interview",
+            service: "Azure AI Vision + Azure AI Speech",
+          },
+          {
+            functionalBlock: "Consent module",
+            service: "Microsoft Entra role-based access + app permissions",
+          },
+          {
+            functionalBlock: "RAG ingestion",
+            service: "Azure Databricks",
+          },
+          {
+            functionalBlock: "Vector store",
+            service: "Azure AI Search / Azure Cosmos DB",
+          },
+          {
+            functionalBlock: "Graph DB",
+            service: "Azure Cosmos DB / Neo4j",
+          },
+          {
+            functionalBlock: "Integration · Data product APIs",
+            service: "Azure API Management (APIM)",
+          },
+          {
+            functionalBlock: "R&D module",
+            service: "Azure Databricks",
+          },
+        ],
+      },
     },
     ui: {
       title: "Orchestration UI snapshot",
