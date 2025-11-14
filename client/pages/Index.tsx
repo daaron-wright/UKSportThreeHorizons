@@ -729,7 +729,7 @@ const HORIZON_DATA = {
       narrative:
         "Horizon 2 scales intelligence by layering video, wellness, and sensor data with retrieval so staff gain richer, faster context while integrating a proposed ten data sources.",
       highlights: [
-        "Video comparison strip embedded in the hub.",
+        "Multi-modal data input embedded in the hub.",
         "Wellness heatmaps spotlight readiness trends.",
         "Retrieval prompts surface answers alongside each module.",
       ],
