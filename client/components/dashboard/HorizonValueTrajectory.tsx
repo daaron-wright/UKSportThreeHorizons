@@ -46,6 +46,12 @@ const chartData = [
   },
 ];
 
+const legendLabelMap: Record<keyof typeof seriesColors, string> = {
+  efficiency: "Efficiency & Time Savings",
+  productivity: "Productivity & Throughput",
+  prediction: "Prediction & Optimisation",
+};
+
 const CustomTooltip = ({ active, payload, label }: TooltipProps<number, string>) => {
   if (!active || !payload?.length) {
     return null;
