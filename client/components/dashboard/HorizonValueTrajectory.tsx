@@ -141,9 +141,17 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
               {chartData.map((point) => (
                 <ReferenceDot
                   key={point.horizon}
-                x={point.horizon}
-                isFront
-                r={0}
+                  x={point.label}
+                  y={Math.max(point.efficiency, point.productivity, point.prediction) + 0.6}
+                  r={0}
+                  isFront
+                  label={{
+                    value: point.annotation,
+                    position: "top",
+                    fill: "hsl(var(--primary))",
+                    fontSize: 12,
+                    fontWeight: 600,
+                  }}
                 />
               ))}
             </LineChart>
