@@ -140,6 +140,12 @@ const HORIZON_DATA = {
         "Secure medical data integration (PDMS, GMS)",
       ],
     },
+    personaTarget: {
+      users: "≈500 users",
+      organizations: "2–3 sports organizations",
+      summary:
+        "Initial rollout for priority squads, performance medics, and governance leads to validate trusted collaboration patterns.",
+    },
     technicalEvolution: {
       title: "Launch platform stack",
       description:
