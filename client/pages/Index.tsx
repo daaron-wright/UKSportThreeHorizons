@@ -1973,7 +1973,7 @@ export default function Index() {
                   <TabsTrigger
                     key={key}
                     value={key}
-                    className="rounded-full border border-transparent px-6 py-2 text-sm font-semibold text-slate-600 transition transform data-[state=active]:-translate-y-0.5 data-[state=active]:border-primary data-[state=active]:bg-primary/10 data-[state=active]:text-primary"
+                    className="rounded-full border border-transparent px-6 py-2 text-sm font-semibold text-slate-600 transition transform data-[state=active]:-translate-y-1 data-[state=active]:border-primary data-[state=active]:bg-primary/10 data-[state=active]:text-primary"
                   >
                     {HORIZON_DATA[key].label}
                   </TabsTrigger>
