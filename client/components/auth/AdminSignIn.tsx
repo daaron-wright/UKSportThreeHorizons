@@ -100,7 +100,7 @@ export function AdminSignIn({ onAuthenticate }: AdminSignInProps) {
               {isSubmitting ? "Verifying…" : "Sign in"}
             </button>
             <p className="text-center text-xs text-slate-500">
-              For demo access, use the administrator credentials provided by the project team.
+              For demo access, use username <span className="font-semibold">UKSportAdmin</span> and password <span className="font-semibold">UKSport25</span>.
             </p>
           </form>
         </div>
