@@ -1258,7 +1258,8 @@ const HORIZON_DATA = {
         {
           title: "Data Governance Lead (system-wide)",
           allocation: "O",
-          detail: "Chairs the data council, sets global policies, and approves new data uses across the ecosystem.",
+          detail:
+            "Chairs the data council, sets global policies, and approves new data uses across the ecosystem. Needed in Horizon 1 to establish governance foundations before scale.",
         },
         {
           title: "Business Analyst",
