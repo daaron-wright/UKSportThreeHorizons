@@ -139,16 +139,16 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
             {horizon.short}
           </Badge>
           <Badge variant="secondary" className="border border-blue-200 bg-white px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-blue-700">
-            {horizon.personas.length} personas
+            {personaList.length} personas
           </Badge>
-          {horizon.operatingModel.enablers.length ? (
+          {operatingEnablers.length ? (
             <Badge variant="secondary" className="border border-blue-200 bg-white px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-blue-700">
-              {horizon.operatingModel.enablers.length} enablers
+              {operatingEnablers.length} enablers
             </Badge>
           ) : null}
-          {horizon.operatingModel.roles?.length ? (
+          {operatingRoles.length ? (
             <Badge variant="secondary" className="border border-blue-200 bg-white px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-blue-700">
-              {horizon.operatingModel.roles.length} roles
+              {operatingRoles.length} roles
             </Badge>
           ) : null}
         </div>
@@ -182,7 +182,7 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
             <div className="space-y-5">
               <p className="text-sm leading-relaxed text-slate-600">{horizon.overview.narrative}</p>
               <div className="grid gap-3">
-                {horizon.overview.highlights.map((point) => (
+                {overviewHighlights.map((point) => (
                   <div
                     key={point}
                     className="rounded-2xl border border-blue-100/80 bg-blue-50/60 px-4 py-3 text-sm text-blue-900"
@@ -191,13 +191,13 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                   </div>
                 ))}
               </div>
-              {horizon.valueThemes.length ? (
+              {valueThemes.length ? (
                 <div className="mt-6 space-y-3">
                   <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-600">
                     ROI focus areas
                   </p>
                   <div className="grid grid-cols-1 gap-3">
-                    {horizon.valueThemes.map((theme) => (
+                    {valueThemes.map((theme) => (
                       <div
                         key={`${theme.category}-${theme.statement}`}
                         className="rounded-2xl border border-blue-100/80 bg-white/90 p-4 text-sm text-slate-700 shadow-sm"
@@ -215,7 +215,7 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
             <div className="rounded-2xl border border-blue-100/80 bg-white/90 p-5 shadow-sm">
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-600">Areas of focus</p>
               <div className="mt-4 flex flex-col gap-3">
-                {horizon.overview.metrics.map((metric, index) => {
+                {overviewMetrics.map((metric, index) => {
                   if (metric.details?.length) {
                     return (
                       <div
@@ -274,9 +274,9 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
               </div>
             </div>
           ) : null}
-          {horizon.personas.length ? (
+          {personaList.length ? (
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {horizon.personas.map((persona) => (
+              {personaList.map((persona) => (
                 <article
                   key={persona.name}
                   className="flex h-full flex-col justify-between rounded-2xl border border-blue-100 bg-white/90 p-5 shadow-sm"
@@ -311,13 +311,13 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                 Operating model
               </Badge>
             </header>
-            {horizon.operatingModel.roles?.length ? (
+            {operatingRoles.length ? (
               <div className="space-y-3">
                 <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-600">
                   Delivery roles & ownership
                 </p>
                 <div className="grid gap-3 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-                  {horizon.operatingModel.roles.map((role) => (
+                  {operatingRoles.map((role) => (
                     <article
                       key={role.title}
                       className="rounded-2xl border border-blue-100 bg-white/95 p-5 shadow-sm"
@@ -345,9 +345,9 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                 />
               </div>
             ) : null}
-            {horizon.operatingModel.enablers.length ? (
+            {operatingEnablers.length ? (
               <div className="grid gap-3 sm:grid-cols-3">
-                {horizon.operatingModel.enablers.map((enabler) => (
+                {operatingEnablers.map((enabler) => (
                   <div
                     key={enabler}
                     className="rounded-2xl border border-blue-100/80 bg-blue-50/60 p-4 text-sm text-blue-900"
@@ -384,7 +384,7 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
               </div>
             ) : null}
             <div className="grid gap-4 sm:grid-cols-3">
-              {horizon.technicalEvolution.pillars.map((pillar) => (
+              {technicalPillars.map((pillar) => (
                 <article
                   key={pillar.label}
                   className="rounded-2xl border border-blue-100/80 bg-blue-50/60 p-4"
@@ -394,12 +394,12 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                 </article>
               ))}
             </div>
-            {horizon.technicalEvolution.integrationTable ? (
+            {integrationTable ? (
               <div className="space-y-4 rounded-2xl border border-blue-100/80 bg-white/95 p-5 shadow-sm">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-600">
-                      {horizon.technicalEvolution.integrationTable.title}
+                      {integrationTable.title}
                     </p>
                     <p className="mt-1 text-sm text-slate-600">
                       Drill into the Horizon 2 stack across functional blocks, preferred Azure services, and delivery notes.
@@ -427,7 +427,7 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                         </tr>
                       </thead>
                       <tbody>
-                        {horizon.technicalEvolution.integrationTable.rows.map((row) => (
+                        {integrationRows.map((row) => (
                           <tr key={`${row.functionalBlock}-${row.service}`} className="align-top">
                             <td className="rounded-l-xl bg-white px-4 py-3 font-semibold text-slate-900">
                               {row.functionalBlock}
