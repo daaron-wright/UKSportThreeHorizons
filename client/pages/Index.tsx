@@ -507,6 +507,20 @@ const HORIZON_DATA = {
         { label: "Manual workload drop", value: "-31%" },
       ],
     },
+    valueThemes: [
+      {
+        category: "Efficiency & Time Savings",
+        statement: "Workflow automation and connected systems remove handoffs between pods.",
+      },
+      {
+        category: "Productivity & Throughput",
+        statement: "Reduced rework and increased throughput as cross-discipline teams share live context.",
+      },
+      {
+        category: "Prediction & Optimisation",
+        statement: "Automation at scale delivers cross-system insight directly into coaching workflows.",
+      },
+    ],
     impact: {
       description:
         "Richer monitoring streams and retrieval intelligence raise campaign influence while keeping onboarding practical.",
