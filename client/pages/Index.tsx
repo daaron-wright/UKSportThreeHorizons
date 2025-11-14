@@ -1427,8 +1427,6 @@ const HORIZON_DATA = {
         {
           title: "Automation Strategist",
           allocation: "P",
-          detail:
-            "Designs cross-sport automation playbooks, aligning AI interventions with governance, partner input, and measurable outcomes.",
         },
         {
           title: "IT support",
