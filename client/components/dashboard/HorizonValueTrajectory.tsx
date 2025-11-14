@@ -49,12 +49,9 @@ const CustomTooltip = ({ active, payload, label }: TooltipProps<number, string>)
     return null;
   }
 
-  const [point] = payload;
-
   return (
     <div className="max-w-xs rounded-lg border border-blue-100 bg-white/95 px-3 py-2 text-xs shadow-md">
       <p className="font-semibold text-slate-700">{label}</p>
-      <p className="mt-1 font-mono text-slate-800">ROI {Number(point.value).toFixed(1)}</p>
       <p className="mt-2 text-slate-600">{horizonNarrative[label ?? ""]}</p>
     </div>
   );
