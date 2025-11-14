@@ -1414,31 +1414,7 @@ const HORIZON_DATA = {
       },
     ],
   },
-} satisfies Record<string, {
-  label: string;
-  short: string;
-  summary: string;
-  personas: Persona[];
-  operatingModel: OperatingModel;
-  technicalEvolution: TechnicalEvolution;
-  diagram: Parameters<typeof HorizonDiagram>[0];
-  ui: UIEvolution;
-  overview: {
-    narrative: string;
-    highlights: string[];
-    metrics: { label: string; value?: string }[];
-  };
-  impact: {
-    description: string;
-    metrics: { label: string; value?: string; indicator?: "up" | "steady" | "down" }[];
-  };
-  stage: {
-    theme: "improve" | "transform" | "innovate";
-    label: string;
-    descriptor: string;
-  };
-  timeline: { title: string; description: string; tone: TimelineTone }[];
-}>;
+} satisfies Record<string, HorizonDataEntry>;
 
 export default function Index() {
   const [activeHorizon, setActiveHorizon] = useState<HorizonKey>("h1");
