@@ -49,6 +49,10 @@ type TechnicalEvolution = {
   title: string;
   description: string;
   pillars: { label: string; detail: string }[];
+  diagram?: {
+    src: string;
+    alt: string;
+  };
 };
 
 type UIEvolution = {
