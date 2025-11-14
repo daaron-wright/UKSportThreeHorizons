@@ -183,7 +183,12 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
                     label={{ value: "Relative cost", angle: -90, position: "insideLeft", offset: 12, fill: axisColor }}
                   />
                   <Tooltip content={<CostTooltip />} cursor={{ stroke: seriesGlow, strokeWidth: 2, strokeDasharray: "4 4" }} />
-                  <ReferenceLine y={costBaseline} stroke="hsl(var(--destructive))" strokeDasharray="6 4" />
+                  <ReferenceLine
+                    y={costBaseline}
+                    stroke="hsl(var(--destructive))"
+                    strokeDasharray="6 4"
+                    label={{ value: "Baseline cost", position: "right", fill: "hsl(var(--destructive))", fontSize: 12, dy: -6 }}
+                  />
                   <Area type="monotone" dataKey="cost" stroke="none" fill="url(#costFill)" fillOpacity={1} />
                   <Line
                     type="monotone"
@@ -196,23 +201,25 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
                     dot={{ r: 6, strokeWidth: 3, stroke: "hsl(var(--primary)/0.35)", fill: "white" }}
                     activeDot={{ r: 9, strokeWidth: 3, stroke: "white", fill: seriesColor }}
                   />
-                  {costChartData.map((point) => (
-                    <ReferenceDot
-                      key={point.phase}
-                      x={point.phase}
-                      y={point.cost + 0.05}
-                      r={0}
-                      isFront
-                      label={{
-                        value: point.annotation ?? "",
-                        position: "top",
-                        fill: seriesColor,
-                        fontWeight: 600,
-                        fontSize: 12,
-                        dy: -6,
-                      }}
-                    />
-                  ))}
+                  {costChartData
+                    .filter((point) => point.annotation)
+                    .map((point) => (
+                      <ReferenceDot
+                        key={point.phase}
+                        x={point.phase}
+                        y={point.cost + 0.05}
+                        r={0}
+                        isFront
+                        label={{
+                          value: point.annotation,
+                          position: "top",
+                          fill: seriesColor,
+                          fontWeight: 600,
+                          fontSize: 12,
+                          dy: -6,
+                        }}
+                      />
+                    ))}
                 </LineChart>
               </ResponsiveContainer>
             </div>
