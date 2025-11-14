@@ -1171,7 +1171,7 @@ export default function Index() {
             Athlete Hub Design Development
           </h1>
           <p className="mt-3 text-base font-semibold uppercase tracking-[0.28em] text-blue-600">
-            Three Horizons Data Integration
+            Three Horizons of Data Curation
           </p>
           <p className="mt-4 text-lg text-slate-600">
             Tab through the horizons to see how UK Sport incrementally integrates new data sources—moving from high ease-of-use records to high-impact intelligence.
