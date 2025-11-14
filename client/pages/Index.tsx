@@ -932,6 +932,10 @@ const HORIZON_DATA = {
       title: "Full orchestration architecture",
       description:
         "Evolve the hub into an autonomous platform that orchestrates external intelligence, simulations, and proactive interventions.",
+      diagram: {
+        src: "https://cdn.builder.io/api/v1/image/assets%2F4f72be6c562a4212a4942d75695a634f%2F525e61c0e2dd42b6a7f3d972bf5b6852?format=webp&width=1200",
+        alt: "Diagram of the Horizon 3 performance hub ecosystem highlighting authentication, orchestration, vector store, graph DB, and data product APIs.",
+      },
       pillars: [
         {
           label: "Orchestration fabric",
