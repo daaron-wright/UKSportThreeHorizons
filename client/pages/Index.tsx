@@ -284,6 +284,11 @@ const HORIZON_DATA = {
           allocation: "Project",
           detail: "Leads testing strategy, approach, and delivery for releases.",
         },
+        {
+          title: "Release Manager",
+          allocation: "Project",
+          detail: "Plans sprints, aligns cutover with governance checkpoints, and confirms readiness for each launch window.",
+        },
       ],
       enablers: [],
     },
@@ -815,6 +820,11 @@ const HORIZON_DATA = {
           title: "QA Engineer",
           allocation: "P",
           detail: "Manages the testing strategy, approach, and delivery for iterative releases.",
+        },
+        {
+          title: "Media Systems Librarian",
+          allocation: "P",
+          detail: "Curates video, telemetry, and knowledge assets, ensuring tagging quality, retention policies, and search performance.",
         },
       ],
     },
