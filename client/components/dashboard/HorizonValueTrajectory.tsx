@@ -185,7 +185,6 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
                     y={costBaseline}
                     stroke="hsl(var(--destructive))"
                     strokeDasharray="6 4"
-                    label={{ value: "Baseline cost", position: "right", fill: "hsl(var(--destructive))", fontSize: 12, dy: -6 }}
                   />
                   <Area type="monotone" dataKey="cost" stroke="none" fill="url(#costFill)" fillOpacity={1} />
                   <Line
