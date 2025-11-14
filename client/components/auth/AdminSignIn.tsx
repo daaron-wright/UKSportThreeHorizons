@@ -43,7 +43,7 @@ export function AdminSignIn({ onAuthenticate }: AdminSignInProps) {
           <div className="space-y-3 text-center">
             <p className={LABEL_CLASSES}>Restricted access</p>
             <h1 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-              Sign in to view the horizons
+              Sign in to view the horizons for the Performance Hub
             </h1>
             <p className="text-sm text-slate-600">Enter the administrator credentials below.</p>
           </div>
