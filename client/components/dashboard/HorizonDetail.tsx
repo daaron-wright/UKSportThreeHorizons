@@ -162,7 +162,7 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
         </SectionTabsList>
 
         <SectionTabsContent value="overview" className="space-y-6">
-          <div className="grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
+          <div className="space-y-6">
             <div className="space-y-5">
               <p className="text-sm leading-relaxed text-slate-600">{horizon.overview.narrative}</p>
               <div className="grid gap-3">
@@ -180,11 +180,11 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                   <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-600">
                     ROI focus areas
                   </p>
-                  <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+                  <div className="grid grid-cols-1 gap-3">
                     {horizon.valueThemes.map((theme) => (
                       <div
                         key={`${theme.category}-${theme.statement}`}
-                        className="h-full rounded-2xl border border-blue-100/80 bg-white/90 p-4 text-sm text-slate-700 shadow-sm"
+                        className="rounded-2xl border border-blue-100/80 bg-white/90 p-4 text-sm text-slate-700 shadow-sm"
                       >
                         <p className="font-semibold uppercase tracking-[0.18em] text-blue-700">
                           {theme.category}
@@ -198,7 +198,7 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
             </div>
             <div className="rounded-2xl border border-blue-100/80 bg-white/90 p-5 shadow-sm">
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-600">Areas of focus</p>
-              <div className="mt-4 grid gap-3">
+              <div className="mt-4 flex flex-col gap-3">
                 {horizon.overview.metrics.map((metric) => (
                   <div
                     key={metric.label}
@@ -208,17 +208,10 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                   </div>
                 ))}
               </div>
-              <div className="mt-5 grid gap-2 border-t border-blue-100 pt-4 text-sm text-slate-700">
-                <div className="flex items-center justify-between">
-                  <span className="font-semibold text-primary">Personas in scope</span>
-                  <span>{horizon.personas.length}</span>
-                </div>
-                {horizon.operatingModel.enablers.length ? (
-                  <div className="flex items-center justify-between">
-                    <span className="font-semibold text-primary">Platform enablers</span>
-                    <span>{horizon.operatingModel.enablers.length}</span>
-                  </div>
-                ) : null}
+              <div className="mt-5 border-t border-blue-100 pt-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+                  Personas in scope {horizon.personas.length}
+                </p>
               </div>
             </div>
           </div>
