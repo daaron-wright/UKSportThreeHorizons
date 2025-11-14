@@ -47,6 +47,18 @@ type PersonaTarget = {
   summary: string;
 };
 
+type TechnicalEvolutionIntegrationRow = {
+  functionalBlock: string;
+  service: string;
+  notes?: string;
+  bom?: string[];
+};
+
+type TechnicalEvolutionIntegrationTable = {
+  title: string;
+  rows: TechnicalEvolutionIntegrationRow[];
+};
+
 type TechnicalEvolution = {
   title: string;
   description: string;
@@ -55,6 +67,7 @@ type TechnicalEvolution = {
     src: string;
     alt: string;
   };
+  integrationTable?: TechnicalEvolutionIntegrationTable;
 };
 
 type ValueTheme = {
@@ -95,9 +108,11 @@ type HorizonDetailProps = {
 
 export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
   const [activeSection, setActiveSection] = useState<SectionValue>("overview");
+  const [integrationExpanded, setIntegrationExpanded] = useState(false);
 
   useEffect(() => {
     setActiveSection("overview");
+    setIntegrationExpanded(false);
   }, [horizonKey]);
 
   return (
@@ -340,6 +355,65 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                 </article>
               ))}
             </div>
+            {horizon.technicalEvolution.integrationTable ? (
+              <div className="space-y-4 rounded-2xl border border-blue-100/80 bg-white/95 p-5 shadow-sm">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-600">
+                      {horizon.technicalEvolution.integrationTable.title}
+                    </p>
+                    <p className="mt-1 text-sm text-slate-600">
+                      Drill into the Horizon 2 stack across functional blocks, preferred Azure services, and delivery notes.
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setIntegrationExpanded((prev) => !prev)}
+                    aria-expanded={integrationExpanded}
+                    className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-primary transition hover:bg-primary/20"
+                  >
+                    {integrationExpanded ? "Hide stack details" : "View stack details"}
+                    <span className="text-base">{integrationExpanded ? "−" : "+"}</span>
+                  </button>
+                </div>
+                {integrationExpanded ? (
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full border-separate border-spacing-y-2 text-left text-sm text-slate-700">
+                      <thead>
+                        <tr className="text-xs uppercase tracking-[0.18em] text-blue-600">
+                          <th className="rounded-l-xl bg-blue-50/80 px-4 py-3 font-semibold">Functional block</th>
+                          <th className="bg-blue-50/80 px-4 py-3 font-semibold">Potential service</th>
+                          <th className="bg-blue-50/80 px-4 py-3 font-semibold">Notes</th>
+                          <th className="rounded-r-xl bg-blue-50/80 px-4 py-3 font-semibold">Bill of materials</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {horizon.technicalEvolution.integrationTable.rows.map((row) => (
+                          <tr key={`${row.functionalBlock}-${row.service}`} className="align-top">
+                            <td className="rounded-l-xl bg-white px-4 py-3 font-semibold text-slate-900">
+                              {row.functionalBlock}
+                            </td>
+                            <td className="bg-white px-4 py-3 text-slate-700">{row.service}</td>
+                            <td className="bg-white px-4 py-3 text-slate-600">{row.notes ?? "—"}</td>
+                            <td className="rounded-r-xl bg-white px-4 py-3 text-slate-700">
+                              {row.bom?.length ? (
+                                <ul className="list-disc space-y-1 pl-4 text-xs text-slate-600">
+                                  {row.bom.map((item) => (
+                                    <li key={`${row.functionalBlock}-${item}`}>{item}</li>
+                                  ))}
+                                </ul>
+                              ) : (
+                                "—"
+                              )}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                ) : null}
+              </div>
+            ) : null}
           </section>
         </SectionTabsContent>
 
