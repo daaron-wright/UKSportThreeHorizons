@@ -14,8 +14,8 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-const ADMIN_USERNAME = "admin";
-const ADMIN_PASSWORD = "@admin1234";
+const ADMIN_USERNAME = "UKSportAdmin";
+const ADMIN_PASSWORD = "UKSport25";
 const AUTH_SESSION_KEY = "uk-sport-admin-authenticated";
 
 const App = () => {
