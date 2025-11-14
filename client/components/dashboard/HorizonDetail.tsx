@@ -42,6 +42,11 @@ type TechnicalEvolution = {
   pillars: { label: string; detail: string }[];
 };
 
+type ValueTheme = {
+  category: string;
+  statement: string;
+};
+
 type UIEvolution = {
   title: string;
   description: string;
@@ -64,6 +69,7 @@ type HorizonDetailProps = {
       highlights: string[];
       metrics: { label: string; value: string }[];
     };
+    valueThemes: ValueTheme[];
     personas: Persona[];
     operatingModel: OperatingModel;
     personaTarget: PersonaTarget;
@@ -132,6 +138,26 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                   </div>
                 ))}
               </div>
+              {horizon.valueThemes.length ? (
+                <div className="mt-6 space-y-3">
+                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-600">
+                    ROI focus areas
+                  </p>
+                  <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+                    {horizon.valueThemes.map((theme) => (
+                      <div
+                        key={`${theme.category}-${theme.statement}`}
+                        className="h-full rounded-2xl border border-blue-100/80 bg-white/90 p-4 text-sm text-slate-700 shadow-sm"
+                      >
+                        <p className="font-semibold uppercase tracking-[0.18em] text-blue-700">
+                          {theme.category}
+                        </p>
+                        <p className="mt-2 leading-relaxed text-slate-600">{theme.statement}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
             </div>
             <div className="rounded-2xl border border-blue-100/80 bg-white/90 p-5 shadow-sm">
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-600">Snapshot</p>
