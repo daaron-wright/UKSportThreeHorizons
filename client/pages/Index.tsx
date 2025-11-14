@@ -1249,6 +1249,43 @@ const HORIZON_DATA = {
         "Research translation pipeline",
         "Automation & agent governance board",
       ],
+      roles: [
+        {
+          title: "Product Owner",
+          allocation: "O",
+          detail: "Owns run-state, release cadence, and incident management across sports and partners.",
+        },
+        {
+          title: "Data Governance Lead (system-wide)",
+          allocation: "O",
+          detail: "Chairs the data council, sets global policies, and approves new data uses across the ecosystem.",
+        },
+        {
+          title: "Business Analyst",
+          allocation: "O",
+          detail: "Supports the product owner by mapping business cases, crafting user stories, and refining the backlog.",
+        },
+        {
+          title: "AI/ML Engineer",
+          allocation: "P ×2",
+          detail: "Stewards medal-impact models, runs experiments, and keeps LLM/agent behaviour explainable at scale.",
+        },
+        {
+          title: "Full Stack Developer",
+          allocation: "O",
+          detail: "Builds cross-sport dashboards, partner sandboxes, and governance consoles surfacing insights and access controls.",
+        },
+        {
+          title: "Data Engineer",
+          allocation: "P",
+          detail: "Operates the multi-sport data platform, ensuring reliable pipelines, certified quality, and privacy safeguards.",
+        },
+        {
+          title: "IT support",
+          allocation: "O",
+          detail: "Handles complex partner issues, including data corrections and research requests from NGBs.",
+        },
+      ],
     },
     personaTarget: {
       users: "≈3,000 users",
