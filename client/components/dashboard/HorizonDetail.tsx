@@ -24,6 +24,12 @@ type Persona = {
   needs: string;
 };
 
+type OperatingModelRole = {
+  title: string;
+  detail: string;
+  allocation?: string;
+};
+
 type OperatingModel = {
   name: string;
   summary: string;
@@ -32,6 +38,7 @@ type OperatingModel = {
     src: string;
     alt: string;
   };
+  roles?: OperatingModelRole[];
 };
 
 type PersonaTarget = {
@@ -106,6 +113,11 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
           <Badge variant="secondary" className="border border-blue-200 bg-white px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-blue-700">
             {horizon.operatingModel.enablers.length} enablers
           </Badge>
+          {horizon.operatingModel.roles?.length ? (
+            <Badge variant="secondary" className="border border-blue-200 bg-white px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-blue-700">
+              {horizon.operatingModel.roles.length} roles
+            </Badge>
+          ) : null}
         </div>
         <div className="space-y-3">
           <h2 className="text-2xl font-bold text-primary">
@@ -247,6 +259,31 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                 Operating model
               </Badge>
             </header>
+            {horizon.operatingModel.roles?.length ? (
+              <div className="space-y-3">
+                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-600">
+                  Delivery roles & ownership
+                </p>
+                <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+                  {horizon.operatingModel.roles.map((role) => (
+                    <article
+                      key={role.title}
+                      className="flex h-full flex-col justify-between rounded-2xl border border-blue-100/80 bg-white/95 p-4 shadow-sm"
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <h4 className="text-sm font-semibold text-primary">{role.title}</h4>
+                        {role.allocation ? (
+                          <Badge variant="secondary" className="whitespace-nowrap border border-blue-200 bg-white px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.24em] text-blue-700">
+                            {role.allocation}
+                          </Badge>
+                        ) : null}
+                      </div>
+                      <p className="mt-2 text-sm text-slate-600">{role.detail}</p>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            ) : null}
             {horizon.operatingModel.diagram ? (
               <div className="overflow-hidden rounded-2xl border border-blue-100/80 bg-white/90 p-4 shadow-sm">
                 <img
