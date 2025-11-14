@@ -1151,7 +1151,6 @@ const HORIZON_DATA = {
 
 export default function Index() {
   const [activeHorizon, setActiveHorizon] = useState<HorizonKey>("h1");
-  const [activeSection, setActiveSection] = useState<HorizonSectionValue>("overview");
 
   const horizonKeys = Object.keys(HORIZON_DATA) as HorizonKey[];
 
@@ -1205,9 +1204,7 @@ export default function Index() {
           <HorizonKeyNavigator
             items={navigatorItems}
             activeHorizon={activeHorizon}
-            activeSection={activeSection}
             onSelectHorizon={(key) => setActiveHorizon(key as HorizonKey)}
-            onSelectSection={(section) => setActiveSection(section)}
           />
         </div>
 
@@ -1235,13 +1232,7 @@ export default function Index() {
                   const horizon = HORIZON_DATA[key];
                   return (
                     <TabsContent key={key} value={key} className="lg:flex-1">
-                      <HorizonDetail
-                        horizonKey={key}
-                        horizon={horizon}
-                        timelineToneClasses={timelineToneClasses}
-                        activeSection={activeSection}
-                        onSectionChange={(section) => setActiveSection(section)}
-                      />
+                      <HorizonDetail horizonKey={key} horizon={horizon} />
                     </TabsContent>
                   );
                 })}
