@@ -82,7 +82,7 @@ type HorizonDetailProps = {
     overview: {
       narrative: string;
       highlights: string[];
-      metrics: { label: string; value: string }[];
+      metrics: { label: string; value?: string }[];
     };
     valueThemes: ValueTheme[];
     personas: Persona[];
