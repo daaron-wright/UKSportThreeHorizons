@@ -212,23 +212,7 @@ const HORIZON_DATA = {
       label: "Improve",
       descriptor: "Incremental improvement",
     },
-    personas: [
-      {
-        name: "Performance Medical Lead",
-        focus: "Orchestrates athlete health records and ensures duty of care across squads.",
-        needs: "Unified consented view of medical history, incidents, and clearance notes.",
-      },
-      {
-        name: "Performance Operations Manager",
-        focus: "Coordinates onboarding, eligibility, and logistics for athletes and staff.",
-        needs: "Reliable profiles, safeguarding flags, and document governance in one workspace.",
-      },
-      {
-        name: "Data Governance Officer",
-        focus: "Maintains compliance posture and access controls for sensitive datasets.",
-        needs: "Transparent audit trails, policy references, and consent renewals tied to each record.",
-      },
-    ] as Persona[],
+    personas: [] as Persona[],
     operatingModel: {
       name: "Integrated clinical assurance",
       summary:
@@ -376,7 +360,7 @@ const HORIZON_DATA = {
               "App Service S3 (~£222/month) or S1 (~£60/month) with performance trade-offs",
               "Platform SQL database ≈ £184/month (24/7 availability)",
               "Synapse dedicated pool ≈ £666/month; serverless lowers cost but risks surge spend",
-              "Data lake + warehouse footprint ��� £20/month",
+              "Data lake + warehouse footprint ≈ £20/month",
               "Azure Data Factory pipelines ≈ £75/month",
               "Azure AI Search indexing ≈ £186/month",
               "Azure OpenAI queries ~£1,000/month for 10k prompts",
