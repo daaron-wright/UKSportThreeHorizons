@@ -2,6 +2,12 @@ import { useEffect, useState } from "react";
 
 import { Badge } from "@/components/ui/badge";
 import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import {
   Tabs as SectionTabs,
   TabsContent as SectionTabsContent,
   TabsList as SectionTabsList,
