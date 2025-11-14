@@ -160,17 +160,14 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
               ) : null}
             </div>
             <div className="rounded-2xl border border-blue-100/80 bg-white/90 p-5 shadow-sm">
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-600">Snapshot</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-600">Areas of focus</p>
               <div className="mt-4 grid gap-3">
                 {horizon.overview.metrics.map((metric) => (
                   <div
                     key={metric.label}
-                    className="flex items-center justify-between gap-4 rounded-xl border border-blue-100 bg-blue-50/60 px-4 py-3"
+                    className="rounded-xl border border-blue-100 bg-blue-50/60 px-4 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-blue-700"
                   >
-                    <span className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-700">
-                      {metric.label}
-                    </span>
-                    <span className="text-base font-semibold text-primary">{metric.value}</span>
+                    {metric.label}
                   </div>
                 ))}
               </div>
