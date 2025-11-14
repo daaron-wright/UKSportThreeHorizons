@@ -138,11 +138,6 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
           <Badge className="rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-blue-700">
             {horizon.short}
           </Badge>
-          {operatingEnablers.length ? (
-            <Badge variant="secondary" className="border border-blue-200 bg-white px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-blue-700">
-              {operatingEnablers.length} enablers
-            </Badge>
-          ) : null}
           {operatingRoles.length ? (
             <Badge variant="secondary" className="border border-blue-200 bg-white px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-blue-700">
               {operatingRoles.length} roles
