@@ -910,12 +910,6 @@ const HORIZON_DATA = {
           detail:
             "Manages the testing strategy, approach, and delivery for iterative releases.",
         },
-        {
-          title: "Media Systems Librarian",
-          allocation: "P",
-          detail:
-            "Curates video, telemetry, and knowledge assets, ensuring tagging quality, retention policies, and search performance.",
-        },
       ],
     },
     personaTarget: {
