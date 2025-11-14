@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { HorizonDetail } from "@/components/dashboard/HorizonDetail";
 import { HorizonKeyNavigator } from "@/components/dashboard/HorizonKeyNavigator";
+import { HorizonValueTrajectory } from "@/components/dashboard/HorizonValueTrajectory";
 import type { HorizonKeyNavigatorItem } from "@/components/dashboard/HorizonKeyNavigator";
 
 type HorizonKey = keyof typeof HORIZON_DATA;
@@ -1250,6 +1251,10 @@ export default function Index() {
               </div>
             </div>
           </Tabs>
+        </div>
+
+        <div className="mt-16">
+          <HorizonValueTrajectory />
         </div>
       </div>
     </div>
