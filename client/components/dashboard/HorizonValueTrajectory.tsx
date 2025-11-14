@@ -235,6 +235,7 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
                     interval={0}
                     angle={-10}
                     height={60}
+                    padding={{ left: 16, right: 48 }}
                   />
                   <YAxis
                     domain={[0, 10]}
