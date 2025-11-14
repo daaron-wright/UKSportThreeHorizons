@@ -87,7 +87,7 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
         <CardContent>
           <div className="h-[380px] w-full">
             <ResponsiveContainer>
-              <LineChart data={chartData} margin={{ top: 32, right: 16, left: 16, bottom: 24 }}>
+              <LineChart data={chartData} margin={{ top: 72, right: 16, left: 16, bottom: 24 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--muted-foreground)/0.35)" />
                 <XAxis
                   dataKey="label"
