@@ -2,7 +2,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import {
   CartesianGrid,
-  Legend,
   Line,
   LineChart,
   ReferenceDot,
@@ -13,67 +12,40 @@ import {
   YAxis,
 } from "recharts";
 
-const seriesColors = {
-  efficiency: "hsl(var(--chart-1))",
-  productivity: "hsl(var(--chart-2))",
-  prediction: "hsl(var(--chart-3))",
-} as const;
+const seriesColor = "hsl(var(--primary))";
 
 const chartData = [
   {
     horizon: "H1",
     label: "H1 · Centralize & Integrate",
-    efficiency: 3,
-    productivity: 2.4,
-    prediction: 1.6,
+    roi: 2.4,
     annotation: "H1 Access & Adoption",
   },
   {
     horizon: "H2",
     label: "H2 · Ingest",
-    efficiency: 5.8,
-    productivity: 6.2,
-    prediction: 5.4,
+    roi: 4.1,
     annotation: "H2 Capability & Productivity",
   },
   {
     horizon: "H3",
     label: "H3 · Orchestrate",
-    efficiency: 8.9,
-    productivity: 8.7,
-    prediction: 9.4,
+    roi: 8.6,
     annotation: "H3 System Strength & Prediction",
   },
 ];
-
-const legendLabelMap: Record<keyof typeof seriesColors, string> = {
-  efficiency: "Efficiency & Time Savings",
-  productivity: "Productivity & Throughput",
-  prediction: "Prediction & Optimisation",
-};
 
 const CustomTooltip = ({ active, payload, label }: TooltipProps<number, string>) => {
   if (!active || !payload?.length) {
     return null;
   }
 
+  const [point] = payload;
+
   return (
     <div className="rounded-lg border border-blue-100 bg-white/95 px-3 py-2 text-xs shadow-md">
       <p className="font-semibold text-slate-700">{label}</p>
-      <div className="mt-2 grid gap-1">
-        {payload.map((item) => (
-          <div key={item.dataKey} className="flex items-center justify-between gap-4 text-slate-600">
-            <span className="flex items-center gap-2">
-              <span
-                className="inline-flex h-2 w-2 rounded-sm"
-                style={{ backgroundColor: item.color ?? "hsl(var(--primary))" }}
-              />
-              {item.name}
-            </span>
-            <span className="font-mono text-slate-800">{Number(item.value).toFixed(1)}</span>
-          </div>
-        ))}
-      </div>
+      <p className="mt-1 font-mono text-slate-800">ROI {Number(point.value).toFixed(1)}</p>
     </div>
   );
 };
@@ -127,39 +99,20 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
                   label={{ value: "Relative ROI", angle: -90, position: "insideLeft", offset: 12, fill: "hsl(var(--muted-foreground))" }}
                 />
                 <Tooltip content={<CustomTooltip />} cursor={{ stroke: "hsl(var(--muted-foreground)/0.4)", strokeDasharray: "4 4" }} />
-                <Legend wrapperStyle={{ paddingBottom: 24 }} formatter={(value) => legendLabelMap[value as keyof typeof seriesColors]} />
                 <Line
                   type="monotone"
-                  dataKey="efficiency"
-                  name="Efficiency & Time Savings"
-                  stroke={seriesColors.efficiency}
+                  dataKey="roi"
+                  name="ROI"
+                  stroke={seriesColor}
                   strokeWidth={3}
-                  dot={{ r: 5, strokeWidth: 2, stroke: "white" }}
-                  activeDot={{ r: 7 }}
-                />
-                <Line
-                  type="monotone"
-                  dataKey="productivity"
-                  name="Productivity & Throughput"
-                  stroke={seriesColors.productivity}
-                  strokeWidth={3}
-                  dot={{ r: 5, strokeWidth: 2, stroke: "white" }}
-                  activeDot={{ r: 7 }}
-                />
-                <Line
-                  type="monotone"
-                  dataKey="prediction"
-                  name="Prediction & Optimisation"
-                  stroke={seriesColors.prediction}
-                  strokeWidth={3}
-                  dot={{ r: 5, strokeWidth: 2, stroke: "white" }}
-                  activeDot={{ r: 7 }}
+                  dot={{ r: 6, strokeWidth: 2, stroke: "white", fill: seriesColor }}
+                  activeDot={{ r: 8, strokeWidth: 0, fill: seriesColor }}
                 />
                 {chartData.map((point) => (
                   <ReferenceDot
                     key={point.horizon}
                     x={point.label}
-                    y={Math.max(point.efficiency, point.productivity, point.prediction) + 0.6}
+                    y={point.roi + 0.6}
                     r={0}
                     isFront
                     label={{
