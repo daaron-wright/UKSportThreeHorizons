@@ -1188,7 +1188,7 @@ const HORIZON_DATA = {
       "Orchestrate high-impact external intelligence and autonomous analysis so the Performance Hub becomes a proactive partner.",
     overview: {
       narrative:
-        "Horizon 3 turns the hub into an orchestration layer combining AI agents, automation, and external intelligence for proactive support.",
+        "Horizon 3 turns the hub into an orchestration layer combining AI agents, automation, and external intelligence for proactive support while integrating a proposed six data sources.",
       highlights: [
         "AI command bar recommends interventions with confidence tags.",
         "Automation playbooks route approvals and actions automatically.",
@@ -1196,6 +1196,7 @@ const HORIZON_DATA = {
       ],
       metrics: [
         { label: "Automation coverage" },
+        { label: "Proposed 6 data sources integrated" },
       ],
     },
     valueThemes: [
