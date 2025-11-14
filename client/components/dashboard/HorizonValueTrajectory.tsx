@@ -261,23 +261,24 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
                     dot={{ r: 6, strokeWidth: 3, stroke: "hsl(var(--primary)/0.35)", fill: "white" }}
                     activeDot={{ r: 9, strokeWidth: 3, stroke: "white", fill: seriesColor }}
                   />
-                  {chartData.map((point) => (
-                    <ReferenceDot
-                      key={point.horizon}
-                      x={point.label}
-                      y={point.roi + 0.6}
-                      r={0}
-                      isFront
-                      label={{
-                        value: point.annotation,
-                        position: "top",
-                        fill: seriesColor,
-                        fontWeight: 600,
-                        fontSize: 12,
-                        dy: -6,
-                      }}
-                    />
-                  ))}
+                  {chartData.map((point, index) => (
+                  <ReferenceDot
+                    key={point.horizon}
+                    x={point.label}
+                    y={point.roi + 0.6}
+                    r={0}
+                    isFront
+                    label={{
+                      value: point.annotation,
+                      position: "top",
+                      fill: seriesColor,
+                      fontWeight: 600,
+                      fontSize: 12,
+                      dy: -6,
+                      dx: index === chartData.length - 1 ? -24 : 0,
+                    }}
+                  />
+                ))}
                 </LineChart>
               </ResponsiveContainer>
             </div>
