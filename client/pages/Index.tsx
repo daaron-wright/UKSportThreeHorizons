@@ -310,6 +310,51 @@ const HORIZON_DATA = {
           detail: "Operational dashboards and cost-per-medal tracking powered by existing data marts.",
         },
       ],
+      integrationTable: {
+        title: "Cost composition · Indicative monthly Azure spend",
+        rows: [
+          {
+            functionalBlock: "Application hosting",
+            service: "Azure App Service",
+            notes: "S3 plan (4 cores / 7 GB RAM) ~£222/month; S1 at £60/month risks peak slowdowns.",
+          },
+          {
+            functionalBlock: "Platform database",
+            service: "Azure SQL Database",
+            notes: "Approx. £184/month assuming 24/7 availability.",
+          },
+          {
+            functionalBlock: "Data warehouse",
+            service: "Azure Synapse Dedicated Pool",
+            notes: "Approx. £666/month; serverless reduces cost but introduces surge risk.",
+          },
+          {
+            functionalBlock: "Data storage",
+            service: "Azure Data Lake Storage",
+            notes: "Around £20/month for 1 TB lake plus 500 GB warehouse footprint.",
+          },
+          {
+            functionalBlock: "Data integration",
+            service: "Azure Data Factory",
+            notes: "Estimated £75/month operating ingestion pipelines.",
+          },
+          {
+            functionalBlock: "Search indexing",
+            service: "Azure AI Search",
+            notes: "Circa £186/month for indexed query workloads.",
+          },
+          {
+            functionalBlock: "AI queries",
+            service: "Azure OpenAI",
+            notes: "Variable ~£1,000/month for 10k LLM prompts.",
+          },
+          {
+            functionalBlock: "Usage model",
+            service: "Pay-by-power vs pay-by-query",
+            notes: "Pay-by-power caps spend; pay-by-query aligns to usage but risks spikes.",
+          },
+        ],
+      },
     },
     ui: {
       title: "Launch UI snapshot",
