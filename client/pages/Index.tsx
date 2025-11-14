@@ -175,7 +175,7 @@ const HORIZON_DATA = {
       "Integrate the high-trust clinical and personal records already curated by UK Sport so the Performance Hub earns confidence from day one.",
     overview: {
       narrative:
-        "Horizon 1 establishes a compliant, shared record of truth so teams can trust every dashboard and workflow from launch.",
+        "Horizon 1 establishes a compliant, shared record of truth so teams can trust every dashboard and workflow from launch, integrating a proposed seven data sources from day one.",
       highlights: [
         "Consent lifecycle management across all sources.",
         "Clinical and personal records unified in the hub.",
