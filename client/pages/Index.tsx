@@ -247,6 +247,12 @@ const HORIZON_DATA = {
             "Maps athlete, coach, and performance journeys; owns dashboards, UI flows, and visual language end to end.",
         },
         {
+          title: "Business Analyst",
+          allocation: "Internal",
+          detail:
+            "Supports the product owner with business use cases, crafts new user stories, and stewards the backlog.",
+        },
+        {
           title: "AI/ML Engineer",
           allocation: "Project ×2",
           detail: "Owns RAG logic and tunes prompts within the AI studio while evaluating responses.",
