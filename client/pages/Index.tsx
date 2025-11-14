@@ -212,7 +212,23 @@ const HORIZON_DATA = {
       label: "Improve",
       descriptor: "Incremental improvement",
     },
-    personas: [] as Persona[],
+    personas: [
+      {
+        name: "Unified medical oversight",
+        focus: "Orchestrates athlete health records and ensures duty of care across squads.",
+        needs: "Unified consented view of medical history, incidents, and clearance notes.",
+      },
+      {
+        name: "Operational coordination",
+        focus: "Coordinates onboarding, eligibility, and logistics for athletes and staff.",
+        needs: "Reliable profiles, safeguarding flags, and document governance in one workspace.",
+      },
+      {
+        name: "Compliance assurance",
+        focus: "Maintains compliance posture and access controls for sensitive datasets.",
+        needs: "Transparent audit trails, policy references, and consent renewals tied to each record.",
+      },
+    ] as Persona[],
     operatingModel: {
       name: "Integrated clinical assurance",
       summary:
