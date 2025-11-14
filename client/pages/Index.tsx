@@ -327,8 +327,7 @@ const HORIZON_DATA = {
           {
             functionalBlock: "LLM/SLM Powered Query",
             service: "Azure OpenAI Service",
-            notes:
-              "Pay-by-power vs pay-by-query. Pay-by-power caps spend predictably; pay-by-query aligns with usage but may spike with heavy demand.",
+            notes: "Pay-by-power vs pay-by-query. Pay-by-power caps spend predictably; pay-by-query aligns with usage but may spike with heavy demand.",
             bom: ["Azure OpenAI queries ~£1,000/month for 10k prompts"],
           },
           {
