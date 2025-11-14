@@ -173,7 +173,7 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                 <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-700">Sports organizations</p>
                 <p className="mt-2 text-base font-semibold text-primary">{horizon.personaTarget.organizations}</p>
               </div>
-              <div className="rounded-2xl border border-blue-100/80 bg-white/90 p-4 text-sm text-slate-700 sm:col-span-2 lg:col-span-1">
+              <div className="rounded-2xl border border-blue-100/80 bg-white/90 p-4 text-sm text-slate-700 sm:col-span-3 lg:col-span-2">
                 <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-700">Rollout focus</p>
                 <p className="mt-2 leading-relaxed">{horizon.personaTarget.summary}</p>
               </div>
