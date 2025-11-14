@@ -311,47 +311,81 @@ const HORIZON_DATA = {
         },
       ],
       integrationTable: {
-        title: "Cost composition · Indicative monthly Azure spend",
+        title: "Functional integration · Azure platform services",
         rows: [
           {
-            functionalBlock: "Application hosting",
-            service: "Azure App Service",
-            notes: "S3 plan (4 cores / 7 GB RAM) ~£222/month; S1 at £60/month risks peak slowdowns.",
+            functionalBlock: "UI/UX · Reporting",
+            service: "Azure App Service + Power BI",
           },
           {
-            functionalBlock: "Platform database",
-            service: "Azure SQL Database",
-            notes: "Approx. £184/month assuming 24/7 availability.",
+            functionalBlock: "Multi-modal Data Input",
+            service: "Azure Data Factory + Azure Blob Storage",
           },
           {
-            functionalBlock: "Data warehouse",
-            service: "Azure Synapse Dedicated Pool",
-            notes: "Approx. £666/month; serverless reduces cost but introduces surge risk.",
+            functionalBlock: "Athlete Data / Internal Knowledge",
+            service: "Azure SQL Database + Azure Blob Storage + SharePoint",
           },
           {
-            functionalBlock: "Data storage",
-            service: "Azure Data Lake Storage",
-            notes: "Around £20/month for 1 TB lake plus 500 GB warehouse footprint.",
-          },
-          {
-            functionalBlock: "Data integration",
-            service: "Azure Data Factory",
-            notes: "Estimated £75/month operating ingestion pipelines.",
-          },
-          {
-            functionalBlock: "Search indexing",
+            functionalBlock: "RAG Retrieval",
             service: "Azure AI Search",
-            notes: "Circa £186/month for indexed query workloads.",
           },
           {
-            functionalBlock: "AI queries",
-            service: "Azure OpenAI",
-            notes: "Variable ~£1,000/month for 10k LLM prompts.",
+            functionalBlock: "LLM/SLM Powered Query",
+            service: "Azure OpenAI Service",
           },
           {
-            functionalBlock: "Usage model",
+            functionalBlock: "Orchestration",
+            service: "Azure AI Studio",
+          },
+          {
+            functionalBlock: "Model / Prompt Registry / Guardrails",
+            service: "Azure AI Studio + Azure AI Content Safety",
+          },
+          {
+            functionalBlock: "Streaming Ingestion (wearables etc.)",
+            service: "Azure Event Hubs + Azure Stream Analytics",
+          },
+          {
+            functionalBlock: "Multi-modal: Video / Interview",
+            service: "Azure AI Vision + Azure AI Speech",
+          },
+          {
+            functionalBlock: "Consent module",
+            service: "Microsoft Entra role-based access + app permissions",
+          },
+          {
+            functionalBlock: "RAG ingestion",
+            service: "Azure Databricks",
+          },
+          {
+            functionalBlock: "Vector store",
+            service: "Azure AI Search / Azure Cosmos DB",
+          },
+          {
+            functionalBlock: "Graph DB",
+            service: "Azure Cosmos DB / Neo4j",
+          },
+          {
+            functionalBlock: "Integration · Data product APIs",
+            service: "Azure API Management (APIM)",
+          },
+          {
+            functionalBlock: "Cost assumptions",
+            service: "Indicative monthly estimates",
+            bom: [
+              "App Service S3 (~£222/month) or S1 (~£60/month) with performance trade-offs",
+              "Platform SQL database ≈ £184/month (24/7 availability)",
+              "Synapse dedicated pool ≈ £666/month; serverless lowers cost but risks surge spend",
+              "Data lake + warehouse footprint ≈ £20/month",
+              "Azure Data Factory pipelines ≈ £75/month",
+              "Azure AI Search indexing ≈ £186/month",
+              "Azure OpenAI queries ~£1,000/month for 10k prompts",
+            ],
+          },
+          {
+            functionalBlock: "Cost modelling approach",
             service: "Pay-by-power vs pay-by-query",
-            notes: "Pay-by-power caps spend; pay-by-query aligns to usage but risks spikes.",
+            notes: "Pay-by-power caps spend predictably; pay-by-query aligns with usage but may spike with heavy demand.",
           },
         ],
       },
