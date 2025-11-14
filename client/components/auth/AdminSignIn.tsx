@@ -45,9 +45,7 @@ export function AdminSignIn({ onAuthenticate }: AdminSignInProps) {
             <h1 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
               Sign in to view the horizons
             </h1>
-            <p className="text-sm text-slate-600">
-              Enter the administrator credentials to explore the UK Sport · Kyndryl Performance Hub experience.
-            </p>
+            <p className="text-sm text-slate-600">Enter the administrator credentials below.</p>
           </div>
 
           <form onSubmit={handleSubmit} className="mt-10 space-y-6">
