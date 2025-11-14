@@ -122,7 +122,7 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
                   label={{ value: "Relative ROI", angle: -90, position: "insideLeft", offset: 12, fill: axisColor }}
                 />
                 <Tooltip content={<CustomTooltip />} cursor={{ stroke: seriesGlow, strokeWidth: 2, strokeDasharray: "4 4" }} />
-                <Area type="monotone" dataKey="roi" stroke="none" fill="url(#roiFill)" fillOpacity={1} activeDot={false} />
+                <Area type="monotone" dataKey="roi" stroke="none" fill="url(#roiFill)" fillOpacity={1} />
                 <Line
                   type="monotone"
                   dataKey="roi"
