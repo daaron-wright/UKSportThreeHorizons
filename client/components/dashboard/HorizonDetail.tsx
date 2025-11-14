@@ -40,6 +40,10 @@ type TechnicalEvolution = {
   title: string;
   description: string;
   pillars: { label: string; detail: string }[];
+  diagram?: {
+    src: string;
+    alt: string;
+  };
 };
 
 type ValueTheme = {
@@ -266,6 +270,15 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
                 Platform stack
               </Badge>
             </header>
+            {horizon.technicalEvolution.diagram ? (
+              <div className="overflow-hidden rounded-2xl border border-blue-100/80 bg-white/90 p-4 shadow-sm">
+                <img
+                  src={horizon.technicalEvolution.diagram.src}
+                  alt={horizon.technicalEvolution.diagram.alt}
+                  className="h-auto w-full rounded-xl border border-blue-100 object-cover"
+                />
+              </div>
+            ) : null}
             <div className="grid gap-4 sm:grid-cols-3">
               {horizon.technicalEvolution.pillars.map((pillar) => (
                 <article
