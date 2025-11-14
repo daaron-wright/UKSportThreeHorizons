@@ -121,6 +121,16 @@ export function HorizonDetail({ horizonKey, horizon }: HorizonDetailProps) {
     setIntegrationExpanded(false);
   }, [horizonKey]);
 
+  const overviewHighlights = horizon.overview?.highlights ?? [];
+  const overviewMetrics = horizon.overview?.metrics ?? [];
+  const valueThemes = horizon.valueThemes ?? [];
+  const personaList = horizon.personas ?? [];
+  const operatingRoles = horizon.operatingModel.roles ?? [];
+  const operatingEnablers = horizon.operatingModel.enablers ?? [];
+  const technicalPillars = horizon.technicalEvolution.pillars ?? [];
+  const integrationTable = horizon.technicalEvolution.integrationTable;
+  const integrationRows = integrationTable?.rows ?? [];
+
   return (
     <div className="flex flex-col gap-6 rounded-3xl border border-blue-100 bg-white/95 p-8 shadow-sm">
       <header className="space-y-4">
