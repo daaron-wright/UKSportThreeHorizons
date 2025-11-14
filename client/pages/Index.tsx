@@ -884,6 +884,12 @@ const HORIZON_DATA = {
         "Automation & agent governance board",
       ],
     },
+    personaTarget: {
+      users: "≈3,000 users",
+      organizations: "40 sports organizations",
+      summary:
+        "Full-system adoption across national governing bodies, institutes, and pathway partners with advanced automation stewards.",
+    },
     technicalEvolution: {
       title: "Full orchestration architecture",
       description:
