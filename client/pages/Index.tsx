@@ -39,12 +39,6 @@ type UIEvolution = {
   };
 };
 
-const timelineToneClasses: Record<TimelineTone, string> = {
-  primary: "border-blue-200 bg-blue-50/75 text-blue-900",
-  accent: "border-red-200 bg-red-50/75 text-red-900",
-  neutral: "border-slate-200 bg-slate-50 text-slate-700",
-};
-
 const QUADRANT_TAGS = {
   highEaseHighImpact: [
     "Quadrant: High ease ↗ High impact",
