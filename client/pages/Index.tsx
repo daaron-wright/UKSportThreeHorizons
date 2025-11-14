@@ -395,9 +395,13 @@ const HORIZON_DATA = {
       description:
         "State-of-the-art clinical console built around clarity, reassurance, and rapid navigation of trusted records.",
       highlights: [
-        "Responsive hero surface blends athlete portrait, consent signals, and critical alerts in a single adaptive band.",
-        "Modular side navigation anchors universal patterns—clinic, profile, compliance—while opening detail panes in-place.",
-        "Context-aware action shelf pairs primary workflows (admit, log incident) with microcopy and validation feedback.",
+        "Global navigation surfaces dashboards for athletes, coaches, and performance leads.",
+        "Squad and athlete views transition seamlessly between team-wide and individual lenses.",
+        "Athlete performance profiles blend historical metrics with actionable next steps.",
+        "Consent and data preferences stay front of mind with inline policy cues.",
+        "Adoption and usage admin dashboard tracks who is engaging across squads.",
+        "Medal expectation and competition performance views benchmark campaign readiness.",
+        "Role and access administration keeps permissions in sync with governance shifts.",
       ],
       palette: {
         background: "linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)",
