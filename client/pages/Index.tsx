@@ -1422,7 +1422,7 @@ export default function Index() {
   const horizonKeys = Object.keys(HORIZON_DATA) as HorizonKey[];
 
   const navigatorItems: HorizonKeyNavigatorItem[] = horizonKeys.map((key) => {
-    const horizon = HORIZON_DATA[key];
+    const horizon = HORIZON_DATA[key] as HorizonDataEntry;
     const impactMetric =
       horizon.impact.metrics.find((metric) => metric.indicator) ?? horizon.impact.metrics[0];
 
