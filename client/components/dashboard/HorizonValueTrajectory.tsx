@@ -208,7 +208,7 @@ export function HorizonValueTrajectory({ className }: { className?: string }) {
                       <ReferenceDot
                         key={point.phase}
                         x={point.phase}
-                        y={point.cost + 0.05}
+                        y={costBaseline}
                         r={0}
                         isFront
                         label={{
