@@ -726,15 +726,6 @@ const HORIZON_DATA = {
           {
             functionalBlock: "UI/UX · Reporting",
             service: "Azure App Service + Power BI",
-            bom: [
-              "Multi-modal data input console",
-              "Data quality and qualifications",
-              "Interview interaction",
-              "Feature / insight detail view (training monotony, readiness score, plan adherence)",
-              "Athlete timeline (individual and sport)",
-              "Admin insight (expanded adoption tracking)",
-              "Coach workflow view (weekly review, pre-competition check)",
-            ],
           },
           {
             functionalBlock: "Multi-modal Data Input",
@@ -799,6 +790,13 @@ const HORIZON_DATA = {
         "Video strip and comparison view anchor the top of the workspace.",
         "Wellness heatmap cards flag readiness trends with drill-down filters.",
         "Contextual RAG prompts let staff ask questions alongside each module.",
+        "Multi-modal data input console ensures blended capture flows stay simple.",
+        "Data quality and qualification dashboards surface completeness cues.",
+        "Interview interaction tools capture contextual notes alongside metrics.",
+        "Feature / insight detail views track training monotony, readiness score, and plan adherence.",
+        "Athlete timeline pairs individual and sport-wide perspectives for staff.",
+        "Admin insight panels reveal squad adoption and usage trends.",
+        "Coach workflow view supports weekly review and pre-competition checks.",
       ],
       palette: {
         background: "linear-gradient(135deg, #ffe8ef 0%, #dbeafe 100%)",
