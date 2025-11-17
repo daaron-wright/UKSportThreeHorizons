@@ -266,61 +266,61 @@ const HORIZON_DATA = {
       roles: [
         {
           title: "Product Owner",
-          allocation: "Internal",
+          allocation: "Internal · 1 FTE",
           detail:
             "Defines features, gathers feedback, tracks adoption KPIs, and manages technical resources.",
         },
         {
           title: "Product/Service Designer",
-          allocation: "Project",
+          allocation: "Project · 1 FTE",
           detail:
             "Maps athlete, coach, and performance journeys; owns dashboards, UI flows, and visual language end to end.",
         },
         {
           title: "Business Analyst",
-          allocation: "Internal",
+          allocation: "Internal · 1 FTE",
           detail:
             "Supports the product owner with business use cases, crafts new user stories, and stewards the backlog.",
         },
         {
           title: "AI/ML Engineer",
-          allocation: "Project ×2",
+          allocation: "Project · 2 FTE",
           detail:
             "Owns RAG logic and tunes prompts within the AI studio while evaluating responses.",
         },
         {
           title: "Full Stack Developer",
-          allocation: "Internal ×2",
+          allocation: "Internal · 2 FTE",
           detail:
             "Owns the app service and reporting layers, integrating the prompt flow endpoint.",
         },
         {
           title: "Data Engineer",
-          allocation: "Project",
+          allocation: "Project · 1 FTE",
           detail:
             "Builds and maintains pipelines into SQL/blob stores; manages the data warehouse foundations.",
         },
         {
           title: "IT Support",
-          allocation: "Project / Internal",
+          allocation: "Project / Internal · 1 FTE",
           detail:
             "Handles onboarding, offboarding, and level-one support during rollout and steady state.",
         },
         {
           title: "Change & Adoption",
-          allocation: "Project ×2",
+          allocation: "Project · 2 FTE",
           detail:
             "Designs onboarding, communications, and training; tracks AR, FS, TTV; runs the Performance Hub street team.",
         },
         {
           title: "QA Engineer",
-          allocation: "Project",
+          allocation: "Project · 1 FTE",
           detail:
             "Leads testing strategy, approach, and delivery for releases.",
         },
         {
           title: "Release Manager",
-          allocation: "Project",
+          allocation: "Project · 1 FTE",
           detail:
             "Plans sprints, aligns cutover with governance checkpoints, and confirms readiness for each launch window.",
         },
