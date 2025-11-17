@@ -272,7 +272,7 @@ const HORIZON_DATA = {
         },
         {
           title: "Product/Service Designer",
-          allocation: "Project · 1 FTE",
+          allocation: "Project · 0.5 FTE",
           detail:
             "Maps athlete, coach, and performance journeys; owns dashboards, UI flows, and visual language end to end.",
         },
@@ -1642,7 +1642,7 @@ const HORIZON_DATA = {
           ],
         },
         integration: {
-          label: "Integration · Data product APIs (read-only)",
+          label: "Integration �� Data product APIs (read-only)",
           description:
             "Expose curated insight to downstream systems & partners",
           tone: "dark",
