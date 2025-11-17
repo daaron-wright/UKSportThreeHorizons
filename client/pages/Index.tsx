@@ -882,7 +882,7 @@ const HORIZON_DATA = {
         },
         {
           title: "Full Stack Developer",
-          allocation: "O",
+          allocation: "Internal · 1 FTE",
           detail:
             "Owns the app service and reports, integrating the prompt flow endpoint and release cadence.",
         },
