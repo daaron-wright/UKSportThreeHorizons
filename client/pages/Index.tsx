@@ -1402,7 +1402,7 @@ const HORIZON_DATA = {
         },
         {
           title: "AI/ML Engineer",
-          allocation: "P ×2",
+          allocation: "Project · 2 FTE",
           detail:
             "Stewards medal-impact models, runs experiments, and keeps LLM/agent behaviour explainable at scale.",
         },
