@@ -870,7 +870,7 @@ const HORIZON_DATA = {
         },
         {
           title: "Business Analyst",
-          allocation: "O",
+          allocation: "Internal · 1 FTE",
           detail:
             "Supports the PO on business processes, authoring user stories and curating the product backlog.",
         },
@@ -1513,7 +1513,7 @@ const HORIZON_DATA = {
             service: "Azure Cosmos DB / Neo4j",
           },
           {
-            functionalBlock: "Integration �� Data product APIs",
+            functionalBlock: "Integration · Data product APIs",
             service: "Azure API Management (APIM)",
           },
           {
