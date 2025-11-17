@@ -888,7 +888,7 @@ const HORIZON_DATA = {
         },
         {
           title: "Data Engineer",
-          allocation: "Project · 1 FTE",
+          allocation: "Project · 0.75 FTE",
           detail:
             "Builds the curated warehouse and semantic layer, owning multi-modal ingestion from wearables, video, and force platforms.",
         },
