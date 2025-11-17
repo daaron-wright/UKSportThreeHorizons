@@ -1420,7 +1420,7 @@ const HORIZON_DATA = {
         },
         {
           title: "IT support",
-          allocation: "O",
+          allocation: "Internal · 1 FTE",
           detail:
             "Handles complex partner issues, including data corrections and research requests from NGBs.",
         },
