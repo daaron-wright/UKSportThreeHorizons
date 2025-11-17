@@ -1408,7 +1408,7 @@ const HORIZON_DATA = {
         },
         {
           title: "Full Stack Developer",
-          allocation: "O",
+          allocation: "Internal · 1 FTE",
           detail:
             "Builds cross-sport dashboards, partner sandboxes, and governance consoles surfacing insights and access controls.",
         },
