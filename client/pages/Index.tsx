@@ -359,7 +359,7 @@ const HORIZON_DATA = {
         },
       ],
       integrationTable: {
-        title: "Functional integration · Azure platform services",
+        title: "Functional integration �� Azure platform services",
         rows: [
           {
             functionalBlock: "UI/UX · Reporting",
@@ -1390,7 +1390,7 @@ const HORIZON_DATA = {
         },
         {
           title: "Data Governance Lead (system-wide)",
-          allocation: "O",
+          allocation: "Internal · 1 FTE",
           detail:
             "Chairs the data council, sets global policies, and approves new data uses across the ecosystem. Needed in Horizon 1 to establish governance foundations before scale.",
         },
