@@ -359,7 +359,7 @@ const HORIZON_DATA = {
         },
       ],
       integrationTable: {
-        title: "Functional integration �� Azure platform services",
+        title: "Functional integration · Azure platform services",
         rows: [
           {
             functionalBlock: "UI/UX · Reporting",
@@ -1396,7 +1396,7 @@ const HORIZON_DATA = {
         },
         {
           title: "Business Analyst",
-          allocation: "O",
+          allocation: "Internal · 1 FTE",
           detail:
             "Supports the product owner by mapping business cases, crafting user stories, and refining the backlog.",
         },
