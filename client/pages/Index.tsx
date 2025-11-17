@@ -864,7 +864,7 @@ const HORIZON_DATA = {
         },
         {
           title: "Product/Service Designer",
-          allocation: "Project · 1 FTE",
+          allocation: "Project · 0.25 FTE",
           detail:
             "Designs the interview and LLM UX, prompt patterns, and guardrailed response flows across journeys.",
         },
