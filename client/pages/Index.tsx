@@ -894,7 +894,7 @@ const HORIZON_DATA = {
         },
         {
           title: "IT Support",
-          allocation: "O",
+          allocation: "Internal · 1 FTE",
           detail:
             "Monitors availability, performance SLOs, and error budgets while coordinating incident triage.",
         },
