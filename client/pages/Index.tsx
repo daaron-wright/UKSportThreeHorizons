@@ -864,7 +864,7 @@ const HORIZON_DATA = {
         },
         {
           title: "Product/Service Designer",
-          allocation: "P",
+          allocation: "Project · 1 FTE",
           detail:
             "Designs the interview and LLM UX, prompt patterns, and guardrailed response flows across journeys.",
         },
@@ -1513,7 +1513,7 @@ const HORIZON_DATA = {
             service: "Azure Cosmos DB / Neo4j",
           },
           {
-            functionalBlock: "Integration · Data product APIs",
+            functionalBlock: "Integration �� Data product APIs",
             service: "Azure API Management (APIM)",
           },
           {
