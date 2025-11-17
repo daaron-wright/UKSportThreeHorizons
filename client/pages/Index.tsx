@@ -1414,7 +1414,7 @@ const HORIZON_DATA = {
         },
         {
           title: "Data Engineer",
-          allocation: "P",
+          allocation: "Project · 1 FTE",
           detail:
             "Operates the multi-sport data platform, ensuring reliable pipelines, certified quality, and privacy safeguards.",
         },
