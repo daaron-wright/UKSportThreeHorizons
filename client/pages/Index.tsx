@@ -1384,7 +1384,7 @@ const HORIZON_DATA = {
       roles: [
         {
           title: "Product Owner",
-          allocation: "O",
+          allocation: "Internal · 1 FTE",
           detail:
             "Owns run-state, release cadence, and incident management across sports and partners.",
         },
