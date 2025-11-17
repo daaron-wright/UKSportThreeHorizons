@@ -910,6 +910,12 @@ const HORIZON_DATA = {
           detail:
             "Manages the testing strategy, approach, and delivery for iterative releases.",
         },
+        {
+          title: "Data Governance Lead (system-wide)",
+          allocation: "Internal · 0.25 FTE",
+          detail:
+            "Chairs the data council, sets global policies, and approves new data uses across the ecosystem. Needed in Horizon 1 to establish governance foundations before scale.",
+        },
       ],
     },
     personaTarget: {
