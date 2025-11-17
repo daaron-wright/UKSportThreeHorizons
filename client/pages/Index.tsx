@@ -858,7 +858,7 @@ const HORIZON_DATA = {
       roles: [
         {
           title: "Product Owner",
-          allocation: "O",
+          allocation: "Internal · 1 FTE",
           detail:
             "Defines features, gathers feedback, and tracks adoption KPIs while managing technical resources.",
         },
