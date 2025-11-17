@@ -900,7 +900,7 @@ const HORIZON_DATA = {
         },
         {
           title: "Change & Adoption",
-          allocation: "P",
+          allocation: "Project · 1 FTE",
           detail:
             "Designs onboarding, training, and comms; tracks AR, FS, TTV; runs the Performance Hub street team.",
         },
