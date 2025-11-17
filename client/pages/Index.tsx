@@ -876,7 +876,7 @@ const HORIZON_DATA = {
         },
         {
           title: "AI/ML Engineer",
-          allocation: "P ×2",
+          allocation: "Project · 2 FTE",
           detail:
             "Productionises models with evaluation pipelines, monitoring, and rollback; glues Azure AI Studio to the app.",
         },
