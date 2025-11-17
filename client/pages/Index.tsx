@@ -906,7 +906,7 @@ const HORIZON_DATA = {
         },
         {
           title: "QA Engineer",
-          allocation: "P",
+          allocation: "Project · 1 FTE",
           detail:
             "Manages the testing strategy, approach, and delivery for iterative releases.",
         },
